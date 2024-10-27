@@ -1,0 +1,165 @@
+"use client";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const ContactPage = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({ name: "", email: "", message: "" });
+  };
+  useEffect(() => {
+    document.title = "ارتباط  با ما |  تومک";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        "از طریق فرم تماس، ایمیل یا شماره تلفن با ما در ارتباط باشید و پاسخ خود را در سریع‌ترین زمان ممکن دریافت کنید."
+      );
+    }
+  }, []);
+
+  return (
+    <div
+      className="bg-gradient-to-b from-secondary to-primary h-full py-32"
+      dir="rtl"
+    >
+      {" "}
+      <div className="">
+        <motion.div
+          className="flex flex-col items-center justify-center mx-12 "
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h2 className="p-8 text-center text-4xl font-bold text-gray-100">
+            ارتباط با تومک
+          </h2>
+          <p className="p-8 lg:w-[70%]  text-justify text-gray-200">
+            آیا سوالی دارید؟ یا نیاز به راهنمایی بیشتر دارید؟ تیم ما آماده است
+            تا پاسخگوی شما باشد. با استفاده از فرم زیر می‌توانید سوالات خود را
+            بپرسید، درخواست مشاوره کنید یا هر گونه نظری دارید با ما در میان
+            بگذارید. همین حالا به ما پیام دهید تا در سریع‌ترین زمان با شما تماس
+            بگیریم.
+          </p>
+        </motion.div>
+      </div>
+      <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+        {/* Background Blur Effect */}
+        <div className="absolute inset-0 w-full h-full ">
+          <iframe
+            src="https://lottie.host/embed/de77fa9b-73bd-41c7-b7d2-079601294041/bkvNeJWvpf.json"
+            className="w-full h-full"
+            allowFullScreen
+          ></iframe>
+        </div>
+
+        {/* Content Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-10 w-[350px] md:w-[500px] lg:w-[700px] bg-white/20 backdrop-blur-sm rounded-2xl shadow-md shadow-gray-400 p-4 mt-4"
+        >
+          <div className="text-center mb-6">
+            <h1 className="text-4xl font-bold text-gray-800 p-2">
+              ارتباط با ما
+            </h1>
+            <p className="text-gray-600 mt-2 p-1">
+              ما دوست داریم از شما بشنویم!
+            </p>
+          </div>
+
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 gap-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-black mb-2"
+                >
+                  نام و نام خانوادگی
+                </label>
+                <input
+                  id="name"
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  name="name"
+                  type="text"
+                  required
+                  className="mt-1 block w-full px-4 text-black py-3 rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  placeholder="نام و نام خانوادگی"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-black mb-2"
+                >
+                  آدرس ایمیل
+                </label>
+                <input
+                  id="email"
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  name="email"
+                  type="email"
+                  required
+                  className="mt-1 block w-full px-4 text-black py-3 rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-black mb-2"
+                >
+                  پیام شما
+                </label>
+                <textarea
+                  id="message"
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  name="message"
+                  required
+                  className="mt-1 block w-full px-4 text-black py-3 rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  placeholder="پیام شما..."
+                ></textarea>
+              </div>
+            </div>
+
+            <motion.div
+              whileHover={{ scale: 0.96 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+              className="text-center"
+            >
+              <button
+                type="submit"
+                className="w-full py-3 px-6 font-bold text-white rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                ارسال پیام
+              </button>
+            </motion.div>
+          </form>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+export default ContactPage;
