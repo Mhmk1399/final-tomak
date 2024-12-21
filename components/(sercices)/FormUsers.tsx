@@ -5,10 +5,11 @@ import { useRouter } from "next/navigation";
 
 interface UserForm {
   message: string;
+  name: string;
 }
 
 const FormUsers = () => {
-  const [userForm, setUserForm] = useState<UserForm>({ message: "" });
+  const [userForm, setUserForm] = useState<UserForm>({ message: "", name: "" });
   const [isAuthenticated, setIsAuthenticated] = useState(false); // For authentication
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false); // Add modal state
@@ -40,8 +41,10 @@ const FormUsers = () => {
     checkAuth();
   }, []);
 
-  const handleFormUsers = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const message = formData.get("message");
 
     if (!isAuthenticated) {
       setShowModal(true); // Show the modal first
@@ -60,7 +63,11 @@ const FormUsers = () => {
 
       if (response.ok) {
         setShowModal(true);
-        setUserForm({ message: "" });
+        setUserForm({
+          message: "",
+          name: "",
+        });
+        console.log(message);
       } else {
         console.error("Error submitting comment.");
       }
@@ -128,7 +135,7 @@ const FormUsers = () => {
 
         <div className="mx-auto mt-8 max-w-xl">
           <form
-            onSubmit={handleFormUsers}
+            onSubmit={handleSubmit}
             className=" flex w-full flex-col sm:gap-4"
           >
             <div className="sm:flex-1">
@@ -141,7 +148,12 @@ const FormUsers = () => {
               <textarea
                 name="message"
                 value={userForm.message}
-                onChange={(e) => setUserForm({ message: e.target.value })}
+                onChange={(e) =>
+                  setUserForm({
+                    message: e.target.value,
+                    name: "",
+                  })
+                }
                 id="message"
                 placeholder="متن نظرات شما"
                 className="w-full rounded-md bg-gray-200 p-3 text-gray-700 shadow-sm transition focus:ring-secondary focus:bg-white focus:ring-2 focus:outline-none mb-4"

@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Testimonials from "../../components/(sercices)/testimonial";
 import ServicesSection from "../../components/(sercices)/servicesSection";
+import DotSection from "@/components/(sercices)/DotSection";
 import FormUsers from "@/components/(sercices)/FormUsers";
 
 const Services = () => {
@@ -24,7 +25,7 @@ const Services = () => {
 
         {/* section two dotSection */}
 
-        
+        <DotSection />
 
         {/* Services box Section  */}
 

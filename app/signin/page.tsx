@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-
 const Login: React.FC = () => {
   const [modalError, setModalError] = useState(false); // State to handle error messages for ({confirm password})
   const [modalSuccess, setModalSuccess] = useState(false); // State to handle success messages for successful registration

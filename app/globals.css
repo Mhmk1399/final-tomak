@@ -4,10 +4,9 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
 }
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 15px; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -15,8 +14,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #2e00fd87; /* Scrollbar color */
-  border-radius: 10px; /* Rounded corners */
+  background-color: #5981eec9; /* Scrollbar color */
+  border-radius: 2px; /* Rounded corners */
   border: 1px solid #f1f1f1; /* Space around the scrollbar */
 }
 
@@ -33,7 +32,6 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-cairo), sans-serif;
 }
 * {
   margin: 0;
@@ -157,7 +155,7 @@ body {
   list-style: none;
   width: 20px;
   height: 20px;
-  background: rgba(239, 245, 255, 0.944);
+  background: rgba(94, 151, 244, 0.944);
   animation: animate 25s linear infinite;
   right: -150px;
   top: 150px;
@@ -181,8 +179,8 @@ body {
 
 .circles li:nth-child(3) {
   left: 70%;
-  width: 20px;
-  height: 20px;
+  width: 80px;
+  height: 80px;
   animation-delay: 4s;
 }
 
@@ -196,8 +194,8 @@ body {
 
 .circles li:nth-child(5) {
   left: 65%;
-  width: 20px;
-  height: 20px;
+  width: 200px;
+  height: 190px;
   animation-delay: 0s;
 }
 
@@ -256,7 +254,7 @@ body {
 /* neon bg for social media in footer */
 
 .neon-svg {
-  filter: drop-shadow(0 0 .2px #fff) drop-shadow(0 0 1px #ffffff)
+  filter: drop-shadow(0 0 0.2px #fff) drop-shadow(0 0 1px #ffffff)
     drop-shadow(0 0 1px #fff);
   transition: all 0.3s ease;
 }
@@ -400,8 +398,8 @@ body {
 }
 
 .bg-analyze-custom {
-  background-image: url("/assets/images/bg-analyze.svg");
-  background-size: auto;
+  background-image: url("/assets/images/bg-Bi.png");
+  background-size: contain;
   background-position: top;
   background-repeat: no-repeat;
   height: 100vh;
@@ -434,6 +432,55 @@ body {
   }
 }
 
+/* modal animation LogOut */
 
+.modal-overlay {
+  animation: fadeIn 0.8s ease-out;
+}
 
+.modal-content {
+  animation: slideDown 0.8s ease-out;
+}
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.pane.active {
+  flex-grow: 10;
+  max-width: 100%;
+
+  .background {
+    transform: scale(1.25, 1.25);
+  }
+
+  .label {
+    @media (min-width: 640px) {
+      transform: translateX(0.5rem);
+    }
+
+    .content > * {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .shadow {
+    opacity: 0.75;
+    transform: translateY(0);
+  }
+}

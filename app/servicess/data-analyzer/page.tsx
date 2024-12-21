@@ -25,21 +25,28 @@ const DataAnalyzer = () => {
   const sectionTwo = [
     {
       title: "تجزیه و تحلیل داده ",
+      image: "/assets/images/analyze1.png",
       description:
         "از داده های گذشته برای پیش بینی نتایج آینده برای تصمیم گیری بهتر استفاده میکنیم",
     },
     {
       title: "بینش در زمان واقعی",
+      image: "/assets/images/analyze2.png",
+
       description:
         "فوراً اطلاعات به روز را دریافت کنید تا سریعتر روی داده ها تمرکز و تحلیل و در آخر عمل کنید",
     },
     {
       title: "گزارش  سفارشی",
+      image: "/assets/images/analyze3.png",
+
       description:
         "گزارش های متناسب با نیازهای کسب و کار خود را می توانید از تیم ما به صورت منظم دریافت کنید",
     },
     {
       title: "امنیت داده ها",
+      image: "/assets/images/analyze4.png",
+
       description:
         "اطمینان حاصل کنید که داده های شما همیشه در فضایی امن بوده و محافظت می شود",
     },
@@ -61,7 +68,50 @@ const DataAnalyzer = () => {
       count: 3,
     },
   ];
-
+  const packageSection = [
+    {
+      title: "پکیج پایه",
+      description: "این پکیج یکی از پکیج های پایه و اولیه است",
+      price: "100.000",
+      features: [
+        { feature: "10 users", included: true },
+        { feature: "2GB of storage", included: true },
+        { feature: "Email support", included: true },
+        { feature: "Help center access", included: false },
+        { feature: "Phone support", included: false },
+        { feature: "Community access", included: false },
+      ],
+      icon: "/assets/images/basic.png",
+    },
+    {
+      title: "پکیج استاندارد ",
+      description: "این پکیج یکی از پکیج های استاندارد است",
+      price: "200.000",
+      features: [
+        { feature: "20 users", included: true },
+        { feature: "5GB of storage", included: true },
+        { feature: "Email support", included: true },
+        { feature: "Help center access", included: true },
+        { feature: "Phone support", included: false },
+        { feature: "Community access", included: false },
+      ],
+      icon: "/assets/images/standard.png",
+    },
+    {
+      title: "پکیج طلایی ",
+      description: "این پکیج یکی از پکیج های طلایی است",
+      price: "300.000",
+      features: [
+        { feature: "50 users", included: true },
+        { feature: "20GB of storage", included: true },
+        { feature: "Email support", included: true },
+        { feature: "Help center access", included: true },
+        { feature: "Phone support", included: true },
+        { feature: "Community access", included: true },
+      ],
+      icon: "/assets/images/gold.png",
+    },
+  ];
 
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -128,7 +178,7 @@ const DataAnalyzer = () => {
 
       {/* Features Section */}
 
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <motion.h2
             className="text-2xl lg:text-4xl font-bold mb-10 text-primary"
@@ -151,7 +201,7 @@ const DataAnalyzer = () => {
                 <div className="group relative cursor-pointer overflow-hidden bg-transparent rounded-2xl px-6 pt-12 pb-10 shadow-2xl ring-1 ring-gray-900/5 transition-all duration-500 transform hover:scale-105 hover:shadow-3xl sm:mx-auto sm:max-w-sm sm:px-12">
                   <span className="absolute top-0 left-0 z-0 h-32 w-full rounded-full bg-gradient-to-r from-secondary to-primary opacity-75 transition-all duration-500 transform group-hover:scale-[20]">
                     <Image
-                      src="/assets/images/data.webp"
+                      src={feature.image}
                       alt="Feature"
                       width={5000}
                       height={5000}
@@ -163,15 +213,15 @@ const DataAnalyzer = () => {
                       <svg
                         className="h-12 w-12 text-white transition-all"
                         stroke="currentColor"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
                           d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
-                          stroke-linejoin="round"
-                          stroke-linecap="round"
+                          strokeLinejoin="round"
+                          strokeLinecap="round"
                         ></path>
                       </svg>
                     </span>
@@ -194,7 +244,7 @@ const DataAnalyzer = () => {
       {/* Process Section */}
 
       <motion.h2
-        className="text-3xl font-bold mb-10 text-secondary text-center p-6"
+        className="text-3xl font-bold mb-2 text-secondary text-center p-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -202,19 +252,19 @@ const DataAnalyzer = () => {
         فرآیند تجزیه و تحلیل داده های ما
       </motion.h2>
 
-      <section className="py-16 bg-analyze-custom" dir="rtl">
-        <div className="max-w-6xl mx-auto px-6 text-center mt-64">
+      <section className="py-6 bg-analyze-custom" dir="rtl">
+        <div className="max-w-6xl mx-auto px-6 text-center mt-72 lg:mt-80">
           <div className="grid gap-8 sm:grid-cols-3">
             {sectionThree.map((step, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-t from-primary to-white/60 hover:bg-gradient-to-t hover:from-black/80 hover:to-primary shadow-lg rounded-lg p-6"
+                className="bg-gradient-to-t from-primary to-secondary/60 hover:bg-gradient-to-t hover:from-black/80 hover:to-primary shadow-lg rounded-lg p-6"
                 whileHover={{ scale: 1.05 }}
               >
-                <span className="text-8xl font-extrabold text-primary group hover:text-white">
+                <span className="text-8xl font-extrabold text-black/80 group hover:text-white">
                   {step.count}
                 </span>
-                <h3 className="text-2xl font-bold mb-3 text-secondary">
+                <h3 className="text-2xl font-bold mb-3 text-white">
                   {step.step}
                 </h3>
                 <p className="text-white/80">{step.description}</p>
@@ -232,7 +282,7 @@ const DataAnalyzer = () => {
       >
         <div className=" mx-auto px-6 text-center">
           <motion.h2
-            className="text-3xl font-bold mb-10 p-4 text-secondary"
+            className="text-3xl font-bold mb-10 mt-5 p-4 text-secondary"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
@@ -243,7 +293,87 @@ const DataAnalyzer = () => {
             تجزیه و تحلیل داده های ما به شما امکان می دهد تا به سادگی داده های
             خود را دریافت کنید و آنها را به صورت سریع و آسان تجزیه و تحلیل کنید.
           </motion.p>
-         
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 justify-center items-center md:grid-cols-2 lg:grid-cols-3 md:gap-8 bg-primary p-12 rounded-3xl">
+            {packageSection.map((plan, index) => (
+              <div
+                style={{
+                  animation: "spin-border 5s linear infinite",
+                }}
+                key={index}
+                className="divide-y divide-gray-200 bg-primary rounded-xl border-4 border-gray-200 shadow-sm animate-[spin-border_3s_linear_infinite]"
+              >
+                <div className="p-6 sm:px-8 rounded-xl">
+                  <div className="flex items-center justify-between rounded-xl">
+                    <h2 className="text-lg font-bold text-white ">
+                      {plan.title}
+                    </h2>
+                    <Image
+                      src={plan.icon}
+                      alt={plan.title}
+                      width={50}
+                      height={40}
+                      className=""
+                    />
+                  </div>
+
+                  <p className="mt-2 text-gray-300">{plan.description}</p>
+
+                  <p className="mt-2 sm:mt-4">
+                    <span className="text-3xl text-white sm:text-4xl">
+                      {plan.price}
+                    </span>
+                  </p>
+
+                  <Link
+                    className="mt-4 block rounded-2xl hover:font-bold border border-indigo-600 bg-white px-12 py-3 text-center text-sm font-medium text-black hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+                    href="#order-form"
+                  >
+                    سفارش دهید ←
+                  </Link>
+                </div>
+
+                <div className="p-6 sm:px-8 bg-blue-100 rounded-lg">
+                  <p className="text-lg font-medium text-gray-900 sm:text-xl">
+                    این پکیج شامل موارد زیر می باشد:
+                  </p>
+
+                  <ul className="mt-2 space-y-2 sm:mt-4">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className={`size-5 ${
+                            feature.included
+                              ? "text-indigo-700"
+                              : "text-red-700"
+                          }`}
+                        >
+                          {feature.included ? (
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M4.5 12.75l6 6 9-13.5"
+                            />
+                          ) : (
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          )}
+                        </svg>
+                        <span className="text-gray-700">{feature.feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -11,7 +11,6 @@ const Footer = () => {
     about: {
       title: "درباره ما",
       links: [
-        { text: "تاریخچه شرکت", href: "#" },
         { text: "تیم ما ", href: "#" },
         { text: "استخدام", href: "#" },
       ],
@@ -19,25 +18,21 @@ const Footer = () => {
     services: {
       title: "خدمات ما",
       links: [
-        { text: "طراحی سایت", href: "/servicess/web-development" },
-        { text: "گرافیک و دیزاین", href: "/servicess/graphic-design" },
-        { text: "تولید محتوا", href: "/servicess/content-creation" },
-        { text: "سئو", href: "/servicess/seo-optimization" },
-        { text: "آنالیز داده", href: "/servicess/data-analyzer" },
+        { text: " هوش مصنوعی و داده کاوی", href: "/servicess/web-development" },
+        { text: "مهندسی نرم افزار", href: "/servicess/graphic-design" },
       ],
     },
     helpfulLinks: {
       title: "لینک های مفید",
       links: [
-        { text: "سوالات متداول", href: "#" },
-        { text: "پشتیبانی", href: "#" },
+        { text: "سوالات متداول", href: "/contact" },
+        { text: "پشتیبانی", href: "/contact" },
       ],
     },
     contact: {
       title: "ارتباط با ما",
       items: [
         { type: "email", value: "tomacAgency@gmail.com" },
-        { type: "phone", value: "09015528576" },
         { type: "address", value: "فلسطین - بزرگمهر - پلاک 78" },
       ],
     },
@@ -46,10 +41,10 @@ const Footer = () => {
   return (
     <>
       <footer
-        className={`py-4  relative ${
+        className={`py-8  relative ${
           isHomePage
             ? "bg-secondary/40 bg-gradient-to-b from-transparent to-black/80 mx-4 rounded-lg border-gray-100 border-2 shadow-2xl shadow-white"
-            : "bg-secondary/80"
+            : "bg-white/50 backdrop-blur-md border-gray-100 border-t-2"
         }`}
         dir="rtl"
       >
@@ -73,22 +68,16 @@ const Footer = () => {
         <div className="mx-auto px-4 pb-6 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div className="text-center sm:text-center lg:text-left flex flex-col items-center mt-4">
+              <div className="flex flex-row justify-between gap-12 items-center">
               <Link href="/">
                 <Image
                   width={50}
                   height={50}
                   src="/assets/images/logo.png"
-                  className="text-center neon-svg"
+                  className={`text-center ${isHomePage ? "neon-svg" : ""}`}
                   alt="logo"
                 />
               </Link>
-              <p className="text-base font-medium text-gray-100 pt-5 p-2 text-justify">
-                شرکت ما، راهکارهای جامع دیجیتال مارکتینگ را برای کسب‌وکارهای
-                محصول‌محور و خدمات‌محور فراهم می‌کند. هدف ما ارائه تمامی خدمات
-                دیجیتال مارکتینگ تحت یک سقف است تا شما بتوانید به آسانی به اهداف
-                کسب‌وکاری خود دست پیدا کنید. با تیمی جوان، پویا و پرانرژی، ما در
-                کنار شما هستیم تا در دنیای دیجیتال بدرخشید
-              </p>
               <div className="flex items-center justify-center p-[25px] gap-5 bg-lightGray shadow-custom w-fit h-fit">
                 {/* Instagram */}
                 <Link
@@ -96,7 +85,9 @@ const Footer = () => {
                   className="w-13 h-13 flex items-center justify-center overflow-hidden p-2 transition duration-300 rounded-lg hover:scale-90 active:scale-90"
                 >
                   <svg
-                    className="w-[30px] fill-pink-400 neon-svg"
+                    className={`w-[30px] fill-pink-400 ${
+                      isHomePage ? "neon-svg" : ""
+                    } `}
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -115,7 +106,7 @@ const Footer = () => {
                     width="64px"
                     height="64px"
                     viewBox="0 0 24 24"
-                    className="neon-svg"
+                    className={`w-[30px] ${isHomePage ? "neon-svg" : ""} `}
                     fill="#61c4fa"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -143,35 +134,79 @@ const Footer = () => {
                   className="w-13 h-13 bg-darkGray flex items-center p-2 justify-center overflow-hidden transition duration-300 rounded-lg hover:scale-90 active:scale-90"
                 >
                   <svg
-                    className="w-[30px] fill-green-400 animate-none hover:animate-slide-in-top neon-svg"
+                    className={`w-[30px] fill-green-400 ${
+                      isHomePage ? "neon-svg" : ""
+                    } `}
                     viewBox="0 0 16 16"
                   >
                     <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
                   </svg>
                 </Link>
+                <Link href="tel:+989015528576" className="text-white">
+                  <svg
+                    width="35px"
+                    height="64px"
+                    viewBox="0 0 25.00 25.00"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#d90d0d"
+                    stroke="#d90d0d"
+                    strokeWidth="0.00025"
+                  >
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      {" "}
+                      <defs> </defs>{" "}
+                      <g id="phone">
+                        {" "}
+                        <path
+                          className="cls-1"
+                          d="M23,17.11a5.92,5.92,0,0,0-4.63-3.95,1.5,1.5,0,0,0-1.51.66L15.6,15.63a.53.53,0,0,1-.61.2,13.25,13.25,0,0,1-3.6-2.14,13,13,0,0,1-2.94-3.52.5.5,0,0,1,.17-.69l1.63-1.09a1.52,1.52,0,0,0,.61-1.71A10.13,10.13,0,0,0,9.48,3.79a10.36,10.36,0,0,0-2.2-2.33A1.53,1.53,0,0,0,6,1.19a7.31,7.31,0,0,0-1.13.43A7.64,7.64,0,0,0,1.2,6.1a1.48,1.48,0,0,0,0,.93A24.63,24.63,0,0,0,7.73,17.44,24.76,24.76,0,0,0,17.12,23a1.41,1.41,0,0,0,.45.07,1.59,1.59,0,0,0,.48-.07,7.64,7.64,0,0,0,4.47-3.66A6.21,6.21,0,0,0,23,18,1.46,1.46,0,0,0,23,17.11Zm-1.33,1.74A6.61,6.61,0,0,1,17.73,22a.54.54,0,0,1-.31,0,23.61,23.61,0,0,1-9-5.29,23.74,23.74,0,0,1-6.27-10,.47.47,0,0,1,0-.31A6.59,6.59,0,0,1,5.29,2.52a5,5,0,0,1,1-.36h.1a.5.5,0,0,1,.32.11,9.4,9.4,0,0,1,2,2.09A9.07,9.07,0,0,1,9.9,7a.52.52,0,0,1-.21.6L8.06,8.64a1.54,1.54,0,0,0-.47,2,14.09,14.09,0,0,0,7,6.09,1.51,1.51,0,0,0,1.81-.58l1.21-1.81a.51.51,0,0,1,.51-.23A4.94,4.94,0,0,1,22,17.44a.58.58,0,0,1,0,.29A5.35,5.35,0,0,1,21.62,18.85Z"
+                        ></path>{" "}
+                      </g>{" "}
+                    </g>
+                  </svg>
+                </Link>
               </div>
+              </div>
+              
+              <p
+                className={`text-base font-medium text-gray-500 pt-5 p-2 text-justify ${
+                  isHomePage ? "text-white/80" : "text-gray-500"
+                }`}
+              >
+                شرکت ما، راهکارهای جامع مهندسی دیجیتال را برای کسب‌وکارهای
+                محصول‌محور و خدمات‌محور فراهم می‌کند. هدف ما ارائه تمامی خدمات
+                برنامه نویسی در تمام حوضه ها تحت یک سقف است تا شما بتوانید به
+                آسانی به اهداف کسب‌وکاری خود دست پیدا کنید. با تیمی جوان، پویا و
+                پرانرژی، ما در کنار شما هستیم تا در دنیای دیجیتال بدرخشید.
+              </p>
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
               {Object.entries(footerData).map(([key, section]) => (
                 <div key={key} className="text-center sm:text-left">
                   <p
-                    className={`text-2xl font-extrabold text-gray-600 border-b-2 border-black p-2  ${
+                    className={`text-xl text-right font-bold text-blue-400 border-b-2  p-2  ${
                       isHomePage
-                        ? "text-white border-white/50"
-                        : "text-gray-600"
+                        ? "text-white border-white border-b-2"
+                        : "text-blue-400 border-black/30"
                     } `}
                   >
                     {section.title}
                   </p>
-                  <ul className="mt-8 space-y-4 text-sm">
+                  <ul className="mt-8 space-y-4 text-right text-sm">
                     {"links" in section &&
                       section.links.map((link, index) => (
                         <li key={index}>
                           <a
-                            className={`text-white transition hover:text-black hover:border-b-2 p-2 border-gray-100 font-bold ${
+                            className={`text-black text-right transition hover:text-black/50 hover:border-b-2 p-2 border-gray-100 font-bold ${
                               isHomePage
-                                ? "hover:text-secondary border-white/50"
-                                : "text-gray-600"
+                                ? "hover:text-blue-400 text-white border-white/50 "
+                                : "text-gray-700 hover:text-blue-400"
                             }`}
                             href={link.href}
                           >
@@ -186,10 +221,10 @@ const Footer = () => {
                             {item.type === "email" ? (
                               <a
                                 href={`mailto:${item.value}`}
-                                className={`text-white transition font-bold hover:text-black hover:border-b-2 p-2 border-gray-100 ${
+                                className={`text-black transition font-bold hover:text-black hover:border-b-2 p-2 border-gray-100 ${
                                   isHomePage
-                                    ? "hover:text-secondary border-white/50"
-                                    : "text-gray-600"
+                                    ? "hover:text-secondary text-white border-white/50"
+                                    : "text-gray-600 hover:text-blue-400"
                                 }`}
                               >
                                 {item.value}
@@ -197,20 +232,20 @@ const Footer = () => {
                             ) : item.type === "phone" ? (
                               <a
                                 href={`tel:${item.value}`}
-                                className={`text-white transition font-bold hover:text-black hover:border-b-2 p-2 border-gray-100 ${
+                                className={`text-black transition font-bold hover:text-black hover:border-b-2 p-2 border-gray-100 ${
                                   isHomePage
-                                    ? "hover:text-secondary border-white/50"
-                                    : "text-gray-600"
+                                    ? "hover:text-secondary text-white border-white/50"
+                                    : "text-gray-600 hover:text-blue-400"
                                 }`}
                               >
                                 {item.value}
                               </a>
                             ) : (
                               <span
-                                className={`text-white transition font-bold hover:text-black hover:border-b-2 p-2 border-gray-100 ${
+                                className={`text-black transition font-bold hover:text-black hover:border-b-2 p-2 border-gray-100 ${
                                   isHomePage
-                                    ? "hover:text-secondary border-white/50"
-                                    : "text-gray-600"
+                                    ? "hover:text-secondary text-white border-white/50"
+                                    : "text-gray-600 hover:text-blue-400"
                                 }`}
                               >
                                 {item.value}
@@ -227,21 +262,21 @@ const Footer = () => {
 
           <div className="mt-12 border-t border-gray-100 pt-6 dark:border-gray-800 flex flex-row items-center justify-center sm:flex-row">
             <div className="text-center sm:flex sm:justify-between sm:text-left">
-              <p className="text-sm text-gray-100">
+              <p className="text-sm text-black">
                 <span className="block sm:inline"> All rights reserved. </span>
 
-                <a className="inline-block text-white underline" href="#">
+                <a className="inline-block text-black underline" href="#">
                   Terms & Conditions
                 </a>
 
                 <span>·</span>
 
-                <a className="inline-block text-white underline " href="#">
+                <a className="inline-block text-black underline " href="#">
                   Privacy Policy
                 </a>
               </p>
 
-              <p className="mt-4 ml-1 text-sm text-white sm:order-first sm:mt-0">
+              <p className="mt-4 ml-1 text-sm text-black sm:order-first sm:mt-0">
                 © 2024 Tomac
               </p>
             </div>

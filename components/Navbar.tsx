@@ -4,23 +4,68 @@ import Link from "next/link";
 import { Transition } from "@headlessui/react"; // Optional for smooth transitions
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import router from "next/router";
+import MegaMenu from "../components/megaMenu";
 
 const Navbar = () => {
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const mobileMenuRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState<{
+    first: number;
+    second: number;
+    third: number;
+    fourth: number;
+    corners?: {
+      topLeft: string;
+      topRight: string;
+      bottomRight: string;
+      bottomLeft: string;
+    };
+  }>({
+    first: 0,
+    second: 0,
+    third: 0,
+    fourth: 0,
+  });
+
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(
     null
   );
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // State to track user's authentication status
 
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const totalProgress = (scrolled / scrollHeight) * 400;
+
+      // Ensure progress transitions without overlap
+      const firstProgress = Math.min(100, totalProgress); // (0-100)
+      const secondProgress = Math.min(100, Math.max(0, totalProgress - 100)); // (100-200)
+      const thirdProgress = Math.min(100, Math.max(0, totalProgress - 200)); // (200-300)
+      const fourthProgress = Math.min(100, Math.max(0, totalProgress - 300)); // (300-400)
+
+      setScrollProgress({
+        first: firstProgress,
+        second: secondProgress,
+        third: thirdProgress,
+        fourth: fourthProgress,
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const checkAuthentication = async () => {
       try {
-        const response = await fetch("/api/me", {
+        const response = await fetch("/api/login", {
           method: "GET",
           credentials: "include", // Include cookies in the request
         });
@@ -61,26 +106,105 @@ const Navbar = () => {
       name: "خدمات ",
       href: "/servicess",
       dropdown: [
-        { name: "طراحی سایت", href: "/servicess/web-development" },
-        { name: "گرافیک و دیزاین", href: "/servicess/graphic-design" },
-        { name: "سئو", href: "/servicess/seo-optimization" },
-        { name: "تولید محتوا", href: "/servicess/content-creation" },
-        { name: "آنالیز داده", href: "/servicess/data-analyzer" },
+        {
+          name: "مهندسی",
+          href: "/servicess/web-development",
+          children: [
+            {
+              name: "طراحی سایت و وب اپلیکیشن",
+              href: "/servicess/web-development/web-design",
+            },
+            {
+              name: "طراحی اپلیکیشن موبایل",
+              href: "/servicess/web-development/mobile-development",
+            },
+            {
+              name: "طراحی پرتال و اتوماسیون",
+              href: "/servicess/web-development/software-development",
+            },
+          ],
+        },
+        {
+          name: "دیتا و هوش مصنوعی",
+          href: "/servicess/data-science",
+          children: [
+            {
+              name: "شخصی سازی هوش مصنوعی",
+              href: "/servicess/ai/ai-personalization",
+            },
+            {
+              name: "BI  یا هوش مجازی",
+              href: "/servicess/ai/bi-or-virtual-intelligence",
+            },
+            {
+              name: "جمع آوری و مرتب سازی داده ها",
+              href: "/servicess/ai/artificial-intelligence",
+            },
+          ],
+        },
+        // You can add more top-level service categories with their children here
       ],
     },
     { name: "درباره ما", href: "/about" },
     { name: "ارتباط با ما", href: "/contact" },
   ];
 
+  const handleLogOut = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    try {
+      const response = await fetch("/api/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        setIsLoggedIn(false);
+        setIsLogoutModalOpen(false);
+        router.push("/");
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
   return (
     <nav
-      className={`fixed top-2 py-2 left-0 right-0 z-50 transition-all mx-4 rounded-xl duration-300  ${
+      className={`fixed top-2 py-2 left-0 right-0 z-50 transition-all mx-4 rounded-md  duration-300  ${
         isHomePage
           ? "bg-secondary/40 mx-4 rounded-lg border-gray-100 border-2 shadow-md shadow-gray-400 backdrop-blur-lg"
           : "bg-white/50 backdrop-blur-md shadow-lg shadow-gray-500"
       }`}
       dir="rtl"
     >
+      <div
+        className="absolute -top-1 left-0 h-[4px] bg-blue-500 opacity-75 z-50"
+        style={{
+          width: `${scrollProgress.first}%`,
+          transition: "width 0.3s ease",
+        }}
+      />
+      <div
+        className="absolute -top-1 -right-1 w-[4px] bg-blue-500 opacity-75 z-50"
+        style={{
+          height: `${scrollProgress.second}%`,
+          transition: "height 0.3s ease",
+        }}
+      />
+      <div
+        className="absolute -bottom-0 -right-1 h-[4px] bg-blue-500 opacity-75 z-50"
+        style={{
+          width: `${scrollProgress.third}%`,
+          transition: "width 0.3s ease",
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0  w-[4px] bg-blue-500 opacity-75  z-50"
+        style={{
+          height: `${scrollProgress.fourth}%`,
+          transition: "height 0.3s ease",
+        }}
+      />
+
       <div className="max-w-7xl  px-4 sm:px-6 lg:px-8 ">
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
@@ -98,54 +222,10 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center ">
-            <div className=" flex items-baseline gap-3 ">
+            <div className=" flex items-center gap-3 ">
               {navigation.map((item) =>
                 item.name === "خدمات " ? (
-                  <div
-                    key={item.name}
-                    className="relative "
-                    onMouseEnter={() => setIsServicesOpen(true)}
-                    onMouseLeave={() => setIsServicesOpen(false)}
-                  >
-                    {/* Dropdown Menu خدمات */}
-
-                    <Link href="/servicess">
-                      <span
-                        className={`cursor-pointer  px-3 py-2 text-base font-semibold ${
-                          isHomePage ? "text-white" : "text-black"
-                        } hover:border-b-2 hover:opacity-70 hover:border-gray-500`}
-                      >
-                        {item.name}
-                      </span>
-                    </Link>
-
-                    {isServicesOpen && (
-                      <div className="absolute right-0 mt-4 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                        <div
-                          className="py-1"
-                          role="menu"
-                          aria-orientation="vertical"
-                          aria-labelledby="options-menu"
-                          onKeyDown={(e) => {
-                            if (e.key === "Escape") {
-                              setIsServicesOpen(false);
-                            }
-                          }}
-                        >
-                          {item.dropdown?.map((subItem) => (
-                            <Link key={subItem.name} href={subItem.href}>
-                              <span
-                                className="block px-4 py-2 text-base text-primary bg-background hover:bg-transparent hover:text-black"
-                                role="menuitem"
-                              >
-                                {subItem.name}
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  <MegaMenu key={item.name} />
                 ) : (
                   <Link key={item.name} href={item.href}>
                     {/* navbar items */}
@@ -191,7 +271,7 @@ const Navbar = () => {
                         width={32}
                         height={32}
                         className="rounded-full border-2 border-gray-200"
-                        src="/assets/images/profile.webp" // Add your default avatar image
+                        src="/assets/images/proftestimonial.png" // Add your default avatar image
                         alt="User avatar"
                       />
                     </button>
@@ -213,8 +293,8 @@ const Navbar = () => {
                           </Link>
                           <button
                             onClick={() => {
-                              // Add your logout logic here
-                              console.log("Logging out");
+                              setIsLogoutModalOpen(true);
+                              setIsProfileOpen(false);
                             }}
                             className="block w-full text-right font-bold px-4 py-2 text-sm text-red-700 hover:bg-gray-100"
                           >
@@ -325,7 +405,7 @@ const Navbar = () => {
                         width={32}
                         height={32}
                         className="rounded-full border-2 border-gray-200"
-                        src="/assets/images/profile.webp" // Add your default avatar image
+                        src="/assets/images/proftestimonial.png" // Add your default avatar image
                         alt="User avatar"
                       />
                     </button>
@@ -347,8 +427,8 @@ const Navbar = () => {
                           </Link>
                           <button
                             onClick={() => {
-                              // Add your logout logic here
-                              console.log("Logging out");
+                              setIsLogoutModalOpen(true);
+                              setIsProfileOpen(false);
                             }}
                             className="block w-full text-right font-bold px-4 py-2 text-sm text-red-700 hover:bg-gray-100"
                           >
@@ -414,6 +494,35 @@ const Navbar = () => {
           </div>
         )}
       </Transition>
+      {isLogoutModalOpen && (
+        <div className="absolute inset-0 bg-opacity-50 z-50 backdrop-blur-md flex items-center justify-center modal-overlay">
+          <div
+            className="  bg-white/80 lg:bg-white rounded-xl p-6 max-w-sm w-full mx-4 backdrop-blur-md lg:backdrop-blur-0 lg:mt-44 md:mt-44 md:bg-white modal-content"
+            dir="rtl"
+          >
+            <h3 className="text-lg font-bold text-gray-900 mb-4">
+              خروج از حساب کاربری
+            </h3>
+            <p className="text-gray-600 mb-6">
+              آیا مطمئن هستید که می‌خواهید از حساب کاربری خود خارج شوید؟
+            </p>
+            <div className="flex justify-end gap-4">
+              <button
+                onClick={() => setIsLogoutModalOpen(false)}
+                className="px-4 py-2 text-black hover:text-gray-800 bg-secondary hover:bg-secondary/60 font-medium rounded-lg transition-colors duration-300 "
+              >
+                انصراف
+              </button>
+              <button
+                onClick={handleLogOut}
+                className="px-4 py-2 bg-red-600 text-black font-medium rounded-lg hover:bg-red-400/60 transition-colors duration-300"
+              >
+                خروج
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

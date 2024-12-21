@@ -78,7 +78,7 @@ const ServicesSection = () => {
   return (
     <section className="py-20 bg-gray-100" id="order">
       <div className="container mx-auto px-6">
-        <h3 className="text-4xl font-extrabold text-center mb-16 text-primary mt-8">
+        <h3 className="text-4xl font-extrabold text-center mb-16 text-primary">
           خدمات  ما
         </h3>
         <motion.div
