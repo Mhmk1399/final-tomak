@@ -95,7 +95,7 @@ const OlympicRings = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 30 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute text-white text-sm text-center p-1"
+                  className="absolute text-white text-xs text-center p-1"
                 >
                   {ring.description}
                 </motion.div>

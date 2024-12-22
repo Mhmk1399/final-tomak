@@ -371,7 +371,7 @@ export default function MultiStepForm() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
-          <div className="grid overflow-hidden  gap-3 text-gray-600  md:grid-cols-1 lg:grid-cols-3">
+          <div className="grid overflow-hidden  gap-3 text-white  md:grid-cols-1 lg:grid-cols-3">
             {PROJECT_SHOWCASE.map((project) => (
               <div
                 key={project.id}
@@ -379,33 +379,28 @@ export default function MultiStepForm() {
               >
                 {/* Background Image */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out"
+                  className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-70 transition-opacity duration-500 ease-in-out"
                   style={{
-                   backgroundColor: "gray",
+                    backgroundImage: `url(${project.backgroundImage})`,
                   }}
                 ></div>
 
                 {/* Content */}
-                <div className="relative z-10 space-y-6 h-full hover:text-white">
+                <div className="relative z-10 space-y-6 h-full">
                   {project.icon && <div>{project.icon()}</div>}
 
                   <div>
                     <h5 className="text-lg h-full font-semibold text-black group-hover:text-white transition-all duration-500">
                       {project.name}
                     </h5>
-                    <p className="text-gray-800 hover:text-white  h-full ">
+                    <p className="text-gray-800 h-full">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Oval Design */}
                   <div className="relative w-auto group  h-20 rounded-full border border-gray-300 flex items-center overflow-hidden mt-8">
-                    <Image
-                      src={project.backgroundImage}
-                      alt={project.name}
-                      fill
-                      className="absolute inset-0 object-cover opacity-0 group-hover:opacity-50 transition-opacity duration-500 ease-in-out z-0"
-                    />
+                    
                     {/* Circle with Arrow */}
                     <div
                       className=" z-10 lg:group-hover:-translate-x-[calc(100%-14rem)] group-hover:-translate-x-[calc(100%-15rem)]  md:group-hover:-translate-x-[calc(100%-25.5rem)] flex
