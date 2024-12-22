@@ -93,7 +93,7 @@ const MegaMenu = () => {
       }}
       onMouseLeave={() => {
         if (!isMenuPersistent) {
-          setActiveMenu(null);
+          // setActiveMenu(null);
           setActiveCategory(null);
         }
       }}
@@ -104,8 +104,8 @@ const MegaMenu = () => {
 
       {activeMenu === "خدمات" && (
         <div
-          className="absolute top-full left-1/2 transform -translate-x-1/2 w-[1200px] mt-2 z-50"
-          onMouseEnter={() => setIsMenuPersistent(true)}
+        className="fixed top-[50px] left-0 right-0 w-screen min-w-max mt-2 z-50"
+        onMouseEnter={() => setIsMenuPersistent(true)}
         >
           <div className="bg-gray-100 shadow-2xl rounded-xl overflow-hidden p-10 max-w-5xl mx-auto grid grid-cols-3 divide-x">
             {/* Categories Column */}

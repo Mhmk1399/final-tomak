@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-// Define an interface for the video data
 interface VideoTestimonial {
   id: number;
   videoUrl: string;
@@ -11,7 +11,6 @@ interface VideoTestimonial {
 }
 
 const VideoTestimonials: React.FC = () => {
-  // Sample data - you can replace this with your actual customer testimonial data
   const testimonials: VideoTestimonial[] = [
     {
       id: 1,
@@ -32,19 +31,18 @@ const VideoTestimonials: React.FC = () => {
       videoUrl: "/assets/images/testi.mp4",
       thumbnailUrl: "/assets/images/human.jpeg",
       logoUrl: "/assets/images/logo.png",
-      customerName: "شرکت ب",
+      customerName: "شرکت ج",
     },
     {
       id: 4,
       videoUrl: "/assets/images/testi.mp4",
       thumbnailUrl: "/assets/images/human.jpeg",
       logoUrl: "/assets/images/logo.png",
-      customerName: "شرکت ب",
+      customerName: "شرکت د",
     },
   ];
 
-  // State to manage which video is currently playing
-  const [playingVideoId, setPlayingVideoId] = useState<number | null>(null);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <section className="container mx-auto py-16">
@@ -53,17 +51,21 @@ const VideoTestimonials: React.FC = () => {
       </h2>
       <div className="flex flex-wrap justify-center gap-8">
         {testimonials.map((testimonial) => (
-          <div
+          <motion.div
             key={testimonial.id}
-            className="relative group w-72 h-96 overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            className="relative overflow-hidden rounded-lg shadow-lg"
+            animate={{
+              width: hoveredId === testimonial.id ? "400px" : "280px",
+              transition: {
+                duration: 0.3,
+                ease: "easeInOut",
+              },
+            }}
+            onHoverStart={() => setHoveredId(testimonial.id)}
+            onHoverEnd={() => setHoveredId(null)}
           >
-            {/* Video/Thumbnail Container */}
-            <div
-              className="relative w-full h-full cursor-pointer"
-              onMouseEnter={() => setPlayingVideoId(testimonial.id)}
-              onMouseLeave={() => setPlayingVideoId(null)}
-            >
-              {playingVideoId === testimonial.id ? (
+            <div className="relative w-full h-96 cursor-pointer overflow-hidden">
+              {hoveredId === testimonial.id ? (
                 <video
                   src={testimonial.videoUrl}
                   autoPlay
@@ -75,24 +77,21 @@ const VideoTestimonials: React.FC = () => {
                 <Image
                   src={testimonial.thumbnailUrl}
                   alt={testimonial.customerName}
-                  width={300}
-                  height={300}
-                  className="transition-transform duration-300 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               )}
             </div>
 
-            {/* Logo Section */}
-            <div className="absolute bottom-0 left-0 right-0 bg-white/60 p-4 flex justify-center items-center transition-transform duration-300 group-hover:translate-y-0 translate-y-full">
+            <div className="absolute bottom-0 left-0 right-0 bg-white/60 p-4 flex justify-center items-center">
               <Image
                 src={testimonial.logoUrl}
                 alt={`${testimonial.customerName} لوگو`}
                 width={80}
                 height={40}
-                // objectFit="contain"
               />
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,11 +1,9 @@
-// components/OlympicRings.js
+"use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const OlympicRings = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-
 
   const rings = [
     {

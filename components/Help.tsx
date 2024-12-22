@@ -407,7 +407,11 @@ export default function MultiStepForm() {
                       className="absolute inset-0 object-cover opacity-0 group-hover:opacity-50 transition-opacity duration-500 ease-in-out z-0"
                     />
                     {/* Circle with Arrow */}
-                    <div className=" z-10 group-hover:translate-x-56 group-hover:bg-transparent group-hover:border-gray-300 absolute lg:group-hover:translate-x-40 transition-transform duration-700 ease-in-out left-4 w-12 h-12 border border-gray-500 rounded-full flex items-center justify-center bg-white/50">
+                    <div
+                      className=" z-10 lg:group-hover:-translate-x-[calc(100%-14rem)] group-hover:-translate-x-[calc(100%-15rem)]  md:group-hover:-translate-x-[calc(100%-25.5rem)] flex
+                               group-hover:bg-transparent group-hover:border-gray-300 absolute transition-transform duration-700 ease-in-out   left-4 w-12  h-12 border  border-gray-500 
+                               rounded-full items-center justify-center bg-white/50"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

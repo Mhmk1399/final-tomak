@@ -31,10 +31,26 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div
-      className="bg-gradient-to-b from-secondary to-primary h-full"
-      dir="rtl"
-    >
+    <div className=" h-full" dir="rtl">
+      <div className="mt-36">
+        <motion.div
+          className="flex flex-col items-center justify-center mx-12 "
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.1, ease: "easeInOut" }}
+        >
+          <h1 className="p-8 text-center text-4xl font-bold text-black">
+            ارتباط با تومک
+          </h1>
+          <p className="p-8 lg:w-[70%] text-justify text-gray-700">
+            آیا سوالی دارید؟ یا نیاز به راهنمایی بیشتر دارید؟ تیم ما آماده است
+            تا پاسخگوی شما باشد. با استفاده از فرم زیر می‌توانید سوالات خود را
+            بپرسید، درخواست مشاوره کنید یا هر گونه نظری دارید با ما در میان
+            بگذارید. همین حالا به ما پیام دهید تا در سریع‌ترین زمان با شما تماس
+            بگیریم.
+          </p>
+        </motion.div>
+      </div>
       <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
         {/* Background Blur Effect */}
         <div className="absolute inset-0 w-full h-full ">
@@ -53,12 +69,9 @@ const ContactPage = () => {
           className="relative z-10 w-[350px] md:w-[500px] lg:w-[700px] bg-white/20 backdrop-blur-sm rounded-2xl shadow-md shadow-gray-400 p-4 mt-20"
         >
           <div className="text-center mb-6">
-            <h1 className="text-4xl font-bold text-gray-800 p-2">
-              ارتباط با ما
-            </h1>
-            <p className="text-gray-600 mt-2 p-1">
+            <h2 className="text-2xl font-bold text-gray-600 p-2">
               ما دوست داریم از شما بشنویم!
-            </p>
+            </h2>
           </div>
 
           <form className="space-y-6" onSubmit={handleSubmit}>
@@ -131,39 +144,12 @@ const ContactPage = () => {
             >
               <button
                 type="submit"
-                className="w-full py-3 px-6 font-bold text-white rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="w-full py-3 px-6 font-bold text-green-600 rounded-md hover:bg-green-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 ارسال پیام
               </button>
             </motion.div>
           </form>
-        </motion.div>
-      </div>
-      <div className="">
-        <motion.div
-          className="flex flex-col items-center justify-center mx-12 "
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <h2 className="p-8 text-center text-4xl font-bold text-gray-100">
-            ارتباط با تومک
-          </h2>
-          <p className="p-8 lg:w-[70%] text-justify text-gray-200">
-            آیا سوالی دارید؟ یا نیاز به راهنمایی بیشتر دارید؟ تیم ما آماده است
-            تا پاسخگوی شما باشد. با استفاده از فرم زیر می‌توانید سوالات خود را
-            بپرسید، درخواست مشاوره کنید یا هر گونه نظری دارید با ما در میان
-            بگذارید. همین حالا به ما پیام دهید تا در سریع‌ترین زمان با شما تماس
-            بگیریم.
-          </p>
-          {/* <p className="p-8 lg:w-[70%] text-justify text-gray-200">
-            تماس تلفنی برای گفتگوهای فوری، می‌توانید با شماره زیر تماس بگیرید:
-            <br />
-            [شماره تلفن شما] شبکه‌های اجتماعی همچنین می‌توانید از طریق شبکه‌های
-            اجتماعی با ما در ارتباط باشید و از آخرین اخبار و پیشنهادات ویژه ما
-            مطلع شوید. آدرس دفتر [آدرس شما] اگر مایل به ملاقات حضوری هستید، از
-            دیدار شما در دفتر ما خوشحال می‌شویم!
-          </p> */}
         </motion.div>
       </div>
     </div>

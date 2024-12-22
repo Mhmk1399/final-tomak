@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import TypingEffect from "./typingHeroSection";
 
 const HeroSection = () => {
   const [animate, setAnimate] = useState(false);
@@ -13,18 +12,6 @@ const HeroSection = () => {
   return (
     <section className="bg-gradient-to-t from-primary to-secondary text-white py-20 h-fit overflow-hidden">
       <div className="container mx-auto px-6 text-center mt-12">
-        <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">
-          <TypingEffect
-            pause={1500}
-            words={[
-              "چشم انداز خود را زنده کنید",
-              "و آینده را تغییر دهید",
-              "همین امروز شروع کنید!",
-            ]}
-            speed={100}
-          />
-        </div>
-
         <Image
           src="/assets/images/dev.svg"
           alt="Web Development"

@@ -1,112 +1,138 @@
 "use client";
 
+import React, { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { useState } from "react";
+interface ServiceItem {
+  id: number;
+  title: string;
+  icon: string;
+  description: string;
+  gradient: string;
+  details: string[];
+}
 
-const KindOfServices = () => {
-  const [activeCard, setActiveCard] = useState<number | null>(null);
+// Define props interface
+interface KindOfServicesProps {
+  servicesData: ServiceItem[];
+  title?: string;
+  subtitle?: string;
+}
 
-  const getCardClasses = (index: number) => {
-    const baseClasses = "bg-white border-r border-gray-800 overflow-hidden px-4 text-blue-900 transition-all duration-300";
-    return activeCard === index 
-      ? `${baseClasses} md:w-[100%]` 
-      : `${baseClasses} md:w-[70%] `;
+const KindOfServices: React.FC<KindOfServicesProps> = ({
+  servicesData,
+  title,
+  subtitle,
+}) => {
+  const [activeService, setActiveService] = useState<number | null>(null);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
   };
 
-  const getParagraphClasses = (index: number) => {
-    return activeCard === index 
-      ? "text-gray-900 mt-6 text-sm font-light block" 
-      : "hidden";
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.3 },
+    },
   };
 
   return (
-    <div>
-      <div
-        className="py-8 md:py-16 w-11/12 lg:w-10/12 xl:w-1200 m-auto"
-        dir="rtl"
-      >
-        <div className="space-y-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-900">
-            ما چیا طراحی میکنیم
-          </h2>
-          <p className="text-blue-900 text-center">
-            End-to-end application development services
-          </p>
-          <div className="grid grid-cols-1md:grid-cols-4 lg:grid-cols-3 gap-2">
-            {/* firstone */}
-            <div
-              className={getCardClasses(0)}
-              onMouseEnter={() => setActiveCard(0)}
-              onMouseLeave={() => setActiveCard(null)}
+    <div className="min-h-screen py-16 px-4" dir="rtl">
+      <div className="container mx-auto">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-blue-900 mb-4">{title}</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
+        </motion.div>
+
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          {servicesData.map((service) => (
+            <motion.div
+              key={service.id}
+              variants={cardVariants}
+              whileHover="hover"
+              className={`
+                relative overflow-hidden rounded-2xl shadow-2xl 
+                transform transition-all duration-500
+                ${
+                  activeService === service.id
+                    ? "md:col-span-1 bg-gradient-to-br " + service.gradient
+                    : "bg-white md:col-span-1"
+                }
+              `}
+              onMouseEnter={() => setActiveService(service.id)}
+              onMouseLeave={() => setActiveService(null)}
             >
-              <div>
-                <Image
-                  src={"/assets/images/desctop-software-blue-icon.svg"}
-                  width={50}
-                  height={50}
-                  alt=""
-                />
+              <div className="p-8 relative z-10">
+                <div className="flex items-center mb-6">
+                  <Image
+                    src={service.icon}
+                    width={60}
+                    height={60}
+                    alt={service.title}
+                    className="ml-4 filter brightness-0 invert"
+                  />
+                  <h3
+                    className={`
+                    text-xl font-bold border-b pb-4 border-gray-200
+                    ${
+                      activeService === service.id
+                        ? "text-white"
+                        : "text-blue-900"
+                    }
+                  `}
+                  >
+                    {service.title}
+                  </h3>
+                </div>
+
+                <AnimatePresence>
+                  {activeService === service.id && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      className="space-y-4"
+                    >
+                      <p className="text-white text-sm leading-relaxed">
+                        {service.description}
+                      </p>
+                      <ul className="text-white text-xs space-y-2 list-disc pr-4">
+                        {service.details.map((detail, index) => (
+                          <li key={index}>{detail}</li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <h3 className="text-l font-bold mt-4">طراحی اپلیکیشن دسکتاپ </h3>
-              <p className={getParagraphClasses(0)}>
-                خدمات طراحی نرم افزار دسکتاپ شامل شامل یکپارچه‌سازی اپلیکیشن‌های
-                دسکتاپ برای طیف گسترده‌ای از سیستم‌عامل‌ها، از جمله ویندوز،
-                مک‌او‌اس و لینوکس می‌باشد. تیم توسعه ما در هر مرحله از فرآیند
-                توسعه شما پشتیبانی اختصاصی ارائه می‌دهد تا به شما کمک کند پروژه
-                سفارشی نرم‌افزاری خود را به‌طور کامل، به‌موقع، در چارچوب بودجه و
-                با رعایت تمامی نیازمندی‌ها تحویل دهید.
-              </p>
-            </div>
-            {/* secondOne */}
-            <div
-              className={getCardClasses(1)}
-              onMouseEnter={() => setActiveCard(1)}
-              onMouseLeave={() => setActiveCard(null)}
-            >
-              <div>
-                <Image
-                  src={"/assets/images/web-aplication-blue-icon.svg"}
-                  width={50}
-                  height={50}
-                  alt=""
-                />
-              </div>
-              <h3 className="text-l font-bold mt-4">طراحی وب اپلیکشن</h3>
-              <p className={getParagraphClasses(1)}>
-                خدمات توسعه اپلیکیشن‌های وب تومک تمامی عناصر یک راه‌حل موفق وب
-                را پوشش می‌دهد؛ از مشاوره تکنولوژی و طراحی تجربه کاربری (UX)
-                گرفته تا توسعه فرانت‌اند و بک‌اند، استقرار و پشتیبانی. چه به یک
-                بازار تجارت الکترونیک با عملکرد بالا نیاز داشته باشید یا یک
-                اپلیکیشن وب داده‌محور برای مدیریت لجستیک، ما به شما کمک می‌کنیم
-                تا دسترسی بی‌وقفه مشتریانتان به محصولات و خدماتتان را در هر زمان
-                و هر مکان فراهم کنید.
-              </p>
-            </div>
-            {/* thirdOne */}
-            <div 
-              className={getCardClasses(2)}
-              onMouseEnter={() => setActiveCard(2)}
-              onMouseLeave={() => setActiveCard(null)}
-            >
-              <div>
-                <Image
-                  src={"/assets/images/desctop-software-blue-icon.svg"}
-                  width={50}
-                  height={50}
-                  alt=""
-                />
-              </div>
-              <h3 className="text-l font-bold mt-4">طراحی اپلیکیشن دسکتاپ </h3>
-              <p className={getParagraphClasses(2)}>
-                ما توی تیم تومک یک پکیج کامل از خدمات طراحی اپلیکیشن بهتون ارائه
-                میدیم که کاملاً متناسب با نیازهای کسب‌وکار شما طراحی شده‌اند. از
-                مراحل اولیه ایده‌پردازی تا انتشار نهایی اپلیکیشن، تیم ما در کنار
-                شماست.
-              </p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );

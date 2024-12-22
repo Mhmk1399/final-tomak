@@ -147,7 +147,7 @@ const Hero = () => {
                   </span>
                 </p>
               </div>
-              <div className="absolute mb-3 lg:mr-2 bottom-0 duration-700 bg-white/10 lg:py-3 py-1 backdrop-blur-md rounded-2xl ease-in-out flex flex-row-reverse justify-between items-center label transition-all z-50 w-full px-4">
+              <div className="absolute mb-3 lg:mr-2 bottom-0 duration-700 bg-white/10 lg:py-3 py-1 backdrop-blur-md rounded-2xl ease-in-out flex flex-row-reverse justify-between items-center label transition-all z-30 w-full px-4">
                 <div className="content flex flex-col justify-start items-end leading-tight text-white whitespace-pre h-full">
                   <div className="ease-in-out text-sm lg:text-base text-white hover:bg-white/5 py-2 mr-1 lg:py-3 bg-white/30 rounded-xl px-2 lg:px-4 font-bold duration-700 opacity-0 relative transform transition-all translate-x-8">
                     <FaArrowUpRightDots className="inline text-blue-500" />
@@ -173,6 +173,7 @@ const Hero = () => {
       <Circle />
       <BlogPost />
       <VideoTestimonials />
+     
     </div>
   );
 };

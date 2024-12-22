@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 
 const whyUs = () => {
@@ -17,6 +16,7 @@ const whyUs = () => {
                 <h3 className="font-medium text-2xl text-blue-900" dir="rtl">
                   1. تحقیق بازار
                 </h3>
+                
                 <p className="text-blue-900">
                   ما قبل از اینکه هر پروژه ای را شروع کنیم ابتدا یک تحقیق بازار
                   مفصل روش انجام میدیم که بهقمیم این بیزینس توی چه حوزه هایی قوی

@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Transition } from "@headlessui/react"; // Optional for smooth transitions
-import { usePathname } from "next/navigation";
 import Image from "next/image";
 import router from "next/router";
 import MegaMenu from "../components/megaMenu";
@@ -10,8 +9,6 @@ import MegaMenu from "../components/megaMenu";
 const Navbar = () => {
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const pathname = usePathname();
-  const isHomePage = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState<{
@@ -36,6 +33,35 @@ const Navbar = () => {
     null
   );
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // State to track user's authentication status
+
+  const [underlineStyle, setUnderlineStyle] = useState({
+    width: 0,
+    left: 0,
+    opacity: 0,
+  });
+  const navRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseEnter = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const target = event.currentTarget;
+    const navRect = navRef.current?.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+
+    if (navRect) {
+      setUnderlineStyle({
+        width: targetRect.width,
+        left: targetRect.left - navRect.left,
+        opacity: 1,
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setUnderlineStyle({
+      width: 0,
+      left: 0,
+      opacity: 0,
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,8 +171,9 @@ const Navbar = () => {
         // You can add more top-level service categories with their children here
       ],
     },
-    { name: "درباره ما", href: "/about" },
     { name: "ارتباط با ما", href: "/contact" },
+    { name: "وبلاگ", href: "/blogs" },
+    { name: "درباره ما", href: "/about" },
   ];
 
   const handleLogOut = async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -169,11 +196,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-2 py-2 left-0 right-0 z-50 transition-all mx-4 rounded-md  duration-300  ${
-        isHomePage
-          ? "bg-secondary/40 mx-4 rounded-lg border-gray-100 border-2 shadow-md shadow-gray-400 backdrop-blur-lg"
-          : "bg-white/50 backdrop-blur-md shadow-lg shadow-gray-500"
-      }`}
+      className={`fixed top-2 py-2 left-0 right-0 z-50 transition-all mx-4 duration-300  
+       
+           bg-white/50 backdrop-blur-md 
+      `}
       dir="rtl"
     >
       <div
@@ -221,29 +247,44 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex md:items-center ">
+          <div
+            className="hidden md:flex md:items-center relative "
+            ref={navRef}
+          >
             <div className=" flex items-center gap-3 ">
               {navigation.map((item) =>
                 item.name === "خدمات " ? (
                   <MegaMenu key={item.name} />
                 ) : (
-                  <Link key={item.name} href={item.href}>
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className="relative px-3 py-2"
+                  >
                     {/* navbar items */}
 
                     <span
-                      className={`${
-                        pathname === item.href
-                          ? "text-blue-700"
-                          : " hover:text-secondary "
-                      } px-3 py-2  text-base font-semibold hover:border-b-2 hover:opacity-90 hover:border-white ${
-                        isHomePage ? "text-white" : "text-black"
-                      }`}
+                      className={`
+                           hover:text-secondary 
+                       px-1 py-2  text-base font-semibold hover:border-b-2 hover:opacity-90 hover:border-white 
+                         text-black
+                      `}
                     >
                       {item.name}
                     </span>
                   </Link>
                 )
               )}
+              <div
+                className="absolute bottom-0 h-0.5 bg-gray-300 transition-all duration-300 ease-in-out"
+                style={{
+                  width: underlineStyle.width,
+                  left: underlineStyle.left,
+                  opacity: underlineStyle.opacity,
+                }}
+              />
 
               {/* login and signup */}
 
@@ -457,7 +498,7 @@ const Navbar = () => {
                             mobileDropdownOpen === item.name ? null : item.name
                           )
                         }
-                        className={`w-full text-right text-white hover:text-blue-500 px-3 py-2 rounded-md text-base font-medium`}
+                        className={`w-full text-right text-black hover:text-blue-500 px-3 py-2 rounded-md text-base font-medium`}
                       >
                         {item.name}
                       </button>
@@ -467,7 +508,7 @@ const Navbar = () => {
                             <Link key={subItem.name} href={subItem.href}>
                               <span
                                 onClick={() => setIsOpen(false)}
-                                className={`block text-white hover:text-blue-500 px-3 py-2 rounded-md text-sm 
+                                className={`block text-black hover:text-blue-500 px-3 py-2 rounded-md text-sm 
                                   
                                 `}
                               >
@@ -482,7 +523,7 @@ const Navbar = () => {
                     <Link href={item.href}>
                       <span
                         onClick={() => setIsOpen(false)}
-                        className={`block text-white hover:text-blue-500 px-3 py-2 rounded-md text-base font-medium `}
+                        className={`block text-black hover:text-blue-500 px-3 py-2 rounded-md text-base font-medium `}
                       >
                         {item.name}
                       </span>
