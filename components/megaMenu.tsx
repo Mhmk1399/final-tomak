@@ -98,7 +98,7 @@ const MegaMenu = () => {
         }
       }}
     >
-      <Link href="/servicess" className="flex items-center">
+      <Link href="#" className="flex items-center">
         <span className="text-base font-semibold text-black">خدمات</span>
       </Link>
 
