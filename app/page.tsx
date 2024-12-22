@@ -172,7 +172,6 @@ const Hero = () => {
       <Help />
       <Circle />
       <BlogPost />
-      <VideoTestimonials />
     </div>
   );
 };
