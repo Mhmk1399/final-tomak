@@ -66,7 +66,7 @@ const PROJECT_SHOWCASE = [
     ),
     description:
       "ماهانه هزاران بازدید را از طریق وبسایت خود به کسب و کارتان اضافه کنید",
-    backgroundImage: "/assets/images/ai.jpg",
+    backgroundImage: "/assets/images/webapp.jpg",
   },
   {
     id: "abc",
@@ -100,7 +100,7 @@ const PROJECT_SHOWCASE = [
       </svg>
     ),
     description: "همراه با بروز شدن جامعه کسب و کار خود را بروز کنید",
-    backgroundImage: "/assets/images/ai.jpg",
+    backgroundImage: "/assets/images/mobile.jpg",
   },
 
   {
@@ -137,7 +137,7 @@ const PROJECT_SHOWCASE = [
       </svg>
     ),
     description: "بازدهی روندهای کسب و کار خود را به حداکثر برسانبد",
-    backgroundImage: "/assets/images/ai.jpg",
+    backgroundImage: "/assets/images/hos.jpg",
   },
 ];
 
@@ -379,21 +379,21 @@ export default function MultiStepForm() {
               >
                 {/* Background Image */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-70 transition-opacity duration-500 ease-in-out"
+                  className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-90 transition-opacity duration-500 ease-in-out"
                   style={{
-                    backgroundImage: `url(${project.backgroundImage})`,
+                   backgroundColor: "gray",
                   }}
                 ></div>
 
                 {/* Content */}
-                <div className="relative z-10 space-y-6 h-full">
+                <div className="relative z-10 space-y-6 h-full hover:text-white">
                   {project.icon && <div>{project.icon()}</div>}
 
                   <div>
-                    <h5 className="text-lg h-full font-semibold text-black group-hover:text-secondary transition-all duration-500">
+                    <h5 className="text-lg h-full font-semibold text-black group-hover:text-white transition-all duration-500">
                       {project.name}
                     </h5>
-                    <p className="text-gray-800 h-full">
+                    <p className="text-gray-800 hover:text-white  h-full ">
                       {project.description}
                     </p>
                   </div>
@@ -401,7 +401,7 @@ export default function MultiStepForm() {
                   {/* Oval Design */}
                   <div className="relative w-auto group  h-20 rounded-full border border-gray-300 flex items-center overflow-hidden mt-8">
                     <Image
-                      src="/assets/images/sof.png"
+                      src={project.backgroundImage}
                       alt={project.name}
                       fill
                       className="absolute inset-0 object-cover opacity-0 group-hover:opacity-50 transition-opacity duration-500 ease-in-out z-0"
