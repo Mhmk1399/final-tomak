@@ -2,7 +2,6 @@
 import BlogPost from "@/components/blogPost";
 import Circle from "@/components/circle";
 import Help from "@/components/Help";
-import VideoTestimonials from "@/components/video";
 import React, { useState, useEffect, useRef } from "react";
 import { FaEye, FaCode, FaDatabase } from "react-icons/fa";
 import { FaArrowUpRightDots } from "react-icons/fa6";
