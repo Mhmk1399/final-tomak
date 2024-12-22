@@ -13,7 +13,7 @@ const Hero = () => {
 
   const slides = [
     {
-      image: "/assets/images/overview.jpg",
+      image: "/assets/images/mohandesi.mp4",
       icon: <FaEye className="text-blue-500" />,
       title: "  ما کیم؟",
       subtitle: "مهندسین همیشه همراه شما",
@@ -23,7 +23,7 @@ const Hero = () => {
       btn: "درباره ما",
     },
     {
-      image: "/assets/images/soft.jpeg",
+      image: "/assets/images/stable.mp4",
       icon: <FaCode className="text-yellow-500" />,
       title: "طراحی سایت و اپلیکیشن",
       subtitle: "ورود به دنیای دیجیتال",
@@ -32,7 +32,7 @@ const Hero = () => {
       btn: "طراحی سایت و اپلیکیشن",
     },
     {
-      image: "/assets/images/ai.jpg",
+      image: "/assets/images/bahrevary.mp4",
       icon: <FaDatabase className="text-purple-500" />,
       title: " هوش مصنوعی و دیتابیس",
       subtitle: "آزادی حداکثر ظرفیت شما",
@@ -127,12 +127,32 @@ const Hero = () => {
               </div>
 
               {/* Rest of the existing slide content */}
-              <div
-                className="absolute background opacity-70 bg-center bg-cover bg-no-repeat duration-700 ease-in-out inset-0 scale-105 transition-all z-10"
-                style={{
-                  backgroundImage: `url('${pane.image}')`,
-                }}
-              ></div>
+              {/* Replace the existing background div with this conditional rendering */}
+              {pane.image.endsWith(".mp4") ? (
+                <div className="relative w-full h-full">
+                  <video
+                    className="absolute w-full h-full object-cover opacity-70 duration-700 ease-in-out scale-105 transition-all z-10"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={pane.image} type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-black/40 z-20"></div>
+                </div>
+              ) : (
+                <div className="relative">
+                  <div
+                    className="absolute background opacity-70 bg-center bg-cover bg-no-repeat duration-700 ease-in-out inset-0 scale-105 transition-all z-10"
+                    style={{
+                      backgroundImage: `url('${pane.image}')`,
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black z-20"></div>
+                </div>
+              )}
+
               <div className="absolute bg-gradient-to-b bottom-0 duration-700 ease-in-out from-transparent h-3/4 inset-x-0 opacity-0 shadow to-black transform transition-all translate-y-1/2 z-20">
                 <h1>
                   <span className="font-light text-white mx-4 p-2  text-3xl">
