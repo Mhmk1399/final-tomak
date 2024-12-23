@@ -3,8 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 // import { sahel } from "@/next-persian-fonts/sahel";
-import { Suspense } from "react";
-import Loading from "./loading";
 import { ray } from "@/next-persian-fonts/ray";
 
 export const metadata: Metadata = {
@@ -23,7 +21,7 @@ export default function RootLayout({
       <body className={ray.className}>
         <Navbar />
 
-        <Suspense fallback={<Loading></Loading>}>{children}</Suspense>
+        {children}
 
         <Footer />
       </body>
