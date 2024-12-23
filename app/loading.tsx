@@ -5,7 +5,7 @@ const Loading = () => {
   return (
     <div className="relative bg-white w-screen h-screen overflow-hidden">
       <Image
-        src="/assets/images/load.mp4"
+        src="/assets/images/loading.gif"
         alt="loading"
         width={100}
         height={100}
