@@ -378,7 +378,7 @@ export default function MultiStepForm() {
               >
                 {/* Background Image */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-70 transition-opacity duration-500 ease-in-out"
+                  className="absolute inset-0 bg-cover bg-center brightness-[.3] opacity-70 group-hover:opacity-0 transition-opacity duration-500 ease-in-out"
                   style={{
                     backgroundImage: `url(${project.backgroundImage})`,
                   }}
@@ -389,17 +389,23 @@ export default function MultiStepForm() {
                   {project.icon && <div>{project.icon()}</div>}
 
                   <div>
-                    <h5 className="text-lg h-full font-semibold text-black group-hover:text-white transition-all duration-500">
+                    <h5 className="text-lg h-full font-semibold text-white group-hover:text-black transition-all duration-500">
                       {project.name}
                     </h5>
-                    <p className="text-gray-800 h-full">
+                    <p className="text-gray-200 h-full group-hover:text-gray-800 transition-all duration-500">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Oval Design */}
                   <div className="relative w-auto group  h-20 rounded-full border border-gray-300 flex items-center overflow-hidden mt-8">
-                    
+                    <div
+                      className="absolute inset-0 bg-cover bg-center brightness-75 opacity-0 group-hover:opacity-60 transition-opacity duration-500 ease-in-out"
+                      style={{
+                        backgroundImage: `url(${project.backgroundImage})`,
+                      }}
+                    ></div>
+
                     {/* Circle with Arrow */}
                     <div
                       className=" z-10 lg:group-hover:-translate-x-[calc(100%-14rem)] group-hover:-translate-x-[calc(100%-15rem)]  md:group-hover:-translate-x-[calc(100%-25.5rem)] flex
