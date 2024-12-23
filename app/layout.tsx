@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { sahel } from "@/next-persian-fonts/sahel";
+// import { sahel } from "@/next-persian-fonts/sahel";
+import { Suspense } from "react";
+import Loading from "./loading";
+import { ray } from "@/next-persian-fonts/ray";
 
 export const metadata: Metadata = {
   title: "تومک",
@@ -17,9 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa">
-      <body className={sahel.className}>
+      <body className={ray.className}>
         <Navbar />
-        {children}
+
+        <Suspense fallback={<Loading></Loading>}>{children}</Suspense>
+
         <Footer />
       </body>
     </html>
