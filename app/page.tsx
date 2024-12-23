@@ -82,15 +82,12 @@ const Hero = () => {
     setActivePaneIndex(index);
   };
   useEffect(() => {
-    // Set a timeout to change isLoading to false after 8 seconds
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // 8000 milliseconds = 8 seconds
-  
-    // Cleanup function to clear the timeout if the component unmounts
+    }, 5000);
+
     return () => clearTimeout(loadingTimer);
-  }, []); // Empty dependency array means this effect runs once on component mount
-  
+  }, []);
 
   return (
     <>

@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import loading from "../public/assets/images/loading.gif";
 
 const Loading = () => {
   return (
     <div className="relative bg-white w-screen h-screen overflow-hidden">
       <Image
-        src="/assets/images/loading.gif"
+        src={loading}
         alt="loading"
         width={100}
         height={100}
