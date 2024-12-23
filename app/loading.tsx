@@ -4,7 +4,7 @@ import loading from "../public/assets/images/loading.gif";
 
 const Loading = () => {
   return (
-    <div className="relative bg-white w-screen h-screen overflow-hidden">
+    <div className="relative bg-white  h-screen overflow-hidden">
       <Image
         src={loading}
         alt="loading"
