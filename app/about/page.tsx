@@ -1,5 +1,6 @@
 "use client";
 import Diffrent from "@/components/services/diffrent";
+import UserTomak from "@/components/services/userTomak";
 import Vision from "@/components/services/vision";
 import Image from "next/image";
 import Link from "next/link";
@@ -111,7 +112,9 @@ const About = () => {
 بیایید با هم آینده‌ای بسازیم که در آن، رشد و موفقیت شما هیچ محدودیتی نداشته باشد. `}
           title={"هدف ما"}
         />
-        
+
+        <UserTomak />
+
       </div>
     </>
   );
