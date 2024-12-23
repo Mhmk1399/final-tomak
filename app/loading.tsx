@@ -9,7 +9,7 @@ const Loading = () => {
         alt="loading"
         width={200}
         height={200}
-        className="absolute z-[5000] top-[30rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="absolute z-[5000] transition-transform transform -translate-x-1/2 -translate-y-1/2"
       />
     </div>
   );
