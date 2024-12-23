@@ -23,6 +23,13 @@ export default function RootLayout({
   return (
     <html lang="fa">
       <head>
+        <link
+          rel="preload"
+          href="/public/assets/images/loading.gif"
+          as="image"
+          type="image/gif"
+        />
+
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
