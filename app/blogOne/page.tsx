@@ -178,14 +178,7 @@ const Page = () => {
               ) نیز برای انجام این عمل لیبل زنی استفاده کنید در اصل یک مدل مثل یک تخته سیاه هوشمند است که هر چه روی ان بنویسید برای شما تحلیل میکنید بر اساس دسته ای از قوانین که یک از ان ها طبقه بندی کنندگان می باشد 
             </p>
 
-            <div className="flex flex-col bg-sky-100 hover:bg-sky-50 transition-all duration-300 ease-in-out gap-2 p-4 border-r-4 border-sky-500">
-              <div className="text-right text-black">بیشتر بخوانید ...</div>
-              <p className="text-right text-gray-500 leading-relaxed">
-                موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان
-                مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته
-                اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-              </p>
-            </div>
+            
             <Image
               src="/assets/images/overview.jpg"
               alt="Description"
@@ -201,7 +194,7 @@ const Page = () => {
               id="section2"
               className="text-6xl text-gray-800 text-right font-bold"
             >
-              متن سربرگ وبلاگ 2
+              نمونه تمرینی یا traning sample
             </h3>
             <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
