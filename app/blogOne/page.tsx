@@ -42,7 +42,7 @@ const Page = () => {
           <div className="flex flex-col md:flex-row items-center justify-evenly gap-8">
             <div className="md:w-1/2 lg:mr-6">
               <h1 className="text-5xl font-bold border-b-2 py-2 border-sky-100 text-sky-900 mb-4">
-                راهنمای جامع طبقه بندی متون یا "text classification"
+                راهنمای جامع طبقه بندی متون یا (text classification)
               </h1>
               <p className="text-sky-700 mb-2 text-lg leading-relaxed">
                 بیش از ۸۰ درصد از داده های موجود در دنیای دیجیتال به صورت داده
@@ -113,7 +113,7 @@ const Page = () => {
               id="section1"
               className="text-4xl text-gray-800 text-right font-bold"
             >
-              طبقه بندی کننده متن یا "text classifier" چیست ؟{" "}
+              طبقه بندی کننده متن یا t(ext classifier) چیست ؟
             </h2>
             <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
               یکی از حیاتی ترین عمل ها در پروژه هایی مانند پردازش زبان های طبیعی
@@ -144,7 +144,7 @@ const Page = () => {
               تحویل میدهند برای مثال شما 10000 پیام ورودی از مشتریان خود بعد از
               یک تبلیغات پیامکی داشته اید و نظرات آنها را در مورد برند خود
               خواسته اید شما معیار های خوب بد و خنثی را برای این طبقه بندی
-              استفاده می کنید جمله "من برند شما را خیلی دوست دارم " وارد طبقه
+              استفاده می کنید جمله (من برند شما را خیلی دوست دارم) وارد طبقه
               بندی کننده (text classifier) شما میشود و بعد از تحلیل برچسب خوب را
               به خود میگیرد و میتواند در دیگر قسمت های این برنامه تحلیل شود
             </p>
