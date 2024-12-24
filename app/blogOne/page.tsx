@@ -106,7 +106,7 @@ const Page = () => {
             ))}
           </ul>
         </div>
-
+        {/* طبقه بندی کننده متن یا "text classifier" چیست ؟ */}
         <div className=" container max-w-3xl mx-auto" dir="rtl">
           <div className="px-4 py-16  flex flex-col  justify-center gap-8 ">
             <h2
@@ -147,29 +147,37 @@ const Page = () => {
               استفاده می کنید جمله "من برند شما را خیلی دوست دارم " وارد طبقه
               بندی کننده (text classifier) شما میشود و بعد از تحلیل برچسب خوب را
               به خود میگیرد و میتواند در دیگر قسمت های این برنامه تحلیل شود
+            </p>
+            <div className="flex flex-col bg-sky-100 hover:bg-sky-50 transition-all duration-300 ease-in-out gap-2 p-4 border-r-4 border-sky-500">
+              <div className="text-right text-black">بیشتر بخوانید ...</div>
+              <p className="text-right text-gray-500 leading-relaxed">
+                لینک توضیحات کامل برنامه های ذکر شده در متن بالا با رنگ ابی مشخص
+                شده است با کلیک بر روی این کلمات میتوانید تمام اطلاعات لازم را
+                بدست بیاورید
+              </p>
+            </div>
+
+            {/* مدل چیست ؟ تفاوت مدل و طبقه بندی کننده متن */}
+
+            <h2
+              id="section1"
+              className="text-4xl text-gray-800 text-right font-bold"
+            >
+              مدل چیست ؟ تفاوت مدل و طبقه بندی کننده متن
+            </h2>
+            <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
+              خیلی از جاها ممکنه این دو به عنوان هم معنی معرفی بشند امادر اصل
+              اتفاقی که در قلب مدل یادگیری ماشین شما اتفاق میافتد لیبل زنی این
+              اطلاعات است درصورتی که شما میتواندی حتی از شبکه های عصبی (
               <Link
-                href="/"
+                href="https://en.wikipedia.org/wiki/Neural_network_(machine_learning)"
                 className="text-blue-500 hover:border-b px-1 py-0 font-bold "
               >
-                هدف بهبود
+                Neural Network
               </Link>
+              ) نیز برای انجام این عمل لیبل زنی استفاده کنید در اصل یک مدل مثل یک تخته سیاه هوشمند است که هر چه روی ان بنویسید برای شما تحلیل میکنید بر اساس دسته ای از قوانین که یک از ان ها طبقه بندی کنندگان می باشد 
             </p>
-            <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-              استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-              نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-              کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-              جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای
-              طراحان رایانه ای علی الخصوص طراحان خلاقی، و
-              <strong className="text-blue-500">
-                فرهنگ پیشرو در زبان فارسی
-              </strong>{" "}
-              ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در
-              ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز
-              شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای
-              موجود طراحی اساسا مورد استفاده قرار گیرد.
-            </p>
+
             <div className="flex flex-col bg-sky-100 hover:bg-sky-50 transition-all duration-300 ease-in-out gap-2 p-4 border-r-4 border-sky-500">
               <div className="text-right text-black">بیشتر بخوانید ...</div>
               <p className="text-right text-gray-500 leading-relaxed">
