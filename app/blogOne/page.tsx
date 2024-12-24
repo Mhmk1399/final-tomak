@@ -42,12 +42,22 @@ const Page = () => {
           <div className="flex flex-col md:flex-row items-center justify-evenly gap-8">
             <div className="md:w-1/2 lg:mr-6">
               <h1 className="text-5xl font-bold border-b-2 py-2 border-sky-100 text-sky-900 mb-4">
-                متن سربرگ وبلاگ
+                راهنمای جامع طبقه بندی متون یا "text classification"
               </h1>
               <p className="text-sky-700 mb-2 text-lg leading-relaxed">
-                محتوای متن شما در اینجا قرار می گیرد. به اندازه نیاز متن اضافه
-                کنید. این در کنار تصویر در یک چیدمان پاسخگو ظاهر می شود که پشته
-                می شود در دستگاه های تلفن همراه
+                بیش از ۸۰ درصد از داده های موجود در دنیای دیجیتال به صورت داده
+                های متنی هستند تحلیل کردن و فهمیدن این داده های متنی امتیاز
+                مهمیست که از طریق هوش مصنوعی و یادگیری ماشین برای بیزینس های
+                مختلف امکان پذیر شده است بیزینس ها میتوانند با تحلیل و نتیجه
+                گیری از این داده ها در فضا های مجازی ، مقالات ،اسناد و مدارک
+                و... مقرون به صرفگی و بازدهی تبلیغات  و تمام روند هایی که در کسب
+                و کارشان از طریق مکالمات متنی انجام میشود را افزایش دهند ما در
+                این مقاله سعی کردیم یک دیدگاه کلی از این تکنولوژی به شما بدیم و
+                چند مورد از مهمترین مدل های تحلیل این داده ها را معرفی کنیم در
+                ابتدا به معرفی چند تا از اصطلاحات پرتکرار میپردازیم که میتوانید
+                از فهرست مطالب هرکدام را به صورت جداگانه برسی کنید میتونید برای
+                یادگیری بیشتر نیز از ویدیو این مطلب در یوتوب در انتهای صفحه
+                استفاده کنید
               </p>
               <Image
                 src="/assets/images/proftestimonial.png"
@@ -65,8 +75,8 @@ const Page = () => {
             </div>
             <div className="md:w-1/2">
               <Image
-                src="/assets/images/ai.jpg"
-                alt="Description"
+                src="/assets/images/textclassificationBanner.jpeg"
+                alt=" photo made by AI about text classification"
                 width={800}
                 height={500}
                 className=" shadow-lg shadow-gray-400 hover:shadow-none transition-shadow duration-300 ease-in-out"
@@ -77,7 +87,7 @@ const Page = () => {
       </div>
       <div className="relative">
         <div
-          className="sticky lg:top-[8rem] lg:left-4 z-50 bg-white/50 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-sky-100 w-full lg:w-72"
+          className="sticky lg:top-[8rem] lg:left-4 z-50 bg-white/10 backdrop-blur-xs p-4 rounded-lg shadow-lg border border-sky-100 w-full lg:w-48"
           dir="rtl"
         >
           <h4 className="text-lg font-bold text-sky-900 mb-4 border-b pb-2">
@@ -101,29 +111,48 @@ const Page = () => {
           <div className="px-4 py-16  flex flex-col  justify-center gap-8 ">
             <h2
               id="section1"
-              className="text-7xl text-gray-800 text-right font-bold"
+              className="text-4xl text-gray-800 text-right font-bold"
             >
-              متن سربرگ وبلاگ
+              طبقه بندی کننده متن یا "text classifier" چیست ؟{" "}
             </h2>
             <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-              استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-              نیاز، و کاربردهای متنوع با{" "}
+              یکی از حیاتی ترین عمل ها در پروژه هایی مانند پردازش زبان های طبیعی
+              (
+              <Link
+                href="https://www.deeplearning.ai/resources/natural-language-processing/"
+                className="text-blue-500 hover:border-b px-1 py-0 font-bold "
+              >
+                NLP
+              </Link>
+              ) ،تحلیل جملات (
+              <Link
+                href="https://aws.amazon.com/what-is/sentiment-analysis/#:~:text=Sentiment%20analysis%20is%20the%20process,social%20media%20comments%2C%20and%20reviews."
+                className="text-blue-500 hover:border-b px-1 py-0 font-bold "
+              >
+                Sentiment Analysis
+              </Link>
+              )، تشخیص نیت و اهداف (
+              <Link
+                href="https://paperswithcode.com/task/intent-detection"
+                className="text-blue-500 hover:border-b px-1 py-0 font-bold "
+              >
+                intent detection
+              </Link>
+              ) برچسب زنی یا لیبل گذاری هر کدام از داده های ورودی میباشد طبقه
+              بندی کنندگان هر داده ی ورودی را تحلیل می کنند و با توجه به معیار
+              های درونی برنامه و یا کسب و کار شما برچسب زنی میکنند و به شما
+              تحویل میدهند برای مثال شما 10000 پیام ورودی از مشتریان خود بعد از
+              یک تبلیغات پیامکی داشته اید و نظرات آنها را در مورد برند خود
+              خواسته اید شما معیار های خوب بد و خنثی را برای این طبقه بندی
+              استفاده می کنید جمله "من برند شما را خیلی دوست دارم " وارد طبقه
+              بندی کننده (text classifier) شما میشود و بعد از تحلیل برچسب خوب را
+              به خود میگیرد و میتواند در دیگر قسمت های این برنامه تحلیل شود
               <Link
                 href="/"
                 className="text-blue-500 hover:border-b px-1 py-0 font-bold "
               >
                 هدف بهبود
-              </Link>{" "}
-              ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال
-              و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم
-              افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان
-              خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان
-              امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت
-              تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی،
-              و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده
-              قرار گیرد.
+              </Link>
             </p>
             <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
