@@ -41,9 +41,9 @@ const Page = () => {
     <div className="mx-8 my-32">
       <Banner
         src="/assets/images/heade-application-development-min-2048x725.jpg"
-        text="Services"
-        category="Services"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+        text="خدمات ما"
+        category="مهندسی و برنامه نویسی"
+        description="در این بخش ما با توجه به کسب و کار شما یک راه کار برای بازدهی بخش های مختلف بیزینستون مثل تبلیغات یا فروش اراده میدیم "
       />
       <DoubleText
         heading={
