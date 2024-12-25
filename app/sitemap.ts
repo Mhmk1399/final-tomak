@@ -15,7 +15,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://www.tomakdigitalagency.ir/services',
+      url: 'https://www.tomakdigitalagency.ir/engineeringServicess',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://www.tomakdigitalagency.ir/aiServices',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.8,
@@ -38,5 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+
   ]
 }
