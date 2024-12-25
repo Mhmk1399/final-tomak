@@ -11,7 +11,10 @@ const Page = () => {
     { id: "section2", title: " مدل چیست ؟ تفاوت مدل و طبقه بندی کننده متن" },
     { id: "section3", title: "نمونه تمرینی یا traning sample" },
     { id: "section4", title: "تابع هدف یا target function" },
-    { id: "section4", title: " Hypothesis یا فرضیه در یادگیری ماشین " },
+    { id: "section5", title: " Hypothesis یا فرضیه در یادگیری ماشین " },
+    { id: "section6", title: " learning algorithm یا الگوریتم یادگیری" },
+    { id: "section7", title: "مشخص کردن هدف " },
+    { id: "section8", title: "انتخاب الگوریتم مناسب" },
   ];
 
   const scrollToSection = (id: string) => {
@@ -93,7 +96,7 @@ const Page = () => {
       </div>
       <div className="relative">
         <div
-          className="sticky lg:top-[8rem] lg:left-4 z-50 bg-white/10 backdrop-blur-xs p-4 rounded-lg shadow-lg border border-sky-100 w-full lg:w-48"
+          className="sticky lg:top-[8rem] lg:left-4 z-50 bg-white/10 backdrop-blur-xs p-4 rounded-lg shadow-lg border border-sky-100 w-full lg:w-48 lg:overflow-y-auto max-h-[calc(100vh-10rem)] lg:max-h-[calc(100vh-12rem)]"
           dir="rtl"
         >
           <h4 className="text-lg font-bold text-sky-900 mb-4 border-b pb-2">
@@ -278,6 +281,113 @@ const Page = () => {
               ایمیل اسپم است یا خیر عملکرد فرضیه با معیارهایی مانند دقت یا خطا
               سنجیده می‌شود و طی فرآیندهای بهینه‌سازی اصلاح می‌گردد تا به تابع
               هدف نزدیک‌تر شود.
+            </p>
+            {/* الگوریتم */}
+            <h3
+              id="section6"
+              className="text-xl text-gray-800 text-right font-bold"
+            >
+              learning algorithm یا الگوریتم یادگیری
+            </h3>
+            <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
+              الگوریتم یادگیری در یادگیری ماشین مجموعه‌ای از دستورالعمل‌ها است
+              که با استفاده از داده‌های آموزشی تلاش می‌کند تا{" "}
+              <Link href="#section5" className="text-indigo-600">
+                تابع هدف
+              </Link>{" "}
+              (رابطه بین ورودی و خروجی) را پیدا کند یا تقریب بزند. این الگوریتم
+              از دو بخش اصلی تشکیل شده است:{" "}
+              <strong className="text-green-700">تابع خطا</strong>(
+              <Link
+                href="https://www.geeksforgeeks.org/ml-common-loss-functions/"
+                className="text-blue-600"
+              >
+                Loss Function
+              </Link>
+              ) که مشخص می‌کند پیش‌بینی مدل تا چه حد با نتایج واقعی فاصله دارد.{" "}
+              <strong className="text-green-700">روش بهینه‌سازی</strong> (
+              <Link
+                className="text-blue-600"
+                href="https://www.geeksforgeeks.org/optimization-algorithms-in-machine-learning/"
+              >
+                Optimization Technique
+              </Link>
+              )که پارامترهای مدل را طوری تنظیم می‌کند که این فاصله (خطا) کمتر
+              شود. هدف اصلی الگوریتم این است که مدلی بسازد که نه‌تنها داده‌های
+              آموزشی را به‌خوبی یاد بگیرد، بلکه بتواند روی داده‌های جدید هم
+              عملکرد خوبی داشته باشد.(
+              <Link
+                className="text-blue-600"
+                href="https://www.geeksforgeeks.org/machine-learning-algorithms/"
+              >
+                Hypothesis Space
+              </Link>
+              )<strong className="text-green-700"> فضای فرضیه</strong> مجموعه‌ای
+              از تمام مدل‌های ممکن است که الگوریتم می‌تواند برای یادگیری انتخاب
+              کند. این فضا نشان می‌دهد که الگوریتم چه نوع روابطی را می‌تواند
+              بررسی کند. اگر این فضا بزرگ‌تر باشد، مدل می‌تواند روابط پیچیده‌تری
+              را یاد بگیرد، اما پیدا کردن بهترین مدل در این فضا برای اینکه
+              بتواند روی داده‌های جدید خوب عمل کند، خیلی مهم است.
+            </p>
+          </div>
+
+          <div className="flex flex-col bg-sky-100 hover:bg-sky-50 transition-all duration-300 ease-in-out gap-2 p-4 border-r-4 border-sky-500">
+            <div className="text-right text-black">نکته</div>
+            <p className="text-right text-gray-500 leading-relaxed">
+              هرجا که یک فرضیه ای برای پیش بینی یا تخمین یک چیزی در حال اجرا
+              باشه اون مدل شماست در یادگیری ماشینی که شم طراجی کردید
+            </p>
+          </div>
+        </div>
+        <div className=" container max-w-3xl mx-auto" dir="rtl">
+          <div className="px-4 py-16  flex flex-col  justify-center gap-8 ">
+            <h3
+              id="section7"
+              className="text-xl text-gray-800 text-right font-bold"
+            >
+              مشخص کردن اهداف
+            </h3>
+            <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
+              در پروژه های طیقه بندی متن ها اولین قدم تعیین هدف ها نسبت به پروژه
+              ی خودتون هستش برای مثال دسته بندی یک باشگاه مشتریان را در نظر
+              بگیرید انواع پیام های ورودی مانند تصویر زیر خواهد بود{" "}
+            </p>
+            <Image
+              src="/assets/images/textclasifierexample.png"
+              alt="Description"
+              width={800}
+              height={500}
+              className="shadow-lg"
+            />
+            <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
+              در این برنامه ابتدا تمام ورودی ها را بین سه بخش اول دسته بندی و
+              برچسب زنی میکنیم یعد از هر کدام از بخش ها یک طبقه کننده مخصوص خود
+              برای متغیر های درون خود ایجاد میکنند که بتوانم هذ داده را در درست
+              ترین طبقه بدست بیاوریم در این بخش باید مراقب افتادن داده ها روی هم
+              (
+              <Link href="" className="text-blue-600">
+                overlapin
+              </Link>
+              ) باشید یعنی اگر طبقه های شما معنی های مشابهی داشته باشند مدل شما
+              به اشتباه تصمیم گیری خواهد کرد برای مثال در تصویر بالا یک شکایت
+              درمورد دیر ارسال کردن در دو بخش از طبقه بندی های ما جای میگیرد که
+              این باعث اورلپینگ میشود
+            </p>
+            <h3
+              id="section8"
+              className="text-xl text-gray-800 text-right font-bold"
+            >
+              انتخاب الگوریتم مناسب
+            </h3>
+            <p className=" text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
+              <Link href="https://www.python.org/" className="text-blue-600">
+                پایتون{" "}
+              </Link>
+              محبوب‌ترین زبان برای طبقه‌بندی متن با استفاده از یادگیری ماشین
+              است. زبان پایتون به دلیل ساده بودن و کتابخانه‌هایمتعددی که برای
+              ایجاد الگوریتم‌ها در دسترس دارد بسیار مورد استفاده قرار می‌گیرد.
+              در ادامه، الگوریتم‌های استانداردی آورده شده‌اند که به شما کمک کنیم
+              بهترین الگوریتم را برای پروژه طبقه‌بندی متن خود انتخاب کنید.
             </p>
           </div>
         </div>
