@@ -77,9 +77,14 @@ const Page = () => {
               />
               <span className="text-black font-medium mr-2">
                 نویسنده :{" "}
-                <strong className="text-sky-600 hover:underline">
+                <Link
+                  href="www.linkedin.com/in/mohamad-hosein-mohamad-khani-a52373189
+
+"
+                  className="text-sky-600 hover:underline"
+                >
                   محمدحسین محمدخانی
-                </strong>
+                </Link>
               </span>
             </div>
             <div className="md:w-1/2">
