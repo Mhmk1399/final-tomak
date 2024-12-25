@@ -32,7 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 4,
     },
-
-    // Add more URLs as needed
+    {
+      url: 'https://www.tomakdigitalagency.ir/Text-Classifiers-in-Machine-Learning-A-Practical-Guide-in-persian',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 2,
+    },
+    
   ]
 }
