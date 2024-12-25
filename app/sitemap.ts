@@ -6,38 +6,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.tomakdigitalagency.ir/',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: 'https://www.tomakdigitalagency.ir/about',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 2,
+      priority: 0.8,
     },
     {
       url: 'https://www.tomakdigitalagency.ir/services',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 3,
+      priority: 0.8,
     },
     {
       url: 'https://www.tomakdigitalagency.ir/contact',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 3,
+      priority: 0.8,
     },
     {
       url: 'https://www.tomakdigitalagency.ir/blog',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 4,
+      priority: 0.7,
     },
     {
       url: 'https://www.tomakdigitalagency.ir/Text-Classifiers-in-Machine-Learning-A-Practical-Guide-in-persian',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 2,
+      priority: 0.8,
     },
-    
   ]
 }
