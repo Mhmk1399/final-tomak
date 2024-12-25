@@ -203,7 +203,7 @@ const Hero = () => {
           </div>
           <Help />
           <Circle />
-          <BlogPost />
+          {/* <BlogPost /> */}
         </div>
       )}
     </>
