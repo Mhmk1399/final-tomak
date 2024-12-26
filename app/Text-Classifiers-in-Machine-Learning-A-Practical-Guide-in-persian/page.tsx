@@ -520,11 +520,11 @@ const Page = () => {
               >
                 قضیه بیز
               </Link>
-              ) ساخته شده است. این الگوریتم با یک فرض ساده‌انگارانه (Naïve)
-              کار می‌کند: وجود یک ویژگی در یک دسته، مستقل از وجود سایر
-              ویژگی‌هاست. این طبقه‌بندی‌کننده از نوع احتمالاتی است، یعنی برای هر
-              متن ورودی، احتمال تعلق به هر دسته را محاسبه کرده و دسته‌ای با
-              بالاترین احتمال را انتخاب می‌کند.
+              ) ساخته شده است. این الگوریتم با یک فرض ساده‌انگارانه (Naïve) کار
+              می‌کند: وجود یک ویژگی در یک دسته، مستقل از وجود سایر ویژگی‌هاست.
+              این طبقه‌بندی‌کننده از نوع احتمالاتی است، یعنی برای هر متن ورودی،
+              احتمال تعلق به هر دسته را محاسبه کرده و دسته‌ای با بالاترین احتمال
+              را انتخاب می‌کند.
             </p>
 
             <div className="flex flex-col bg-sky-100 hover:bg-sky-50 transition-all duration-300 ease-in-out gap-2 p-4 border-r-4 border-sky-500">
@@ -552,18 +552,18 @@ const Page = () => {
                 درباره ورزش هستند).
                 <br />
                 <span dir="ltr">P(جمله | ورزش)</span> احتمال اینکه جمله یک بازی
-                بسیار نزدیک در دسته ورزش ظاهر شود (با استفاده از داده‌های
-                آموزشی محاسبه می‌شود).
+                بسیار نزدیک در دسته ورزش ظاهر شود (با استفاده از داده‌های آموزشی
+                محاسبه می‌شود).
                 <br />
                 <span dir="ltr">P(جمله)</span> احتمال اینکه جمله یک بازی بسیار
-                نزدیک به طور کلی ظاهر شود، که می‌تواند به عنوان مجموع
-                احتمال‌های هر دسته محاسبه شود.
+                نزدیک به طور کلی ظاهر شود، که می‌تواند به عنوان مجموع احتمال‌های
+                هر دسته محاسبه شود.
               </p>
               <p className="text-right text-gray-500 leading-relaxed">
-                فرض کنید در داده‌های آموزشی، کلمات بازی و نزدیک به احتمال
-                بیشتری در متن‌های ورزشی ظاهر شده‌اند. با فرض استقلال کلمات (فرض
-                نایو بودن)، محاسبه <span dir="ltr">P(جمله | ورزش)</span> به صورت
-                زیر انجام می‌شود:
+                فرض کنید در داده‌های آموزشی، کلمات بازی و نزدیک به احتمال بیشتری
+                در متن‌های ورزشی ظاهر شده‌اند. با فرض استقلال کلمات (فرض نایو
+                بودن)، محاسبه <span dir="ltr">P(جمله | ورزش)</span> به صورت زیر
+                انجام می‌شود:
                 <br />
                 <span dir="ltr">P(بازی | ورزش) * P(نزدیک | ورزش)</span>
               </p>
@@ -576,12 +576,12 @@ const Page = () => {
             </div>
 
             <p className="text-lg text-justify text-gray-700 leading-relaxed lg:py-4 lg:px-0 px-4">
-              کلمه ساده‌انگارانه (Naïve) از این واقعیت می‌آید که تمام
-              ویژگی‌های جمله به طور مستقل در تعیین موضوع ورزشی بودن یا نبودن آن
-              نقش دارند. با وجود این ساده‌سازی، مدل نایو بیز به دلیل سادگی در
-              ساخت و توانایی کار با مجموعه داده‌های بزرگ، بسیار محبوب است و در
-              بسیاری موارد حتی از سیستم‌های طبقه‌بندی پیشرفته‌تر نیز عملکرد
-              بهتری نشان می‌دهد.
+              کلمه ساده‌انگارانه (Naïve) از این واقعیت می‌آید که تمام ویژگی‌های
+              جمله به طور مستقل در تعیین موضوع ورزشی بودن یا نبودن آن نقش دارند.
+              با وجود این ساده‌سازی، مدل نایو بیز به دلیل سادگی در ساخت و
+              توانایی کار با مجموعه داده‌های بزرگ، بسیار محبوب است و در بسیاری
+              موارد حتی از سیستم‌های طبقه‌بندی پیشرفته‌تر نیز عملکرد بهتری نشان
+              می‌دهد.
             </p>
           </div>
         </div>
@@ -1082,6 +1082,42 @@ const Page = () => {
                     className="hover:text-blue-600"
                   >
                     Natural Language Toolkit (NLTK) Documentation
+                  </Link>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-600">•</span>
+                  <Link
+                    href="https://levity.ai/blog/text-classifiers-in-machine-learning-a-practical-guide"
+                    className="hover:text-blue-600"
+                  >
+                    Levity AI Blog - Text Classifiers in Machine Learning
+                  </Link>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-600">•</span>
+                  <Link
+                    href="https://www.ibm.com/think/topics/machine-learning-algorithms"
+                    className="hover:text-blue-600"
+                  >
+                    IBM - Machine Learning Algorithms
+                  </Link>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-600">•</span>
+                  <Link
+                    href="https://docs.aws.amazon.com/machine-learning/latest/dg/learning-algorithm.html"
+                    className="hover:text-blue-600"
+                  >
+                    AWS Documentation - Learning Algorithms
+                  </Link>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-600">•</span>
+                  <Link
+                    href="https://www.javatpoint.com/hypothesis-in-machine-learning"
+                    className="hover:text-blue-600"
+                  >
+                    Javatpoint - Hypothesis in Machine Learning
                   </Link>
                 </li>
               </ul>
