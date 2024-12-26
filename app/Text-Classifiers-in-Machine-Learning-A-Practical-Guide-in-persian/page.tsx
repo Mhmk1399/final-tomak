@@ -134,15 +134,15 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="relative">
+      <div className="relative mb-64">
         <div
-          className="sticky lg:top-[8rem] lg:left-4 z-50 bg-white/10 backdrop-blur-xs p-4 rounded-lg shadow-lg border border-sky-100 w-full lg:w-48 lg:overflow-y-auto max-h-[calc(100vh-10rem)] lg:max-h-[calc(100vh-12rem)]"
+          className="sticky lg:top-[8rem] lg:left-4 z-50 bg-white/10 backdrop-blur-xs p-4 rounded-lg shadow-lg border border-sky-100 w-full lg:w-48 lg:overflow-y-auto h-[100vh]  lg:max-h-[calc(100vh-12rem)]"
           dir="rtl"
         >
           <h4 className="text-lg font-bold text-sky-900 mb-4 border-b pb-2">
             فهرست مطالب
           </h4>
-          <ul className="space-y-2">
+          <ul className="space-y-1">
             {tableOfContents.map((item) => (
               <li key={item.id}>
                 <button
@@ -931,9 +931,9 @@ const Page = () => {
                 </h4>
                 <p className="text-gray-700">
                   میانگین هارمونیک صحت و فراخوانی. فرمول:
-                  <div className="bg-white p-3 mt-2 rounded text-center font-mono">
+                  <span className="bg-white p-3 mt-2 rounded text-center font-mono">
                     F1 = 2 × (Precision × Recall) / (Precision + Recall)
-                  </div>
+                  </span>
                 </p>
               </div>
             </div>
