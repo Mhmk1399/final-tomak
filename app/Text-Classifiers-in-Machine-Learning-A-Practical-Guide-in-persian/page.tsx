@@ -134,9 +134,9 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="relative mb-64">
+      <div className="relative">
         <div
-          className="sticky lg:top-[8rem] lg:left-4 z-50 bg-white/10 backdrop-blur-xs p-4 rounded-lg shadow-lg border border-sky-100 w-full lg:w-48 lg:overflow-y-auto h-[100vh]  lg:max-h-[calc(100vh-12rem)]"
+          className="sticky  mb-12 sm:overflow-y-auto sm:h-100vh  lg:top-[8rem] lg:left-4 z-50 bg-white/10 backdrop-blur-xs p-4 rounded-lg shadow-lg border border-sky-100 w-full lg:w-48 lg:overflow-y-auto   lg:max-h-[calc(100vh-12rem)]"
           dir="rtl"
         >
           <h4 className="text-lg font-bold text-sky-900 mb-4 border-b pb-2">
