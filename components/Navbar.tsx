@@ -138,33 +138,33 @@ const Navbar = () => {
           children: [
             {
               name: "طراحی سایت و وب اپلیکیشن",
-              href: "/servicess/web-development/web-design",
+              href: "/engineeringServicess",
             },
             {
               name: "طراحی اپلیکیشن موبایل",
-              href: "/servicess/web-development/mobile-development",
+              href: "/engineeringServicess",
             },
             {
               name: "طراحی پرتال و اتوماسیون",
-              href: "/servicess/web-development/software-development",
+              href: "/engineeringServicess",
             },
           ],
         },
         {
           name: "دیتا و هوش مصنوعی",
-          href: "/servicess/data-science",
+          href: "/aiServices",
           children: [
             {
               name: "شخصی سازی هوش مصنوعی",
-              href: "/servicess/ai/ai-personalization",
+              href: "/aiServices",
             },
             {
               name: "BI  یا هوش مجازی",
-              href: "/servicess/ai/bi-or-virtual-intelligence",
+              href: "/aiServices",
             },
             {
               name: "جمع آوری و مرتب سازی داده ها",
-              href: "/servicess/ai/artificial-intelligence",
+              href: "/aiServices",
             },
           ],
         },

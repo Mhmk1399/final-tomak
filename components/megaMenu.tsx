@@ -3,15 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   FaCode,
-  FaDatabase,
   FaRobot,
   FaMobileAlt,
   FaLaptopCode,
-  FaChartLine,
   FaArrowLeft,
   FaTimes,
+  FaLanguage,
 } from "react-icons/fa";
-import { MdWebAsset, MdAutoGraph } from "react-icons/md";
+import {
+  MdWebAsset,
+  MdOutlineRemoveRedEye,
+  MdPsychology,
+} from "react-icons/md";
 
 const megaMenuItems = [
   {
@@ -22,19 +25,19 @@ const megaMenuItems = [
     children: [
       {
         name: "طراحی وب اپلیکیشن",
-        href: "/servicess/web-development/web-design",
+        href: "/engineeringServicess",
         icon: <MdWebAsset className="text-blue-600 w-6 h-6" />,
         description: "توسعه وب‌سایت‌های پیشرفته با آخرین تکنولوژی‌ها",
       },
       {
         name: "توسعه اپلیکیشن موبایل",
-        href: "/servicess/web-development/mobile-development",
+        href: "/engineeringServicess",
         icon: <FaMobileAlt className="text-green-600 w-6 h-6" />,
         description: "اپلیکیشن‌های هوشمند برای iOS و Android",
       },
       {
         name: "اتوماسیون سازمانی",
-        href: "/servicess/web-development/software-development",
+        href: "/engineeringServicess",
         icon: <FaLaptopCode className="text-purple-600 w-6 h-6" />,
         description: "راهکارهای هوشمند برای بهینه‌سازی فرآیندها",
       },
@@ -47,22 +50,22 @@ const megaMenuItems = [
     bgColor: "bg-purple-50",
     children: [
       {
-        name: "تحلیل داده‌ها",
-        href: "/servicess/ai/data-analysis",
-        icon: <FaChartLine className="text-indigo-600 w-6 h-6" />,
-        description: "استخراج بینش‌ راهبردی از داده‌ها",
+        name: "پردازش زبان طبیعی فارسی",
+        href: "/aiServices",
+        icon: <FaLanguage className="text-indigo-600 w-6 h-6" />,
+        description: "راهکارهای هوشمند پردازش متن و گفتار فارسی",
       },
       {
-        name: "هوش تجاری",
-        href: "/servicess/ai/business-intelligence",
-        icon: <MdAutoGraph className="text-green-600 w-6 h-6" />,
-        description: "تصمیم‌گیری هوشمندانه با ابزارهای پیشرفته",
+        name: "یادگیری ماشین سفارشی",
+        href: "/aiServices",
+        icon: <MdPsychology className="text-green-600 w-6 h-6" />,
+        description: "مدل‌های یادگیری ماشین مختص کسب‌وکار شما",
       },
       {
-        name: "مدل‌سازی پیشبینی",
-        href: "/servicess/ai/predictive-modeling",
-        icon: <FaDatabase className="text-red-600 w-6 h-6" />,
-        description: "پیش‌بینی روندها با الگوریتم‌های پیچیده",
+        name: "بینایی ماشین",
+        href: "/aiServices",
+        icon: <MdOutlineRemoveRedEye className="text-red-600 w-6 h-6" />,
+        description: "پردازش تصویر و تشخیص الگو برای صنایع مختلف",
       },
     ],
   },
@@ -104,8 +107,8 @@ const MegaMenu = () => {
 
       {activeMenu === "خدمات" && (
         <div
-        className="fixed top-[50px] left-0 right-0 w-screen min-w-max mt-2 z-50"
-        onMouseEnter={() => setIsMenuPersistent(true)}
+          className="fixed top-[50px] left-0 right-0 w-screen min-w-max mt-2 z-50"
+          onMouseEnter={() => setIsMenuPersistent(true)}
         >
           <div className="bg-gray-100 shadow-2xl rounded-xl overflow-hidden p-10 max-w-5xl mx-auto grid grid-cols-3 divide-x">
             {/* Categories Column */}

@@ -1,5 +1,5 @@
 "use client";
-import BlogPost from "@/components/blogPost";
+// import BlogPost from "@/components/blogPost";
 import Circle from "@/components/circle";
 import Help from "@/components/Help";
 import React, { useState, useEffect, useRef } from "react";
@@ -203,7 +203,7 @@ const Hero = () => {
           </div>
           <Help />
           <Circle />
-          <BlogPost />
+          {/* <BlogPost /> */}
         </div>
       )}
     </>
