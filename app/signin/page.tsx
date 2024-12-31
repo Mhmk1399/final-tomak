@@ -51,6 +51,7 @@ const Login: React.FC = () => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formValues = Object.fromEntries(formData);
+    
 
     const { name, phone, email, password, confirmPassword } = formValues;
 
