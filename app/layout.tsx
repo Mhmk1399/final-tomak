@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-// import { sahel } from "@/next-persian-fonts/sahel";
 import { ray } from "@/next-persian-fonts/ray";
 import Script from "next/script";
 
@@ -28,6 +27,11 @@ export default function RootLayout({
           href="/public/assets/images/loading.gif"
           as="image"
           type="image/gif"
+        />
+        <link
+          rel="icon"
+          href="/assets/images/favicon.png"
+          type="image/x-icon"
         />
 
         <Script id="google-tag-manager" strategy="afterInteractive">
