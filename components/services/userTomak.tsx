@@ -22,7 +22,7 @@ const UserTomak = () => {
       id: 2,
       name: "حسین ذوالقدر",
       role: "مهندس نرم افزار",
-      description: "متخصص در طراحی سایت و تولید محتوا",
+      description: "متخصص در طراحی سایت و فرانت‌اند",
       images: [
         "/assets/images/h1.png",
         "/assets/images/h2.png",
@@ -46,7 +46,7 @@ const UserTomak = () => {
         <div className="space-y-20">
           {teamMembers.map((member) => (
             <div key={member.id} className="relative">
-              <div className="flex justify-between items-center gap-12">
+              <div className="flex justify-between items-center gap-12 border-b border-gray-300 pb-12">
                 <motion.div
                   className="flex-1"
                   initial={{ opacity: 0, x: -50 }}

@@ -19,7 +19,7 @@ const Diffrent: React.FC<DiffrentProps> = ({
 }) => {
   return (
     <div dir="rtl" className=" mx-20 my-10 ">
-      <h1 className="p-4 text-blue-600 text-lg lg:text-3xl mb-7 ">
+      <h1 className="p-4 text-blue-600 text-lg text-nowrap lg:text-3xl mb-7 ">
         چه چیزی در مورد <strong>تومک</strong> متفاوت است ...
       </h1>
       <div className="flex flex-col lg:flex-row items-center justify-center">

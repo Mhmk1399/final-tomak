@@ -34,11 +34,11 @@ const About = () => {
         dir="rtl"
       >
         <div
-          className={`max-w-5xl mx-4 flex flex-col border border-gray-300 items-center justify-center my-32 p-4 bg-secondary/10 backdrop-blur-md shadow-lg transform transition duration-700 ease-in-out ${
+          className={`max-w-4xl mx-4 flex flex-col border rounded-xl border-gray-300 items-center justify-center my-32 p-4  backdrop-blur-md ring ring-gray-100 transform transition duration-700 ease-in-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-3xl font-bold mb-4 p-2 text-center text-black">
+          <h1 className="text-2xl lg:text-3xl font-bold my-7 p-2 text-center text-black border-b border-blue-100 ">
             چی شد که ما اومدیم؟
           </h1>
           <Image
@@ -49,7 +49,7 @@ const About = () => {
             className="my-5"
           />
 
-          <p className="text-lg text-black/90 mb-6 p-8 text-justify rounded-xl bg-white/90 ">
+          <p className="text-lg text-black/90 mb-6 p-8 text-justify rounded-xl bg-gray-50 ">
             این یک درباره ما کاملاً متفاوت است! تیم ما از دو هسته‌ی اصلی،
             محمدحسین محمدخانی و محمدمهدی رحمانی، تشکیل شده. هر کدام تخصص‌های
             مختلفی دارند که می‌شود گفت دو بال اصلی هر بیزینس هستند. همین باعث شد
@@ -114,7 +114,6 @@ const About = () => {
         />
 
         <UserTomak />
-
       </div>
     </>
   );
