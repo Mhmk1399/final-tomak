@@ -29,7 +29,7 @@ const Footer = () => {
     contact: {
       title: "ارتباط با ما",
       items: [
-        { type: "email", value: "tomacAgency@gmail.com" },
+        { type: "email", value: "toomakcompany@gmail.com" },
         { type: "address", value: "فلسطین - بزرگمهر - پلاک 78" },
       ],
     },
