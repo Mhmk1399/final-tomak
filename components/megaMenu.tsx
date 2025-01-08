@@ -20,7 +20,7 @@ const megaMenuItems = [
   {
     name: "مهندسی نرم‌افزار",
     icon: <FaCode className="text-orange-400 w-8 h-8" />,
-    image: "/assets/images/soft.jpeg",
+    video: "/assets/images/7.mp4", // Replace with your video path
     bgColor: "bg-blue-50",
     children: [
       {
@@ -46,7 +46,7 @@ const megaMenuItems = [
   {
     name: "هوش مصنوعی",
     icon: <FaRobot className="text-purple-500 w-8 h-8" />,
-    image: "/assets/images/ai.jpg",
+    video: "/assets/images/7.mp4", // Replace with your video path
     bgColor: "bg-purple-50",
     children: [
       {
@@ -170,13 +170,16 @@ const MegaMenu = () => {
                       <div
                         className={`relative rounded-xl overflow-hidden shadow-lg ${category.bgColor}`}
                       >
-                        <Image
-                          src={category.image}
-                          alt={category.name}
-                          layout="fill"
-                          objectFit="cover"
-                          className="opacity-80 hover:opacity-100 transition-opacity duration-300"
-                        />
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+                          preload="metadata"
+                        >
+                          <source src={category.video} type="video/mp4" />
+                        </video>
                         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
                           <h3 className="text-yellow-400 font-bold text-lg">
                             {category.name}
