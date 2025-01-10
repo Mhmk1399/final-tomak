@@ -26,7 +26,10 @@ const Blogs = () => {
               relative overflow-hidden shadow-md 
               group ${getGridClass(index)}
             `}
-          >
+          ><Link
+          href={post.link}
+          className="text-white hover:text-blue-200 group flex items-center"
+        >
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
               <Image
@@ -53,10 +56,7 @@ const Blogs = () => {
                 </p>
 
                 <div className="flex justify-between items-center">
-                  <Link
-                    href={post.link}
-                    className="text-white hover:text-blue-200 group flex items-center"
-                  >
+                  
                     مطالعه بیشتر
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -72,13 +72,13 @@ const Blogs = () => {
                         d="M11 17l-5-5m0 0l5-5m-5 5h12"
                       />
                     </svg>
-                  </Link>
+                  
                   <span className="text-xs">
                     مدت مطالعه: {post.time} دقیقه
                   </span>
                 </div>
               </div>
-            </div>
+            </div></Link>
           </div>
         ))}
       </div>
