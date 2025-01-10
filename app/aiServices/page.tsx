@@ -195,7 +195,7 @@ const Page = () => {
         videoSrc={{
           "1080p": "/assets/videos/fullai.mp4",
           "720p": "/assets/videos/fullai.mp4",
-          "480p": "/assets/videos/fullaimp4",
+          "480p": "/assets/videos/fullai.mp4",
         }}
       />
       <DoubleText

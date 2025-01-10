@@ -33,7 +33,6 @@ const KindOfServices: React.FC<KindOfServicesProps> = ({
   servicesData,
   title,
   subtitle,
-  videosrc,
 }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
