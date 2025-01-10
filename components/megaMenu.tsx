@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   FaCode,
   FaRobot,
@@ -12,7 +11,6 @@ import {
 } from "react-icons/fa";
 import {
   MdWebAsset,
-  MdOutlineRemoveRedEye,
   MdPsychology,
 } from "react-icons/md";
 
@@ -61,12 +59,7 @@ const megaMenuItems = [
         icon: <MdPsychology className="text-green-600 w-6 h-6" />,
         description: "مدل‌های یادگیری ماشین مختص کسب‌وکار شما",
       },
-      {
-        name: "بینایی ماشین",
-        href: "/aiServices",
-        icon: <MdOutlineRemoveRedEye className="text-red-600 w-6 h-6" />,
-        description: "پردازش تصویر و تشخیص الگو برای صنایع مختلف",
-      },
+     
     ],
   },
 ];

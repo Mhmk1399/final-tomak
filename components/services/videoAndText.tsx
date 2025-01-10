@@ -1,20 +1,40 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaPlay, FaPause, FaExpand, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
+import {
+  FaPlay,
+  FaPause,
+  FaExpand,
+  FaVolumeMute,
+  FaVolumeUp,
+} from "react-icons/fa";
 
 interface VideoAndTextProps {
   heading: string;
   subText: string;
-  videoSrc: string;
+  videoSrc: {
+    "1080p": string;
+    "720p": string;
+    "480p": string;
+  };
 }
 
-const VideoAndText: React.FC<VideoAndTextProps> = ({ heading, subText, videoSrc }) => {
+interface NetworkConnection extends EventTarget {
+  downlink: number;
+  addEventListener: (type: string, listener: EventListener) => void;
+  removeEventListener: (type: string, listener: EventListener) => void;
+}
+
+const VideoAndText: React.FC<VideoAndTextProps> = ({
+  heading,
+  subText,
+  videoSrc,
+}) => {
   const ref = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [quality, setQuality] = useState("720p");
+  const [currentQuality, setCurrentQuality] = useState<keyof typeof videoSrc>("720p");
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const containerVariants = {
@@ -22,8 +42,8 @@ const VideoAndText: React.FC<VideoAndTextProps> = ({ heading, subText, videoSrc 
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   const handlePlayPause = () => {
@@ -50,9 +70,51 @@ const VideoAndText: React.FC<VideoAndTextProps> = ({ heading, subText, videoSrc 
     }
   };
 
-  const handleQualityChange = (newQuality: string) => {
-    setQuality(newQuality);
-    // Implementation for quality change logic
+  useEffect(() => {
+    const detectOptimalQuality = () => {
+      const connection = (navigator as Navigator & { connection?: NetworkConnection }).connection;
+
+      if (connection) {
+        if (connection.downlink >= 5) {
+          handleQualityChange("1080p");
+        } else if (connection.downlink >= 2) {
+          handleQualityChange("720p");
+        } else {
+          handleQualityChange("480p");
+        }
+      }
+    };
+
+    detectOptimalQuality();
+
+    const connection = (navigator as Navigator & { connection?: NetworkConnection }).connection;
+    if (connection) {
+      connection.addEventListener("change", detectOptimalQuality);
+      return () => connection.removeEventListener("change", detectOptimalQuality);
+    }
+  }, []);
+
+  const handleQualityChange = (newQuality: keyof typeof videoSrc) => {
+    if (videoRef.current) {
+      const time = videoRef.current.currentTime;
+      const wasPlaying = !videoRef.current.paused;
+
+      setCurrentQuality(newQuality);
+      videoRef.current.src = videoSrc[newQuality];
+
+      videoRef.current.addEventListener(
+        "loadedmetadata",
+        () => {
+          if (videoRef.current) {
+            videoRef.current.currentTime = time;
+            if (wasPlaying) {
+              videoRef.current.play();
+            }
+          }
+        },
+        { once: true }
+      );
+    }
   };
 
   return (
@@ -64,8 +126,8 @@ const VideoAndText: React.FC<VideoAndTextProps> = ({ heading, subText, videoSrc 
       className="my-8"
       dir="rtl"
     >
-      <div className="grid lg:grid-cols-2 gap-8 items-center">
-        <div className="space-y-6">
+      <div className="grid lg:grid-cols-2 gap-8 items-center" dir="rtl">
+        <div className="space-y-6 text-center ">
           <motion.h1
             initial={{ x: -50, opacity: 0 }}
             animate={isInView ? { x: 0, opacity: 1 } : {}}
@@ -95,7 +157,7 @@ const VideoAndText: React.FC<VideoAndTextProps> = ({ heading, subText, videoSrc 
             className="w-full h-full object-cover"
             preload="metadata"
           >
-            <source src={videoSrc} type="video/mp4" />
+            <source src={videoSrc[currentQuality]} type="video/mp4" />
           </video>
 
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
@@ -109,8 +171,9 @@ const VideoAndText: React.FC<VideoAndTextProps> = ({ heading, subText, videoSrc 
 
               <div className="flex items-center gap-4">
                 <select
-                  onChange={(e) => handleQualityChange(e.target.value)}
-                  className="bg-transparent border border-white/30 rounded px-2 py-1"
+                  value={currentQuality}
+                  onChange={(e) => handleQualityChange(e.target.value as keyof typeof videoSrc)}
+                  className="bg-transparent border border-white/30 rounded px-2 py-1 text-black"
                 >
                   <option value="1080p">1080p</option>
                   <option value="720p">720p</option>
