@@ -20,13 +20,20 @@ interface KindOfServicesProps {
   subtitle?: string;
 }
 
+const cardVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5 },
+  },
+};
+
 const KindOfServices: React.FC<KindOfServicesProps> = ({
   servicesData,
   title,
   subtitle,
 }) => {
-  const [activeService, setActiveService] = useState<number | null>(null);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,19 +42,6 @@ const KindOfServices: React.FC<KindOfServicesProps> = ({
         delayChildren: 0.3,
         staggerChildren: 0.2,
       },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-    hover: {
-      scale: 1.05,
-      transition: { duration: 0.3 },
     },
   };
 
@@ -65,7 +59,7 @@ const KindOfServices: React.FC<KindOfServicesProps> = ({
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 gap-8"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
@@ -74,18 +68,11 @@ const KindOfServices: React.FC<KindOfServicesProps> = ({
             <motion.div
               key={service.id}
               variants={cardVariants}
-              whileHover="hover"
               className={`
-                relative overflow-hidden rounded-2xl shadow-2xl 
-                transform transition-all duration-500
-                ${
-                  activeService === service.id
-                    ? "md:col-span-1 bg-gradient-to-br " + service.gradient
-                    : "bg-white md:col-span-1"
-                }
-              `}
-              onMouseEnter={() => setActiveService(service.id)}
-              onMouseLeave={() => setActiveService(null)}
+              relative overflow-hidden rounded-2xl shadow-2xl 
+              transform transition-all duration-500
+              bg-gradient-to-br ${service.gradient}
+            `}
             >
               <div className="p-8 relative z-10">
                 <div className="flex items-center mb-6">
@@ -96,39 +83,33 @@ const KindOfServices: React.FC<KindOfServicesProps> = ({
                     alt={service.title}
                     className="ml-4 filter brightness-0 invert"
                   />
-                  <h3
-                    className={`
-                    text-xl font-bold border-b pb-4 border-gray-200
-                    ${
-                      activeService === service.id
-                        ? "text-white"
-                        : "text-blue-900"
-                    }
-                  `}
-                  >
+                  <h3 className="text-xl font-bold border-b pb-4 border-gray-200 text-white">
                     {service.title}
                   </h3>
                 </div>
 
-                <AnimatePresence>
-                  {activeService === service.id && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 20 }}
-                      className="space-y-4"
-                    >
-                      <p className="text-white text-sm leading-relaxed">
-                        {service.description}
-                      </p>
-                      <ul className="text-white text-xs space-y-2 list-disc pr-4">
-                        {service.details.map((detail, index) => (
-                          <li key={index}>{detail}</li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div className="space-y-4">
+                  <p className="text-white text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="text-white text-xs space-y-2 list-disc pr-4">
+                    {service.details.map((detail, index) => (
+                      <li key={index}>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="relative pb-[56.25%] mt-2 h-0">
+                  <video
+                    className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    <source src="/assets/images/7.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
             </motion.div>
           ))}

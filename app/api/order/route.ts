@@ -1,22 +1,7 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import connect from "@/lib/data";
 import Order from "@/models/order";
 
-
-export const GET = async () => {
-  await connect();
-  if (!connect) {
-    return new NextResponse("Error connecting to MongoDB", { status: 500 });
-  }
-
-  try {
-    const users = await Order.find({});
-    return NextResponse.json(users);
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    return new NextResponse("Error fetching users", { status: 500 });
-  }
-};
 export const POST = async (req: NextRequest) => {
   await connect();
   if (!connect) {
@@ -34,7 +19,6 @@ export const POST = async (req: NextRequest) => {
       return new NextResponse("Missing required fields", { status: 400 });
     }
 
-    
     const newOrder = {
       name,
       phoneNumber,
@@ -43,11 +27,26 @@ export const POST = async (req: NextRequest) => {
       description
     };
 
-    const savedUser = await Order.create(newOrder);
-
-    return new NextResponse(JSON.stringify(savedUser), { status: 201 });
+    const savedOrder = await Order.create(newOrder);
+    return new NextResponse(JSON.stringify(savedOrder), { status: 201 });
+    
   } catch (error) {
-    console.error("Error posting users:", error);
-    return new NextResponse("Error posting users", { status: 500 });
+    console.error("Error creating order:", error);
+    return new NextResponse("Error creating order", { status: 500 });
+  }
+};
+
+export const GET = async () => {
+  await connect();
+  if (!connect) {
+    return new NextResponse("Error connecting to MongoDB", { status: 500 });
+  }
+
+  try {
+    const orders = await Order.find({}).sort({ createdAt: -1 });
+    return NextResponse.json(orders);
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return new NextResponse("Error fetching orders", { status: 500 });
   }
 };
