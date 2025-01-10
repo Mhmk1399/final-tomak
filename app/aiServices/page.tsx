@@ -20,6 +20,7 @@ const servicesData = [
       "چت‌بات‌های هوشمند فارسی‌زبان",
       "خلاصه‌سازی خودکار متون",
     ],
+    videosrc: "/assets/videos/nlpvideo.mp4",
   },
   {
     id: 2,
@@ -32,6 +33,7 @@ const servicesData = [
       "تشخیص الگوهای کسب‌وکار",
       "بهینه‌سازی فرآیندها",
     ],
+    videosrc: "/assets/videos/llmvideo.mp4",
   },
 ];
 const Page = () => {
@@ -191,9 +193,9 @@ const Page = () => {
 به امید آینده ای دیجیتال برای کشور عزیزمون 
 "
         videoSrc={{
-          "1080p": "/assets/images/7.mp4",
-          "720p": "/assets/images/7.mp4",
-          "480p": "/assets/images/7.mp4",
+          "1080p": "/assets/videos/fullai.mp4",
+          "720p": "/assets/videos/fullai.mp4",
+          "480p": "/assets/videos/fullaimp4",
         }}
       />
       <DoubleText

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface ServiceItem {
+  videosrc: any;
   id: number;
   title: string;
   icon: string;
@@ -17,8 +18,8 @@ interface KindOfServicesProps {
   servicesData: ServiceItem[];
   title?: string;
   subtitle?: string;
+  videosrc?: string;
 }
-
 const cardVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -32,6 +33,7 @@ const KindOfServices: React.FC<KindOfServicesProps> = ({
   servicesData,
   title,
   subtitle,
+  videosrc,
 }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -105,7 +107,7 @@ const KindOfServices: React.FC<KindOfServicesProps> = ({
                     muted
                     playsInline
                   >
-                    <source src="/assets/images/7.mp4" type="video/mp4" />
+                    <source src={`${service.videosrc}`} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
