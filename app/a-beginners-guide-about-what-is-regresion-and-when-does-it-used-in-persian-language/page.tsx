@@ -57,8 +57,330 @@ const Page = () => {
       };
     }
   }, []);
+  // Add these functions before the useEffect hook
 
   useEffect(() => {
+    // Store chart instances
+    const charts: Chart[] = [];
+
+    // Linear Regression Chart
+    const linearCtx = document.getElementById(
+      "linearRegressionChart"
+    ) as HTMLCanvasElement;
+    if (linearCtx) {
+      const linearChart = new Chart(linearCtx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "داده‌های واقعی",
+              data: [
+                { x: 80, y: 800 },
+                { x: 120, y: 1200 },
+                { x: 160, y: 1600 },
+              ],
+              backgroundColor: "rgba(59, 130, 246, 0.5)",
+            },
+            {
+              label: "خط رگرسیون",
+              type: "line",
+              data: [
+                { x: 60, y: 600 },
+                { x: 180, y: 1800 },
+              ],
+              borderColor: "rgba(59, 130, 246, 0.8)",
+              fill: false,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: "متراژ" } },
+            y: { title: { display: true, text: "قیمت (میلیون تومان)" } },
+          },
+        },
+      });
+      charts.push(linearChart);
+    }
+
+    // Polynomial Regression Chart
+    const polyCtx = document.getElementById(
+      "polynomialRegressionChart"
+    ) as HTMLCanvasElement;
+    if (polyCtx) {
+      const realData = [
+        { x: 0, y: 100 },
+        { x: 1, y: 200 },
+        { x: 2, y: 400 },
+        { x: 3, y: 800 },
+        { x: 4, y: 1600 },
+        { x: 5, y: 3200 },
+      ];
+
+      const curvePoints = Array.from({ length: 51 }, (_, i) => {
+        const x = i / 10;
+        return { x, y: 100 * Math.pow(2, x) };
+      });
+
+      const polyChart = new Chart(polyCtx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "داده‌های واقعی",
+              data: realData,
+              backgroundColor: "rgba(139, 92, 246, 0.5)",
+              pointRadius: 6,
+            },
+            {
+              label: "منحنی رگرسیون",
+              data: curvePoints,
+              type: "line",
+              borderColor: "rgba(139, 92, 246, 0.8)",
+              backgroundColor: "transparent",
+              pointRadius: 0,
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: { title: { display: true, text: "زمان (ساعت)" } },
+            y: { title: { display: true, text: "تعداد باکتری‌ها" } },
+          },
+          plugins: {
+            title: { display: true, text: "رشد جمعیت باکتری‌ها" },
+          },
+        },
+      });
+      charts.push(polyChart);
+    }
+    // Add to existing useEffect
+    const lassoCtx = document.getElementById(
+      "lassoRegressionChart"
+    ) as HTMLCanvasElement;
+    if (lassoCtx) {
+      const lassoChart = new Chart(lassoCtx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "داده‌های واقعی",
+              data: Array.from({ length: 30 }, (_, i) => ({
+                x: i / 2,
+                y: 120 + i * 2 + (Math.random() * 20 - 10),
+              })),
+              backgroundColor: "rgba(249, 115, 22, 0.5)",
+              pointRadius: 6,
+            },
+            {
+              label: "پیش‌بینی LASSO",
+              type: "line",
+              data: Array.from({ length: 30 }, (_, i) => ({
+                x: i / 2,
+                y: 120 + i * 2,
+              })),
+              borderColor: "rgba(249, 115, 22, 0.8)",
+              backgroundColor: "transparent",
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "شاخص توده بدنی",
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "فشار خون",
+              },
+            },
+          },
+        },
+      });
+      charts.push(lassoChart);
+    }
+    // Add to existing useEffect
+    const elasticNetCtx = document.getElementById(
+      "elasticNetChart"
+    ) as HTMLCanvasElement;
+    if (elasticNetCtx) {
+      const elasticNetChart = new Chart(elasticNetCtx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "داده‌های واقعی",
+              data: Array.from({ length: 50 }, (_, i) => ({
+                x: i / 5,
+                y: 1000 + i * 10 + (Math.random() * 200 - 100),
+              })),
+              backgroundColor: "rgba(99, 102, 241, 0.5)",
+              pointRadius: 6,
+            },
+            {
+              label: "پیش‌بینی ElasticNet",
+              type: "line",
+              data: Array.from({ length: 50 }, (_, i) => ({
+                x: i / 5,
+                y: 1000 + i * 10,
+              })),
+              borderColor: "rgba(99, 102, 241, 0.8)",
+              backgroundColor: "transparent",
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "زمان (روز)",
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "قیمت سهام (تومان)",
+              },
+            },
+          },
+        },
+      });
+      charts.push(elasticNetChart);
+    }
+    // Add to existing useEffect
+    const bayesianCtx = document.getElementById(
+      "bayesianRegressionChart"
+    ) as HTMLCanvasElement;
+    if (bayesianCtx) {
+      const bayesianChart = new Chart(bayesianCtx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "داده‌های واقعی",
+              data: Array.from({ length: 30 }, (_, i) => ({
+                x: i,
+                y: 50 + i * 2 + (Math.random() * 10 - 5),
+              })),
+              backgroundColor: "rgba(147, 51, 234, 0.5)",
+              pointRadius: 6,
+            },
+            {
+              label: "میانگین پیش‌بینی",
+              type: "line",
+              data: Array.from({ length: 30 }, (_, i) => ({
+                x: i,
+                y: 50 + i * 2,
+              })),
+              borderColor: "rgba(147, 51, 234, 0.8)",
+              backgroundColor: "transparent",
+              borderWidth: 2,
+            },
+            {
+              label: "فاصله اطمینان",
+              type: "line",
+              data: Array.from({ length: 30 }, (_, i) => ({
+                x: i,
+                y: 50 + i * 2 + 8,
+              })),
+              borderColor: "rgba(147, 51, 234, 0.3)",
+              backgroundColor: "rgba(147, 51, 234, 0.1)",
+              fill: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "زمان (ساعت)",
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "مصرف انرژی (کیلووات)",
+              },
+            },
+          },
+        },
+      });
+      charts.push(bayesianChart);
+    }
+
+    // Cleanup function
+    return () => {
+      charts.forEach((chart) => chart.destroy());
+    };
+  }, []);
+
+  useEffect(() => {
+    const charts: Chart[] = [];
+
+    const ridgeCtx = document.getElementById(
+      "ridgeRegressionChart"
+    ) as HTMLCanvasElement;
+    if (ridgeCtx) {
+      const ridgeChart = new Chart(ridgeCtx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "داده‌های واقعی",
+              data: Array.from({ length: 20 }, (_, i) => ({
+                x: i,
+                y: 100000 - i * 5000 + Math.random() * 2000,
+              })),
+              backgroundColor: "rgba(34, 197, 94, 0.5)",
+              pointRadius: 6,
+            },
+            {
+              label: "پیش‌بینی مدل ریج",
+              type: "line",
+              data: Array.from({ length: 20 }, (_, i) => ({
+                x: i,
+                y: 100000 - i * 5000,
+              })),
+              borderColor: "rgba(34, 197, 94, 0.8)",
+              backgroundColor: "transparent",
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "سن خودرو (سال)",
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "قیمت (تومان)",
+              },
+            },
+          },
+        },
+      });
+      charts.push(ridgeChart);
+    }
+
     const ctx = document.getElementById(
       "adPerformanceChart"
     ) as HTMLCanvasElement;
@@ -106,11 +428,73 @@ const Page = () => {
           },
         },
       });
-
-      return () => {
-        chart.destroy();
-      };
+      charts.push(chart);
     }
+    // Add to existing useEffect
+    const logisticCtx = document.getElementById(
+      "logisticRegressionChart"
+    ) as HTMLCanvasElement;
+    if (logisticCtx) {
+      const logisticChart = new Chart(logisticCtx, {
+        type: "scatter",
+        data: {
+          datasets: [
+            {
+              label: "بیماران سالم",
+              data: Array.from({ length: 20 }, () => ({
+                x: Math.random() * 50 + 100,
+                y: Math.random() * 20 + 60,
+              })),
+              backgroundColor: "rgba(34, 197, 94, 0.5)",
+              pointRadius: 6,
+            },
+            {
+              label: "بیماران قلبی",
+              data: Array.from({ length: 20 }, () => ({
+                x: Math.random() * 50 + 150,
+                y: Math.random() * 20 + 80,
+              })),
+              backgroundColor: "rgba(239, 68, 68, 0.5)",
+              pointRadius: 6,
+            },
+            {
+              label: "مرز تصمیم‌گیری",
+              type: "line",
+              data: Array.from({ length: 100 }, (_, i) => ({
+                x: i + 100,
+                y: 0.4 * i + 40,
+              })),
+              borderColor: "rgba(59, 130, 246, 0.8)",
+              backgroundColor: "transparent",
+              borderWidth: 2,
+              pointRadius: 0,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "کلسترول",
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "فشار خون",
+              },
+            },
+          },
+        },
+      });
+      charts.push(logisticChart);
+    }
+
+    return () => {
+      charts.forEach((chart) => chart.destroy());
+    };
   }, []);
   const tableOfContents = [
     {
@@ -794,195 +1178,1807 @@ const Page = () => {
               className="shadow-lg"
             />
           </div>
-        </div>
+          <div className="space-y-12">
+            {/* Linear Regression */}
+            <div className="bg-indigo-500 text-white p-4 rounded-t-xl">
+              <h3 className="text-xl font-bold flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+                  />
+                </svg>
+                رگرسیون خطی (Linear Regression)
+              </h3>
+            </div>
 
+            <div className="p-6 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Description */}
+                <div>
+                  <p className="text-gray-700 leading-relaxed">
+                    رگرسیون خطی یکی از پایه‌ای‌ترین و پرکاربردترین روش‌های تحلیل
+                    رگرسیون است که رابطه خطی بین متغیرها را مدل می‌کند. این روش
+                    در
+                    <Link
+                      href="https://scikit-learn.org/stable/modules/linear_model.html"
+                      className="text-blue-600 hover:underline mx-1"
+                    >
+                      scikit-learn
+                    </Link>
+                    و دیگر کتابخانه‌های یادگیری ماشین به طور گسترده پشتیبانی
+                    می‌شود.
+                  </p>
+                </div>
+
+                {/* Quick Facts */}
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <h4 className="font-bold text-blue-800 mb-2">
+                    ویژگی‌های کلیدی
+                  </h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-center gap-2">
+                      <span className="text-blue-500">•</span>
+                      <span>سادگی پیاده‌سازی و تفسیر</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-blue-500">•</span>
+                      <span>محاسبات سریع و کارآمد</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-blue-500">•</span>
+                      <span>مناسب برای روابط خطی</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Real-world Example */}
+              <div className="bg-gradient-to-r from-blue-50 to-white p-6 rounded-lg">
+                <h4 className="font-bold text-blue-800 mb-4">
+                  مثال کاربردی: پیش‌بینی قیمت خانه
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">
+                      متغیرها:
+                    </h5>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>متغیر مستقل (X): متراژ خانه (متر مربع)</li>
+                      <li>متغیر وابسته (Y): قیمت خانه (میلیون تومان)</li>
+                    </ul>
+                    <div className="mt-4">
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        داده‌های نمونه:
+                      </h5>
+                      <div className="bg-white p-2 rounded border">
+                        <table className="min-w-full">
+                          <thead>
+                            <tr>
+                              <th className="px-4 py-2 border text-gray-900">
+                                متراژ (X)
+                              </th>
+                              <th className="px-4 py-2 border text-gray-900">
+                                قیمت (Y)
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="px-4 py-2 border text-center text-gray-900">
+                                80
+                              </td>
+                              <td className="px-4 py-2 border text-center text-gray-900">
+                                800
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="px-4 py-2 border text-center text-gray-900">
+                                120
+                              </td>
+                              <td className="px-4 py-2 border text-center text-gray-900">
+                                1200
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="px-4 py-2 border text-center text-gray-900">
+                                160
+                              </td>
+                              <td className="px-4 py-2 border text-center text-gray-900">
+                                1600
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Chart */}
+                  <div className="bg-white border rounded-lg p-4">
+                    <canvas id="linearRegressionChart"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mathematical Details */}
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h4 className="font-bold text-gray-800 mb-4">محاسبات ریاضی</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">
+                      فرمول اصلی:
+                    </h5>
+                    <div className="bg-white p-4 rounded border">
+                      <p className="font-mono text-gray-900">
+                        Y = β₀ + β₁X + ε
+                      </p>
+                      <ul className="text-sm text-gray-600 mt-2">
+                        <li>β₀: عرض از مبدأ</li>
+                        <li>β₁: شیب خط</li>
+                        <li>ε: خطای تصادفی</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-gray-800 mb-2">
+                      محاسبه ضرایب:
+                    </h5>
+                    <div className="bg-white p-4 rounded border text-gray-900">
+                      <p className="font-mono text-gray-900">
+                        β₁ = Σ((x - x̄)(y - ȳ)) / Σ((x - x̄)²)
+                      </p>
+                      <p className="font-mono mt-2 text-gray-900">
+                        β₀ = ȳ - β₁x̄
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Resources */}
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h4 className="font-bold text-blue-800 mb-2">منابع تکمیلی</h4>
+                <ul className="space-y-2">
+                  <li>
+                    <Link
+                      href="https://www.coursera.org/learn/linear-regression-model"
+                      className="text-blue-600 hover:underline"
+                    >
+                      دوره Coursera: Linear Regression and Modeling
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://www.tensorflow.org/tutorials/keras/regression"
+                      className="text-blue-600 hover:underline"
+                    >
+                      آموزش TensorFlow: Basic Regression
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html"
+                      className="text-blue-600 hover:underline"
+                    >
+                      مستندات PyTorch: Building Linear Regression
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Polynomial Regression */}
+
+            <div className="bg-white rounded-xl shadow-lg">
+              <div className="bg-purple-500 text-white p-4 rounded-t-xl">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7m14 10a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2v8a2 2 0 002 2h2z"
+                    />
+                  </svg>
+                  رگرسیون چندجمله‌ای (Polynomial Regression)
+                </h3>
+              </div>
+
+              <div className="p-6 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Description */}
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
+                      رگرسیون چندجمله‌ای یک تکنیک قدرتمند برای مدل‌سازی روابط
+                      غیرخطی است که در آن متغیر وابسته به صورت چندجمله‌ای با
+                      متغیر مستقل ارتباط دارد. برای مثال، در مطالعه رشد گیاهان،
+                      رابطه بین ارتفاع گیاه و زمان معمولاً خطی نیست - گیاه در
+                      ابتدا سریع رشد می‌کند، سپس رشد آن کند می‌شود و در نهایت به
+                      یک حد مشخص می‌رسد. همچنین در فیزیک، حرکت پرتابه‌ها را در
+                      نظر بگیرید: مسیر یک توپ بسکتبال در هوا به شکل سهمی است که
+                      با معادله درجه دوم توصیف می‌شود. در اقتصاد نیز، رابطه بین
+                      قیمت و تقاضا اغلب غیرخطی است - با افزایش قیمت، کاهش تقاضا
+                      به صورت تدریجی شدت می‌گیرد. این نوع رگرسیون با اضافه کردن
+                      توان‌های بالاتر متغیر مستقل (مثل x², x³) می‌تواند این
+                      الگوهای پیچیده را به خوبی مدل کند.
+                      <Link
+                        href="https://scikit-learn.org/stable/modules/preprocessing.html#polynomial-features"
+                        className="text-purple-600 hover:underline mx-1"
+                      >
+                        مستندات scikit-learn
+                      </Link>
+                      روش‌های پیشرفته‌ای برای ایجاد و بهینه‌سازی این مدل‌ها
+                      ارائه می‌دهد.
+                    </p>
+                  </div>
+
+                  {/* Quick Facts */}
+                  <div className="bg-purple-50 p-4 rounded-lg">
+                    <h4 className="font-bold text-purple-800 mb-2">
+                      ویژگی‌های کلیدی
+                    </h4>
+                    <ul className="space-y-2 text-gray-700">
+                      <li className="flex items-center gap-2">
+                        <span className="text-purple-500">•</span>
+                        <span>مناسب برای روابط غیرخطی</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-purple-500">•</span>
+                        <span>انعطاف‌پذیری در مدل‌سازی منحنی‌ها</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-purple-500">•</span>
+                        <span>قابلیت تشخیص الگوهای پیچیده</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Real-world Example */}
+                <div className="bg-gradient-to-r from-purple-50 to-white p-6 rounded-lg">
+                  <h4 className="font-bold text-purple-800 mb-4">
+                    مثال کاربردی: رشد جمعیت باکتری‌ها
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        متغیرها:
+                      </h5>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>متغیر مستقل (X): زمان (ساعت)</li>
+                        <li>متغیر وابسته (Y): تعداد باکتری‌ها</li>
+                      </ul>
+                      <div className="mt-4">
+                        <h5 className="font-semibold text-gray-800 mb-2">
+                          داده‌های نمونه:
+                        </h5>
+                        <div className="bg-white p-2 rounded border">
+                          <table className="min-w-full">
+                            <thead>
+                              <tr>
+                                <th className="px-4 py-2 border text-gray-900">
+                                  زمان (X)
+                                </th>
+                                <th className="px-4 py-2 border text-gray-900">
+                                  تعداد باکتری (Y)
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td className="px-4 py-2 border text-center text-gray-900">
+                                  0
+                                </td>
+                                <td className="px-4 py-2 border text-center text-gray-900">
+                                  100
+                                </td>
+                              </tr>
+                              <tr>
+                                <td className="px-4 py-2 border text-center text-gray-900">
+                                  2
+                                </td>
+                                <td className="px-4 py-2 border text-center text-gray-900">
+                                  400
+                                </td>
+                              </tr>
+                              <tr>
+                                <td className="px-4 py-2 border text-center text-gray-900">
+                                  4
+                                </td>
+                                <td className="px-4 py-2 border text-center text-gray-900">
+                                  1600
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Chart */}
+                    <div className="bg-white border rounded-lg p-4">
+                      <canvas id="polynomialRegressionChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mathematical Details */}
+                {/* Mathematical Details */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-gray-800 mb-4">
+                    محاسبات ریاضی
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        فرمول چندجمله‌ای درجه n:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">
+                          Y = β₀ + β₁X + β₂X² + β₃X³ + ... + βₙXⁿ + ε
+                        </p>
+                        <div className="text-sm text-gray-600 mt-4 space-y-2">
+                          <p className="font-bold">توضیح اجزای فرمول:</p>
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono">β₀</span>: عرض از مبدأ
+                              که نقطه شروع منحنی را مشخص می‌کند
+                            </li>
+                            <li>
+                              <span className="font-mono">β₁X</span>: جزء خطی که
+                              روند کلی تغییرات را نشان می‌دهد
+                            </li>
+                            <li>
+                              <span className="font-mono">β₂X²</span>: جزء درجه
+                              دوم که انحنای اصلی منحنی را شکل می‌دهد
+                            </li>
+                            <li>
+                              <span className="font-mono">βₙXⁿ</span>: اجزای
+                              درجه بالاتر که جزئیات پیچیده‌تر منحنی را کنترل
+                              می‌کنند
+                            </li>
+                            <li>
+                              <span className="font-mono">ε</span>: خطای تصادفی
+                              که نویز و تغییرات غیرقابل پیش‌بینی را مدل می‌کند
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        محاسبه ضرایب بهینه:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">{"β = (Z'Z)⁻¹Z'y"}</p>
+                        <div className="text-sm text-gray-600 mt-4 space-y-2">
+                          <p className="font-bold">توضیح اجزای فرمول:</p>
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono">Z</span>: ماتریس
+                              ویژگی‌های چندجمله‌ای شامل توان‌های X
+                            </li>
+                            <li>
+                              <span className="font-mono">{"Z'"}</span>: ترانهاده
+                              ماتریس ویژگی‌های چندجمله‌ای
+                            </li>
+                            <li>
+                              <span className="font-mono">{"(Z'Z)⁻¹"}</span>: معکوس
+                              حاصلضرب ماتریس‌ها برای یافتن ضرایب بهینه
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="bg-purple-50 p-3 rounded mt-4">
+                          <p className="text-sm text-purple-800">
+                            این فرمول‌ها به ما امکان می‌دهند روابط غیرخطی پیچیده
+                            را با دقت بالا مدل‌سازی کنیم. درجه چندجمله‌ای (n)
+                            باید با توجه به پیچیدگی داده‌ها و خطر بیش‌برازش
+                            انتخاب شود.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Code Example */}
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg">
+                  <h4 className="font-bold mb-2">نمونه کد Python:</h4>
+                  <pre className="text-sm">
+                    {`from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+
+# Create polynomial features
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(X)
+
+# Fit polynomial regression
+model = LinearRegression()
+model.fit(X_poly, y)`}
+                  </pre>
+                </div>
+
+                {/* Additional Resources */}
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <h4 className="font-bold text-purple-800 mb-2">
+                    منابع تکمیلی
+                  </h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/learn/ml-regression"
+                        className="text-purple-600 hover:underline"
+                      >
+                        دوره Coursera: Machine Learning - Regression
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.kaggle.com/code/residentmario/polynomial-regression"
+                        className="text-purple-600 hover:underline"
+                      >
+                        Kaggle: Polynomial Regression Tutorial
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://numpy.org/doc/stable/reference/routines.polynomials.html"
+                        className="text-purple-600 hover:underline"
+                      >
+                        NumPy: Polynomial Documentation
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* 3. Ridge Regression */}
+            {/* Ridge Regression */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <div className="bg-green-500 text-white p-4 rounded-t-xl">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    />
+                  </svg>
+                  رگرسیون ریج (Ridge Regression)
+                </h3>
+              </div>
+
+              <div className="p-6 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Description */}
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
+                      رگرسیون ریج یک تکنیک پیشرفته برای بهبود دقت پیش‌بینی در
+                      شرایط پیچیده است. تصور کنید می‌خواهید قیمت خانه را بر اساس
+                      ویژگی‌های متعدد پیش‌بینی کنید: متراژ، تعداد اتاق‌ها، سن
+                      ساختمان، فاصله تا مرکز شهر و کیفیت مصالح. این ویژگی‌ها
+                      اغلب با هم همبستگی دارند - مثلاً خانه‌های بزرگ‌تر معمولاً
+                      تعداد اتاق بیشتری دارند. در چنین شرایطی، رگرسیون خطی ساده
+                      ممکن است ضرایب بسیار بزرگی به برخی ویژگی‌ها اختصاص دهد و
+                      دچار (overfitting)بیش‌برازش شود. رگرسیون ریج با اضافه کردن
+                      یک جریمه (λ||β||²) به تابع هزینه، از این مشکل جلوگیری
+                      می‌کند. در مثال قیمت خانه، اگر λ = 1000 باشد، مدل از
+                      اختصاص وزن بیش از حد به متراژ یا تعداد اتاق‌ها خودداری
+                      می‌کند و تمام ویژگی‌ها را به طور متعادل در نظر می‌گیرد.
+                      این روش در صنعت داروسازی نیز کاربرد گسترده‌ای دارد - برای
+                      پیش‌بینی اثربخشی داروها بر اساس صدها ویژگی مولکولی، که
+                      بسیاری از آنها همبستگی بالایی دارند.
+                      <Link
+                        href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression"
+                        className="text-green-600 hover:underline mx-1"
+                      >
+                        مستندات scikit-learn
+                      </Link>
+                      ابزارهای قدرتمندی برای پیاده‌سازی و تنظیم این مدل ارائه
+                      می‌دهد.
+                    </p>
+                  </div>
+
+                  {/* Quick Facts */}
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h4 className="font-bold text-green-800 mb-2">
+                      ویژگی‌های کلیدی
+                    </h4>
+                    <ul className="space-y-2 text-gray-700">
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">•</span>
+                        <span>کنترل پیچیدگی مدل با پارامتر λ</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">•</span>
+                        <span>کاهش واریانس مدل</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-green-500">•</span>
+                        <span>حفظ تمام ویژگی‌ها در مدل</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Real-world Example */}
+                <div className="bg-gradient-to-r from-green-50 to-white p-6 rounded-lg">
+                  <h4 className="font-bold text-green-800 mb-4">
+                    مثال کاربردی: پیش‌بینی قیمت خودرو
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        متغیرها:
+                      </h5>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• سن خودرو (سال)</li>
+                        <li>• کیلومتر کارکرد</li>
+                        <li>• حجم موتور</li>
+                        <li>• مصرف سوخت</li>
+                        <li>• برند خودرو</li>
+                      </ul>
+                    </div>
+
+                    {/* Chart */}
+                    <div className="bg-white border rounded-lg p-4">
+                      <canvas id="ridgeRegressionChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mathematical Details */}
+                {/* Mathematical Details */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-gray-800 mb-4">
+                    محاسبات ریاضی
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        تابع هزینه:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">
+                          L = ||y - Xβ||² + λ||β||²
+                        </p>
+                        <div className="text-sm text-gray-600 mt-4 space-y-2">
+                          <p className="font-bold">توضیح اجزای فرمول:</p>
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono">||y - Xβ||²</span>:
+                              مجموع مربعات خطا که فاصله بین مقادیر واقعی و
+                              پیش‌بینی شده را محاسبه می‌کند
+                            </li>
+                            <li>
+                              <span className="font-mono">λ</span>: پارامتر
+                              تنظیم که میزان جریمه را کنترل می‌کند. مقادیر
+                              بزرگتر λ باعث کاهش بیشتر ضرایب می‌شود
+                            </li>
+                            <li>
+                              <span className="font-mono">||β||²</span>: مجموع
+                              مربعات ضرایب مدل که به عنوان جریمه عمل می‌کند و از
+                              بزرگ شدن بیش از حد ضرایب جلوگیری می‌کند
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        فرمول محاسبه ضرایب:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">
+                        {"  β = (X'X + λI)⁻¹X'y"}
+                        </p>
+                        <div className="text-sm text-gray-600 mt-4 space-y-2">
+                          <p className="font-bold">توضیح اجزای فرمول:</p>
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono">{"X'"}</span>: ترانهاده
+                              ماتریس ویژگی‌ها
+                            </li>
+                            <li>
+                              <span className="font-mono">I</span>: ماتریس همانی
+                              که در ابعاد تعداد ویژگی‌ها ایجاد می‌شود
+                            </li>
+                            <li>
+                              <span className="font-mono">(...)⁻¹</span>: معکوس
+                              ماتریس که ضرایب بهینه را محاسبه می‌کند
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="bg-green-50 p-3 rounded mt-4">
+                          <p className="text-sm text-green-800">
+                            این فرمول ضرایبی را محاسبه می‌کند که هم خطای
+                            پیش‌بینی را کمینه می‌کنند و هم از بزرگ شدن بیش از حد
+                            ضرایب جلوگیری می‌کنند.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Code Example */}
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg">
+                  <h4 className="font-bold mb-2">نمونه کد Python:</h4>
+                  <pre className="text-sm">
+                    {`from sklearn.linear_model import Ridge
+from sklearn.preprocessing import StandardScaler
+
+# Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Fit Ridge regression
+ridge = Ridge(alpha=1.0)  # alpha is the regularization strength
+ridge.fit(X_scaled, y)`}
+                  </pre>
+                </div>
+
+                {/* Additional Resources */}
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <h4 className="font-bold text-green-800 mb-2">
+                    منابع تکمیلی
+                  </h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/learn/advanced-learning-algorithms"
+                        className="text-green-600 hover:underline"
+                      >
+                        دوره Coursera: Advanced Learning Algorithms
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.kaggle.com/code/residentmario/ridge-and-lasso-regression"
+                        className="text-green-600 hover:underline"
+                      >
+                        Kaggle: Ridge Regression Tutorial
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://stanford.edu/~hastie/ElemStatLearn/"
+                        className="text-green-600 hover:underline"
+                      >
+                        کتاب: Elements of Statistical Learning
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* LASSO Regression */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <div className="bg-orange-500 text-white p-4 rounded-t-xl">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                    />
+                  </svg>
+                  رگرسیون لاسو (LASSO Regression)
+                </h3>
+              </div>
+
+              <div className="p-6 space-y-6">
+                <div className="grid grid-cols-1">
+                  {/* Description */}
+                  <div className="bg-white p-6 rounded-lg shadow-md mt-6">
+                    <h4 className="text-xl font-bold text-gray-800 mb-4">
+                      درک عمیق‌تر رگرسیون LASSO
+                    </h4>
+
+                    <div className="space-y-4 text-gray-700">
+                      <p className="leading-relaxed">
+                        رگرسیون LASSO یک تکنیک پیشرفته در یادگیری ماشین است که
+                        برای حل دو چالش اصلی طراحی شده است: انتخاب ویژگی‌های مهم
+                        و جلوگیری از بیش‌برازش. این روش به‌ویژه در شرایطی که
+                        تعداد متغیرهای پیش‌بینی‌کننده زیاد است، بسیار کارآمد عمل
+                        می‌کند.
+                      </p>
+
+                      <div className="bg-orange-50 p-4 rounded-lg">
+                        <h5 className="font-bold text-orange-800 mb-2">
+                          مزایای کلیدی LASSO:
+                        </h5>
+                        <ul className="list-disc list-inside space-y-2">
+                          <li>خودکارسازی انتخاب ویژگی‌های مهم</li>
+                          <li>کاهش پیچیدگی مدل با حذف متغیرهای کم‌اثر</li>
+                          <li>بهبود قابلیت تفسیر مدل</li>
+                          <li>کاهش هزینه‌های جمع‌آوری داده در آینده</li>
+                        </ul>
+                      </div>
+
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <h5 className="font-bold text-blue-800 mb-2">
+                          کاربردهای عملی:
+                        </h5>
+                        <ul className="space-y-2">
+                          <li>
+                            • در ژنومیک: شناسایی ژن‌های مرتبط با بیماری‌های خاص
+                            از بین هزاران ژن
+                          </li>
+                          <li>
+                            • در اقتصاد: پیش‌بینی شاخص‌های اقتصادی با استفاده از
+                            متغیرهای کلیدی
+                          </li>
+                          <li>
+                            • در پزشکی: تشخیص فاکتورهای موثر در پیشرفت بیماری
+                          </li>
+                          <li>
+                            • در بازاریابی: شناسایی موثرترین کانال‌های تبلیغاتی
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <h5 className="font-bold text-green-800 mb-2">
+                          تفاوت با سایر روش‌ها:
+                        </h5>
+                        <p>
+                          برخلاف رگرسیون ریج که فقط ضرایب را کوچک می‌کند، LASSO
+                          می‌تواند برخی ضرایب را دقیقاً صفر کند. این ویژگی باعث
+                          می‌شود LASSO علاوه بر منظم‌سازی، یک ابزار قدرتمند برای
+                          انتخاب ویژگی نیز باشد.
+                        </p>
+                      </div>
+
+                      <div className="bg-purple-50 p-4 rounded-lg">
+                        <h5 className="font-bold text-purple-800 mb-2">
+                          نکات کاربردی در پیاده‌سازی:
+                        </h5>
+                        <ul className="space-y-2">
+                          <li>
+                            • استاندارد‌سازی داده‌ها قبل از اعمال LASSO ضروری
+                            است
+                          </li>
+                          <li>• انتخاب مناسب پارامتر λ با اعتبارسنجی متقاطع</li>
+                          <li>
+                            • بررسی ثبات انتخاب ویژگی‌ها با تکنیک‌های نمونه‌گیری
+                            مجدد
+                          </li>
+                          <li>• توجه به همبستگی بین متغیرها در تفسیر نتایج</li>
+                        </ul>
+                      </div>
+
+                      <div className="bg-yellow-50 p-4 rounded-lg">
+                        <h5 className="font-bold text-yellow-800 mb-2">
+                          محدودیت‌ها و ملاحظات:
+                        </h5>
+                        <ul className="space-y-2">
+                          <li>
+                            • در حضور متغیرهای بسیار همبسته، انتخاب LASSO
+                            می‌تواند ناپایدار باشد
+                          </li>
+                          <li>• برای روابط غیرخطی پیچیده مناسب نیست</li>
+                          <li>
+                            • تعداد متغیرهای انتخاب شده نمی‌تواند از تعداد
+                            مشاهدات بیشتر باشد
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick Facts */}
+                </div>
+
+                {/* Real-world Example */}
+                <div className="bg-gradient-to-r from-orange-50 to-white p-6 rounded-lg">
+                  <h4 className="font-bold text-orange-800 mb-4">
+                    مثال کاربردی: پیش‌بینی بیماری‌های قلبی
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        متغیرها:
+                      </h5>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• فشار خون</li>
+                        <li>• سطح کلسترول</li>
+                        <li>• ضربان قلب</li>
+                        <li>• سن</li>
+                        <li>• شاخص توده بدنی</li>
+                        <li>• سطح قند خون</li>
+                      </ul>
+                    </div>
+
+                    {/* Chart */}
+                    <div className="bg-white border rounded-lg p-4">
+                      <canvas id="lassoRegressionChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mathematical Details */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-gray-800 mb-4">
+                    محاسبات ریاضی
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        تابع هزینه:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">
+                          L = ||y - Xβ||² + λ||β||₁
+                        </p>
+                        <div className="text-sm text-gray-600 mt-4 space-y-2">
+                          <p className="font-bold">تشریح ریاضی فرمول:</p>
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono">||y - Xβ||²</span>:
+                              مجموع مربعات خطا که به صورت (y₁ - ŷ₁)² + (y₂ -
+                              ŷ₂)² + ... + (yₙ - ŷₙ)² محاسبه می‌شود
+                            </li>
+                            <li>
+                              <span className="font-mono">λ</span>: پارامتر
+                              تنظیم که معمولاً در بازه [0, ∞) انتخاب می‌شود. λ =
+                              0 معادل رگرسیون خطی معمولی است
+                            </li>
+                            <li>
+                              <span className="font-mono">||β||₁</span>: نُرم L1
+                              ضرایب که به صورت |β₁| + |β₂| + ... + |βₚ| محاسبه
+                              می‌شود
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        خواص ریاضی:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <div className="text-sm text-gray-600 space-y-3">
+                          <p>• مشتق‌پذیری: تابع در β = 0 مشتق‌پذیر نیست</p>
+                          <p>
+                            • محدب بودن: تابع هزینه محدب است و حداقل سراسری دارد
+                          </p>
+                          <p>
+                            • صفر شدن ضرایب: وقتی |∂L/∂βⱼ| λ باشد، βⱼ = 0 می‌شود
+                          </p>
+                        </div>
+                        <div className="bg-orange-50 p-3 rounded mt-4">
+                          <p className="text-sm text-orange-800">
+                            عبارت λ||β||₁ باعث می‌شود برخی ضرایب دقیقاً صفر
+                            شوند، زیرا مشتق نُرم L1 در صفر ناپیوسته است. این
+                            ویژگی منحصر به فرد LASSO است که آن را از Ridge
+                            متمایز می‌کند.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Code Example */}
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg">
+                  <h4 className="font-bold mb-2">نمونه کد Python:</h4>
+                  <pre className="text-sm">
+                    {`from sklearn.linear_model import Lasso
+from sklearn.preprocessing import StandardScaler
+
+# Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Fit LASSO regression
+lasso = Lasso(alpha=0.1)  # alpha is the regularization parameter
+lasso.fit(X_scaled, y)
+
+# Check which features were selected
+selected_features = [f for f, c in zip(feature_names, lasso.coef_) if c != 0]`}
+                  </pre>
+                </div>
+
+                {/* Additional Resources */}
+                <div className="bg-orange-50 p-4 rounded-lg">
+                  <h4 className="font-bold text-orange-800 mb-2">
+                    منابع تکمیلی
+                  </h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/learn/ml-regression/lecture/MXEUF/lasso"
+                        className="text-orange-600 hover:underline"
+                      >
+                        دوره Coursera: LASSO Regression
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.kaggle.com/code/residentmario/l1-norms-and-the-lasso"
+                        className="text-orange-600 hover:underline"
+                      >
+                        Kaggle: LASSO Tutorial
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://web.stanford.edu/~hastie/Papers/Tibshirani/lasso.pdf"
+                        className="text-orange-600 hover:underline"
+                      >
+                        مقاله اصلی LASSO توسط Tibshirani
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* ElasticNet Regression */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <div className="bg-indigo-500 text-white p-4 rounded-t-xl">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                  رگرسیون الاستیک نت (ElasticNet Regression)
+                </h3>
+              </div>
+
+              <div className="p-6 space-y-6">
+                {/* Description */}
+                <p className="text-gray-700 leading-relaxed">
+                  رگرسیون الاستیک نت یک روش قدرتمند و انعطاف‌پذیر است که مزایای
+                  رگرسیون‌های Ridge و LASSO را ترکیب می‌کند. این روش به‌ویژه در
+                  شرایطی که با داده‌های پیچیده و همبسته روبرو هستیم، بسیار
+                  کارآمد است. برای مثال، در صنعت دارویی، محققان از الاستیک نت
+                  برای پیش‌بینی اثربخشی داروها با استفاده از هزاران ویژگی
+                  مولکولی استفاده می‌کنند. در بازارهای مالی، تحلیلگران از این
+                  روش برای پیش‌بینی قیمت سهام با در نظر گرفتن صدها شاخص اقتصادی
+                  و مالی بهره می‌برند. در تشخیص پزشکی، الاستیک نت به پزشکان کمک
+                  می‌کند تا از بین هزاران نشانگر زیستی، موثرترین عوامل در تشخیص
+                  بیماری را شناسایی کنند. این روش با تنظیم خودکار اهمیت متغیرها
+                  و حفظ گروه‌های همبسته، مدل‌هایی پایدار و قابل تفسیر ارائه
+                  می‌دهد.
+                  <Link
+                    href="https://scikit-learn.org/stable/modules/linear_model.html#elastic-net"
+                    className="text-indigo-600 hover:underline mx-1"
+                  >
+                    مستندات scikit-learn
+                  </Link>
+                  ابزارهای کارآمدی برای پیاده‌سازی این روش فراهم می‌کند.
+                </p>
+
+                {/* Mathematical Details */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-gray-800 mb-4">
+                    محاسبات ریاضی
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        تابع هزینه:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">
+                          L = ||y - Xβ||² + λ₁||β||₁ + λ₂||β||²
+                        </p>
+                        <div className="text-sm text-gray-600 mt-4 space-y-2">
+                          <p className="font-bold">تشریح اجزای فرمول:</p>
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono">||y - Xβ||²</span>:
+                              مجموع مربعات خطا
+                            </li>
+                            <li>
+                              <span className="font-mono">λ₁</span>: پارامتر
+                              تنظیم L1 (LASSO)
+                            </li>
+                            <li>
+                              <span className="font-mono">λ₂</span>: پارامتر
+                              تنظیم L2 (Ridge)
+                            </li>
+                            <li>
+                              <span className="font-mono">α = λ₁ + λ₂</span>:
+                              پارامتر تنظیم کلی
+                            </li>
+                            <li>
+                              <span className="font-mono">
+                                ρ = λ₁/(λ₁ + λ₂)
+                              </span>
+                              : نسبت ترکیب L1 و L2
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        ویژگی‌های خاص:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <div className="text-sm text-gray-600 space-y-3">
+                          <p>• ترکیب منظم‌سازی L1 و L2</p>
+                          <p>• انعطاف‌پذیری در انتخاب ویژگی</p>
+                          <p>• مدیریت همبستگی بین متغیرها</p>
+                        </div>
+                        <div className="bg-indigo-50 p-3 rounded mt-4">
+                          <p className="text-sm text-indigo-800">
+                            با تنظیم نسبت ρ می‌توان بین خاصیت انتخاب ویژگی LASSO
+                            و مدیریت همبستگی Ridge تعادل برقرار کرد.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Real-world Example */}
+                <div className="bg-gradient-to-r from-indigo-50 to-white p-6 rounded-lg">
+                  <h4 className="font-bold text-indigo-800 mb-4">
+                    مثال کاربردی: پیش‌بینی قیمت سهام
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        متغیرهای ورودی:
+                      </h5>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• شاخص‌های تکنیکال</li>
+                        <li>• داده‌های بنیادی شرکت</li>
+                        <li>• شاخص‌های اقتصاد کلان</li>
+                        <li>• حجم معاملات</li>
+                        <li>• اخبار و سنتیمنت بازار</li>
+                      </ul>
+                    </div>
+
+                    {/* Chart */}
+                    <div className="bg-white border rounded-lg p-4">
+                      <canvas id="elasticNetChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Code Example */}
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg">
+                  <h4 className="font-bold mb-2">نمونه کد Python:</h4>
+                  <pre className="text-sm">
+                    {`from sklearn.linear_model import ElasticNet
+from sklearn.preprocessing import StandardScaler
+
+# Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Fit ElasticNet regression
+elastic_net = ElasticNet(alpha=1.0, l1_ratio=0.5)
+elastic_net.fit(X_scaled, y)
+
+# Get selected features
+selected_features = [f for f, c in zip(feature_names, elastic_net.coef_) if c != 0]`}
+                  </pre>
+                </div>
+
+                {/* Additional Resources */}
+                <div className="bg-indigo-50 p-4 rounded-lg">
+                  <h4 className="font-bold text-indigo-800 mb-2">
+                    منابع تکمیلی
+                  </h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/learn/ml-regression/lecture/2oKHl/elastic-net"
+                        className="text-indigo-600 hover:underline"
+                      >
+                        دوره Coursera: ElasticNet Regression
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.kaggle.com/code/residentmario/elastic-net-regression"
+                        className="text-indigo-600 hover:underline"
+                      >
+                        Kaggle: ElasticNet Tutorial
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://web.stanford.edu/~hastie/Papers/elasticnet.pdf"
+                        className="text-indigo-600 hover:underline"
+                      >
+                        مقاله اصلی ElasticNet
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* Bayesian Regression */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <div className="bg-purple-500 text-white p-4 rounded-t-xl">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    />
+                  </svg>
+                  رگرسیون بیزی (Bayesian Regression)
+                </h3>
+              </div>
+
+              <div className="p-6 space-y-6">
+                {/* Description */}
+                <p className="text-gray-700 leading-relaxed">
+                  رگرسیون بیزی یک رویکرد قدرتمند در تحلیل داده است که با ترکیب
+                  دانش قبلی و داده‌های جدید، تخمین‌های دقیق‌تری ارائه می‌دهد. در
+                  صنعت خودروسازی، مهندسان از این روش برای پیش‌بینی عمر قطعات
+                  خودرو استفاده می‌کنند - با ترکیب دانش تاریخی درباره عملکرد
+                  قطعات مشابه و داده‌های جدید تست‌های استرس. در پزشکی شخصی‌سازی
+                  شده، پزشکان از رگرسیون بیزی برای تنظیم دوز دارو استفاده
+                  می‌کنند - با در نظر گرفتن اطلاعات جمعیتی و پاسخ‌های فردی بیمار
+                  به درمان. در هواشناسی، این روش برای پیش‌بینی دقیق‌تر آب و هوا
+                  به کار می‌رود - با ترکیب مدل‌های اقلیمی موجود و داده‌های
+                  لحظه‌ای سنسورها. مزیت اصلی رگرسیون بیزی، توانایی آن در
+                  کمی‌سازی عدم قطعیت و به‌روزرسانی مداوم پیش‌بینی‌ها با دریافت
+                  داده‌های جدید است. این ویژگی به‌ویژه در تصمیم‌گیری‌های حساس
+                  مانند مدیریت ریسک در بانکداری یا کنترل کیفیت در خط تولید بسیار
+                  ارزشمند است.
+                </p>
+
+                {/* Mathematical Details */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-gray-800 mb-4">
+                    محاسبات ریاضی
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        قضیه بیز در پزشکی شخصی‌سازی شده:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">
+                          P(β|D) ∝ P(D|β)P(β)
+                        </p>
+                        <div className="text-sm text-gray-600 mt-4 space-y-2">
+                          <p className="font-bold">
+                            تشریح اجزای فرمول در تنظیم دوز دارو:
+                          </p>
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono text-black">
+                                P(β|D)
+                              </span>
+                              : توزیع پسین ضرایب - تخمین نهایی اثر دارو با توجه
+                              به پاسخ بیمار
+                            </li>
+                            <li>
+                              <span className="font-mono">P(D|β)</span>: تابع
+                              درستنمایی - چگونه داده‌های جدید واکنش بیمار را
+                              نشان می‌دهند
+                            </li>
+                            <li>
+                              <span className="font-mono">P(β)</span>: توزیع
+                              پیشین - دانش اولیه از مطالعات بالینی قبلی و
+                              تجربیات پزشکی
+                            </li>
+                          </ul>
+                          <div className="bg-purple-50 p-3 rounded mt-2">
+                            <p className="text-purple-800">
+                              مثال: در تنظیم دوز داروی دیابت، پزشک از اطلاعات
+                              جمعیتی (توزیع پیشین) و پاسخ فردی بیمار به دوزهای
+                              قبلی (درستنمایی) برای تعیین دوز بهینه استفاده
+                              می‌کند.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        مدل رگرسیون در پزشکی:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">y ~ N(Xβ, σ²I)</p>
+                        <div className="text-sm text-gray-600 mt-4">
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono">y</span>: سطح قند خون
+                              بیمار
+                            </li>
+                            <li>
+                              <span className="font-mono">X</span>: ماتریس
+                              ویژگی‌ها شامل دوز دارو، رژیم غذایی، فعالیت فیزیکی
+                            </li>
+                            <li>
+                              <span className="font-mono">β</span>: ضرایب تأثیر
+                              هر عامل
+                            </li>
+                            <li>
+                              <span className="font-mono">σ²</span>: واریانس
+                              پاسخ بیمار به درمان
+                            </li>
+                          </ul>
+                          <div className="bg-green-50 p-3 rounded mt-4">
+                            <p className="text-green-800">
+                              این مدل به پزشک اجازه می‌دهد عدم قطعیت در پاسخ
+                              بیمار را در نظر گرفته و با دریافت داده‌های جدید،
+                              پیش‌بینی‌های خود را به‌روز کند.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Real-world Example */}
+                <div className="bg-gradient-to-r from-purple-50 to-white p-6 rounded-lg">
+                  <h4 className="font-bold text-purple-800 mb-4">
+                    مثال کاربردی: پیش‌بینی مصرف انرژی
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        متغیرها:
+                      </h5>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• دمای هوا</li>
+                        <li>• رطوبت نسبی</li>
+                        <li>• ساعات روز</li>
+                        <li>• روزهای تعطیل</li>
+                        <li>• تعداد ساکنین</li>
+                      </ul>
+                      <div className="mt-4 bg-white p-3 rounded">
+                        <p className="text-sm text-gray-600">
+                          با استفاده از دانش قبلی درباره الگوهای مصرف انرژی و
+                          داده‌های جدید، مدل بیزی می‌تواند عدم قطعیت در
+                          پیش‌بینی‌ها را بهتر مدیریت کند.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Chart */}
+                    <div className="bg-white border rounded-lg p-4">
+                      <canvas id="bayesianRegressionChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Code Example */}
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg">
+                  <h4 className="font-bold mb-2">نمونه کد Python:</h4>
+                  <pre className="text-sm">
+                    {`import pymc3 as pm
+
+with pm.Model() as model:
+    # Prior distributions
+    β = pm.Normal('β', mu=0, sd=10, shape=X.shape[1])
+    σ = pm.HalfNormal('σ', sd=1)
+    
+    # Linear regression
+    μ = pm.math.dot(X, β)
+    
+    # Likelihood
+    y_obs = pm.Normal('y_obs', mu=μ, sd=σ, observed=y)
+    
+    # Inference
+    trace = pm.sample(2000, tune=1000)`}
+                  </pre>
+                </div>
+
+                {/* Additional Resources */}
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <h4 className="font-bold text-purple-800 mb-2">
+                    منابع تکمیلی
+                  </h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="https://docs.pymc.io/en/v3/pymc-examples/examples/case_studies/probabilistic_matrix_factorization.html"
+                        className="text-purple-600 hover:underline"
+                      >
+                        PyMC3: Bayesian Regression Examples
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://arxiv.org/abs/1906.09686"
+                        className="text-purple-600 hover:underline"
+                      >
+                        مقاله: Bayesian Regression and Classification
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/learn/bayesian-statistics"
+                        className="text-purple-600 hover:underline"
+                      >
+                        دوره Coursera: Bayesian Statistics
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* Logistic Regression */}
+            <div className="bg-white rounded-xl shadow-lg">
+              <div className="bg-blue-500 text-white p-4 rounded-t-xl">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                  رگرسیون لجستیک (Logistic Regression)
+                </h3>
+              </div>
+
+              <div className="p-6 space-y-6">
+                {/* Description */}
+                <p className="text-gray-700 leading-relaxed">
+                  رگرسیون لجستیک یک روش قدرتمند برای مسائل طبقه‌بندی دودویی است
+                  که در آن متغیر وابسته فقط دو حالت دارد (مثلاً بله/خیر،
+                  موفق/ناموفق). این روش با استفاده از تابع سیگموئید، احتمال تعلق
+                  یک نمونه به کلاس مثبت را محاسبه می‌کند. در پزشکی برای تشخیص
+                  بیماری، در بانکداری برای ارزیابی ریسک اعتباری، و در بازاریابی
+                  برای پیش‌بینی رفتار مشتری کاربرد گسترده‌ای دارد.
+                </p>
+
+                {/* Mathematical Details */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h4 className="font-bold text-gray-800 mb-4">
+                    محاسبات ریاضی در پیش‌بینی رفتار مشتری
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        تابع سیگموئید در تحلیل مشتری:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">
+                          P(خرید|ویژگی‌ها) = 1 / (1 + e^(-z))
+                        </p>
+                        <p className="font-mono mt-2 text-black">
+                          z = β₀ + β₁(سن) + β₂(درآمد) + β₃(بازدیدها) +
+                          β₄(خرید‌های‌قبلی)
+                        </p>
+                        <div className="text-sm text-gray-600 mt-4 space-y-2">
+                          <p className="font-bold">کاربرد در فروشگاه آنلاین:</p>
+                          <ul className="space-y-3">
+                            <li>
+                              <span className="font-mono">
+                                P(خرید|ویژگی‌ها)
+                              </span>
+                              : احتمال خرید مشتری در ۳۰ روز آینده
+                            </li>
+                            <li>
+                              <span className="font-mono">β₁</span>: تأثیر سن در
+                              تصمیم خرید (مثلاً 0.03 برای هر سال)
+                            </li>
+                            <li>
+                              <span className="font-mono">β₂</span>: تأثیر درآمد
+                              (مثلاً 0.005 برای هر میلیون تومان)
+                            </li>
+                            <li>
+                              <span className="font-mono">β₃</span>: تأثیر تعداد
+                              بازدیدها از سایت (مثلاً 0.1 برای هر بازدید)
+                            </li>
+                          </ul>
+                          <div className="bg-blue-50 p-3 rounded mt-2">
+                            <p className="text-blue-800">
+                              مثال: برای مشتری ۳۵ ساله با درآمد ۱۰ میلیون و ۵
+                              بازدید اخیر، احتمال خرید ۷۵٪ محاسبه می‌شود.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        تابع هزینه در بهینه‌سازی کمپین:
+                      </h5>
+                      <div className="bg-white p-4 rounded border">
+                        <p className="font-mono text-black">
+                          J(θ) = -1/m Σ[y log(h(x)) + (1-y)log(1-h(x))]
+                        </p>
+                        <div className="text-sm text-gray-600 mt-4">
+                          <ul className="space-y-3">
+                            <li>• y: خرید واقعی (1 یا 0)</li>
+                            <li>• h(x): احتمال پیش‌بینی شده خرید</li>
+                            <li>• m: تعداد مشتریان در دیتاست</li>
+                          </ul>
+                          <div className="bg-green-50 p-3 rounded mt-4">
+                            <p className="text-green-800">
+                              با کمینه کردن این تابع هزینه، مدل می‌تواند
+                              دقیق‌ترین پیش‌بینی را برای رفتار خرید مشتریان
+                              ارائه دهد و کمپین‌های هدفمند طراحی کند.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Real-world Example */}
+                <div className="bg-gradient-to-r from-blue-50 to-white p-6 rounded-lg">
+                  <h4 className="font-bold text-blue-800 mb-4">
+                    مثال کاربردی: تشخیص بیماری قلبی
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-semibold text-gray-800 mb-2">
+                        متغیرهای ورودی:
+                      </h5>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• سن (x₁)</li>
+                        <li>• فشار خون (x₂)</li>
+                        <li>• کلسترول (x₃)</li>
+                        <li>• ضربان قلب (x₄)</li>
+                        <li>• قند خون (x₅)</li>
+                      </ul>
+                      <div className="mt-4 bg-white p-3 rounded">
+                        <p className="text-sm text-gray-600">
+                          خروجی: احتمال وجود بیماری قلبی (0 تا 1)
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Chart */}
+                    <div className="bg-white border rounded-lg p-4">
+                      <canvas id="logisticRegressionChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Code Example */}
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg">
+                  <h4 className="font-bold mb-2">نمونه کد Python:</h4>
+                  <pre className="text-sm">
+                    {`from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+
+# Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Fit logistic regression
+model = LogisticRegression(penalty='l2', C=1.0)
+model.fit(X_scaled, y)
+
+# Get predictions
+probabilities = model.predict_proba(X_scaled)
+predictions = model.predict(X_scaled)
+
+# Feature importance
+coefficients = pd.DataFrame({
+    'Feature': feature_names,
+    'Coefficient': model.coef_[0]
+})`}
+                  </pre>
+                </div>
+
+                {/* Additional Resources */}
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <h4 className="font-bold text-blue-800 mb-2">منابع تکمیلی</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Scikit-learn: Logistic Regression
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/learn/machine-learning/lecture/1XG8G/cost-function"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Coursera: Logistic Regression Cost Function
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.kaggle.com/code/prashant111/logistic-regression-classifier-tutorial"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Kaggle: Logistic Regression Tutorial
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* جمع بندی و نتیجه گیری */}
         <div className="container max-w-3xl mx-auto" dir="rtl">
-          <div className="px-4 py-16 flex flex-col justify-center gap-8">
-            <h2 className="text-2xl text-indigo-900 text-right font-bold border-b-2 border-indigo-200 pb-4">
-              جمع‌بندی و نتیجه‌گیری
-            </h2>
+  <div className="px-4 py-16 flex flex-col justify-center gap-8">
+    <h2 className="text-2xl text-indigo-900 text-right font-bold border-b-2 border-indigo-200 pb-4">
+      خلاصه و راهنمای سریع انواع رگرسیون
+    </h2>
 
-            <div className="bg-gradient-to-r from-blue-50 to-white p-6 rounded-lg">
-              <h3
-                id="section17"
-                className="text-xl font-bold text-blue-900 mb-4"
-              >
-                مروری بر مفاهیم کلیدی
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                در این مقاله، با مفاهیم اساسی طبقه‌بندی متن آشنا شدیم. از تعریف
-                اولیه طبقه‌بندی‌کننده متن تا الگوریتم‌های پیشرفته و روش‌های
-                ارزیابی را بررسی کردیم. دیدیم که چگونه هر الگوریتم با رویکرد
-                منحصر به فرد خود به حل مسئله طبقه‌بندی می‌پردازد.
-              </p>
-            </div>
+    {/* Quick Reference Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
+        <h4 className="text-lg font-bold text-blue-900 mb-4">رگرسیون خطی</h4>
+        <ul className="space-y-2 text-gray-700">
+          <li>• فرمول: Y = β₀ + β₁X + ε</li>
+          <li>• کاربرد: روابط خطی ساده</li>
+          <li>• مثال: پیش‌بینی قیمت خانه</li>
+          <li>• ویژگی: ساده و قابل تفسیر</li>
+        </ul>
+      </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500">
-                <h4 className="text-lg font-bold text-green-900 mb-4">
-                  الگوریتم‌های اصلی
-                </h4>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• رگرسیون لجستیک برای طبقه‌بندی دودویی</li>
-                  <li>• نایو بیز برای تحلیل احتمالاتی</li>
-                  <li>• درخت تصمیم برای قوانین شفاف</li>
-                  <li>• جنگل تصادفی برای دقت بالاتر</li>
-                  <li>• SVM برای داده‌های با ابعاد بالا</li>
-                </ul>
-              </div>
+      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-purple-500">
+        <h4 className="text-lg font-bold text-purple-900 mb-4">رگرسیون چندجمله‌ای</h4>
+        <ul className="space-y-2 text-gray-700">
+          <li>• فرمول: Y = β₀ + β₁X + β₂X² + ε</li>
+          <li>• کاربرد: روابط غیرخطی</li>
+          <li>• مثال: رشد گیاهان</li>
+          <li>• ویژگی: انعطاف‌پذیر در روابط پیچیده</li>
+        </ul>
+      </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-purple-500">
-                <h4 className="text-lg font-bold text-purple-900 mb-4">
-                  معیارهای ارزیابی
-                </h4>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• دقت برای داده‌های متوازن</li>
-                  <li>• صحت برای کیفیت پیش‌بینی‌های مثبت</li>
-                  <li>• فراخوانی برای پوشش موارد مثبت</li>
-                  <li>• معیار F1 برای تعادل بین صحت و فراخوانی</li>
-                </ul>
-              </div>
-            </div>
+      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500">
+        <h4 className="text-lg font-bold text-green-900 mb-4">رگرسیون Ridge</h4>
+        <ul className="space-y-2 text-gray-700">
+          <li>• فرمول: L = ||y - Xβ||² + λ||β||²</li>
+          <li>• کاربرد: کنترل همخطی</li>
+          <li>• مثال: تحلیل داده‌های ژنتیکی</li>
+          <li>• ویژگی: کاهش واریانس ضرایب</li>
+        </ul>
+      </div>
 
-            <div className="bg-emerald-50 p-6 rounded-lg mt-6 border-r-4 border-emerald-500">
-              <h4 className="text-lg font-bold text-emerald-900 mb-3">
-                توصیه‌های کاربردی
-              </h4>
-              <ul className="space-y-2 text-gray-700">
-                <li>• انتخاب الگوریتم مناسب بر اساس نوع داده و هدف پروژه</li>
-                <li>• اهمیت پیش‌پردازش و آماده‌سازی داده‌ها</li>
-                <li>• استفاده از معیارهای ارزیابی متناسب با مسئله</li>
-                <li>• توجه به مصالحه بین سرعت، دقت و قابلیت تفسیر</li>
-              </ul>
-            </div>
+      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
+        <h4 className="text-lg font-bold text-orange-900 mb-4">رگرسیون LASSO</h4>
+        <ul className="space-y-2 text-gray-700">
+          <li>• فرمول: L = ||y - Xβ||² + λ||β||₁</li>
+          <li>• کاربرد: انتخاب ویژگی</li>
+          <li>• مثال: تشخیص بیماری</li>
+          <li>• ویژگی: حذف ویژگی‌های کم‌اهمیت</li>
+        </ul>
+      </div>
 
-            <div className="bg-indigo-50 p-6 rounded-lg mt-6">
-              <h4 className="text-lg font-bold text-indigo-900 mb-3">
-                نگاه به آینده
-              </h4>
-              <p className="text-gray-700 leading-relaxed">
-                با گسترش روزافزون داده‌های متنی در دنیای دیجیتال، اهمیت
-                طبقه‌بندی متن همچنان رو به افزایش است. ترکیب این تکنیک‌ها با
-                یادگیری عمیق و پردازش زبان طبیعی، افق‌های جدیدی را در تحلیل و
-                درک متون باز می‌کند.
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-indigo-500">
+        <h4 className="text-lg font-bold text-indigo-900 mb-4">رگرسیون ElasticNet</h4>
+        <ul className="space-y-2 text-gray-700">
+          <li>• فرمول: L = ||y - Xβ||² + λ₁||β||₁ + λ₂||β||²</li>
+          <li>• کاربرد: ترکیب Ridge و LASSO</li>
+          <li>• مثال: پیش‌بینی قیمت سهام</li>
+          <li>• ویژگی: انعطاف‌پذیری در تنظیم</li>
+        </ul>
+      </div>
+
+      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-pink-500">
+        <h4 className="text-lg font-bold text-pink-900 mb-4">رگرسیون بیزی</h4>
+        <ul className="space-y-2 text-gray-700">
+          <li>• فرمول: P(β|D) ∝ P(D|β)P(β)</li>
+          <li>• کاربرد: تخمین عدم قطعیت</li>
+          <li>• مثال: پزشکی شخصی‌سازی شده</li>
+          <li>• ویژگی: محاسبه توزیع احتمال</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Key Takeaways */}
+    <div className="bg-gradient-to-r from-indigo-50 to-white p-6 rounded-lg mt-6">
+      <h4 className="text-lg font-bold text-indigo-900 mb-3">نکات کلیدی</h4>
+      <ul className="space-y-2 text-gray-700">
+        <li>• انتخاب نوع رگرسیون بستگی به ماهیت داده و هدف پروژه دارد</li>
+        <li>• پیش‌پردازش داده‌ها در همه روش‌ها مهم است</li>
+        <li>• ارزیابی مدل باید با معیارهای مناسب انجام شود</li>
+        <li>• ترکیب روش‌ها می‌تواند نتایج بهتری ارائه دهد</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
         {/* منابع */}
         <div className="container max-w-3xl mx-auto" dir="rtl">
-          <div className="px-4 py-16 flex flex-col justify-center gap-8">
-            <h2
-              id="section18"
-              className="text-2xl text-indigo-900 text-right font-bold border-b-2 border-indigo-200 pb-4"
-            >
-              منابع و مراجع
-            </h2>
+  <div className="px-4 py-16 flex flex-col justify-center gap-8">
+    <h2 className="text-2xl text-indigo-900 text-right font-bold border-b-2 border-indigo-200 pb-4">
+      منابع و مراجع یادگیری
+    </h2>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
-                منابع اصلی
-              </h3>
-              <ul className="space-y-4 text-gray-700">
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://scikit-learn.org/stable/supervised_learning.html"
-                    className="hover:text-blue-600"
-                  >
-                    Scikit-learn Documentation - Text Classification
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://www.deeplearning.ai/"
-                    className="hover:text-blue-600"
-                  >
-                    DeepLearning.AI - Natural Language Processing Specialization
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://www.tensorflow.org/text"
-                    className="hover:text-blue-600"
-                  >
-                    TensorFlow Text - Official Documentation
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://web.stanford.edu/~jurafsky/slp3/"
-                    className="hover:text-blue-600"
-                  >
-                    Speech and Language Processing - Stanford NLP Group
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://www.nltk.org/"
-                    className="hover:text-blue-600"
-                  >
-                    Natural Language Toolkit (NLTK) Documentation
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://levity.ai/blog/text-classifiers-in-machine-learning-a-practical-guide"
-                    className="hover:text-blue-600"
-                  >
-                    Levity AI Blog - Text Classifiers in Machine Learning
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://www.ibm.com/think/topics/machine-learning-algorithms"
-                    className="hover:text-blue-600"
-                  >
-                    IBM - Machine Learning Algorithms
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://docs.aws.amazon.com/machine-learning/latest/dg/learning-algorithm.html"
-                    className="hover:text-blue-600"
-                  >
-                    AWS Documentation - Learning Algorithms
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-blue-600">•</span>
-                  <Link
-                    href="https://www.javatpoint.com/hypothesis-in-machine-learning"
-                    className="hover:text-blue-600"
-                  >
-                    Javatpoint - Hypothesis in Machine Learning
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-lg mt-6">
-              <h4 className="text-lg font-bold text-gray-900 mb-3">
-                یادداشت پایانی
-              </h4>
-              <p className="text-gray-700 leading-relaxed">
-                تمامی مطالب این مقاله با استفاده از منابع معتبر علمی و آکادمیک
-                گردآوری و تألیف شده است. مفاهیم و مثال‌های ارائه شده بر اساس
-                آخرین پژوهش‌ها و بهترین شیوه‌های موجود در حوزه طبقه‌بندی متن
-                می‌باشد.
-              </p>
-            </div>
-          </div>
+    {/* Online Courses */}
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <h3 className="text-lg font-bold text-gray-900 mb-4">دوره‌های آنلاین</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h4 className="font-semibold text-blue-800 mb-2">Coursera</h4>
+          <ul className="space-y-2">
+            <li>
+              <Link href="https://www.coursera.org/learn/machine-learning" className="text-blue-600 hover:underline">
+                Machine Learning - Andrew Ng
+              </Link>
+            </li>
+            <li>
+              <Link href="https://www.coursera.org/specializations/mathematics-machine-learning" className="text-blue-600 hover:underline">
+                Mathematics for Machine Learning
+              </Link>
+            </li>
+            <li>
+              <Link href="https://www.coursera.org/learn/regression-models" className="text-blue-600 hover:underline">
+                Regression Models - Johns Hopkins
+              </Link>
+            </li>
+          </ul>
         </div>
+        <div>
+          <h4 className="font-semibold text-green-800 mb-2">edX</h4>
+          <ul className="space-y-2">
+            <li>
+              <Link href="https://www.edx.org/course/statistical-learning" className="text-green-600 hover:underline">
+                Statistical Learning - Stanford
+              </Link>
+            </li>
+            <li>
+              <Link href="https://www.edx.org/professional-certificate/harvardx-data-science" className="text-green-600 hover:underline">
+                Data Science Professional Certificate
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {/* Technical Documentation */}
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <h3 className="text-lg font-bold text-gray-900 mb-4">مستندات فنی</h3>
+      <ul className="space-y-4">
+        <li>
+          <Link href="https://scikit-learn.org/stable/modules/linear_model.html" className="text-purple-600 hover:underline">
+            Scikit-learn Linear Models
+          </Link>
+          <p className="text-sm text-gray-600 mt-1">پیاده‌سازی عملی انواع رگرسیون در Python</p>
+        </li>
+        <li>
+          <Link href="https://pytorch.org/docs/stable/nn.html#linear-layers" className="text-purple-600 hover:underline">
+            PyTorch Linear Layers
+          </Link>
+          <p className="text-sm text-gray-600 mt-1">پیاده‌سازی شبکه‌های عصبی و رگرسیون</p>
+        </li>
+        <li>
+          <Link href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense" className="text-purple-600 hover:underline">
+            TensorFlow/Keras Documentation
+          </Link>
+          <p className="text-sm text-gray-600 mt-1">لایه‌های خطی در یادگیری عمیق</p>
+        </li>
+      </ul>
+    </div>
+
+    {/* Books */}
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <h3 className="text-lg font-bold text-gray-900 mb-4">کتاب‌های مرجع</h3>
+      <ul className="space-y-4">
+        <li>
+          <span className="font-semibold">The Elements of Statistical Learning</span>
+          <p className="text-sm text-gray-600">Hastie, Tibshirani, and Friedman</p>
+          <Link href="https://web.stanford.edu/~hastie/ElemStatLearn/" className="text-blue-600 hover:underline text-sm">
+            دانلود رایگان
+          </Link>
+        </li>
+        <li>
+          <span className="font-semibold">Pattern Recognition and Machine Learning</span>
+          <p className="text-sm text-gray-600">Christopher Bishop</p>
+        </li>
+        <li>
+          <span className="font-semibold">Introduction to Statistical Learning</span>
+          <p className="text-sm text-gray-600">James, Witten, Hastie, and Tibshirani</p>
+          <Link href="https://www.statlearning.com/" className="text-blue-600 hover:underline text-sm">
+            دانلود رایگان
+          </Link>
+        </li>
+      </ul>
+    </div>
+
+    {/* Interactive Learning */}
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <h3 className="text-lg font-bold text-gray-900 mb-4">یادگیری تعاملی</h3>
+      <ul className="space-y-4">
+        <li>
+          <Link href="https://www.kaggle.com/learn/intro-to-machine-learning" className="text-indigo-600 hover:underline">
+            Kaggle Learn
+          </Link>
+          <p className="text-sm text-gray-600 mt-1">دوره‌های عملی با داده‌های واقعی</p>
+        </li>
+        <li>
+          <Link href="https://www.datacamp.com/courses/supervised-learning-with-scikit-learn" className="text-indigo-600 hover:underline">
+            DataCamp
+          </Link>
+          <p className="text-sm text-gray-600 mt-1">یادگیری تعاملی با تمرین‌های عملی</p>
+        </li>
+        <li>
+          <Link href="https://github.com/microsoft/ML-For-Beginners" className="text-indigo-600 hover:underline">
+            Microsoft ML for Beginners
+          </Link>
+          <p className="text-sm text-gray-600 mt-1">منبع آزاد برای یادگیری ماشین</p>
+        </li>
+      </ul>
+    </div>
+
+    {/* Research Papers */}
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <h3 className="text-lg font-bold text-gray-900 mb-4">مقالات پژوهشی</h3>
+      <ul className="space-y-4">
+        <li>
+          <Link href="https://arxiv.org/abs/1509.09169" className="text-red-600 hover:underline">
+            A Comparative Study of Linear Regression Methods
+          </Link>
+          <p className="text-sm text-gray-600 mt-1">مقایسه جامع روش‌های رگرسیون خطی</p>
+        </li>
+        <li>
+          <Link href="https://arxiv.org/abs/1803.08823" className="text-red-600 hover:underline">
+            Modern Optimization Methods for Big Data Problems
+          </Link>
+          <p className="text-sm text-gray-600 mt-1">روش‌های بهینه‌سازی در مسائل داده‌های بزرگ</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
       </div>
     </>
   );
