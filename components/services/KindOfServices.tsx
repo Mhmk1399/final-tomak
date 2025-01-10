@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface ServiceItem {
-  videosrc: string;
+  videosrc?: string;
   id: number;
   title: string;
   icon: string;
