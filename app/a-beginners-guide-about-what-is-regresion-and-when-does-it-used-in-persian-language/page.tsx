@@ -498,36 +498,66 @@ const Page = () => {
   }, []);
   const tableOfContents = [
     {
+      id: "introduction",
+      title: "مقدمه",
+    },
+    {
       id: "context",
-      title: "پیش زمینه ",
+      title: "پیش زمینه و مفاهیم اولیه",
     },
     {
-      id: "what-is-regression-analysis",
-      title: "تحلیل رگرسیون چیست؟",
+      id: "regression-fundamentals",
+      title: "اصول اساسی رگرسیون",
+      subItems: [
+        {
+          id: "what-is-regression-analysis",
+          title: "تحلیل رگرسیون چیست؟",
+        },
+        {
+          id: "when-to-use",
+          title: "موارد کاربرد رگرسیون",
+        },
+      ],
     },
     {
-      id: "linear-regression",
-      title: "رگرسیون خطی",
+      id: "regression-types",
+      title: "انواع رگرسیون",
+      subItems: [
+        {
+          id: "linear-regression",
+          title: "رگرسیون خطی ساده و چندگانه",
+        },
+        {
+          id: "polynomial-regression",
+          title: "رگرسیون چندجمله‌ای",
+        },
+        {
+          id: "regularization-methods",
+          title: "روش‌های منظم‌سازی",
+          subItems: [
+            {
+              id: "lasso-regression",
+              title: "رگرسیون لاسو",
+            },
+            {
+              id: "ridge-regression",
+              title: "رگرسیون ریج",
+            },
+          ],
+        },
+        {
+          id: "logistic-regression",
+          title: "رگرسیون لجستیک",
+        },
+      ],
     },
     {
-      id: "polynomial-regression",
-      title: "رگرسیون چندجمله‌ای",
-    },
-    {
-      id: "lasso-regression",
-      title: "رگرسیون لاسو",
-    },
-    {
-      id: "ridge-regression",
-      title: "رگرسیون ریج",
-    },
-    {
-      id: "logistic-regression",
-      title: "رگرسیون لجستیک",
+      id: "practical-applications",
+      title: "کاربردهای عملی",
     },
     {
       id: "conclusion",
-      title: "نتیجه‌گیری",
+      title: "نتیجه‌گیری و جمع‌بندی",
     },
   ];
 
@@ -564,9 +594,10 @@ const Page = () => {
         <div className=" px-4 py-16">
           <div className="flex flex-col md:flex-row items-center justify-evenly gap-8">
             <div className="md:w-1/2 lg:mr-6">
+              <section id="introduction">
               <h1 className="text-2xl font-bold border-b-2 py-2 border-sky-100 text-sky-900 mb-4">
                 راهنمای جامع رگرسیون و انواع آن در تحلیل داده
-              </h1>
+              </h1></section>
               <p className="text-sky-700 mb-2 text-lg leading-relaxed">
                 رگرسیون یکی از پرکاربردترین تکنیک‌های تحلیل داده و یادگیری ماشین
                 است که در پیش‌بینی و مدل‌سازی روابط بین متغیرها استفاده می‌شود.
@@ -636,7 +667,7 @@ const Page = () => {
         <div className=" container max-w-3xl mx-auto" dir="rtl">
           <div className="px-4 py-16  flex flex-col  justify-center gap-8 ">
             <h2
-              id="section1"
+              id="context"
               className="text-xl text-gray-800 text-right font-bold"
             >
               پیش زمینه برای درک بهتر مفهوم رگرسیون
@@ -713,7 +744,7 @@ const Page = () => {
             {/* تحلیل رگرسیون چیست ؟{" "} */}
 
             <h2
-              id="section2"
+              id="what-is-regression-analysis"
               className="text-xl text-gray-800 text-right font-bold"
             >
               تحلیل رگرسیون چیست ؟{" "}
@@ -954,7 +985,8 @@ const Page = () => {
             </div>
 
             <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
-              <h4 className="text-xl font-bold text-gray-800 mb-4">
+              
+              <h4 id="linear-regression" className="text-xl font-bold text-gray-800 mb-4">
                 محاسبات ریاضی رگرسیون خطی
               </h4>
 
@@ -1380,7 +1412,7 @@ const Page = () => {
 
             <div className="bg-white rounded-xl shadow-lg">
               <div className="bg-purple-500 text-white p-4 rounded-t-xl">
-                <h3 className="text-xl font-bold flex items-center gap-2">
+                <h3   id="polynomial-regression" className="text-xl font-bold flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -1565,7 +1597,9 @@ const Page = () => {
                         محاسبه ضرایب بهینه:
                       </h5>
                       <div className="bg-white p-4 rounded border">
-                        <p className="font-mono text-black">{"β = (Z'Z)⁻¹Z'y"}</p>
+                        <p className="font-mono text-black">
+                          {"β = (Z'Z)⁻¹Z'y"}
+                        </p>
                         <div className="text-sm text-gray-600 mt-4 space-y-2">
                           <p className="font-bold">توضیح اجزای فرمول:</p>
                           <ul className="space-y-3">
@@ -1574,12 +1608,12 @@ const Page = () => {
                               ویژگی‌های چندجمله‌ای شامل توان‌های X
                             </li>
                             <li>
-                              <span className="font-mono">{"Z'"}</span>: ترانهاده
-                              ماتریس ویژگی‌های چندجمله‌ای
+                              <span className="font-mono">{"Z'"}</span>:
+                              ترانهاده ماتریس ویژگی‌های چندجمله‌ای
                             </li>
                             <li>
-                              <span className="font-mono">{"(Z'Z)⁻¹"}</span>: معکوس
-                              حاصلضرب ماتریس‌ها برای یافتن ضرایب بهینه
+                              <span className="font-mono">{"(Z'Z)⁻¹"}</span>:
+                              معکوس حاصلضرب ماتریس‌ها برای یافتن ضرایب بهینه
                             </li>
                           </ul>
                         </div>
@@ -1792,14 +1826,14 @@ model.fit(X_poly, y)`}
                       </h5>
                       <div className="bg-white p-4 rounded border">
                         <p className="font-mono text-black">
-                        {"  β = (X'X + λI)⁻¹X'y"}
+                          {"  β = (X'X + λI)⁻¹X'y"}
                         </p>
                         <div className="text-sm text-gray-600 mt-4 space-y-2">
                           <p className="font-bold">توضیح اجزای فرمول:</p>
                           <ul className="space-y-3">
                             <li>
-                              <span className="font-mono">{"X'"}</span>: ترانهاده
-                              ماتریس ویژگی‌ها
+                              <span className="font-mono">{"X'"}</span>:
+                              ترانهاده ماتریس ویژگی‌ها
                             </li>
                             <li>
                               <span className="font-mono">I</span>: ماتریس همانی
@@ -1877,7 +1911,7 @@ ridge.fit(X_scaled, y)`}
             {/* LASSO Regression */}
             <div className="bg-white rounded-xl shadow-lg">
               <div className="bg-orange-500 text-white p-4 rounded-t-xl">
-                <h3 className="text-xl font-bold flex items-center gap-2">
+                <h3  id="lasso-regression" className="text-xl font-bold flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -1948,7 +1982,7 @@ ridge.fit(X_scaled, y)`}
                       </div>
 
                       <div className="bg-green-50 p-4 rounded-lg">
-                        <h5 className="font-bold text-green-800 mb-2">
+                        <h5 id="ridge-regression" className="font-bold text-green-800 mb-2">
                           تفاوت با سایر روش‌ها:
                         </h5>
                         <p>
@@ -2552,7 +2586,7 @@ with pm.Model() as model:
             {/* Logistic Regression */}
             <div className="bg-white rounded-xl shadow-lg">
               <div className="bg-blue-500 text-white p-4 rounded-t-xl">
-                <h3 className="text-xl font-bold flex items-center gap-2">
+                <h3 id="logistic-regression" className="text-xl font-bold flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -2718,7 +2752,7 @@ coefficients = pd.DataFrame({
 
                 {/* Additional Resources */}
                 <div className="bg-blue-50 p-4 rounded-lg">
-                  <h4 className="font-bold text-blue-800 mb-2">منابع تکمیلی</h4>
+                  <h4 id="conclusion" className="font-bold text-blue-800 mb-2">منابع تکمیلی</h4>
                   <ul className="space-y-2">
                     <li>
                       <Link
@@ -2753,232 +2787,328 @@ coefficients = pd.DataFrame({
 
         {/* جمع بندی و نتیجه گیری */}
         <div className="container max-w-3xl mx-auto" dir="rtl">
-  <div className="px-4 py-16 flex flex-col justify-center gap-8">
-    <h2 className="text-2xl text-indigo-900 text-right font-bold border-b-2 border-indigo-200 pb-4">
-      خلاصه و راهنمای سریع انواع رگرسیون
-    </h2>
+          <div className="px-4 py-16 flex flex-col justify-center gap-8">
+            <h2 className="text-2xl text-indigo-900 text-right font-bold border-b-2 border-indigo-200 pb-4">
+              خلاصه و راهنمای سریع انواع رگرسیون
+            </h2>
 
-    {/* Quick Reference Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
-        <h4 className="text-lg font-bold text-blue-900 mb-4">رگرسیون خطی</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li>• فرمول: Y = β₀ + β₁X + ε</li>
-          <li>• کاربرد: روابط خطی ساده</li>
-          <li>• مثال: پیش‌بینی قیمت خانه</li>
-          <li>• ویژگی: ساده و قابل تفسیر</li>
-        </ul>
-      </div>
+            {/* Quick Reference Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
+                <h4 className="text-lg font-bold text-blue-900 mb-4">
+                  رگرسیون خطی
+                </h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• فرمول: Y = β₀ + β₁X + ε</li>
+                  <li>• کاربرد: روابط خطی ساده</li>
+                  <li>• مثال: پیش‌بینی قیمت خانه</li>
+                  <li>• ویژگی: ساده و قابل تفسیر</li>
+                </ul>
+              </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-purple-500">
-        <h4 className="text-lg font-bold text-purple-900 mb-4">رگرسیون چندجمله‌ای</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li>• فرمول: Y = β₀ + β₁X + β₂X² + ε</li>
-          <li>• کاربرد: روابط غیرخطی</li>
-          <li>• مثال: رشد گیاهان</li>
-          <li>• ویژگی: انعطاف‌پذیر در روابط پیچیده</li>
-        </ul>
-      </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-purple-500">
+                <h4 className="text-lg font-bold text-purple-900 mb-4">
+                  رگرسیون چندجمله‌ای
+                </h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• فرمول: Y = β₀ + β₁X + β₂X² + ε</li>
+                  <li>• کاربرد: روابط غیرخطی</li>
+                  <li>• مثال: رشد گیاهان</li>
+                  <li>• ویژگی: انعطاف‌پذیر در روابط پیچیده</li>
+                </ul>
+              </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500">
-        <h4 className="text-lg font-bold text-green-900 mb-4">رگرسیون Ridge</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li>• فرمول: L = ||y - Xβ||² + λ||β||²</li>
-          <li>• کاربرد: کنترل همخطی</li>
-          <li>• مثال: تحلیل داده‌های ژنتیکی</li>
-          <li>• ویژگی: کاهش واریانس ضرایب</li>
-        </ul>
-      </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500">
+                <h4 className="text-lg font-bold text-green-900 mb-4">
+                  رگرسیون Ridge
+                </h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• فرمول: L = ||y - Xβ||² + λ||β||²</li>
+                  <li>• کاربرد: کنترل همخطی</li>
+                  <li>• مثال: تحلیل داده‌های ژنتیکی</li>
+                  <li>• ویژگی: کاهش واریانس ضرایب</li>
+                </ul>
+              </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
-        <h4 className="text-lg font-bold text-orange-900 mb-4">رگرسیون LASSO</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li>• فرمول: L = ||y - Xβ||² + λ||β||₁</li>
-          <li>• کاربرد: انتخاب ویژگی</li>
-          <li>• مثال: تشخیص بیماری</li>
-          <li>• ویژگی: حذف ویژگی‌های کم‌اهمیت</li>
-        </ul>
-      </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
+                <h4 className="text-lg font-bold text-orange-900 mb-4">
+                  رگرسیون LASSO
+                </h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• فرمول: L = ||y - Xβ||² + λ||β||₁</li>
+                  <li>• کاربرد: انتخاب ویژگی</li>
+                  <li>• مثال: تشخیص بیماری</li>
+                  <li>• ویژگی: حذف ویژگی‌های کم‌اهمیت</li>
+                </ul>
+              </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-indigo-500">
-        <h4 className="text-lg font-bold text-indigo-900 mb-4">رگرسیون ElasticNet</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li>• فرمول: L = ||y - Xβ||² + λ₁||β||₁ + λ₂||β||²</li>
-          <li>• کاربرد: ترکیب Ridge و LASSO</li>
-          <li>• مثال: پیش‌بینی قیمت سهام</li>
-          <li>• ویژگی: انعطاف‌پذیری در تنظیم</li>
-        </ul>
-      </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-indigo-500">
+                <h4 className="text-lg font-bold text-indigo-900 mb-4">
+                  رگرسیون ElasticNet
+                </h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• فرمول: L = ||y - Xβ||² + λ₁||β||₁ + λ₂||β||²</li>
+                  <li>• کاربرد: ترکیب Ridge و LASSO</li>
+                  <li>• مثال: پیش‌بینی قیمت سهام</li>
+                  <li>• ویژگی: انعطاف‌پذیری در تنظیم</li>
+                </ul>
+              </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-pink-500">
-        <h4 className="text-lg font-bold text-pink-900 mb-4">رگرسیون بیزی</h4>
-        <ul className="space-y-2 text-gray-700">
-          <li>• فرمول: P(β|D) ∝ P(D|β)P(β)</li>
-          <li>• کاربرد: تخمین عدم قطعیت</li>
-          <li>• مثال: پزشکی شخصی‌سازی شده</li>
-          <li>• ویژگی: محاسبه توزیع احتمال</li>
-        </ul>
-      </div>
-    </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-pink-500">
+                <h4 className="text-lg font-bold text-pink-900 mb-4">
+                  رگرسیون بیزی
+                </h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• فرمول: P(β|D) ∝ P(D|β)P(β)</li>
+                  <li>• کاربرد: تخمین عدم قطعیت</li>
+                  <li>• مثال: پزشکی شخصی‌سازی شده</li>
+                  <li>• ویژگی: محاسبه توزیع احتمال</li>
+                </ul>
+              </div>
+            </div>
 
-    {/* Key Takeaways */}
-    <div className="bg-gradient-to-r from-indigo-50 to-white p-6 rounded-lg mt-6">
-      <h4 className="text-lg font-bold text-indigo-900 mb-3">نکات کلیدی</h4>
-      <ul className="space-y-2 text-gray-700">
-        <li>• انتخاب نوع رگرسیون بستگی به ماهیت داده و هدف پروژه دارد</li>
-        <li>• پیش‌پردازش داده‌ها در همه روش‌ها مهم است</li>
-        <li>• ارزیابی مدل باید با معیارهای مناسب انجام شود</li>
-        <li>• ترکیب روش‌ها می‌تواند نتایج بهتری ارائه دهد</li>
-      </ul>
-    </div>
-  </div>
-</div>
+            {/* Key Takeaways */}
+            <div className="bg-gradient-to-r from-indigo-50 to-white p-6 rounded-lg mt-6">
+              <h4 className="text-lg font-bold text-indigo-900 mb-3">
+                نکات کلیدی
+              </h4>
+              <ul className="space-y-2 text-gray-700">
+                <li>
+                  • انتخاب نوع رگرسیون بستگی به ماهیت داده و هدف پروژه دارد
+                </li>
+                <li>• پیش‌پردازش داده‌ها در همه روش‌ها مهم است</li>
+                <li>• ارزیابی مدل باید با معیارهای مناسب انجام شود</li>
+                <li>• ترکیب روش‌ها می‌تواند نتایج بهتری ارائه دهد</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
         {/* منابع */}
         <div className="container max-w-3xl mx-auto" dir="rtl">
-  <div className="px-4 py-16 flex flex-col justify-center gap-8">
-    <h2 className="text-2xl text-indigo-900 text-right font-bold border-b-2 border-indigo-200 pb-4">
-      منابع و مراجع یادگیری
-    </h2>
+          <div className="px-4 py-16 flex flex-col justify-center gap-8">
+            <h2 className="text-2xl text-indigo-900 text-right font-bold border-b-2 border-indigo-200 pb-4">
+              منابع و مراجع یادگیری
+            </h2>
 
-    {/* Online Courses */}
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">دوره‌های آنلاین</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <h4 className="font-semibold text-blue-800 mb-2">Coursera</h4>
-          <ul className="space-y-2">
-            <li>
-              <Link href="https://www.coursera.org/learn/machine-learning" className="text-blue-600 hover:underline">
-                Machine Learning - Andrew Ng
-              </Link>
-            </li>
-            <li>
-              <Link href="https://www.coursera.org/specializations/mathematics-machine-learning" className="text-blue-600 hover:underline">
-                Mathematics for Machine Learning
-              </Link>
-            </li>
-            <li>
-              <Link href="https://www.coursera.org/learn/regression-models" className="text-blue-600 hover:underline">
-                Regression Models - Johns Hopkins
-              </Link>
-            </li>
-          </ul>
+            {/* Online Courses */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                دوره‌های آنلاین
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold text-blue-800 mb-2">Coursera</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/learn/machine-learning"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Machine Learning - Andrew Ng
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/specializations/mathematics-machine-learning"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Mathematics for Machine Learning
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.coursera.org/learn/regression-models"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Regression Models - Johns Hopkins
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-green-800 mb-2">edX</h4>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link
+                        href="https://www.edx.org/course/statistical-learning"
+                        className="text-green-600 hover:underline"
+                      >
+                        Statistical Learning - Stanford
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="https://www.edx.org/professional-certificate/harvardx-data-science"
+                        className="text-green-600 hover:underline"
+                      >
+                        Data Science Professional Certificate
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Technical Documentation */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                مستندات فنی
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link
+                    href="https://scikit-learn.org/stable/modules/linear_model.html"
+                    className="text-purple-600 hover:underline"
+                  >
+                    Scikit-learn Linear Models
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">
+                    پیاده‌سازی عملی انواع رگرسیون در Python
+                  </p>
+                </li>
+                <li>
+                  <Link
+                    href="https://pytorch.org/docs/stable/nn.html#linear-layers"
+                    className="text-purple-600 hover:underline"
+                  >
+                    PyTorch Linear Layers
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">
+                    پیاده‌سازی شبکه‌های عصبی و رگرسیون
+                  </p>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense"
+                    className="text-purple-600 hover:underline"
+                  >
+                    TensorFlow/Keras Documentation
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">
+                    لایه‌های خطی در یادگیری عمیق
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            {/* Books */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                کتاب‌های مرجع
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <span className="font-semibold">
+                    The Elements of Statistical Learning
+                  </span>
+                  <p className="text-sm text-gray-600">
+                    Hastie, Tibshirani, and Friedman
+                  </p>
+                  <Link
+                    href="https://web.stanford.edu/~hastie/ElemStatLearn/"
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    دانلود رایگان
+                  </Link>
+                </li>
+                <li>
+                  <span className="font-semibold">
+                    Pattern Recognition and Machine Learning
+                  </span>
+                  <p className="text-sm text-gray-600">Christopher Bishop</p>
+                </li>
+                <li>
+                  <span className="font-semibold">
+                    Introduction to Statistical Learning
+                  </span>
+                  <p className="text-sm text-gray-600">
+                    James, Witten, Hastie, and Tibshirani
+                  </p>
+                  <Link
+                    href="https://www.statlearning.com/"
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    دانلود رایگان
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Interactive Learning */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                یادگیری تعاملی
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link
+                    href="https://www.kaggle.com/learn/intro-to-machine-learning"
+                    className="text-indigo-600 hover:underline"
+                  >
+                    Kaggle Learn
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">
+                    دوره‌های عملی با داده‌های واقعی
+                  </p>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.datacamp.com/courses/supervised-learning-with-scikit-learn"
+                    className="text-indigo-600 hover:underline"
+                  >
+                    DataCamp
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">
+                    یادگیری تعاملی با تمرین‌های عملی
+                  </p>
+                </li>
+                <li>
+                  <Link
+                    href="https://github.com/microsoft/ML-For-Beginners"
+                    className="text-indigo-600 hover:underline"
+                  >
+                    Microsoft ML for Beginners
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">
+                    منبع آزاد برای یادگیری ماشین
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            {/* Research Papers */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">
+                مقالات پژوهشی
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link
+                    href="https://arxiv.org/abs/1509.09169"
+                    className="text-red-600 hover:underline"
+                  >
+                    A Comparative Study of Linear Regression Methods
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">
+                    مقایسه جامع روش‌های رگرسیون خطی
+                  </p>
+                </li>
+                <li>
+                  <Link
+                    href="https://arxiv.org/abs/1803.08823"
+                    className="text-red-600 hover:underline"
+                  >
+                    Modern Optimization Methods for Big Data Problems
+                  </Link>
+                  <p className="text-sm text-gray-600 mt-1">
+                    روش‌های بهینه‌سازی در مسائل داده‌های بزرگ
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4 className="font-semibold text-green-800 mb-2">edX</h4>
-          <ul className="space-y-2">
-            <li>
-              <Link href="https://www.edx.org/course/statistical-learning" className="text-green-600 hover:underline">
-                Statistical Learning - Stanford
-              </Link>
-            </li>
-            <li>
-              <Link href="https://www.edx.org/professional-certificate/harvardx-data-science" className="text-green-600 hover:underline">
-                Data Science Professional Certificate
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    {/* Technical Documentation */}
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">مستندات فنی</h3>
-      <ul className="space-y-4">
-        <li>
-          <Link href="https://scikit-learn.org/stable/modules/linear_model.html" className="text-purple-600 hover:underline">
-            Scikit-learn Linear Models
-          </Link>
-          <p className="text-sm text-gray-600 mt-1">پیاده‌سازی عملی انواع رگرسیون در Python</p>
-        </li>
-        <li>
-          <Link href="https://pytorch.org/docs/stable/nn.html#linear-layers" className="text-purple-600 hover:underline">
-            PyTorch Linear Layers
-          </Link>
-          <p className="text-sm text-gray-600 mt-1">پیاده‌سازی شبکه‌های عصبی و رگرسیون</p>
-        </li>
-        <li>
-          <Link href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense" className="text-purple-600 hover:underline">
-            TensorFlow/Keras Documentation
-          </Link>
-          <p className="text-sm text-gray-600 mt-1">لایه‌های خطی در یادگیری عمیق</p>
-        </li>
-      </ul>
-    </div>
-
-    {/* Books */}
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">کتاب‌های مرجع</h3>
-      <ul className="space-y-4">
-        <li>
-          <span className="font-semibold">The Elements of Statistical Learning</span>
-          <p className="text-sm text-gray-600">Hastie, Tibshirani, and Friedman</p>
-          <Link href="https://web.stanford.edu/~hastie/ElemStatLearn/" className="text-blue-600 hover:underline text-sm">
-            دانلود رایگان
-          </Link>
-        </li>
-        <li>
-          <span className="font-semibold">Pattern Recognition and Machine Learning</span>
-          <p className="text-sm text-gray-600">Christopher Bishop</p>
-        </li>
-        <li>
-          <span className="font-semibold">Introduction to Statistical Learning</span>
-          <p className="text-sm text-gray-600">James, Witten, Hastie, and Tibshirani</p>
-          <Link href="https://www.statlearning.com/" className="text-blue-600 hover:underline text-sm">
-            دانلود رایگان
-          </Link>
-        </li>
-      </ul>
-    </div>
-
-    {/* Interactive Learning */}
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">یادگیری تعاملی</h3>
-      <ul className="space-y-4">
-        <li>
-          <Link href="https://www.kaggle.com/learn/intro-to-machine-learning" className="text-indigo-600 hover:underline">
-            Kaggle Learn
-          </Link>
-          <p className="text-sm text-gray-600 mt-1">دوره‌های عملی با داده‌های واقعی</p>
-        </li>
-        <li>
-          <Link href="https://www.datacamp.com/courses/supervised-learning-with-scikit-learn" className="text-indigo-600 hover:underline">
-            DataCamp
-          </Link>
-          <p className="text-sm text-gray-600 mt-1">یادگیری تعاملی با تمرین‌های عملی</p>
-        </li>
-        <li>
-          <Link href="https://github.com/microsoft/ML-For-Beginners" className="text-indigo-600 hover:underline">
-            Microsoft ML for Beginners
-          </Link>
-          <p className="text-sm text-gray-600 mt-1">منبع آزاد برای یادگیری ماشین</p>
-        </li>
-      </ul>
-    </div>
-
-    {/* Research Papers */}
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">مقالات پژوهشی</h3>
-      <ul className="space-y-4">
-        <li>
-          <Link href="https://arxiv.org/abs/1509.09169" className="text-red-600 hover:underline">
-            A Comparative Study of Linear Regression Methods
-          </Link>
-          <p className="text-sm text-gray-600 mt-1">مقایسه جامع روش‌های رگرسیون خطی</p>
-        </li>
-        <li>
-          <Link href="https://arxiv.org/abs/1803.08823" className="text-red-600 hover:underline">
-            Modern Optimization Methods for Big Data Problems
-          </Link>
-          <p className="text-sm text-gray-600 mt-1">روش‌های بهینه‌سازی در مسائل داده‌های بزرگ</p>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
       </div>
     </>
   );
