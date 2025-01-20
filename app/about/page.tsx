@@ -5,9 +5,43 @@ import Vision from "@/components/services/vision";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BlogSchema } from "@/components/schema/blogSchema";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const blogData = {
+    title: "درباره تومک | تیم متخصص توسعه کسب و کار دیجیتال",
+    url: "/about",
+    images: ["/assets/images/aboutUs.svg"],
+    sections: [
+      {
+        heading: "تیم حرفه‌ای توسعه کسب و کار دیجیتال",
+        content:
+          "تیم تومک متشکل از متخصصان حوزه نرم‌افزار و تصویرسازی دیجیتال، با ترکیب خلاقیت و تکنولوژی به رشد کسب و کارها کمک می‌کند.",
+        lists: [
+          "توسعه نرم‌افزارهای سفارشی",
+          "طراحی و پیاده‌سازی سیستم‌های اتوماسیون",
+          "هوش مصنوعی کاربردی",
+          "دیجیتال مارکتینگ حرفه‌ای",
+        ],
+      },
+      {
+        heading: "تخصص و تجربه",
+        content:
+          "از سال 1401 با تمرکز بر نوآوری و کیفیت، خدمات جامع دیجیتال را به کسب و کارها ارائه می‌دهیم.",
+      },
+      {
+        heading: "رویکرد متفاوت به توسعه دیجیتال",
+        content:
+          "هدف ما فراتر از حضور دیجیتال است - ما به دنبال ایجاد رشد واقعی و پایدار برای کسب و کارها هستیم.",
+      },
+      {
+        heading: "همراه در مسیر موفقیت",
+        content:
+          "با ترکیب دانش فنی و خلاقیت، کسب و کار شما را برای موفقیت در دنیای دیجیتال آماده می‌کنیم.",
+      },
+    ],
+  };
 
   useEffect(() => {
     document.title = "درباره ما | تومک";
@@ -29,6 +63,8 @@ const About = () => {
 
   return (
     <>
+      <BlogSchema blogData={blogData} />
+
       <div
         className="flex items-center flex-col justify-center min-h-screen"
         dir="rtl"

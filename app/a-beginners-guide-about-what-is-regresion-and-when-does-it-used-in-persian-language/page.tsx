@@ -3,8 +3,47 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import Chart from "chart.js/auto";
+import { BlogSchema } from "@/components/schema/blogSchema";
 
 const Page = () => {
+  const blogData = {
+    title: "راهنمای جامع رگرسیون و انواع آن در تحلیل داده",
+    url: "/a-beginners-guide-about-what-is-regresion-and-when-does-it-used-in-persian-language",
+    images: ["/assets/images/regression_guide.svg"],
+    sections: [
+      {
+        heading: "مقدمه",
+        content:
+          "رگرسیون یکی از پرکاربردترین تکنیک‌های تحلیل داده و یادگیری ماشین است که در پیش‌بینی و مدل‌سازی روابط بین متغیرها استفاده می‌شود. این تکنیک‌ها به کسب‌وکارها کمک می‌کنند تا روندها را پیش‌بینی کنند، ارتباطات را درک کنند و تصمیمات داده‌محور بگیرند.",
+      },
+      {
+        heading: "پیش‌زمینه برای درک بهتر مفهوم رگرسیون",
+        content:
+          "یکی از مهم‌ترین مفاهیم در تحلیل داده‌ها و یادگیری ماشین، رگرسیون است. تصور کنید می‌خواهید قیمت خانه‌ها را بر اساس متراژ آن‌ها پیش‌بینی کنید. این یک مثال ساده از تشخیص الگو است که در آن رابطه بین دو متغیر وابسته و مستقل را بررسی می‌کنیم.",
+      },
+      {
+        heading: "تحلیل رگرسیون چیست؟",
+        content:
+          "تحلیل رگرسیون یک روش قدرتمند آماری است که به ما کمک می‌کند روابط بین متغیرها را کشف و پیش‌بینی کنیم. مانند یک کارآگاه که از سرنخ‌های مختلف برای حل معما استفاده می‌کند، رگرسیون از متغیرهای پیش‌بینی‌کننده برای یافتن الگوها و پیش‌بینی نتایج استفاده می‌کند.",
+      },
+      {
+        heading: "مثال‌های عملی",
+        content:
+          "پیش‌بینی مصرف انرژی: تصور کنید مدیر یک ساختمان هوشمند هستید. با استفاده از فاکتورهایی مانند دمای هوا، ساعات روز، تعداد افراد و روزهای هفته می‌توانید مصرف برق ساختمان را پیش‌بینی کنید.\nتحلیل عملکرد تبلیغات: یک آژانس تبلیغاتی با بررسی فاکتورهایی مانند بودجه تبلیغات، زمان پخش، پلتفرم تبلیغاتی و جمعیت هدف، میزان بازگشت سرمایه را پیش‌بینی می‌کند.",
+      },
+      {
+        heading: "تکنیک‌های پیش‌بینی در رگرسیون",
+        content:
+          "درون‌یابی (Interpolation): فرآیند تخمین مقادیر ناشناخته بین نقاط داده‌های موجود است. این تکنیک زمانی کاربرد دارد که می‌خواهیم مقادیر گمشده را در محدوده داده‌های موجود پیدا کنیم.\nبرون‌یابی (Extrapolation): روشی برای پیش‌بینی مقادیر خارج از محدوده داده‌های موجود است. این تکنیک برای پیش‌بینی روندهای آینده بر اساس الگوهای گذشته استفاده می‌شود.",
+      },
+      {
+        heading: "کاربردهای واقعی",
+        content:
+          "پیش‌بینی قیمت سهام بر اساس شاخص‌های اقتصادی.\nتخمین میزان فروش محصولات جدید.\nپیش‌بینی نمرات دانش‌آموزان بر اساس ساعات مطالعه.\nتحلیل اثربخشی داروها در پزشکی.",
+      },
+    ],
+  };
+
   useEffect(() => {
     const ctx = document.getElementById("energyChart") as HTMLCanvasElement;
     if (ctx) {
@@ -58,6 +97,16 @@ const Page = () => {
     }
   }, []);
   // Add these functions before the useEffect hook
+  useEffect(() => {
+    document.title = "راهنمای جامع رگرسیون و انواع آن در تحلیل داده";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        "رگرسیون یکی از پرکاربردترین تکنیک‌های تحلیل داده و یادگیری ماشین است که در پیش‌بینی و مدل‌سازی روابط بین متغیرها استفاده می‌شود. این تکنیک‌ها به کسب‌وکارها کمک می‌کنند تا روندها را پیش‌بینی کنند، ارتباطات را درک کنند و تصمیمات داده‌محور بگیرند"
+      );
+    }
+  }, []);
 
   useEffect(() => {
     // Store chart instances
@@ -572,6 +621,8 @@ const Page = () => {
   };
   return (
     <>
+      <BlogSchema blogData={blogData} />
+
       <div className="relative min-h-screen w-full py-12 bg-sky-50" dir="rtl">
         <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
           <svg
@@ -595,9 +646,10 @@ const Page = () => {
           <div className="flex flex-col md:flex-row items-center justify-evenly gap-8">
             <div className="md:w-1/2 lg:mr-6">
               <section id="introduction">
-              <h1 className="text-2xl font-bold border-b-2 py-2 border-sky-100 text-sky-900 mb-4">
-                راهنمای جامع رگرسیون و انواع آن در تحلیل داده
-              </h1></section>
+                <h1 className="text-2xl font-bold border-b-2 py-2 border-sky-100 text-sky-900 mb-4">
+                  راهنمای جامع رگرسیون و انواع آن در تحلیل داده
+                </h1>
+              </section>
               <p className="text-sky-700 mb-2 text-lg leading-relaxed">
                 رگرسیون یکی از پرکاربردترین تکنیک‌های تحلیل داده و یادگیری ماشین
                 است که در پیش‌بینی و مدل‌سازی روابط بین متغیرها استفاده می‌شود.
@@ -985,8 +1037,10 @@ const Page = () => {
             </div>
 
             <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
-              
-              <h4 id="linear-regression" className="text-xl font-bold text-gray-800 mb-4">
+              <h4
+                id="linear-regression"
+                className="text-xl font-bold text-gray-800 mb-4"
+              >
                 محاسبات ریاضی رگرسیون خطی
               </h4>
 
@@ -1412,7 +1466,10 @@ const Page = () => {
 
             <div className="bg-white rounded-xl shadow-lg">
               <div className="bg-purple-500 text-white p-4 rounded-t-xl">
-                <h3   id="polynomial-regression" className="text-xl font-bold flex items-center gap-2">
+                <h3
+                  id="polynomial-regression"
+                  className="text-xl font-bold flex items-center gap-2"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -1911,7 +1968,10 @@ ridge.fit(X_scaled, y)`}
             {/* LASSO Regression */}
             <div className="bg-white rounded-xl shadow-lg">
               <div className="bg-orange-500 text-white p-4 rounded-t-xl">
-                <h3  id="lasso-regression" className="text-xl font-bold flex items-center gap-2">
+                <h3
+                  id="lasso-regression"
+                  className="text-xl font-bold flex items-center gap-2"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -1982,7 +2042,10 @@ ridge.fit(X_scaled, y)`}
                       </div>
 
                       <div className="bg-green-50 p-4 rounded-lg">
-                        <h5 id="ridge-regression" className="font-bold text-green-800 mb-2">
+                        <h5
+                          id="ridge-regression"
+                          className="font-bold text-green-800 mb-2"
+                        >
                           تفاوت با سایر روش‌ها:
                         </h5>
                         <p>
@@ -2586,7 +2649,10 @@ with pm.Model() as model:
             {/* Logistic Regression */}
             <div className="bg-white rounded-xl shadow-lg">
               <div className="bg-blue-500 text-white p-4 rounded-t-xl">
-                <h3 id="logistic-regression" className="text-xl font-bold flex items-center gap-2">
+                <h3
+                  id="logistic-regression"
+                  className="text-xl font-bold flex items-center gap-2"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -2752,7 +2818,9 @@ coefficients = pd.DataFrame({
 
                 {/* Additional Resources */}
                 <div className="bg-blue-50 p-4 rounded-lg">
-                  <h4 id="conclusion" className="font-bold text-blue-800 mb-2">منابع تکمیلی</h4>
+                  <h4 id="conclusion" className="font-bold text-blue-800 mb-2">
+                    منابع تکمیلی
+                  </h4>
                   <ul className="space-y-2">
                     <li>
                       <Link

@@ -6,7 +6,7 @@ import DoubleText from "@/components/services/doubleText";
 import OlympicRings from "@/components/circle";
 import VideoAndText from "@/components/services/videoAndText";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const servicesData = [
@@ -88,6 +88,16 @@ const Page = () => {
       alert("خطا در ارسال فرم");
     }
   };
+  useEffect(() => {
+    document.title = "تومک | توسعه اپلیکیشن های سفارشی";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        "تومک یک تیم پویا و خلاق است که با تکیه بر دانش فنی و تخصص، خدمات حرفه‌ای و کاملی را در زمینه طراحی و توسعه وب، تولید محتوا، و تحلیل داده‌ها ارائه می‌دهد. "
+      );
+    }
+  }, []);
   const handleNextStep = () => {
     setCurrentStep((prev) => Math.min(prev + 1, 2));
   };
@@ -179,6 +189,7 @@ const Page = () => {
         );
     }
   };
+
   return (
     <div className="mx-8 my-32">
       <Banner
