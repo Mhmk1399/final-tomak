@@ -36,7 +36,7 @@ const Breadcrumbs = () => {
 
   return (
     <nav
-      className="bg-transparent backdrop-blur-sm py-3 px-6  absolute top-20 right-9 z-10"
+      className="bg-transparent backdrop-blur-sm py-3 px-6  absolute top-20 right-4 lg:right-9 z-10"
       dir="rtl"
     >
       <ol className="flex items-center space-x-2 space-x-reverse">

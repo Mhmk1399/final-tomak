@@ -5,7 +5,7 @@ const blogPosts = [
     summary:
       "در این مقاله ، راهنمای کاملی برای طبقه بندی کلمات یا Text Classification در زمینه هوش مصنوعی و داده کاوی ارائه می‌شود.",
     date: "1403/10/6",
-    link: "/Text-Classifiers-in-Machine-Learning-A-Practical-Guide-in-persian",
+    link: "/blogs/Text-Classifiers-in-Machine-Learning-A-Practical-Guide-in-persian",
     image: "/assets/images/ai.jpg",
     time: "12:00",
   },
@@ -15,7 +15,7 @@ const blogPosts = [
     summary:
       "",
     date: "1403/10/13",
-    link: "/a-beginners-guide-about-what-is-regresion-and-when-does-it-used-in-persian-language",
+    link: "/blogs/a-beginners-guide-about-what-is-regresion-and-when-does-it-used-in-persian-language",
     image: "/assets/images/overview.jpg",
     time: "15:00",
   },
