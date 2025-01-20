@@ -28,14 +28,15 @@ const Breadcrumbs = () => {
 
   const breadcrumbItems = pathSegments.map((segment, index) => {
     const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
-    const label = pathTranslations[segment] || segment;
+    // Check if the segment exists in translations, if not return "404"
+    const label = pathTranslations[segment] || "صفحه 404";
 
     return { href, label };
   });
 
   return (
     <nav
-      className="bg-transparent backdrop-blur-sm py-3 px-6 rounded-lg shadow-sm absolute top-20 right-4 z-10"
+      className="bg-transparent backdrop-blur-sm py-3 px-6  absolute top-20 right-9 z-10"
       dir="rtl"
     >
       <ol className="flex items-center space-x-2 space-x-reverse">
