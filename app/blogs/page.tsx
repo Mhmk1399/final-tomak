@@ -103,21 +103,25 @@ const Blogs = () => {
                     <p className="text-sm opacity-80 mb-4">{post.summary}</p>
 
                     <div className="flex justify-between items-center">
-                      مطالعه بیشتر
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 mr-2 transition-transform group-hover:-translate-x-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M11 17l-5-5m0 0l5-5m-5 5h12"
-                        />
-                      </svg>
+                      <div>
+                        {" "}
+                        <span>مطالعه بیشتر</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 mr-2 transition-transform inline group-hover:-translate-x-1"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M11 17l-5-5m0 0l5-5m-5 5h12"
+                          />
+                        </svg>
+                      </div>
+
                       <span className="text-xs">
                         مدت مطالعه: {post.time} دقیقه
                       </span>
