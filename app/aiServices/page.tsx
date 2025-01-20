@@ -5,7 +5,8 @@ import KindOfServices from "@/components/services/KindOfServices";
 import DoubleText from "@/components/services/doubleText";
 import OlympicRings from "@/components/circle";
 import VideoAndText from "@/components/services/videoAndText";
-
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 const servicesData = [
@@ -60,7 +61,17 @@ const Page = () => {
       });
 
       if (response.ok) {
-        alert("فرم با موفقیت ارسال شد");
+        toast.success("فرم با موفقیت ارسال شد", {
+          style: {
+            background: "#4CAF50",
+            color: "#fff",
+            direction: "rtl",
+            borderRadius: "10px",
+            padding: "16px",
+            marginTop: "16px",
+          },
+          duration: 3000,
+        });
         setCurrentStep(0);
         setFormData({
           budget: "",
@@ -70,11 +81,30 @@ const Page = () => {
           description: "",
         });
       } else {
-        alert("خطا در ارسال فرم");
+        toast.error("خطا در ارسال فرم", {
+          style: {
+            background: "#f44336",
+            color: "#fff",
+            direction: "rtl",
+            borderRadius: "10px",
+            padding: "16px",
+            marginTop: "16px",
+          },
+          duration: 3000,
+        });
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("خطا در ارسال فرم");
+      toast.error("خطا در ارسال فرم", {
+        style: {
+          background: "#f44336",
+          color: "#fff",
+          direction: "rtl",
+          borderRadius: "10px",
+          padding: "16px",
+          marginTop: "16px",
+        },
+        duration: 3000,
+      });
     }
   };
 
@@ -176,103 +206,109 @@ const Page = () => {
   });
 
   return (
-    <div className="mx-8 my-32">
-      <Banner
-        src="/assets/images/heade-application-development-min-2048x725.jpg"
-        text="راهکارهای هوش مصنوعی"
-        category="هوش مصنوعی و یادگیری ماشین"
-        description="با استفاده از جدیدترین تکنولوژی‌های هوش مصنوعی و یادگیری ماشین، راهکارهای هوشمند و سفارشی برای کسب‌وکارهای فارسی‌زبان ارائه می‌دهیم."
-      />{" "}
-      <VideoAndText
-        heading="چرا باید از هوش مصنوعی در کسب و کار خودتون استفاده کنید"
-        subText="ما در شرکت تومک پیشرو در شخصی سازی و استفاده از مدل های هوش مصنوعی در کسب و کار های فارسی زبان هستیم
+    <>
+      <div className="mt-36">
+        <Banner
+          src="/assets/images/heade-application-development-min-2048x725.jpg"
+          text="راهکارهای هوش مصنوعی"
+          category="هوش مصنوعی و یادگیری ماشین"
+          description="با استفاده از جدیدترین تکنولوژی‌های هوش مصنوعی و یادگیری ماشین، راهکارهای هوشمند و سفارشی برای کسب‌وکارهای فارسی‌زبان ارائه می‌دهیم."
+        />{" "}
+      </div>
+
+      <div className="mx-8 my-16">
+        <Toaster position="top-center" />
+        <VideoAndText
+          heading="چرا باید از هوش مصنوعی در کسب و کار خودتون استفاده کنید"
+          subText="ما در شرکت تومک پیشرو در شخصی سازی و استفاده از مدل های هوش مصنوعی در کسب و کار های فارسی زبان هستیم
 شما با استفاده از این تکنیک ها والگوریتم ها میتونید فرایند های کسب و کارتون را خودکار کنید و با تحلیل این داده ها تصمیمات بهتر و سریع تری را بگیرید 
 خدمات متنوعی نسبت به پیچیدگی ها و مشکلات زبان فارسی و کسب و کار های کشور عزیزمون ایران برای شما اماده شده که شامل پردازش زبان های طبیعی ،یادگیری های شخصی سازی شده و پردازش تصاویر می باشد 
 روند ساخت این نوع اپلیکیشن ها شامل تحقیق بازار ،طرح مسئله ،مهندسی داده ،تست و اشکال یابیست  که بتونیم با بالاترین کیفیت ممکن دیجیتال سازی کسب و کار شما را انجام دهیم  
 برای اطلاعات بیشتر درمورد جزئیات خدمات میتونید به صفحه مربوطه در وبسایت ما مراجعه کنید 
 به امید آینده ای دیجیتال برای کشور عزیزمون 
 "
-        videoSrc={{
-          "1080p": "/assets/videos/fullai.mp4",
-          "720p": "/assets/videos/fullai.mp4",
-          "480p": "/assets/videos/fullai.mp4",
-        }}
-      />
-      <DoubleText
-        heading="مزایای استفاده از هوش مصنوعی در کسب‌وکار شما"
-        subText="با بهره‌گیری از هوش مصنوعی و یادگیری ماشین، کسب‌وکار شما می‌تواند به سطح جدیدی از کارایی و هوشمندی دست یابد. از تحلیل داده‌های کلان و پیش‌بینی روندهای بازار گرفته تا اتوماسیون فرآیندها و خدمات مشتری هوشمند، همه با تمرکز ویژه بر نیازهای خاص بازار فارسی‌زبان. تیم متخصص ما با درک عمیق از چالش‌های زبان فارسی در هوش مصنوعی، راهکارهایی را توسعه می‌دهد که دقیقاً متناسب با نیازهای بومی شماست. این راهکارها به شما کمک می‌کنند تا تصمیمات هوشمندانه‌تری بگیرید، هزینه‌ها را کاهش دهید و مزیت رقابتی خود را در بازار افزایش دهید."
-      />{" "}
-      <div className="mt-12">
-        <Options />
-      </div>
-      <OlympicRings />
-      <div className="mt-12 mb-64">
-        <KindOfServices
-          servicesData={servicesData}
-          title="خدمات ما"
-          subtitle="راه‌حل‌های نوآورانه برای کسب و کار شما"
+          videoSrc={{
+            "1080p": "/assets/videos/fullai.mp4",
+            "720p": "/assets/videos/fullai.mp4",
+            "480p": "/assets/videos/fullai.mp4",
+          }}
+        />
+        <DoubleText
+          heading="مزایای استفاده از هوش مصنوعی در کسب‌وکار شما"
+          subText="با بهره‌گیری از هوش مصنوعی و یادگیری ماشین، کسب‌وکار شما می‌تواند به سطح جدیدی از کارایی و هوشمندی دست یابد. از تحلیل داده‌های کلان و پیش‌بینی روندهای بازار گرفته تا اتوماسیون فرآیندها و خدمات مشتری هوشمند، همه با تمرکز ویژه بر نیازهای خاص بازار فارسی‌زبان. تیم متخصص ما با درک عمیق از چالش‌های زبان فارسی در هوش مصنوعی، راهکارهایی را توسعه می‌دهد که دقیقاً متناسب با نیازهای بومی شماست. این راهکارها به شما کمک می‌کنند تا تصمیمات هوشمندانه‌تری بگیرید، هزینه‌ها را کاهش دهید و مزیت رقابتی خود را در بازار افزایش دهید."
         />{" "}
-      </div>
-      <div className="-mt-64">
-        {" "}
-        <div
-          dir="rtl"
-          className=" mx-auto lg:w-1/2 flex flex-row items-center justify-center  text-gray-100"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-6 h-6 text-secondary ml-2"
-          >
-            <path
-              fillRule="evenodd"
-              d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-          <div></div>
-          <h2
-            className="text-black text-sm lg:text-lg font-bold text-center"
-            dir="rtl"
-          >
-            اگر دوست دارید که به صورت خصوصی کسب و کارتون آنالیز کنیم برامون این
-            فرم کامل کنید
-          </h2>
+        <div className="mt-12">
+          <Options />
         </div>
-        <div className=" flex w-full  flex-col lg:flex-row  items-center justify-center p-4">
-          <div className="w-full max-w-2xl bg-white p-8 text-center">
-            <AnimatePresence mode="wait">{renderStep()}</AnimatePresence>
+        <OlympicRings />
+        <div className="mt-12 mb-64">
+          <KindOfServices
+            servicesData={servicesData}
+            title="خدمات ما"
+            subtitle="راه‌حل‌های نوآورانه برای کسب و کار شما"
+          />{" "}
+        </div>
+        <div className="-mt-64">
+          {" "}
+          <div
+            dir="rtl"
+            className=" mx-auto lg:w-1/2 flex flex-row items-center justify-center  text-gray-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-6 h-6 text-secondary ml-2"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+            <div></div>
+            <h2
+              className="text-black text-sm lg:text-lg font-bold text-center"
+              dir="rtl"
+            >
+              اگر دوست دارید که به صورت خصوصی کسب و کارتون آنالیز کنیم برامون
+              این فرم کامل کنید
+            </h2>
+          </div>
+          <div className=" flex w-full  flex-col lg:flex-row  items-center justify-center p-4">
+            <div className="w-full max-w-2xl bg-white p-8 text-center">
+              <AnimatePresence mode="wait">{renderStep()}</AnimatePresence>
 
-            <div className="flex justify-between mt-8">
-              {currentStep < 2 ? (
-                <button
-                  onClick={handleNextStep}
-                  className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mx-1"
-                >
-                  بعدی
-                </button>
-              ) : (
-                <button
-                  onClick={handleSubmit}
-                  className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 mx-1"
-                >
-                  ارسال
-                </button>
-              )}
-              {currentStep > 0 && (
-                <button
-                  onClick={handlePrevStep}
-                  className="px-6 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 mx-1"
-                >
-                  قبلی
-                </button>
-              )}
+              <div className="flex justify-between mt-8">
+                {currentStep < 2 ? (
+                  <button
+                    onClick={handleNextStep}
+                    className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mx-1"
+                  >
+                    بعدی
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleSubmit}
+                    className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 mx-1"
+                  >
+                    ارسال
+                  </button>
+                )}
+                {currentStep > 0 && (
+                  <button
+                    onClick={handlePrevStep}
+                    className="px-6 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 mx-1"
+                  >
+                    قبلی
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

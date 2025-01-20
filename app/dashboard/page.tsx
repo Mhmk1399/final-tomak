@@ -23,7 +23,7 @@ export default function Dashboard() {
         <Topbar />
 
         {/* Content */}
-        <div className="p-16 mb-6 mx-4 bg-gradient-to-l from-primary to-secondary rounded-2xl flex flex-col lg:flex-row items-center justify-center flex-wrap gap-6">
+        <div className="p-16 mb-6 mx-4 rounded-2xl flex flex-col lg:flex-row items-center justify-center flex-wrap gap-6">
           <Card
             title="آمار کاربران"
             content="آخرین آمار خود را اینجا دنبال کنید."

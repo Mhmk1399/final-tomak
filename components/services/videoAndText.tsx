@@ -173,11 +173,11 @@ const VideoAndText: React.FC<VideoAndTextProps> = ({
                 <select
                   value={currentQuality}
                   onChange={(e) => handleQualityChange(e.target.value as keyof typeof videoSrc)}
-                  className="bg-transparent border border-white/30 rounded px-2 py-1 text-black"
+                  className="bg-transparent/10 border border-white/30 rounded px-3 py-1 text-white"
                 >
-                  <option value="1080p">1080p</option>
-                  <option value="720p">720p</option>
-                  <option value="480p">480p</option>
+                  <option className="text-black" value="1080p">1080p</option>
+                  <option className="text-black" value="720p">720p</option>
+                  <option className="text-black" value="480p">480p</option>
                 </select>
 
                 <button

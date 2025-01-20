@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ray } from "@/next-persian-fonts/ray";
 import Script from "next/script";
+import Breadcrumbs from "../components/breadCrumbs";
+
 
 export const metadata: Metadata = {
   verification: {
@@ -54,6 +56,7 @@ export default function RootLayout({
           />
         </noscript>
         <Navbar />
+        <Breadcrumbs />
 
         {children}
 

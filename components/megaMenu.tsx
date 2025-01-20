@@ -9,14 +9,12 @@ import {
   FaTimes,
   FaLanguage,
 } from "react-icons/fa";
-import {
-  MdWebAsset,
-  MdPsychology,
-} from "react-icons/md";
+import { MdWebAsset, MdPsychology } from "react-icons/md";
 
 const megaMenuItems = [
   {
     name: "مهندسی نرم‌افزار",
+    href: "/engineeringServicess",
     icon: <FaCode className="text-orange-400 w-8 h-8" />,
     video: "/assets/images/7.mp4", // Replace with your video path
     bgColor: "bg-blue-50",
@@ -44,22 +42,22 @@ const megaMenuItems = [
   {
     name: "هوش مصنوعی",
     icon: <FaRobot className="text-purple-500 w-8 h-8" />,
+    href: "/aiServices",
     video: "/assets/images/7.mp4", // Replace with your video path
     bgColor: "bg-purple-50",
     children: [
       {
         name: "پردازش زبان طبیعی فارسی",
-        href: "/aiServices",
+        href: "/aiServices/persian-natural-language-processing",
         icon: <FaLanguage className="text-indigo-600 w-6 h-6" />,
         description: "راهکارهای هوشمند پردازش متن و گفتار فارسی",
       },
       {
         name: "یادگیری ماشین سفارشی",
-        href: "/aiServices",
+        href: "/aiServices/custom-machine-learning",
         icon: <MdPsychology className="text-green-600 w-6 h-6" />,
         description: "مدل‌های یادگیری ماشین مختص کسب‌وکار شما",
       },
-     
     ],
   },
 ];
@@ -103,9 +101,9 @@ const MegaMenu = () => {
           className="fixed top-[50px] left-0 right-0 w-screen min-w-max mt-2 z-50"
           onMouseEnter={() => setIsMenuPersistent(true)}
         >
-          <div className="bg-gray-100 shadow-2xl rounded-xl overflow-hidden p-10 max-w-5xl mx-auto grid grid-cols-3 divide-x">
+          <div className="bg-gray-100  shadow-2xl rounded-xl overflow-hidden p-10 max-w-5xl mx-auto grid grid-cols-3 ">
             {/* Categories Column */}
-            <div className="col-span-1 bg-[#023047] opacity-95 rounded-xl p-4">
+            <div className="col-span-1 bg-transparent  opacity-95 rounded-xl p-4">
               <button
                 onClick={handleCloseMenu}
                 className="absolute top-2 -mx-4  z-60 text-red-400 hover:text-gray-800 transition-colors"
@@ -115,24 +113,26 @@ const MegaMenu = () => {
               {megaMenuItems.map((category) => (
                 <div
                   key={category.name}
-                  className={`flex items-center p-3 rounded-lg cursor-pointer transition-all duration-300 ${
+                  className={`flex  items-center p-3 rounded-lg cursor-pointer transition-all duration-300 ${
                     activeCategory === category.name
-                      ? "bg-gray-600 shadow-md"
+                      ? "bg-gray-100 shadow-md"
                       : "hover:bg-blue-50"
                   }`}
                   onMouseEnter={() => setActiveCategory(category.name)}
                 >
                   {category.icon}
 
-                  <h3 className="text-lg font-semibold mr-3 text-gray-100">
-                    {category.name}
+                  <h3 className="text-lg font-semibold mr-3 text-gray-800">
+                    <Link href={category.href} className="text-gray-800">
+                      {category.name}
+                    </Link>
                   </h3>
                 </div>
               ))}
             </div>
 
             {/* Subcategories and Image Column */}
-            <div className="col-span-2 grid grid-cols-2 p-10 mr-2 bg-white/20 rounded-xl">
+            <div className="col-span-2 grid grid-cols-2 p-10 mr-2 bg-gray-100">
               {megaMenuItems.map(
                 (category) =>
                   activeCategory === category.name && (
