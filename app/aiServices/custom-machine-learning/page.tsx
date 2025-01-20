@@ -75,6 +75,8 @@ export default function NLPPage() {
         });
       }
     } catch (error) {
+        console.log(error);
+        
       toast.error("خطا در ارسال فرم", {
         style: {
           background: "#f44336",
