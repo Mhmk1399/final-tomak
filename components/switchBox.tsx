@@ -7,13 +7,16 @@ interface Feature {
   description: string;
   childFeatures: string[];
   bgImage: string;
+
 }
 
 interface FeatureSectionProps {
   features: Feature[];
+  heading: string;
+  description: string;
 }
 
-const FeatureSection: React.FC<FeatureSectionProps> = ({ features }) => {
+const FeatureSection: React.FC<FeatureSectionProps> = ({ features , heading , description }) => {
   const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const detailRef = useRef<HTMLDivElement | null>(null);
@@ -47,7 +50,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ features }) => {
         className="text-center mb-12"
       >
         <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-          پردازش زبان طبیعی فارسی
+          {heading}
         </h1>
         <p className="text-gray-600 text-lg">
           با جدیدترین فناوری‌ها، زبان فارسی را به‌صورت هوشمند پردازش کنید

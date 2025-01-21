@@ -89,9 +89,9 @@ const ContactPage = () => {
             </p>
           </motion.div>
         </div>
-        <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+        <div className=" flex flex-col items-center justify-center relative overflow-hidden">
           {/* Background Blur Effect */}
-          <div className="absolute inset-0 w-full h-full ">
+          <div className="absolute inset-0 w-full h-full mt-5 ">
             <iframe
               src="https://lottie.host/embed/de77fa9b-73bd-41c7-b7d2-079601294041/bkvNeJWvpf.json"
               className="w-full h-full"
@@ -129,7 +129,7 @@ const ContactPage = () => {
                     name="name"
                     type="text"
                     required
-                    className="mt-1 block w-full px-4 text-black py-3 rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full px-4 text-black py-3 focus:outline-none rounded-md border-gray-300 shadow-sm focus:outline-indigo-500 sm:text-sm"
                     placeholder="نام و نام خانوادگی"
                   />
                 </div>
@@ -149,7 +149,7 @@ const ContactPage = () => {
                     name="email"
                     type="email"
                     required
-                    className="mt-1 block w-full px-4 text-black py-3 rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full px-4 text-black py-3 focus:outline-none rounded-md border-gray-300 shadow-sm focus:outline-indigo-500 sm:text-sm"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -168,7 +168,7 @@ const ContactPage = () => {
                     }
                     name="message"
                     required
-                    className="mt-1 block w-full px-4 text-black py-3 rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full px-4 text-black py-3 focus:outline-none rounded-md border-gray-300 shadow-sm focus:outline-indigo-500 sm:text-sm"
                     placeholder="پیام شما..."
                   ></textarea>
                 </div>

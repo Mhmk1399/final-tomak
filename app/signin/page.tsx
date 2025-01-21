@@ -51,7 +51,6 @@ const Login: React.FC = () => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const formValues = Object.fromEntries(formData);
-    
 
     const { name, phone, email, password, confirmPassword } = formValues;
 
@@ -95,11 +94,11 @@ const Login: React.FC = () => {
 
   return (
     <div
-      className="flex justify-center items-center min-h-max w-full px-4 sm:px-6 lg:px-8 bg-login-custom backdrop-blur-sm"
+      className="flex justify-center items-center min-h-max w-full px-4 mt-12 sm:px-6 lg:px-8 bg-login-custom backdrop-blur-sm"
       dir="rtl"
     >
       {modalSuccess && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-green-400 p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
             <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
               ثبت نام شما موفقیت‌آمیز بود
@@ -140,9 +139,9 @@ const Login: React.FC = () => {
       <div className="grid gap-6 sm:gap-8 w-full max-w-lg sm:max-w-xl lg:max-w-5xl lg:my-24 my-32 ">
         <section
           id="back-div"
-          className="rounded-3xl w-full lg:p-6 shadow-xl backdrop-blur-sm bg-black/5 "
+          className="rounded-3xl w-full lg:p-6 shadow-xl backdrop-blur-sm"
         >
-          <div className="border-8 border-transparent rounded-xl bg-white/40 shadow-xl p-6 sm:p-8 m-2 backdrop-blur-sm">
+          <div className="border-8 border-transparent rounded-xl bg-white/80 shadow-xl p-6 sm:p-8 m-2 backdrop-blur-sm">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center cursor-default text-primary my-4">
               ساختن حساب کاربری
             </h1>

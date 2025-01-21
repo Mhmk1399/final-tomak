@@ -21,19 +21,19 @@ const megaMenuItems = [
     children: [
       {
         name: "طراحی وب اپلیکیشن",
-        href: "/engineeringServicess",
+        href: "/engineeringServicess/webDevelopment",
         icon: <MdWebAsset className="text-blue-600 w-6 h-6" />,
         description: "توسعه وب‌سایت‌های پیشرفته با آخرین تکنولوژی‌ها",
       },
       {
         name: "توسعه اپلیکیشن موبایل",
-        href: "/engineeringServicess",
+        href: "/engineeringServicess/mobileDevelopment",
         icon: <FaMobileAlt className="text-green-600 w-6 h-6" />,
         description: "اپلیکیشن‌های هوشمند برای iOS و Android",
       },
       {
         name: "اتوماسیون سازمانی",
-        href: "/engineeringServicess",
+        href: "/engineeringServicess/automation",
         icon: <FaLaptopCode className="text-purple-600 w-6 h-6" />,
         description: "راهکارهای هوشمند برای بهینه‌سازی فرآیندها",
       },
@@ -106,7 +106,7 @@ const MegaMenu = () => {
             <div className="col-span-1 bg-transparent  opacity-95 rounded-xl p-4">
               <button
                 onClick={handleCloseMenu}
-                className="absolute top-2 -mx-4  z-60 text-red-400 hover:text-gray-800 transition-colors"
+                className="absolute top-2 -mx-8  z-60 text-red-400 hover:text-red-600 transition-colors"
               >
                 <FaTimes className="w-6 h-7" />
               </button>

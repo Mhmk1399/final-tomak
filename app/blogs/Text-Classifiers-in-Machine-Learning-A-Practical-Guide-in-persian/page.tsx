@@ -130,7 +130,7 @@ const Page = () => {
     <>
       <BlogSchema blogData={blogData} />
 
-      <div className="relative min-h-screen w-full py-12 bg-sky-50" dir="rtl">
+      <div className="relative min-h-screen w-full py-12 bg-sky-50 mt-12" dir="rtl">
         <div className="absolute bottom-0 left-0 right-0 overflow-hidden">
           <svg
             viewBox="0 0 1440 320"

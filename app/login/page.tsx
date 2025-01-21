@@ -72,12 +72,12 @@ const Login: React.FC = () => {
       className="flex justify-center items-center h-full w-full bg-login-custom backdrop-blur-sm"
       dir="rtl"
     >
-      <div className="grid gap-8 md:my-24 lg:my-12 my-12 ">
+      <div className="grid gap-8 md:my-24 lg:my-12 ">
         <section
           id="back-div"
-          className="rounded-3xl sm:w-[300px] p-1 lg:w-[1024px] lg:p-8 shadow-xl mb-12 md:w-[600px] md:mt-32 mt-28 backdrop-blur-sm bg-black/5"
+          className="rounded-3xl sm:w-[300px] p-1 lg:w-[1024px] lg:p-8 shadow-xl mb-12 md:w-[600px] md:mt-32 mt-28 backdrop-blur-sm"
         >
-          <div className="border-8 border-transparent rounded-xl bg-white/40 shadow-xl p-8 m-2 backdrop-blur-sm">
+          <div className=" rounded-xl bg-white/80 p-8 m-2 backdrop-blur-sm">
             <h1 className="text-3xl lg:text-5xl font-bold text-center cursor-default text-primary my-2">
               ورود
             </h1>

@@ -186,6 +186,9 @@ export default function NLPPage() {
     phoneNumber: "",
     description: "",
   });
+  const HeadingSwichBox = "پردازش زبان فارسی";
+  const DescriptionSwichBox =
+    "راهکارهای هوشمند برای تحلیل و پردازش متون فارسی با استفاده از جدیدترین تکنولوژی‌های هوش مصنوعی";
 
   const features = [
     {
@@ -323,7 +326,11 @@ export default function NLPPage() {
         </div>
 
         <div className="min-h-screen p-8 ">
-          <FeatureSection features={features} />
+          <FeatureSection
+            features={features}
+            heading={HeadingSwichBox}
+            description={DescriptionSwichBox}
+          />
 
           <div className="mt-12">
             {" "}
