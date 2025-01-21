@@ -136,7 +136,7 @@ const Login: React.FC = () => {
           </div>
         </div>
       )}
-      <div className="grid gap-6 sm:gap-8 w-full max-w-lg sm:max-w-xl lg:max-w-5xl lg:my-36 mt-44 ">
+      <div className="grid gap-6 sm:gap-8 w-full max-w-lg sm:max-w-xl lg:max-w-5xl lg:my-36 my-44 ">
         <section
           id="back-div"
           className="rounded-3xl w-full lg:p-6 shadow-xl backdrop-blur-sm"
