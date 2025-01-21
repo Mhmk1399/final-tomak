@@ -15,6 +15,13 @@ const Custom404 = () => {
       router.replace(
         "/blogs/Text-Classifiers-in-Machine-Learning-A-Practical-Guide-in-persian"
       );
+    } else if (
+      path ===
+      "/a-beginners-guide-about-what-is-regresion-and-when-does-it-used-in-persian-language"
+    ) {
+      router.replace(
+        "/blogs/a-beginners-guide-about-what-is-regresion-and-when-does-it-used-in-persian-language"
+      );
     }
   }, [router]);
 

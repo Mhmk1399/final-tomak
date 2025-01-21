@@ -89,9 +89,9 @@ const ContactPage = () => {
             </p>
           </motion.div>
         </div>
-        <div className=" flex flex-col items-center justify-center relative overflow-hidden">
+        <div className=" flex flex-col items-center justify-center relative overflow-hidden my-12">
           {/* Background Blur Effect */}
-          <div className="absolute inset-0 w-full h-full mt-5 ">
+          <div className="absolute inset-0 w-full h-full">
             <iframe
               src="https://lottie.host/embed/de77fa9b-73bd-41c7-b7d2-079601294041/bkvNeJWvpf.json"
               className="w-full h-full"
@@ -104,7 +104,7 @@ const ContactPage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10 w-[350px] md:w-[500px] lg:w-[700px] bg-white/20 backdrop-blur-sm rounded-2xl shadow-md shadow-gray-400 p-4 mt-20"
+            className="relative z-10 w-[350px] md:w-[500px] lg:w-[700px] bg-white/20 border backdrop-blur-sm rounded-2xl  p-6 mt-20"
           >
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-gray-600 p-2">
