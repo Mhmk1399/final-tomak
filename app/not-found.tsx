@@ -1,7 +1,23 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
 const Custom404 = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (
+      path ===
+      "/Text-Classifiers-in-Machine-Learning-A-Practical-Guide-in-persian"
+    ) {
+      router.replace(
+        "/blogs/Text-Classifiers-in-Machine-Learning-A-Practical-Guide-in-persian"
+      );
+    }
+  }, [router]);
+
   return (
     <div
       className="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex mt-12 justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16"
