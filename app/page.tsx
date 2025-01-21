@@ -6,6 +6,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaEye, FaCode, FaDatabase } from "react-icons/fa";
 import { FaArrowUpRightDots } from "react-icons/fa6";
 import Loading from "./loading";
+import Link from "next/link";
 
 const Hero = () => {
   const [activePaneIndex, setActivePaneIndex] = useState(0);
@@ -23,6 +24,7 @@ const Hero = () => {
         "تیم تومک با بهره گیری از بروزترین تکنولوژی ها راهکارهای افزایش بازدهی تمام قسمت های کسب و کار شما را فراهم می آورد.که با تیمی خلاق و جوان توانسته ایم کسب و کار های متعددی را در این حوضه پیش ببریم. ",
 
       btn: "درباره ما",
+      link: "/about",
     },
     {
       image: "/assets/images/stable.mp4",
@@ -32,6 +34,7 @@ const Hero = () => {
       description:
         "با داشتن یک اپلیکیشن اختصاصی برای کسب و کار خود سرمایه ی خود را ذخیره کنید و از آینده باخبر باشید.",
       btn: "طراحی سایت و اپلیکیشن",
+      link: "/engineeringServicess",
     },
     {
       image: "/assets/images/bahrevary.mp4",
@@ -42,6 +45,7 @@ const Hero = () => {
         "بهره وری کسب و کار خود را با استفاده از مدل های هوش مصنوعی به حداکثر برسانید.",
 
       btn: "هوش مصنوعی و دیتابیس",
+      link: "/aiServices",
     },
   ];
 
@@ -183,7 +187,9 @@ const Hero = () => {
                     <div className="content flex flex-col justify-start items-end leading-tight text-white whitespace-pre h-full">
                       <div className="ease-in-out text-xs lg:text-base text-white hover:bg-white/5 py-2 mr-1 lg:py-3 bg-white/30 rounded-xl px-1.5 lg:px-4 font-bold duration-700 opacity-0 relative transform transition-all translate-x-8">
                         <FaArrowUpRightDots className="inline text-blue-500" />
-                        {pane.btn}
+                        <Link href={pane.link} target="_blank">
+                          {pane.btn}
+                        </Link>
                       </div>
                     </div>
                     <div className="flex items-center">
