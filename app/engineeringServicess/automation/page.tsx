@@ -12,7 +12,6 @@ import {
   FaCogs,
   FaChartLine,
   FaMicrochip,
-  FaNetworkWired,
 } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";
