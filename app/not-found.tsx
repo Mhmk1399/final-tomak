@@ -12,7 +12,7 @@ const Custom404 = () => {
           <div className="absolute">
             <div className="">
               <h1 className="my-2 text-gray-800 font-bold text-2xl ">
-                به نظر می رسد که دری به سوی هیچ چیز بزرگی پیدا کرده اید{" "}
+                به نظر می رسد که دری به سوی هیچ چیز پیدا کرده اید{" "}
               </h1>
               <p className="mt-4 mb-9 text-gray-800">
                 متاسفم برای این! لطفا از صفحه اصلی ما دیدن کنید تا به جایی که
