@@ -53,7 +53,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ features , heading , de
           {heading}
         </h1>
         <p className="text-gray-600 text-lg">
-          با جدیدترین فناوری‌ها، زبان فارسی را به‌صورت هوشمند پردازش کنید
+          {description}
         </p>
       </motion.div>
 
