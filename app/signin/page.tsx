@@ -94,7 +94,7 @@ const Login: React.FC = () => {
 
   return (
     <div
-      className="flex justify-center items-center min-h-max w-full px-4 mt-28 lg:mt-8 sm:px-6 lg:px-8 bg-login-custom backdrop-blur-sm"
+      className="flex justify-center items-center min-h-max w-full px-4  sm:px-6 lg:px-8 bg-login-custom backdrop-blur-sm"
       dir="rtl"
     >
       {modalSuccess && (
@@ -136,7 +136,7 @@ const Login: React.FC = () => {
           </div>
         </div>
       )}
-      <div className="grid gap-6 sm:gap-8 w-full max-w-lg sm:max-w-xl lg:max-w-5xl lg:my-24 my-32 ">
+      <div className="grid gap-6 sm:gap-8 w-full max-w-lg sm:max-w-xl lg:max-w-5xl lg:my-36 mt-44 ">
         <section
           id="back-div"
           className="rounded-3xl w-full lg:p-6 shadow-xl backdrop-blur-sm"
