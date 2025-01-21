@@ -7,11 +7,12 @@ import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
 import {
-  FaCode,
-  FaMobile,
-  FaDesktop,
-  FaDatabase,
-  FaLaptopCode,
+  FaRobot,
+  FaIndustry,
+  FaCogs,
+  FaChartLine,
+  FaMicrochip,
+  FaNetworkWired,
 } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";
@@ -187,83 +188,81 @@ export default function NLPPage() {
     phoneNumber: "",
     description: "",
   });
-  const HeadingSwichBox = "طراحی وب اپلیکیشن";
-  const DescriptionSwichBox =
-    "طراحی و توسعه وب اپلیکیشن های مدرن و واکنش‌گرا با استفاده از فریم‌ورک های محبوب مانند React.js، Next.js، Vue.js و غیره.";
   const features = [
     {
-      icon: <FaCode className="text-4xl text-blue-500" />,
-      title: "توسعه فرانت‌اند",
-      description: "طراحی و توسعه رابط کاربری مدرن و واکنش‌گرا",
-      childFeatures: ["React.js", "Next.js", "Vue.js", "UI/UX پیشرفته"],
-      bgImage: "url('/assets/images/frontend.jpg')",
+      icon: <FaRobot className="text-4xl text-blue-500" />,
+      title: "اتوماسیون صنعتی",
+      description: "پیاده‌سازی سیستم‌های اتوماسیون پیشرفته در صنایع مختلف",
+      childFeatures: ["PLC", "SCADA", "DCS", "HMI"],
+      bgImage: "url('/assets/images/industrial-automation.jpg')",
     },
     {
-      icon: <FaDatabase className="text-4xl text-green-500" />,
-      title: "توسعه بک‌اند",
-      description: "پیاده‌سازی سرور و API های قدرتمند و مقیاس‌پذیر",
-      childFeatures: ["Node.js", "Python", "RESTful APIs", "GraphQL"],
-      bgImage: "url('/assets/images/backend.jpg')",
-    },
-    {
-      icon: <FaMobile className="text-4xl text-yellow-500" />,
-      title: "طراحی واکنش‌گرا",
-      description: "توسعه وب‌سایت‌های سازگار با تمام دستگاه‌ها",
+      icon: <FaIndustry className="text-4xl text-gray-800" />,
+      title: "رباتیک صنعتی",
+      description: "طراحی و پیاده‌سازی سیستم‌های رباتیک",
       childFeatures: [
-        "Responsive Design",
-        "Mobile First",
-        "Cross-Browser Support",
+        "برنامه‌نویسی ربات",
+        "کنترل حرکت",
+        "بینایی ماشین",
+        "مونتاژ اتوماتیک",
       ],
-      bgImage: "url('/assets/images/responsive.jpg')",
+      bgImage: "url('/assets/images/robotics.jpg')",
     },
     {
-      icon: <FaDesktop className="text-4xl text-pink-500" />,
-      title: "بهینه‌سازی عملکرد",
-      description: "بهینه‌سازی سرعت و کارایی وب‌سایت",
-      childFeatures: ["SEO", "Core Web Vitals", "Performance Optimization"],
-      bgImage: "url('/assets/images/performance.jpg')",
+      icon: <FaCogs className="text-4xl text-green-500" />,
+      title: "اتوماسیون فرآیند",
+      description: "بهینه‌سازی فرآیندهای تولید و خط مونتاژ",
+      childFeatures: ["کنترل فرآیند", "مانیتورینگ", "گزارش‌گیری", "بهینه‌سازی"],
+      bgImage: "url('/assets/images/process.jpg')",
     },
     {
-      icon: <FaLaptopCode className="text-4xl text-red-500" />,
-      title: "امنیت و نگهداری",
-      description: "تامین امنیت و پشتیبانی مداوم از وب‌سایت",
-      childFeatures: ["Security Audits", "Maintenance", "Updates & Backups"],
-      bgImage: "url('/assets/images/security.jpg')",
+      icon: <FaChartLine className="text-4xl text-purple-500" />,
+      title: "هوشمندسازی صنعتی",
+      description: "پیاده‌سازی راهکارهای صنعت 4.0 و IoT صنعتی",
+      childFeatures: ["IIoT", "Big Data", "هوش مصنوعی صنعتی", "پردازش ابری"],
+      bgImage: "url('/assets/images/smart-industry.jpg')",
+    },
+    {
+      icon: <FaMicrochip className="text-4xl text-orange-500" />,
+      title: "سیستم‌های کنترل",
+      description: "طراحی و پیاده‌سازی سیستم‌های کنترل هوشمند",
+      childFeatures: ["کنترل پیشرفته", "کنترل فازی", "PID", "کنترل تطبیقی"],
+      bgImage: "url('/assets/images/control.jpg')",
     },
   ];
 
+  // Update the heading and description
+  const HeadingSwichBox = "خدمات اتوماسیون صنعتی";
+  const DescriptionSwichBox =
+    "ارائه راهکارهای جامع اتوماسیون صنعتی با استفاده از تکنولوژی‌های پیشرفته برای افزایش بهره‌وری و کارایی در صنایع مختلف";
+
   useEffect(() => {
-    document.title = "توسعه وب | خدمات طراحی وب‌سایت تومک";
+    document.title = " اتوماسیون سازمانی | خدمات تومک";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "طراحی و توسعه وب‌سایت‌های مدرن و کاربرپسند با جدیدترین تکنولوژی‌ها"
+        "ارائه خدمات اتوماسیون صنعتی با استانداردهای جهانی برای صنایع مختلف"
       );
     }
   }, []);
 
   const blogData = {
-    title: "توسعه وب | خدمات طراحی وب‌سایت تومک",
-    url: "/engineeringServicess/webDevelopment",
-    images: ["/assets/images/web-development-banner.jpg"],
+    title: "اتوماسیون صنعتی | خدمات تومک",
+    url: "/engineeringServicess/automation",
+    images: ["/assets/images/automation-banner.jpg"],
     sections: [
       {
-        heading: "توسعه وب حرفه‌ای",
+        heading: "اتوماسیون صنعتی پیشرفته",
         content:
-          "طراحی و توسعه وب‌سایت‌های مدرن و کاربرپسند با جدیدترین تکنولوژی‌ها",
+          "ارائه خدمات اتوماسیون صنعتی با استانداردهای جهانی برای صنایع مختلف",
         lists: [
-          "طراحی واکنش‌گرا",
-          "توسعه فرانت‌اند",
-          "توسعه بک‌اند",
-          "بهینه‌سازی SEO",
-          "امنیت پیشرفته",
+          "اتوماسیون خط تولید",
+          "سیستم‌های کنترل پیشرفته",
+          "رباتیک صنعتی",
+          "مانیتورینگ هوشمند",
+          "یکپارچه‌سازی سیستم‌ها",
         ],
-      },
-      {
-        heading: "مزایای توسعه وب حرفه‌ای",
-        content:
-          "با استفاده از خدمات توسعه وب ما، کسب‌وکار شما صاحب یک وب‌سایت مدرن، سریع و امن خواهد شد.",
       },
     ],
   };
@@ -276,15 +275,15 @@ export default function NLPPage() {
       <div className="mt-36">
         <Banner
           src="/assets/images/heade-application-development-min-2048x725.jpg"
-          text="توسعه و طراحی وب"
+          text="اتوماسیون صنعتی"
           category="خدمات مهندسی"
-          description="طراحی و توسعه وب‌سایت‌های مدرن، سریع و واکنش‌گرا با استفاده از جدیدترین تکنولوژی‌های روز دنیا برای رشد کسب و کار شما"
+          description="طراحی و پیاده‌سازی سیستم‌های اتوماسیون صنعتی پیشرفته با استفاده از تکنولوژی‌های روز دنیا برای افزایش بهره‌وری و کارایی در صنایع مختلف"
         />
 
         <div className="mx-8">
           <VideoAndText
-            heading="توسعه وب حرفه‌ای با تکنولوژی‌های مدرن"
-            subText="با استفاده از پیشرفته‌ترین تکنولوژی‌های توسعه وب مانند React، Next.js و Node.js، وب‌سایت‌های قدرتمند و کاربرپسند را برای کسب‌وکار شما توسعه می‌دهیم. تیم متخصص ما با تمرکز بر طراحی واکنش‌گرا، بهینه‌سازی عملکرد و امنیت بالا، پلتفرم‌های وبی می‌سازد که نه تنها زیبا هستند، بلکه سریع، امن و مقیاس‌پذیر نیز می‌باشند. این راهکارها به کسب‌وکار شما کمک می‌کند تا حضور آنلاین قدرتمندی داشته و تجربه کاربری فوق‌العاده‌ای را برای مشتریان خود فراهم کند."
+            heading="اتوماسیون صنعتی با تکنولوژی‌های پیشرفته"
+            subText="با استفاده از پیشرفته‌ترین تکنولوژی‌های اتوماسیون صنعتی مانند PLC، SCADA، DCS و HMI، سیستم‌های هوشمند و کارآمد را برای صنعت شما پیاده‌سازی می‌کنیم. تیم متخصص ما با تمرکز بر طراحی دقیق، عملکرد پایدار و قابلیت اطمینان بالا، سیستم‌هایی را پیاده‌سازی می‌کند که نه تنها کارآمد هستند، بلکه انعطاف‌پذیر، ایمن و مقیاس‌پذیر نیز می‌باشند. این راهکارها به صنعت شما کمک می‌کند تا با افزایش بهره‌وری و کاهش هزینه‌ها، به استانداردهای صنعت 4.0 دست یابد."
             videoSrc={{
               "1080p": "/assets/videos/nlpvideo.mp4",
               "720p": "/assets/videos/nlpvideo.mp4",
@@ -294,8 +293,8 @@ export default function NLPPage() {
         </div>
         <div className="mx-8">
           <DoubleText
-            heading="مزایای طراحی و توسعه وب حرفه‌ای برای کسب‌وکار شما"
-            subText="با پیاده‌سازی وب‌سایت حرفه‌ای، کسب‌وکار شما به یک حضور آنلاین قدرتمند و تأثیرگذار دست می‌یابد. از طراحی واکنش‌گرا و سازگار با تمام دستگاه‌ها تا بهینه‌سازی موتورهای جستجو و سرعت بارگذاری، همه با تمرکز بر نیازهای خاص برند شما. تیم متخصص ما با تجربه عمیق در توسعه وب، راهکارهایی را طراحی می‌کند که کاملاً با اهداف کسب‌وکار شما همسو است. این راهکارها به شما امکان می‌دهند تا با افزایش ترافیک وب‌سایت، بهبود نرخ تبدیل و ارائه تجربه کاربری عالی، مزیت رقابتی خود را در فضای دیجیتال تقویت نمایید."
+            heading="مزایای اتوماسیون صنعتی برای کسب‌وکار شما"
+            subText="با پیاده‌سازی سیستم‌های اتوماسیون صنعتی، کسب‌وکار شما به سطح جدیدی از بهره‌وری و کارایی دست می‌یابد. از کنترل دقیق فرآیندها و کاهش خطاهای انسانی تا بهینه‌سازی مصرف انرژی و منابع، همه با تمرکز بر نیازهای خاص صنعت شما طراحی می‌شود. تیم متخصص ما با تجربه عمیق در اتوماسیون صنعتی، راهکارهایی را ارائه می‌دهد که کاملاً با اهداف تولیدی شما همسو است. این راهکارها به شما امکان می‌دهند تا با افزایش سرعت تولید، بهبود کیفیت محصولات، کاهش هزینه‌های عملیاتی و ارتقای ایمنی، مزیت رقابتی خود را در صنعت تقویت نمایید."
           />
         </div>
 

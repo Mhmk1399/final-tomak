@@ -7,11 +7,12 @@ import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
 import {
-  FaCode,
   FaMobile,
-  FaDesktop,
-  FaDatabase,
-  FaLaptopCode,
+  FaAndroid,
+  FaApple,
+  FaCloud,
+  FaTools,
+ 
 } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";
@@ -187,83 +188,90 @@ export default function NLPPage() {
     phoneNumber: "",
     description: "",
   });
-  const HeadingSwichBox = "طراحی وب اپلیکیشن";
-  const DescriptionSwichBox =
-    "طراحی و توسعه وب اپلیکیشن های مدرن و واکنش‌گرا با استفاده از فریم‌ورک های محبوب مانند React.js، Next.js، Vue.js و غیره.";
   const features = [
     {
-      icon: <FaCode className="text-4xl text-blue-500" />,
-      title: "توسعه فرانت‌اند",
-      description: "طراحی و توسعه رابط کاربری مدرن و واکنش‌گرا",
-      childFeatures: ["React.js", "Next.js", "Vue.js", "UI/UX پیشرفته"],
-      bgImage: "url('/assets/images/frontend.jpg')",
+      icon: <FaAndroid className="text-4xl text-green-500" />,
+      title: "توسعه اندروید",
+      description: "طراحی و توسعه اپلیکیشن‌های اندروید بومی",
+      childFeatures: ["Kotlin", "Java", "Android SDK", "Material Design"],
+      bgImage: "url('/assets/images/android.jpg')",
     },
     {
-      icon: <FaDatabase className="text-4xl text-green-500" />,
-      title: "توسعه بک‌اند",
-      description: "پیاده‌سازی سرور و API های قدرتمند و مقیاس‌پذیر",
-      childFeatures: ["Node.js", "Python", "RESTful APIs", "GraphQL"],
-      bgImage: "url('/assets/images/backend.jpg')",
+      icon: <FaApple className="text-4xl text-gray-800" />,
+      title: "توسعه iOS",
+      description: "ساخت اپلیکیشن‌های iOS با کیفیت بالا",
+      childFeatures: ["Swift", "SwiftUI", "iOS SDK", "App Store Connect"],
+      bgImage: "url('/assets/images/ios.jpg')",
     },
     {
-      icon: <FaMobile className="text-4xl text-yellow-500" />,
-      title: "طراحی واکنش‌گرا",
-      description: "توسعه وب‌سایت‌های سازگار با تمام دستگاه‌ها",
+      icon: <FaMobile className="text-4xl text-blue-500" />,
+      title: "اپلیکیشن‌های هیبریدی",
+      description: "توسعه اپلیکیشن‌های چند پلتفرمی",
       childFeatures: [
-        "Responsive Design",
-        "Mobile First",
-        "Cross-Browser Support",
+        "React Native",
+        "Flutter",
+        "Cross-Platform",
+        "Code Sharing",
       ],
-      bgImage: "url('/assets/images/responsive.jpg')",
+      bgImage: "url('/assets/images/hybrid.jpg')",
     },
     {
-      icon: <FaDesktop className="text-4xl text-pink-500" />,
-      title: "بهینه‌سازی عملکرد",
-      description: "بهینه‌سازی سرعت و کارایی وب‌سایت",
-      childFeatures: ["SEO", "Core Web Vitals", "Performance Optimization"],
-      bgImage: "url('/assets/images/performance.jpg')",
+      icon: <FaCloud className="text-4xl text-purple-500" />,
+      title: "خدمات بک‌اند موبایل",
+      description: "زیرساخت‌های قدرتمند برای اپلیکیشن‌های موبایل",
+      childFeatures: [
+        "API Development",
+        "Push Notifications",
+        "Data Sync",
+        "Cloud Storage",
+      ],
+      bgImage: "url('/assets/images/backend-mobile.jpg')",
     },
     {
-      icon: <FaLaptopCode className="text-4xl text-red-500" />,
-      title: "امنیت و نگهداری",
-      description: "تامین امنیت و پشتیبانی مداوم از وب‌سایت",
-      childFeatures: ["Security Audits", "Maintenance", "Updates & Backups"],
-      bgImage: "url('/assets/images/security.jpg')",
+      icon: <FaTools className="text-4xl text-orange-500" />,
+      title: "تست و بهینه‌سازی",
+      description: "تضمین کیفیت و عملکرد اپلیکیشن",
+      childFeatures: [
+        "UI Testing",
+        "Performance Testing",
+        "Security Testing",
+        "Analytics",
+      ],
+      bgImage: "url('/assets/images/testing.jpg')",
     },
   ];
 
+  const HeadingSwichBox = "توسعه اپلیکیشن‌های موبایل";
+  const DescriptionSwichBox =
+    "طراحی و توسعه اپلیکیشن‌های موبایل حرفه‌ای برای پلتفرم‌های iOS و اندروید با استفاده از جدیدترین تکنولوژی‌ها";
+
   useEffect(() => {
-    document.title = "توسعه وب | خدمات طراحی وب‌سایت تومک";
+    document.title = "توسعه اپلیکیشن‌های موبایل | خدمات طراحی اپلیکیشن‌ تومک";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "طراحی و توسعه وب‌سایت‌های مدرن و کاربرپسند با جدیدترین تکنولوژی‌ها"
+        "طراحی و توسعه اپلیکیشن‌های موبایل حرفه‌ای برای پلتفرم‌های iOS و اندروید با استفاده از جدیدترین تکنولوژی‌ها"
       );
     }
   }, []);
 
   const blogData = {
-    title: "توسعه وب | خدمات طراحی وب‌سایت تومک",
-    url: "/engineeringServicess/webDevelopment",
-    images: ["/assets/images/web-development-banner.jpg"],
+    title: "توسعه اپلیکیشن موبایل | خدمات تومک",
+    url: "/engineeringServicess/mobileDevelopment",
+    images: ["/assets/images/mobile-development-banner.jpg"],
     sections: [
       {
-        heading: "توسعه وب حرفه‌ای",
+        heading: "توسعه اپلیکیشن موبایل حرفه‌ای",
         content:
-          "طراحی و توسعه وب‌سایت‌های مدرن و کاربرپسند با جدیدترین تکنولوژی‌ها",
+          "ارائه خدمات توسعه اپلیکیشن‌های موبایل با کیفیت بالا برای کسب و کارهای مدرن",
         lists: [
-          "طراحی واکنش‌گرا",
-          "توسعه فرانت‌اند",
-          "توسعه بک‌اند",
-          "بهینه‌سازی SEO",
+          "توسعه اندروید و iOS",
+          "اپلیکیشن‌های هیبریدی",
+          "رابط کاربری جذاب",
           "امنیت پیشرفته",
+          "پشتیبانی مداوم",
         ],
-      },
-      {
-        heading: "مزایای توسعه وب حرفه‌ای",
-        content:
-          "با استفاده از خدمات توسعه وب ما، کسب‌وکار شما صاحب یک وب‌سایت مدرن، سریع و امن خواهد شد.",
       },
     ],
   };
@@ -276,15 +284,15 @@ export default function NLPPage() {
       <div className="mt-36">
         <Banner
           src="/assets/images/heade-application-development-min-2048x725.jpg"
-          text="توسعه و طراحی وب"
+          text="توسعه اپلیکیشن موبایل"
           category="خدمات مهندسی"
-          description="طراحی و توسعه وب‌سایت‌های مدرن، سریع و واکنش‌گرا با استفاده از جدیدترین تکنولوژی‌های روز دنیا برای رشد کسب و کار شما"
+          description="طراحی و توسعه اپلیکیشن‌های موبایل حرفه‌ای برای پلتفرم‌های iOS و اندروید با بهترین تکنولوژی‌های روز دنیا برای رشد کسب و کار شما"
         />
 
         <div className="mx-8">
           <VideoAndText
-            heading="توسعه وب حرفه‌ای با تکنولوژی‌های مدرن"
-            subText="با استفاده از پیشرفته‌ترین تکنولوژی‌های توسعه وب مانند React، Next.js و Node.js، وب‌سایت‌های قدرتمند و کاربرپسند را برای کسب‌وکار شما توسعه می‌دهیم. تیم متخصص ما با تمرکز بر طراحی واکنش‌گرا، بهینه‌سازی عملکرد و امنیت بالا، پلتفرم‌های وبی می‌سازد که نه تنها زیبا هستند، بلکه سریع، امن و مقیاس‌پذیر نیز می‌باشند. این راهکارها به کسب‌وکار شما کمک می‌کند تا حضور آنلاین قدرتمندی داشته و تجربه کاربری فوق‌العاده‌ای را برای مشتریان خود فراهم کند."
+            heading="توسعه اپلیکیشن موبایل با تکنولوژی‌های پیشرفته"
+            subText="با استفاده از پیشرفته‌ترین تکنولوژی‌های توسعه موبایل مانند React Native، Flutter، Swift و Kotlin، اپلیکیشن‌های قدرتمند و کاربرپسند را برای کسب‌وکار شما توسعه می‌دهیم. تیم متخصص ما با تمرکز بر طراحی جذاب، عملکرد روان و امنیت بالا، اپلیکیشن‌هایی می‌سازد که نه تنها زیبا هستند، بلکه سریع، امن و مقیاس‌پذیر نیز می‌باشند. این راهکارها به کسب‌وکار شما کمک می‌کند تا حضور قدرتمندی در دنیای موبایل داشته و تجربه کاربری فوق‌العاده‌ای را برای مشتریان خود فراهم کند."
             videoSrc={{
               "1080p": "/assets/videos/nlpvideo.mp4",
               "720p": "/assets/videos/nlpvideo.mp4",
@@ -294,8 +302,8 @@ export default function NLPPage() {
         </div>
         <div className="mx-8">
           <DoubleText
-            heading="مزایای طراحی و توسعه وب حرفه‌ای برای کسب‌وکار شما"
-            subText="با پیاده‌سازی وب‌سایت حرفه‌ای، کسب‌وکار شما به یک حضور آنلاین قدرتمند و تأثیرگذار دست می‌یابد. از طراحی واکنش‌گرا و سازگار با تمام دستگاه‌ها تا بهینه‌سازی موتورهای جستجو و سرعت بارگذاری، همه با تمرکز بر نیازهای خاص برند شما. تیم متخصص ما با تجربه عمیق در توسعه وب، راهکارهایی را طراحی می‌کند که کاملاً با اهداف کسب‌وکار شما همسو است. این راهکارها به شما امکان می‌دهند تا با افزایش ترافیک وب‌سایت، بهبود نرخ تبدیل و ارائه تجربه کاربری عالی، مزیت رقابتی خود را در فضای دیجیتال تقویت نمایید."
+            heading="مزایای توسعه اپلیکیشن موبایل حرفه‌ای برای کسب‌وکار شما"
+            subText="با پیاده‌سازی اپلیکیشن موبایل حرفه‌ای، کسب‌وکار شما به یک حضور قدرتمند در دنیای موبایل دست می‌یابد. از طراحی کاربرپسند و عملکرد روان تا بهینه‌سازی مصرف باتری و فضای ذخیره‌سازی، همه با تمرکز بر نیازهای خاص برند شما طراحی می‌شود. تیم متخصص ما با تجربه عمیق در توسعه موبایل، راهکارهایی را ارائه می‌دهد که کاملاً با اهداف کسب‌وکار شما همسو است. این راهکارها به شما امکان می‌دهند تا با افزایش تعامل کاربران، بهبود نرخ نصب و حفظ کاربر، و ارائه تجربه کاربری عالی، مزیت رقابتی خود را در بازار اپلیکیشن‌های موبایل تقویت نمایید."
           />
         </div>
 

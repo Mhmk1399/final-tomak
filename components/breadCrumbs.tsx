@@ -20,6 +20,9 @@ const pathTranslations: { [key: string]: string } = {
     "راهنمای جامع رگرسیون و انواع آن در تحلیل داده",
   engineeringServicess: "توسعه نرم‌افزارهای سفارشی",
   "custom-machine-learning": "یادگیری ماشین سفارشی",
+  mobileDevelopment:"توسعه اپلیکیشن موبایل",
+  webDevelopment:" توسعه و طراحی وب ",
+  automation:"اتوماسیون سازمانی"
 };
 
 const Breadcrumbs = () => {
