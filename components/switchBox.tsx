@@ -7,7 +7,6 @@ interface Feature {
   description: string;
   childFeatures: string[];
   bgImage: string;
-
 }
 
 interface FeatureSectionProps {
@@ -16,7 +15,11 @@ interface FeatureSectionProps {
   description: string;
 }
 
-const FeatureSection: React.FC<FeatureSectionProps> = ({ features , heading , description }) => {
+const FeatureSection: React.FC<FeatureSectionProps> = ({
+  features,
+  heading,
+  description,
+}) => {
   const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const detailRef = useRef<HTMLDivElement | null>(null);
@@ -52,9 +55,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ features , heading , de
         <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
           {heading}
         </h1>
-        <p className="text-gray-600 text-lg">
-          {description}
-        </p>
+        <p className="text-gray-600 text-lg">{description}</p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">

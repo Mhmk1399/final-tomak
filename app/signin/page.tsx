@@ -94,7 +94,7 @@ const Login: React.FC = () => {
 
   return (
     <div
-      className="flex justify-center items-center min-h-max w-full px-4 mt-12 sm:px-6 lg:px-8 bg-login-custom backdrop-blur-sm"
+      className="flex justify-center items-center min-h-max w-full px-4 mt-20 sm:px-6 lg:px-8 bg-login-custom backdrop-blur-sm"
       dir="rtl"
     >
       {modalSuccess && (
