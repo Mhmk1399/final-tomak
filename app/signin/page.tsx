@@ -139,7 +139,7 @@ const Login: React.FC = () => {
       <div className="grid gap-6 sm:gap-8 w-full max-w-lg sm:max-w-xl lg:max-w-5xl lg:my-36 my-64 ">
         <section
           id="back-div"
-          className="rounded-3xl w-full lg:p-6 shadow-xl backdrop-blur-sm"
+          className="rounded-3xl w-full lg:p-6 shadow-xl backdrop-blur-sm  mt-28"
         >
           <div className="border-8 border-transparent rounded-xl bg-white/80 shadow-xl p-6 sm:p-8 m-2 backdrop-blur-sm">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center cursor-default text-primary my-4">
