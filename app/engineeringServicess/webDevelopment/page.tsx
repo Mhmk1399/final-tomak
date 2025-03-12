@@ -7,16 +7,20 @@ import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
 import {
+  FaChartLine,
   FaCode,
-  FaMobile,
   FaDesktop,
-  FaDatabase,
   FaLaptopCode,
+  FaMobileAlt,
+  FaServer,
 } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";
 import { BlogSchema } from "@/components/schema/blogSchema";
 import FeatureSection from "@/components/switchBox";
+import DevelopmentProcess from "@/components/(sercices)/DevelopmentProcess";
+import WhyChooseUs from "@/components/(sercices)/WhyChooseUs";
+import { WorksShowcase } from "@/components/(sercices)/WorksCard";
 
 export default function NLPPage() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -187,48 +191,178 @@ export default function NLPPage() {
     phoneNumber: "",
     description: "",
   });
-  const HeadingSwichBox = "طراحی وب اپلیکیشن";
-  const DescriptionSwichBox =
-    "طراحی و توسعه وب اپلیکیشن های مدرن و واکنش‌گرا با استفاده از فریم‌ورک های محبوب مانند React.js، Next.js، Vue.js و غیره.";
+  const HeadingSwichBox =
+    "برای داشتن یک وبسایت حرفه ای باید به چه نکاتی توجه کرد ؟";
+  const DescriptionSwichBox = "برای مطالعه بیشتر روی هر بخش کلیک کتید";
   const features = [
     {
       icon: <FaCode className="text-4xl text-blue-500" />,
-      title: "توسعه فرانت‌اند",
-      description: "طراحی و توسعه رابط کاربری مدرن و واکنش‌گرا",
-      childFeatures: ["React.js", "Next.js", "Vue.js", "UI/UX پیشرفته"],
-      bgImage: "url('/assets/images/frontend.jpg')",
-    },
-    {
-      icon: <FaDatabase className="text-4xl text-green-500" />,
-      title: "توسعه بک‌اند",
-      description: "پیاده‌سازی سرور و API های قدرتمند و مقیاس‌پذیر",
-      childFeatures: ["Node.js", "Python", "RESTful APIs", "GraphQL"],
-      bgImage: "url('/assets/images/backend.jpg')",
-    },
-    {
-      icon: <FaMobile className="text-4xl text-yellow-500" />,
-      title: "طراحی واکنش‌گرا",
-      description: "توسعه وب‌سایت‌های سازگار با تمام دستگاه‌ها",
+      title: "طراحی سفارشی برای کسب‌وکار شما",
+      description:
+        "ما وب‌سایت‌هایی طراحی می‌کنیم که دقیقاً با نیازهای کسب‌وکار شما در تهران هم‌راستا باشند. با استفاده از فناوری‌های پیشرفته مثل React.js و Vue.js، تجربه‌ای کاربرپسند و شخصی‌سازی‌شده ارائه می‌دهیم که بهره‌وری شما را افزایش داده و مشتریانتان را جذب می‌کند.",
       childFeatures: [
-        "Responsive Design",
-        "Mobile First",
-        "Cross-Browser Support",
+        {
+          title: "اتوماسیون فرآیندها",
+          description:
+            "کاهش زمان انجام وظایف تکراری با وب‌اپلیکیشن‌های سفارشی.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "رابط‌های تعاملی",
+          description: "طراحی پویا با React.js برای جلب توجه کاربران.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "شخصی‌سازی کامل",
+          description: "ویژگی‌های متناسب با اهداف تجاری شما.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "پشتیبانی از زبان پارسی",
+          description: "طراحی بومی‌شده برای مخاطبان پارسی‌زبان.",
+          image: "/assets/images/4814017.jpg",
+        },
       ],
-      bgImage: "url('/assets/images/responsive.jpg')",
     },
     {
       icon: <FaDesktop className="text-4xl text-pink-500" />,
-      title: "بهینه‌سازی عملکرد",
-      description: "بهینه‌سازی سرعت و کارایی وب‌سایت",
-      childFeatures: ["SEO", "Core Web Vitals", "Performance Optimization"],
-      bgImage: "url('/assets/images/performance.jpg')",
+      title: "افزایش سرعت و کارایی",
+      description:
+        "یک وب‌سایت سریع و بهینه نه‌تنها رضایت مشتریان شما را بالا می‌برد، بلکه هزینه‌های عملیاتی را کاهش می‌دهد. ما با بهینه‌سازی کدها و استفاده از تکنیک‌های SEO، وب‌سایتی ارائه می‌دهیم که هم سریع باشد و هم در جستجوها دیده شود.",
+      childFeatures: [
+        {
+          title: "بارگذاری سریع",
+          description: "کاهش زمان لود صفحات برای تجربه بهتر.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "بهینه‌سازی SEO",
+          description: "افزایش رتبه در گوگل برای جذب مشتری بیشتر.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "پشتیبانی از حجم بالا",
+          description: "مدیریت ترافیک سنگین بدون افت کیفیت.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "کاهش هزینه‌ها",
+          description: "بهینه‌سازی منابع برای صرفه‌جویی در بودجه.",
+          image: "/assets/images/4814017.jpg",
+        },
+      ],
     },
     {
       icon: <FaLaptopCode className="text-4xl text-red-500" />,
-      title: "امنیت و نگهداری",
-      description: "تامین امنیت و پشتیبانی مداوم از وب‌سایت",
-      childFeatures: ["Security Audits", "Maintenance", "Updates & Backups"],
-      bgImage: "url('/assets/images/security.jpg')",
+      title: "امنیت داده‌های شما",
+      description:
+        "حفاظت از اطلاعات کسب‌وکار شما اولویت ماست. ما با پیاده‌سازی پروتکل‌های امنیتی پیشرفته و پشتیبانی مداوم، اطمینان می‌دهیم که سیستم‌های شما در برابر تهدیدات محافظت شده و همیشه به‌روز باشند.",
+      childFeatures: [
+        {
+          title: "رمزنگاری پیشرفته",
+          description: "حفاظت از داده‌ها با استانداردهای جهانی.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "تست نفوذ",
+          description: "شناسایی و رفع آسیب‌پذیری‌ها قبل از بروز مشکل.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "پشتیبانی 24/7",
+          description: "رفع سریع مشکلات در هر زمان.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "به‌روزرسانی مداوم",
+          description: "نگهداری سیستم با آخرین فناوری‌ها.",
+          image: "/assets/images/4814017.jpg",
+        },
+      ],
+    },
+    {
+      icon: <FaServer className="text-4xl text-green-500" />,
+      title: "رشد همراه با کسب‌وکار شما",
+      description:
+        "وب‌سایتی که ما می‌سازیم، با توسعه کسب‌وکار شما رشد می‌کند. معماری مقیاس‌پذیر ما به شما امکان می‌دهد بدون نیاز به بازطراحی، ویژگی‌ها و قابلیت‌های جدیدی اضافه کنید.",
+      childFeatures: [
+        {
+          title: "افزودن ماژول‌ها",
+          description: "گسترش سریع امکانات با نیازهای جدید.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "پشتیبانی از کاربران بیشتر",
+          description: "مدیریت افزایش مشتریان بدون افت عملکرد.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "انعطاف‌پذیری",
+          description: "تطبیق با تغییرات بازار و فناوری.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "ادغام با سیستم‌های موجود",
+          description: "اتصال وب‌سایت به ابزارهای فعلی شما.",
+          image: "/assets/images/4814017.jpg",
+        },
+      ],
+    },
+    {
+      icon: <FaMobileAlt className="text-4xl text-purple-500" />,
+      title: "دسترسی در هر دستگاه",
+      description:
+        "مشتریان شما در تهران از موبایل و دسکتاپ استفاده می‌کنند. ما وب‌سایت‌هایی واکنش‌گرا طراحی می‌کنیم که در هر دستگاهی، تجربه‌ای یکپارچه و حرفه‌ای ارائه دهند.",
+      childFeatures: [
+        {
+          title: "طراحی موبایل‌محور",
+          description: "اولویت با تجربه کاربران موبایل.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "نمایش یکپارچه",
+          description: "سازگاری کامل با تبلت و دسکتاپ.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "سرعت در موبایل",
+          description: "بهینه‌سازی برای اینترنت‌های کندتر.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "دسترسی آسان",
+          description: "رابط کاربرپسند برای مشتریان شما.",
+          image: "/assets/images/4814017.jpg",
+        },
+      ],
+    },
+    {
+      icon: <FaChartLine className="text-4xl text-orange-500" />,
+      title: "افزایش فروش و سود",
+      description:
+        "یک وب‌سایت حرفه‌ای می‌تواند فروش شما را چند برابر کند. ما با ترکیب فناوری و استراتژی‌های بازاریابی دیجیتال، وب‌سایتی می‌سازیم که مشتریان را جذب و به خریدار تبدیل می‌کند.",
+      childFeatures: [
+        {
+          title: "تحلیل داده‌ها",
+          description: "درک رفتار مشتریان برای بهبود فروش.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "فراخوان عمل (CTA)",
+          description: "دکمه‌های هوشمند برای افزایش تعامل.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "ادغام با شبکه‌های اجتماعی",
+          description: "ارتباط مستقیم با اینستاگرام و کانال‌های شما.",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "پشتیبانی از پرداخت آنلاین",
+          description: "تسهیل خرید مستقیم از وب‌سایت.",
+          image: "/assets/images/4814017.jpg",
+        },
+      ],
     },
   ];
 
@@ -273,9 +407,9 @@ export default function NLPPage() {
       <Toaster position="top-center" />
       <BlogSchema blogData={blogData} />
 
-      <div className="mt-36">
+      <div className="mt-36  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded">
         <Banner
-          src="/assets/images/heade-application-development-min-2048x725.jpg"
+          src="/assets/images/webHeader.webp"
           text="توسعه و طراحی وب"
           category="خدمات مهندسی"
           description="طراحی و توسعه وب‌سایت‌های مدرن، سریع و واکنش‌گرا با استفاده از جدیدترین تکنولوژی‌های روز دنیا برای رشد کسب و کار شما"
@@ -283,8 +417,8 @@ export default function NLPPage() {
 
         <div className="mx-8">
           <VideoAndText
-            heading="توسعه وب حرفه‌ای با تکنولوژی‌های مدرن"
-            subText="با استفاده از پیشرفته‌ترین تکنولوژی‌های توسعه وب مانند React، Next.js و Node.js، وب‌سایت‌های قدرتمند و کاربرپسند را برای کسب‌وکار شما توسعه می‌دهیم. تیم متخصص ما با تمرکز بر طراحی واکنش‌گرا، بهینه‌سازی عملکرد و امنیت بالا، پلتفرم‌های وبی می‌سازد که نه تنها زیبا هستند، بلکه سریع، امن و مقیاس‌پذیر نیز می‌باشند. این راهکارها به کسب‌وکار شما کمک می‌کند تا حضور آنلاین قدرتمندی داشته و تجربه کاربری فوق‌العاده‌ای را برای مشتریان خود فراهم کند."
+            heading="یک وبسایت ، برای یک عمر !"
+            subText="یک وبسایت باید جوری ساخته بشه که شما سال ها بتونید راحت ازش استفاده کنید بدون هیچ دغدغه ای  ما با استفاده از جدیدترین فناوری‌های وب مثل React، Next.js و Node.js، وب‌سایت‌هایی سریع، امن و مقیاس‌پذیر براتون طراحی می‌کنیم که همیشه به‌روز و پایدار بمونید . تیم ما با تمرکز روی طراحی واکنش‌گرا و عملکرد بالا، تجربه‌ای روان و حرفه‌ای برای کاربران شما ایجاد می‌کنه تا مشتری هاتون راحت از خونشون با شما در ارتباط باشن "
             videoSrc={{
               "1080p": "/assets/videos/nlpvideo.mp4",
               "720p": "/assets/videos/nlpvideo.mp4",
@@ -294,17 +428,26 @@ export default function NLPPage() {
         </div>
         <div className="mx-8">
           <DoubleText
-            heading="مزایای طراحی و توسعه وب حرفه‌ای برای کسب‌وکار شما"
-            subText="با پیاده‌سازی وب‌سایت حرفه‌ای، کسب‌وکار شما به یک حضور آنلاین قدرتمند و تأثیرگذار دست می‌یابد. از طراحی واکنش‌گرا و سازگار با تمام دستگاه‌ها تا بهینه‌سازی موتورهای جستجو و سرعت بارگذاری، همه با تمرکز بر نیازهای خاص برند شما. تیم متخصص ما با تجربه عمیق در توسعه وب، راهکارهایی را طراحی می‌کند که کاملاً با اهداف کسب‌وکار شما همسو است. این راهکارها به شما امکان می‌دهند تا با افزایش ترافیک وب‌سایت، بهبود نرخ تبدیل و ارائه تجربه کاربری عالی، مزیت رقابتی خود را در فضای دیجیتال تقویت نمایید."
+            heading="چرا باید یک وبسایت حرفه ای داشته باشیم ؟"
+            subText="هویت هر کسب و کاری با سایت کامل میشه داشتن داشتن یک وبسایت حرفه ای به ما کمک میکنه که ببتونیم از روند های تکرار پذیر جلوگیری کنیم برای مثال دیگه لازم نیست هی قیمت بدیم  با سوالات متداول در مورد پشتیبانی به صورت نوتیفیکیشن به کاربر ها نشون میدیم که تجربه خرید راحت تری داشته باشند  و دیگه منتظر جواب سوال نباشن تا خریدشون انجام بدن  "
           />
         </div>
+        <div className="min-h-screen flex items-center justify-center">
+            <WorksShowcase />
+        </div>
 
-        <div className="min-h-screen p-8 ">
+        <div className="min-h-screen  ">
           <FeatureSection
             features={features}
             heading={HeadingSwichBox}
             description={DescriptionSwichBox}
           />
+          <div>
+            <DevelopmentProcess />
+          </div>
+          <div>
+            <WhyChooseUs />
+          </div>
 
           <div className="mt-12">
             {" "}

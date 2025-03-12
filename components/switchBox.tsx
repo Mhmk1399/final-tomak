@@ -1,14 +1,17 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface Feature {
   icon: React.ReactNode;
   title: string;
   description: string;
-  childFeatures: string[];
-  bgImage: string;
+  childFeatures: {
+    title: string;
+    description: string;
+    image: string;
+  }[];
 }
-
 interface FeatureSectionProps {
   features: Feature[];
   heading: string;
@@ -26,7 +29,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
 
   const handleReturn = () => {
     if (selectedFeature !== null && featureRefs.current[selectedFeature]) {
-      featureRefs.current[selectedFeature].scrollIntoView({
+      featureRefs.current[selectedFeature]?.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
@@ -45,20 +48,20 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
   }, [selectedFeature]);
 
   return (
-    <div className="min-h-screen p-8">
+    <div className="min-h-screen p-2 w-full">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+        <h1 className="text-  lg:text-4xl font-bold text-gray-800 mb-4">
           {heading}
         </h1>
         <p className="text-gray-600 text-lg">{description}</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
         {features.map((feature, index) => (
           <motion.div
             key={index}
@@ -69,15 +72,17 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="bg-white shadow-md
-             hover:shadow-none transition-all duration-300 rounded-lg p-6 text-center cursor-pointer group relative"
+            className="bg-white shadow-md border border-[#93c5fd] 
+             hover:shadow-none hover:border-none transition-all duration-300 rounded-lg p-6 text-center cursor-pointer group relative"
             onClick={() => setSelectedFeature(index)}
           >
             <div className="mb-4 flex justify-center">{feature.icon}</div>
-            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            <h2 className="text-base font-semibold text-gray-800 mb-2">
               {feature.title}
             </h2>
-            <p className="text-gray-600">{feature.description}</p>
+            {/* <p className="text-gray-600 text-sm" dir="rtl">
+              {feature.description}
+            </p> */}
 
             {/* Added Arrow Icon */}
             <svg
@@ -103,53 +108,46 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mt-12 relative rounded-xl p-8 overflow-hidden"
+          className="mt-12 relative rounded-md w-full p-8 overflow-hidden border border-[#3b82f680] "
           dir="rtl"
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: features[selectedFeature].bgImage,
-              filter: "blur(2px)",
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
-          </div>
-
           <div className="relative z-10 max-w-7xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-white mb-8 tracking-wide">
+            <h2 className="text-base sm:text-base lg:text-4xl font-bold text-center text-black mb-8 tracking-wide">
               {features[selectedFeature].title}
             </h2>
-
-            <ul className="grid sm:grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 mb-8">
-              {features[selectedFeature].childFeatures.map(
-                (childFeature, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="backdrop-blur-sm bg-white/10 rounded-lg p-4 lg:p-6 
-                     border border-white/20 hover:border-white/40 
-                     transform hover:scale-105 transition-all duration-300
-                     shadow-lg hover:shadow-xl"
-                  >
-                    <span className="text-white text-lg lg:text-xl font-medium block text-center">
-                      {childFeature}
-                    </span>
-                  </motion.li>
-                )
-              )}
-            </ul>
+            <div className="grid gap-8">
+              {features[selectedFeature].childFeatures.map((childFeature, index) => (
+                <motion.div
+                  key={index}
+                  className={`grid grid-cols-1 sm:grid-cols-2 gap-8 items-center ${
+                    index % 2 === 0 ? "" : "direction-rtl"
+                  }`}
+                >
+                  <div className={`${index % 2 === 0 ? "order-1" : "order-2"}`}>
+                    <h2 className="text-2xl text-black font-bold mb-4">{childFeature.title}</h2>
+                    <p className="text-gray-900">{childFeature.description}</p>
+                  </div>
+                  <div className={`${index % 2 === 0 ? "sm:order-2 order-1" : "order-2 sm:order-1"} `}>
+                    <Image
+                      src={childFeature.image}
+                      alt={childFeature.title}
+                      width={500}
+                      height={300}
+                      className="rounded-lg"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
             <div className="text-center">
               <button
                 onClick={handleReturn}
-                className="group px-6 py-3 bg-white/10 hover:bg-white/20 
-                   text-white font-medium rounded-full 
+                className="group px-6 py-3 bg-white/10 hover:bg-[#3b82f680]
+                   text-black hover:text-white border border-[#3b82f680]  font-medium rounded-md 
                    transition-all duration-300 ease-in-out
                    border border-white/30 hover:border-white/50
-                   backdrop-blur-sm shadow-lg hover:shadow-xl"
+                   backdrop-blur-sm "
               >
                 <span className="flex items-center justify-center gap-2">
                   بازگشت

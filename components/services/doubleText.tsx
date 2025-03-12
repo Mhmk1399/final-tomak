@@ -38,7 +38,7 @@ const DoubleText: React.FC<DoubleTextProps> = ({ heading, subText }) => {
           initial={{ x: -50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="col-span-1 text-black font-bold text-2xl text-center lg:text-right"
+          className="col-span-1 text-black font-bold text-2xl text-base md:text-3xl text-center lg:text-right"
         >
           {heading}
         </motion.h1>
