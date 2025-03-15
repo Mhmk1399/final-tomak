@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BlogSchema } from "@/components/schema/blogSchema";
+import Pricing from "@/components/pricing";
+import WhyUs from "@/components/why-us";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -150,6 +152,12 @@ const About = () => {
         />
 
         <UserTomak />
+        <div className="mb-8">
+          <Pricing />
+        </div>
+        <div className="mb-8">
+          <WhyUs />
+        </div>
       </div>
     </>
   );

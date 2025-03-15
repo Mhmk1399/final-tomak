@@ -7,6 +7,8 @@ import { FaEye, FaCode, FaDatabase } from "react-icons/fa";
 import { FaArrowUpRightDots } from "react-icons/fa6";
 import Loading from "./loading";
 import Link from "next/link";
+import Pricing from "@/components/pricing";
+import WhyUs from "@/components/why-us";
 
 const Hero = () => {
   const [activePaneIndex, setActivePaneIndex] = useState(0);
@@ -212,6 +214,12 @@ const Hero = () => {
           <Help />
           <div className="mb-8">
             <Circle />
+          </div>
+          <div className="mb-8">
+            <Pricing />
+          </div>
+          <div className="mb-8">
+            <WhyUs />
           </div>
           {/* <BlogPost /> */}
         </div>

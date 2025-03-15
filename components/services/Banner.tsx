@@ -9,7 +9,7 @@ interface Props {
   description: string;
 }
 
-const Banner: React.FC<Props> = ({ src, text, category, description }) => {
+const Banner: React.FC<Props> = ({ src, text }) => {
   return (
     <div className="relative group h-[300px] md:h-[400px] lg:h-[650px] flex items-center overflow-hidden rounded-md">
       <div className="absolute inset-0 w-full h-full p-22">

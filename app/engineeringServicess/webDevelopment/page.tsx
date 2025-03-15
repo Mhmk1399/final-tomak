@@ -433,7 +433,7 @@ export default function NLPPage() {
           />
         </div>
         <div className="min-h-screen flex items-center justify-center">
-            <WorksShowcase />
+          <WorksShowcase />
         </div>
 
         <div className="min-h-screen  ">

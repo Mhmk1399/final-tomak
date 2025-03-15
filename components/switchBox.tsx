@@ -116,35 +116,49 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
               {features[selectedFeature].title}
             </h2>
             <div className="grid gap-8">
-              {features[selectedFeature].childFeatures.map((childFeature, index) => (
-                <motion.div
-                  key={index}
-                  className={`grid grid-cols-1 sm:grid-cols-2 gap-8 items-center ${
-                    index % 2 === 0 ? "" : "direction-rtl"
-                  }`}
-                >
-                  <div className={`${index % 2 === 0 ? "order-1" : "order-2"}`}>
-                    <h2 className="text-2xl text-black font-bold mb-4">{childFeature.title}</h2>
-                    <p className="text-gray-900">{childFeature.description}</p>
-                  </div>
-                  <div className={`${index % 2 === 0 ? "sm:order-2 order-1" : "order-2 sm:order-1"} `}>
-                    <Image
-                      src={childFeature.image}
-                      alt={childFeature.title}
-                      width={500}
-                      height={300}
-                      className="rounded-lg"
-                    />
-                  </div>
-                </motion.div>
-              ))}
+              {features[selectedFeature].childFeatures.map(
+                (childFeature, index) => (
+                  <motion.div
+                    key={index}
+                    className={`grid grid-cols-1 sm:grid-cols-2 gap-8 items-center ${
+                      index % 2 === 0 ? "" : "direction-rtl"
+                    }`}
+                  >
+                    <div
+                      className={`${index % 2 === 0 ? "order-1" : "order-2"}`}
+                    >
+                      <h2 className="text-2xl text-black font-bold mb-4">
+                        {childFeature.title}
+                      </h2>
+                      <p className="text-gray-900">
+                        {childFeature.description}
+                      </p>
+                    </div>
+                    <div
+                      className={`${
+                        index % 2 === 0
+                          ? "sm:order-2 order-1"
+                          : "order-2 sm:order-1"
+                      } `}
+                    >
+                      <Image
+                        src={childFeature.image}
+                        alt={childFeature.title}
+                        width={500}
+                        height={300}
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </motion.div>
+                )
+              )}
             </div>
 
             <div className="text-center">
               <button
                 onClick={handleReturn}
                 className="group px-6 py-3 bg-white/10 hover:bg-[#3b82f680]
-                   text-black hover:text-white border border-[#3b82f680]  font-medium rounded-md 
+                   text-black hover:text-white   font-medium rounded-md 
                    transition-all duration-300 ease-in-out
                    border border-white/30 hover:border-white/50
                    backdrop-blur-sm "

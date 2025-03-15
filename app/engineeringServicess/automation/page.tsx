@@ -192,7 +192,28 @@ export default function NLPPage() {
       icon: <FaRobot className="text-4xl text-blue-500" />,
       title: "اتوماسیون صنعتی",
       description: "پیاده‌سازی سیستم‌های اتوماسیون پیشرفته در صنایع مختلف",
-      childFeatures: ["PLC", "SCADA", "DCS", "HMI"],
+      childFeatures: [
+        {
+          title: "PLC",
+          description: "توضیح مختصر برای PLC",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "SCADA",
+          description: "توضیح مختصر برای SCADA",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "DCS",
+          description: "توضیح مختصر برای DCS",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "HMI",
+          description: "توضیح مختصر برای HMI",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/industrial-automation.jpg')",
     },
     {
@@ -200,10 +221,26 @@ export default function NLPPage() {
       title: "رباتیک صنعتی",
       description: "طراحی و پیاده‌سازی سیستم‌های رباتیک",
       childFeatures: [
-        "برنامه‌نویسی ربات",
-        "کنترل حرکت",
-        "بینایی ماشین",
-        "مونتاژ اتوماتیک",
+        {
+          title: "برنامه‌نویسی ربات",
+          description: "توضیح مختصر برای برنامه‌نویسی ربات",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "کنترل حرکت",
+          description: "توضیح مختصر برای کنترل حرکت",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "بینایی ماشین",
+          description: "توضیح مختصر برای بینایی ماشین",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "مونتاژ اتوماتیک",
+          description: "توضیح مختصر برای مونتاژ اتوماتیک",
+          image: "/assets/images/data.jpg",
+        },
       ],
       bgImage: "url('/assets/images/robotics.jpg')",
     },
@@ -211,21 +248,84 @@ export default function NLPPage() {
       icon: <FaCogs className="text-4xl text-green-500" />,
       title: "اتوماسیون فرآیند",
       description: "بهینه‌سازی فرآیندهای تولید و خط مونتاژ",
-      childFeatures: ["کنترل فرآیند", "مانیتورینگ", "گزارش‌گیری", "بهینه‌سازی"],
+      childFeatures: [
+        {
+          title: "کنترل فرآیند",
+          description: "توضیح مختصر برای کنترل فرآیند",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "مانیتورینگ",
+          description: "توضیح مختصر برای مانیتورینگ",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "گزارش‌گیری",
+          description: "توضیح مختصر برای گزارش‌گیری",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "بهینه‌سازی",
+          description: "توضیح مختصر برای بهینه‌سازی",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/process.jpg')",
     },
     {
       icon: <FaChartLine className="text-4xl text-purple-500" />,
       title: "هوشمندسازی صنعتی",
       description: "پیاده‌سازی راهکارهای صنعت 4.0 و IoT صنعتی",
-      childFeatures: ["IIoT", "Big Data", "هوش مصنوعی صنعتی", "پردازش ابری"],
+      childFeatures: [
+        {
+          title: "IIoT",
+          description: "توضیح مختصر برای IIoT",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "Big Data",
+          description: "توضیح مختصر برای Big Data",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "هوش مصنوعی صنعتی",
+          description: "توضیح مختصر برای هوش مصنوعی صنعتی",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "پردازش ابری",
+          description: "توضیح مختصر برای پردازش ابری",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/smart-industry.jpg')",
     },
     {
       icon: <FaMicrochip className="text-4xl text-orange-500" />,
       title: "سیستم‌های کنترل",
       description: "طراحی و پیاده‌سازی سیستم‌های کنترل هوشمند",
-      childFeatures: ["کنترل پیشرفته", "کنترل فازی", "PID", "کنترل تطبیقی"],
+      childFeatures: [
+        {
+          title: "کنترل پیشرفته",
+          description: "توضیح مختصر برای کنترل پیشرفته",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "کنترل فازی",
+          description: "توضیح مختصر برای کنترل فازی",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "PID",
+          description: "توضیح مختصر برای PID",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "کنترل تطبیقی",
+          description: "توضیح مختصر برای کنترل تطبیقی",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/control.jpg')",
     },
   ];

@@ -6,14 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
-import {
-  FaMobile,
-  FaAndroid,
-  FaApple,
-  FaCloud,
-  FaTools,
- 
-} from "react-icons/fa";
+import { FaMobile, FaAndroid, FaApple, FaCloud, FaTools } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";
 import { BlogSchema } from "@/components/schema/blogSchema";
@@ -193,14 +186,56 @@ export default function NLPPage() {
       icon: <FaAndroid className="text-4xl text-green-500" />,
       title: "توسعه اندروید",
       description: "طراحی و توسعه اپلیکیشن‌های اندروید بومی",
-      childFeatures: ["Kotlin", "Java", "Android SDK", "Material Design"],
+      childFeatures: [
+        {
+          title: "Kotlin",
+          description: "توضیح مختصر برای Kotlin",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Java",
+          description: "توضیح مختصر برای Java",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Android SDK",
+          description: "توضیح مختصر برای Android SDK",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Material Design",
+          description: "توضیح مختصر برای Material Design",
+          image: "/assets/images/4814017.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/android.jpg')",
     },
     {
       icon: <FaApple className="text-4xl text-gray-800" />,
       title: "توسعه iOS",
       description: "ساخت اپلیکیشن‌های iOS با کیفیت بالا",
-      childFeatures: ["Swift", "SwiftUI", "iOS SDK", "App Store Connect"],
+      childFeatures: [
+        {
+          title: "Swift",
+          description: "توضیح مختصر برای Swift",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "SwiftUI",
+          description: "توضیح مختصر برای SwiftUI",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "iOS SDK",
+          description: "توضیح مختصر برای iOS SDK",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "App Store Connect",
+          description: "توضیح مختصر برای App Store Connect",
+          image: "/assets/images/4814017.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/ios.jpg')",
     },
     {
@@ -208,10 +243,26 @@ export default function NLPPage() {
       title: "اپلیکیشن‌های هیبریدی",
       description: "توسعه اپلیکیشن‌های چند پلتفرمی",
       childFeatures: [
-        "React Native",
-        "Flutter",
-        "Cross-Platform",
-        "Code Sharing",
+        {
+          title: "React Native",
+          description: "توضیح مختصر برای React Native",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Flutter",
+          description: "توضیح مختصر برای Flutter",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Cross-Platform",
+          description: "توضیح مختصر برای Cross-Platform",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Code Sharing",
+          description: "توضیح مختصر برای Code Sharing",
+          image: "/assets/images/4814017.jpg",
+        },
       ],
       bgImage: "url('/assets/images/hybrid.jpg')",
     },
@@ -220,10 +271,26 @@ export default function NLPPage() {
       title: "خدمات بک‌اند موبایل",
       description: "زیرساخت‌های قدرتمند برای اپلیکیشن‌های موبایل",
       childFeatures: [
-        "API Development",
-        "Push Notifications",
-        "Data Sync",
-        "Cloud Storage",
+        {
+          title: "API Development",
+          description: "توضیح مختصر برای API Development",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Push Notifications",
+          description: "توضیح مختصر برای Push Notifications",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Data Sync",
+          description: "توضیح مختصر برای Data Sync",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Cloud Storage",
+          description: "توضیح مختصر برای Cloud Storage",
+          image: "/assets/images/4814017.jpg",
+        },
       ],
       bgImage: "url('/assets/images/backend-mobile.jpg')",
     },
@@ -232,10 +299,26 @@ export default function NLPPage() {
       title: "تست و بهینه‌سازی",
       description: "تضمین کیفیت و عملکرد اپلیکیشن",
       childFeatures: [
-        "UI Testing",
-        "Performance Testing",
-        "Security Testing",
-        "Analytics",
+        {
+          title: "UI Testing",
+          description: "توضیح مختصر برای UI Testing",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Performance Testing",
+          description: "توضیح مختصر برای Performance Testing",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Security Testing",
+          description: "توضیح مختصر برای Security Testing",
+          image: "/assets/images/4814017.jpg",
+        },
+        {
+          title: "Analytics",
+          description: "توضیح مختصر برای Analytics",
+          image: "/assets/images/4814017.jpg",
+        },
       ],
       bgImage: "url('/assets/images/testing.jpg')",
     },

@@ -196,21 +196,69 @@ export default function NLPPage() {
       icon: <FaRobot className="text-4xl text-blue-500" />,
       title: "مدل‌سازی پیشرفته",
       description: "توسعه مدل‌های یادگیری ماشین سفارشی برای نیازهای خاص شما",
-      childFeatures: ["یادگیری عمیق", "شبکه‌های عصبی", "الگوریتم‌های پیشرفته"],
+      childFeatures: [
+        {
+          title: "یادگیری عمیق",
+          description: "توضیح مختصر برای یادگیری عمیق",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "شبکه‌های عصبی",
+          description: "توضیح مختصر برای شبکه‌های عصبی",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "الگوریتم‌های پیشرفته",
+          description: "توضیح مختصر برای الگوریتم‌های پیشرفته",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/ai.jpg')",
     },
     {
       icon: <FaBrain className="text-4xl text-green-500" />,
       title: "پردازش هوشمند داده",
       description: "تحلیل و پردازش خودکار داده‌های کسب و کار با هوش مصنوعی",
-      childFeatures: ["پیش‌پردازش داده", "تشخیص الگو", "خوشه‌بندی هوشمند"],
+      childFeatures: [
+        {
+          title: "پیش‌پردازش داده",
+          description: "توضیح مختصر برای پیش‌پردازش داده",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "تشخیص الگو",
+          description: "توضیح مختصر برای تشخیص الگو",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "خوشه‌بندی هوشمند",
+          description: "توضیح مختصر برای خوشه‌بندی هوشمند",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/data-processing.jpg')",
     },
     {
       icon: <FaChartLine className="text-4xl text-yellow-500" />,
       title: "پیش‌بینی و تحلیل",
       description: "پیش‌بینی روندها و تحلیل رفتار با الگوریتم‌های پیشرفته",
-      childFeatures: ["پیش‌بینی زمانی", "تحلیل رگرسیون", "تشخیص ناهنجاری"],
+      childFeatures: [
+        {
+          title: "پیش‌بینی زمانی",
+          description: "توضیح مختصر برای پیش‌بینی زمانی",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "تحلیل رگرسیون",
+          description: "توضیح مختصر برای تحلیل رگرسیون",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "تشخیص ناهنجاری",
+          description: "توضیح مختصر برای تشخیص ناهنجاری",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/prediction.jpg')",
     },
     {
@@ -218,7 +266,23 @@ export default function NLPPage() {
       title: "بهینه‌سازی فرآیندها",
       description:
         "خودکارسازی و بهینه‌سازی فرآیندهای کسب و کار با یادگیری ماشین",
-      childFeatures: ["اتوماسیون هوشمند", "بهینه‌سازی منابع", "کاهش هزینه‌ها"],
+      childFeatures: [
+        {
+          title: "اتوماسیون هوشمند",
+          description: "توضیح مختصر برای اتوماسیون هوشمند",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "بهینه‌سازی منابع",
+          description: "توضیح مختصر برای بهینه‌سازی منابع",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "کاهش هزینه‌ها",
+          description: "توضیح مختصر برای کاهش هزینه‌ها",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/optimization.jpg')",
     },
     {
@@ -226,7 +290,23 @@ export default function NLPPage() {
       title: "امنیت هوشمند",
       description:
         "تشخیص تهدیدات و حفاظت از داده‌ها با الگوریتم‌های یادگیری ماشین",
-      childFeatures: ["تشخیص نفوذ", "شناسایی تقلب", "محافظت پیشگیرانه"],
+      childFeatures: [
+        {
+          title: "تشخیص نفوذ",
+          description: "توضیح مختصر برای تشخیص نفوذ",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "شناسایی تقلب",
+          description: "توضیح مختصر برای شناسایی تقلب",
+          image: "/assets/images/data.jpg",
+        },
+        {
+          title: "محافظت پیشگیرانه",
+          description: "توضیح مختصر برای محافظت پیشگیرانه",
+          image: "/assets/images/data.jpg",
+        },
+      ],
       bgImage: "url('/assets/images/security.jpg')",
     },
   ];

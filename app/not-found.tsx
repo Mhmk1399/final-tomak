@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
@@ -50,12 +51,22 @@ const Custom404 = () => {
             </div>
           </div>
           <div>
-            <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+            <Image
+              alt="404notfound"
+              width={500}
+              height={500}
+              src="https://i.ibb.co/G9DC8S0/404-2.png"
+            />
           </div>
         </div>
       </div>
       <div>
-        <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+        <Image
+          alt="404notfound"
+          width={500}
+          height={500}
+          src="https://i.ibb.co/ck1SGFJ/Group.png"
+        />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@
   --background: #ffffff;
 }
 ::-webkit-scrollbar {
-  width: 15px; /* Width of the scrollbar */
+  width: 10px; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -15,7 +15,7 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: #5981eec9; /* Scrollbar color */
-  border-radius: 2px; /* Rounded corners */
+  border-radius: 20px; /* Rounded corners */
   border: 1px solid #f1f1f1; /* Space around the scrollbar */
 }
 
@@ -485,7 +485,6 @@ body {
   }
 }
 
-
 /* @keyframes blob {
   0% {
     transform: translate(0px, 0px) scale(1);
@@ -505,9 +504,7 @@ body {
   animation: blob 10s alternate infinite;
 }
 /* <div className="relative">
-<div className="absolute -z-10 w-full h-full bg-blue-100/50 rounded-full blur-2xl opacity-70 animate-blob"></div> */ 
-
-
+<div className="absolute -z-10 w-full h-full bg-blue-100/50 rounded-full blur-2xl opacity-70 animate-blob"></div> */
 
 .grid-masonry {
   display: grid;

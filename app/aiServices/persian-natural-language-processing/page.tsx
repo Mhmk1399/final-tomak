@@ -197,9 +197,21 @@ export default function NLPPage() {
       description:
         "شناسایی و تحلیل عمیق متون فارسی برای استخراج اطلاعات ارزشمند.",
       childFeatures: [
-        "تشخیص موجودیت‌های نام‌برده",
-        "تحلیل احساسات متن",
-        "تقسیم‌بندی جملات",
+        {
+          title: "تشخیص موجودیت‌های نام‌برده",
+          description: "توضیح مختصر برای تشخیص موجودیت‌های نام‌برده",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "تحلیل احساسات متن",
+          description: "توضیح مختصر برای تحلیل احساسات متن",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "تقسیم‌بندی جملات",
+          description: "توضیح مختصر برای تقسیم‌بندی جملات",
+          image: "/assets/images/ai.jpg",
+        },
       ],
       bgImage: "url('/assets/images/ai.jpg')",
     },
@@ -208,9 +220,21 @@ export default function NLPPage() {
       title: "جستجوی معنایی",
       description: "امکان جستجوی هوشمند و دقیق بر اساس مفهوم و معنا.",
       childFeatures: [
-        "جستجوی موضوعی",
-        "پیشنهاد کلمات مشابه",
-        "تحلیل معنایی متون",
+        {
+          title: "جستجوی موضوعی",
+          description: "توضیح مختصر برای جستجوی موضوعی",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "پیشنهاد کلمات مشابه",
+          description: "توضیح مختصر برای پیشنهاد کلمات مشابه",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "تحلیل معنایی متون",
+          description: "توضیح مختصر برای تحلیل معنایی متون",
+          image: "/assets/images/ai.jpg",
+        },
       ],
       bgImage: "url('/assets/images/data.jpg')",
     },
@@ -219,9 +243,21 @@ export default function NLPPage() {
       title: "چت‌بات هوشمند",
       description: "ساخت و مدیریت چت‌بات‌های فارسی برای تعاملات طبیعی و روان.",
       childFeatures: [
-        "پاسخ‌دهی خودکار",
-        "تشخیص نیت کاربر",
-        "مدیریت مکالمات پیچیده.",
+        {
+          title: "پاسخ‌دهی خودکار",
+          description: "توضیح مختصر برای پاسخ‌دهی خودکار",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "تشخیص نیت کاربر",
+          description: "توضیح مختصر برای تشخیص نیت کاربر",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "مدیریت مکالمات پیچیده",
+          description: "توضیح مختصر برای مدیریت مکالمات پیچیده",
+          image: "/assets/images/ai.jpg",
+        },
       ],
       bgImage: "url('/assets/images/ai.jpg')",
     },
@@ -230,9 +266,21 @@ export default function NLPPage() {
       title: "تحلیل داده‌های زبانی",
       description: "ارائه گزارش‌های تحلیلی بر اساس داده‌های زبانی.",
       childFeatures: [
-        "تجزیه و تحلیل روندها",
-        "گزارش‌های دوره‌ای",
-        "مصورسازی داده‌ها.",
+        {
+          title: "تجزیه و تحلیل روندها",
+          description: "توضیح مختصر برای تجزیه و تحلیل روندها",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "گزارش‌های دوره‌ای",
+          description: "توضیح مختصر برای گزارش‌های دوره‌ای",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "مصورسازی داده‌ها",
+          description: "توضیح مختصر برای مصورسازی داده‌ها",
+          image: "/assets/images/ai.jpg",
+        },
       ],
       bgImage: "url('/assets/images/data.jpg')",
     },
@@ -241,9 +289,21 @@ export default function NLPPage() {
       title: "امنیت داده‌ها",
       description: "حفاظت از حریم خصوصی و امنیت داده‌های کاربران.",
       childFeatures: [
-        "رمزگذاری اطلاعات",
-        "مدیریت دسترسی‌ها",
-        "پایش امنیتی مداوم.",
+        {
+          title: "رمزگذاری اطلاعات",
+          description: "توضیح مختصر برای رمزگذاری اطلاعات",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "مدیریت دسترسی‌ها",
+          description: "توضیح مختصر برای مدیریت دسترسی‌ها",
+          image: "/assets/images/ai.jpg",
+        },
+        {
+          title: "پایش امنیتی مداوم",
+          description: "توضیح مختصر برای پایش امنیتی مداوم",
+          image: "/assets/images/ai.jpg",
+        },
       ],
       bgImage: "url('/assets/images/ai.jpg')",
     },
