@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
@@ -36,7 +35,7 @@ const Custom404 = () => {
           <div className="absolute">
             <div className="">
               <h1 className="my-2 text-gray-800 font-bold text-2xl ">
-                به نظر می رسد که دری به سوی هیچ چیز پیدا کرده اید{" "}
+                به نظر می رسد که دری به سوی هیچ چیز پیدا کرده اید
               </h1>
               <p className="mt-4 mb-9 text-gray-800">
                 متاسفم برای این! لطفا از صفحه اصلی ما دیدن کنید تا به جایی که
@@ -51,22 +50,45 @@ const Custom404 = () => {
             </div>
           </div>
           <div>
-            <Image
-              alt="404notfound"
-              width={500}
-              height={500}
-              src="https://i.ibb.co/G9DC8S0/404-2.png"
-            />
+            {/* SVG for 404 Image */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              width="500"
+              height="500"
+            >
+              <text
+                x="50%"
+                y="50%"
+                fontSize="48"
+                textAnchor="middle"
+                fill="#4F46E5"
+              >
+                404 - صفحه مورد نظر پیدا نشد
+              </text>
+            </svg>
           </div>
         </div>
       </div>
       <div>
-        <Image
-          alt="404notfound"
-          width={500}
-          height={500}
-          src="https://i.ibb.co/ck1SGFJ/Group.png"
-        />
+        {/* SVG for additional illustration */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="500"
+          height="500"
+        >
+          <circle cx="256" cy="256" r="200" fill="#E5E7EB" />
+          <text
+            x="50%"
+            y="50%"
+            fontSize="32"
+            textAnchor="middle"
+            fill="#374151"
+          >
+            Oops!
+          </text>
+        </svg>
       </div>
     </div>
   );
