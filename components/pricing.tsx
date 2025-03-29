@@ -2,11 +2,11 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle, Star, Award, Crown, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 interface PricingTier {
   id: string;
   title: string;
-  price: string;
   description: string;
   features: string[];
   icon: React.ReactNode;
@@ -26,7 +26,6 @@ const defaultTiers: PricingTier[] = [
   {
     id: "basic",
     title: "پایه",
-    price: "۹۹,۰۰۰",
     description: "مناسب برای کسب و کارهای کوچک و تازه شروع شده",
     features: [
       "پشتیبانی ایمیل",
@@ -45,7 +44,6 @@ const defaultTiers: PricingTier[] = [
   {
     id: "silver",
     title: "نقره‌ای",
-    price: "۱۹۹,۰۰۰",
     description: "مناسب برای کسب و کارهای متوسط با نیازهای بیشتر",
     features: [
       "پشتیبانی تلفنی و ایمیل",
@@ -66,7 +64,6 @@ const defaultTiers: PricingTier[] = [
   {
     id: "gold",
     title: "طلایی",
-    price: "۳۹۹,۰۰۰",
     description: "مناسب برای کسب و کارهای بزرگ با نیازهای حرفه‌ای",
     features: [
       "پشتیبانی ۲۴/۷",
@@ -89,7 +86,6 @@ const defaultTiers: PricingTier[] = [
 
 const Pricing: React.FC<PricingProps> = ({ tiers = defaultTiers }) => {
   const [hoveredTier, setHoveredTier] = useState<string | null>(null);
-  const [isYearly, setIsYearly] = useState(false);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [mousePositions, setMousePositions] = useState<{
     [key: string]: { x: number; y: number };
@@ -115,10 +111,7 @@ const Pricing: React.FC<PricingProps> = ({ tiers = defaultTiers }) => {
   };
 
   return (
-    <section
-      className="py-16 px-4 bg-gradient-to-b from-white to-gray-50 overflow-hidden"
-      dir="rtl"
-    >
+    <section className="py-16 px-4 bg-gray-50 overflow-hidden" dir="rtl">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl"></div>
         <div className="absolute top-1/4 -right-24 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl"></div>
@@ -142,37 +135,6 @@ const Pricing: React.FC<PricingProps> = ({ tiers = defaultTiers }) => {
           >
             بسته‌های متنوع ما برای هر کسب و کاری با هر اندازه‌ای طراحی شده‌اند
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-8 inline-flex items-center p-1 bg-gray-100 rounded-full"
-          >
-            <button
-              onClick={() => setIsYearly(false)}
-              className={`py-2 px-6 rounded-full text-sm font-medium transition-all duration-200 ${
-                !isYearly
-                  ? "bg-white shadow-md text-gray-900"
-                  : "text-gray-600 hover:text-gray-900"
-              }`}
-            >
-              ماهانه
-            </button>
-            <button
-              onClick={() => setIsYearly(true)}
-              className={`py-2 px-6 rounded-full text-sm font-medium transition-all duration-200 ${
-                isYearly
-                  ? "bg-white shadow-md text-gray-900"
-                  : "text-gray-600 hover:text-gray-900"
-              }`}
-            >
-              سالانه{" "}
-              <span className="text-xs font-bold text-green-500 ml-1">
-                (۲۰٪ تخفیف)
-              </span>
-            </button>
-          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
@@ -233,19 +195,6 @@ const Pricing: React.FC<PricingProps> = ({ tiers = defaultTiers }) => {
                 </h3>
                 <p className="text-gray-600 mb-6">{tier.description}</p>
 
-                <div className="flex items-baseline mb-8">
-                  <span className="text-4xl font-bold text-gray-900">
-                    {isYearly
-                      ? `${
-                          parseInt(tier.price.replace(/,/g, "")) * 12 * 0.8
-                        }`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                      : tier.price}
-                  </span>
-                  <span className="text-gray-600 mr-2">
-                    {isYearly ? "تومان / سالانه" : "تومان / ماهانه"}
-                  </span>
-                </div>
-
                 <ul className="space-y-4 mb-8">
                   {tier.features.map((feature, i) => (
                     <motion.li
@@ -256,24 +205,26 @@ const Pricing: React.FC<PricingProps> = ({ tiers = defaultTiers }) => {
                       className="flex items-center text-gray-700"
                     >
                       <CheckCircle
-                        className={`w-5 h-5 ml-1  bg-gradient-to-r ${tier.color} rounded-full text-white p-1 flex-shrink-0`}
+                        className={`w-5 h-5 ml-1 bg-gradient-to-r ${tier.color} rounded-full text-white p-1 flex-shrink-0`}
                       />
                       <span>{feature}</span>
                     </motion.li>
                   ))}
                 </ul>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-full py-3 px-6 rounded-lg bg-gradient-to-r ${tier.color} text-white font-medium flex items-center justify-center group transition-all duration-300 shadow-md hover:shadow-lg`}
-                  style={{
-                    boxShadow: `0 4px 10px -2px ${tier.shadowColor}`,
-                  }}
-                >
-                  <span>انتخاب پلن</span>
-                  <ChevronRight className="w-5 rotate-180 h-5 mr-2 transition-transform duration-300 group-hover:-translate-x-1" />
-                </motion.button>
+                <Link href="/contact">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`w-full py-3 px-6 rounded-lg bg-gradient-to-r ${tier.color} text-white font-medium flex items-center justify-center group transition-all duration-300 shadow-md hover:shadow-lg`}
+                    style={{
+                      boxShadow: `0 4px 10px -2px ${tier.shadowColor}`,
+                    }}
+                  >
+                    <span>درخواست مشاوره</span>
+                    <ChevronRight className="w-5 rotate-180 h-5 mr-2 transition-transform duration-300 group-hover:-translate-x-1" />
+                  </motion.button>
+                </Link>
               </div>
 
               {hoveredTier === tier.id && (
@@ -309,7 +260,7 @@ const Pricing: React.FC<PricingProps> = ({ tiers = defaultTiers }) => {
                 </svg>
               </div>
             </motion.div>
-          ))}{" "}
+          ))}
         </div>
 
         <motion.div

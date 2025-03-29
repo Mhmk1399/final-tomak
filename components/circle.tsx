@@ -44,7 +44,7 @@ const OlympicRings = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center mt-12 text-black">
+    <div className="flex bg-gray-50 flex-col items-center justify-center  text-black">
       <h3 className="text-3xl font-bold mb-12 text-center p-4 border-b-2">
         مراحل انجام پروژه
       </h3>

@@ -2,8 +2,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { BlogSchema } from "@/components/schema/blogSchema";
-import Pricing from "@/components/pricing";
-import WhyUs from "@/components/why-us";
 
 interface FormData {
   name: string;
@@ -192,12 +190,7 @@ const ContactPage = () => {
             </form>
           </motion.div>
         </div>
-        <div className="mb-8">
-          <Pricing />
-        </div>
-        <div className="mb-8">
-          <WhyUs />
-        </div>
+       
       </div>
     </>
   );

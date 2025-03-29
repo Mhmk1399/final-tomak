@@ -339,7 +339,7 @@ export default function MultiStepForm() {
       </div>
       <div className="flex lg:flex-row-reverse flex-col items-center justify-center h-full ">
         <div className=" flex w-full lg:w-1/2 flex-col lg:flex-row  items-center justify-center p-4">
-          <div className="w-full max-w-2xl bg-white p-8">
+          <div className="w-full max-w-2xl  p-8">
             <AnimatePresence mode="wait">{renderStep()}</AnimatePresence>
 
             <div className="flex justify-between mt-8">
@@ -374,7 +374,7 @@ export default function MultiStepForm() {
             {PROJECT_SHOWCASE.map((project) => (
               <div
                 key={project.id}
-                className="group relative bg-white border-l-2 border-gray-300 py-12 px-8 transition-transform hover:z-[1] hover:scale-105 hover:shadow-2xl hover:shadow-gray-600/20 overflow-hidden"
+                className="group relative  border-l-2 border-gray-300 py-12 px-8 transition-transform hover:z-[1] hover:scale-105 hover:shadow-2xl hover:shadow-gray-600/20 overflow-hidden"
               >
                 {/* Background Image */}
                 <div
