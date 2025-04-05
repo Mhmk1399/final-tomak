@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface Feature {
-  icon: React.ReactNode;
+  icon: React.ReactNode | string;
   title: string;
   description: string;
   childFeatures: {
@@ -47,6 +47,15 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
     }
   }, [selectedFeature]);
 
+  const handleNext = () => {
+    if (selectedFeature !== null && selectedFeature < features.length - 1) {
+      setSelectedFeature(selectedFeature + 1);
+    } else {
+      // Handle the case when we're at the last feature
+      // This could be returning to the grid view or showing a completion message
+      handleReturn();
+    }
+  };
   return (
     <div className="min-h-screen p-2 w-full">
       <motion.div
@@ -80,9 +89,6 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
             <h2 className="text-base font-semibold text-gray-800 mb-2">
               {feature.title}
             </h2>
-            {/* <p className="text-gray-600 text-sm" dir="rtl">
-              {feature.description}
-            </p> */}
 
             {/* Added Arrow Icon */}
             <svg
@@ -154,30 +160,32 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
               )}
             </div>
 
-            <div className="text-center">
+            <div className="text-center mt-6 flex flex-wrap justify-center gap-4">
               <button
                 onClick={handleReturn}
-                className="group px-6 py-3 bg-white/10 hover:bg-[#3b82f680]
-                   text-black hover:text-white   font-medium rounded-md 
-                   transition-all duration-300 ease-in-out
-                   border border-white/30 hover:border-white/50
-                   backdrop-blur-sm "
+                className="group px-6 py-3 bg-blue-50 hover:bg-blue-600
+     text-blue-600 hover:text-white font-medium rounded-lg
+     transition-all duration-300 ease-in-out
+     border border-blue-200 hover:border-blue-700
+     shadow-sm hover:shadow
+     flex items-center justify-center gap-2"
               >
-                <span className="flex items-center justify-center gap-2">
-                  بازگشت
-                  <svg
-                    className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
+                <span>بازگشت</span>
+              </button>
+
+              <button
+                onClick={handleNext} // Changed from handleReturn to handleNext
+                className="group px-6 py-3 bg-blue-50 hover:bg-blue-600
+     text-blue-600 hover:text-white font-medium rounded-lg
+     transition-all duration-300 ease-in-out
+     border border-blue-200 hover:border-blue-700
+     shadow-sm hover:shadow
+     flex items-center justify-center gap-2"
+              >
+                <span>
+                  {selectedFeature < features.length - 1
+                    ? features[selectedFeature + 1].title
+                    : "پایان"}
                 </span>
               </button>
             </div>

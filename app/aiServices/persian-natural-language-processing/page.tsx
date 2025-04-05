@@ -186,127 +186,89 @@ export default function NLPPage() {
     phoneNumber: "",
     description: "",
   });
-  const HeadingSwichBox = "پردازش زبان فارسی";
-  const DescriptionSwichBox =
-    "راهکارهای هوشمند برای تحلیل و پردازش متون فارسی با استفاده از جدیدترین تکنولوژی‌های هوش مصنوعی";
-
+  const HeadingSwichBox = "پردازش زبان طبیعی فارسی";
+  const DescriptionSwichBox = "راهکارهای پیشرفته پردازش زبان طبیعی (NLP) برای متون فارسی با استفاده از آخرین فناوری‌های هوش مصنوعی و یادگیری عمیق";
+  
   const features = [
     {
       icon: <FaLanguage className="text-4xl text-blue-500" />,
-      title: "تحلیل متون فارسی",
-      description:
-        "شناسایی و تحلیل عمیق متون فارسی برای استخراج اطلاعات ارزشمند.",
+      title: "تحلیل پیشرفته متون فارسی",
+      description: "استخراج اطلاعات ارزشمند از متون فارسی با استفاده از تکنیک‌های پردازش زبان طبیعی",
       childFeatures: [
         {
-          title: "تشخیص موجودیت‌های نام‌برده",
-          description: "توضیح مختصر برای تشخیص موجودیت‌های نام‌برده",
-          image: "/assets/images/ai.jpg",
+          title: "تشخیص موجودیت‌های نام‌برده (NER)",
+          description: "شناسایی و طبقه‌بندی خودکار اسامی افراد، سازمان‌ها، مکان‌ها، تاریخ‌ها و سایر موجودیت‌های مهم در متون فارسی با دقت بالا",
+          image: "/assets/images/signals-group-of-three-with-question-prohibition-and-exclamations-signs-svgrepo-com.svg",
         },
         {
-          title: "تحلیل احساسات متن",
-          description: "توضیح مختصر برای تحلیل احساسات متن",
-          image: "/assets/images/ai.jpg",
+          title: "تحلیل احساسات (Sentiment Analysis)",
+          description: "تشخیص خودکار احساسات مثبت، منفی و خنثی در نظرات کاربران، بازخوردها و محتوای متنی با دقت بالای 90%",
+          image: "/assets/images/emotsmile-svgrepo-com.svg",
         },
-        {
-          title: "تقسیم‌بندی جملات",
-          description: "توضیح مختصر برای تقسیم‌بندی جملات",
-          image: "/assets/images/ai.jpg",
-        },
+     
       ],
-      bgImage: "url('/assets/images/ai.jpg')",
+      bgImage: "url('/assets/images/nlp-bg-1.jpg')",
     },
     {
       icon: <FaSearch className="text-4xl text-green-500" />,
-      title: "جستجوی معنایی",
-      description: "امکان جستجوی هوشمند و دقیق بر اساس مفهوم و معنا.",
+      title: "جستجوی معنایی هوشمند",
+      description: "سیستم‌های جستجوی پیشرفته مبتنی بر معنا و مفهوم برای محتوای فارسی",
       childFeatures: [
         {
-          title: "جستجوی موضوعی",
-          description: "توضیح مختصر برای جستجوی موضوعی",
-          image: "/assets/images/ai.jpg",
+          title: "جستجوی موضوعی پیشرفته",
+          description: "دسته‌بندی خودکار اسناد و محتوا بر اساس موضوع و مفاهیم اصلی با استفاده از الگوریتم‌های طبقه‌بندی متن",
+          image: "/assets/images/search-head-seo-svgrepo-com.svg",
         },
         {
-          title: "پیشنهاد کلمات مشابه",
-          description: "توضیح مختصر برای پیشنهاد کلمات مشابه",
-          image: "/assets/images/ai.jpg",
+          title: "پیشنهاد کلمات و مفاهیم مرتبط",
+          description: "سیستم پیشنهاد هوشمند کلمات و عبارات مرتبط بر اساس تحلیل معنایی و وابستگی‌های واژگانی در زبان فارسی",
+          image: "/assets/images/recommendations-ai-svgrepo-com.svg",
         },
         {
-          title: "تحلیل معنایی متون",
-          description: "توضیح مختصر برای تحلیل معنایی متون",
-          image: "/assets/images/ai.jpg",
+          title: "تحلیل روابط معنایی",
+          description: "شناسایی روابط بین موجودیت‌ها و مفاهیم در متن با استفاده از تکنیک‌های استخراج رابطه و تحلیل وابستگی",
+          image: "/assets/images/current-global-international-svgrepo-com.svg",
         },
       ],
-      bgImage: "url('/assets/images/data.jpg')",
+      bgImage: "url('/assets/images/nlp-bg-2.jpg')",
     },
     {
       icon: <FaRobot className="text-4xl text-purple-500" />,
-      title: "چت‌بات هوشمند",
-      description: "ساخت و مدیریت چت‌بات‌های فارسی برای تعاملات طبیعی و روان.",
+      title: "چت‌بات‌های هوشمند فارسی",
+      description: "طراحی و توسعه دستیاران مجازی هوشمند برای تعامل طبیعی با کاربران به زبان فارسی",
       childFeatures: [
         {
-          title: "پاسخ‌دهی خودکار",
-          description: "توضیح مختصر برای پاسخ‌دهی خودکار",
-          image: "/assets/images/ai.jpg",
+          title: "سیستم‌های پاسخگویی خودکار",
+          description: "پیاده‌سازی سیستم‌های پاسخگویی هوشمند با قابلیت درک سوالات پیچیده و پاسخ‌دهی دقیق به زبان فارسی",
+          image: "/assets/images/chat-bot-svgrepo-com.svg",
         },
         {
-          title: "تشخیص نیت کاربر",
-          description: "توضیح مختصر برای تشخیص نیت کاربر",
-          image: "/assets/images/ai.jpg",
+          title: "تشخیص نیت کاربر (Intent Detection)",
+          description: "شناسایی دقیق هدف و نیات کاربر از متن پیام با استفاده از مدل‌های عمیق پردازش زبان طبیعی",
+          image: "/assets/images/face-recognition-1-svgrepo-com.svg",
         },
-        {
-          title: "مدیریت مکالمات پیچیده",
-          description: "توضیح مختصر برای مدیریت مکالمات پیچیده",
-          image: "/assets/images/ai.jpg",
-        },
+        
       ],
-      bgImage: "url('/assets/images/ai.jpg')",
+      bgImage: "url('/assets/images/nlp-bg-3.jpg')",
     },
     {
       icon: <FaChartLine className="text-4xl text-yellow-500" />,
-      title: "تحلیل داده‌های زبانی",
-      description: "ارائه گزارش‌های تحلیلی بر اساس داده‌های زبانی.",
+      title: "تحلیل و بصری‌سازی داده‌های متنی",
+      description: "تبدیل داده‌های متنی خام به بینش‌های ارزشمند و قابل فهم",
       childFeatures: [
         {
-          title: "تجزیه و تحلیل روندها",
-          description: "توضیح مختصر برای تجزیه و تحلیل روندها",
-          image: "/assets/images/ai.jpg",
+          title: "تحلیل روندهای گفتاری",
+          description: "شناسایی و تحلیل تغییرات در محتوای متنی و گفتاری در طول زمان برای کشف الگوها و روندهای مهم",
+          image: "/assets/images/talk-confer-consult-speak-svgrepo-com.svg",
         },
         {
-          title: "گزارش‌های دوره‌ای",
-          description: "توضیح مختصر برای گزارش‌های دوره‌ای",
-          image: "/assets/images/ai.jpg",
-        },
-        {
-          title: "مصورسازی داده‌ها",
-          description: "توضیح مختصر برای مصورسازی داده‌ها",
-          image: "/assets/images/ai.jpg",
+          title: "مصورسازی داده‌های زبانی",
+          description: "نمایش گرافیکی و بصری نتایج تحلیل‌های متنی شامل ابر کلمات، گراف روابط و نمودارهای تحلیلی",
+          image: "/assets/images/visualization-eye-svgrepo-com.svg",
         },
       ],
-      bgImage: "url('/assets/images/data.jpg')",
-    },
-    {
-      icon: <FaShieldAlt className="text-4xl text-red-500" />,
-      title: "امنیت داده‌ها",
-      description: "حفاظت از حریم خصوصی و امنیت داده‌های کاربران.",
-      childFeatures: [
-        {
-          title: "رمزگذاری اطلاعات",
-          description: "توضیح مختصر برای رمزگذاری اطلاعات",
-          image: "/assets/images/ai.jpg",
-        },
-        {
-          title: "مدیریت دسترسی‌ها",
-          description: "توضیح مختصر برای مدیریت دسترسی‌ها",
-          image: "/assets/images/ai.jpg",
-        },
-        {
-          title: "پایش امنیتی مداوم",
-          description: "توضیح مختصر برای پایش امنیتی مداوم",
-          image: "/assets/images/ai.jpg",
-        },
-      ],
-      bgImage: "url('/assets/images/ai.jpg')",
-    },
+      bgImage: "url('/assets/images/nlp-bg-4.jpg')",
+    }
   ];
 
   useEffect(() => {
@@ -360,7 +322,7 @@ export default function NLPPage() {
       <Toaster position="top-center" />
       <BlogSchema blogData={blogData} />
 
-      <div className="mt-36">
+      <div className="mt-36" dir="rtl">
         <Banner
           src="/assets/images/heade-application-development-min-2048x725.jpg"
           text="پردازش زبان طبیعی فارسی"

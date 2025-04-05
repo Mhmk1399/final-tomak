@@ -84,7 +84,7 @@ const About = () => {
             className="my-5"
           />
 
-          <p className="text-lg text-black/90 mb-6 p-8 text-justify rounded-xl bg-gray-50 ">
+          <p className="text-lg text-black/90 mb-6 p-8 text-justify rounded-xl bg-white ">
             این یک درباره ما کاملاً متفاوت است! تیم ما از دو هسته‌ی اصلی،
             محمدحسین محمدخانی و محمدمهدی رحمانی، تشکیل شده. هر کدام تخصص‌های
             مختلفی دارند که می‌شود گفت دو بال اصلی هر بیزینس هستند. همین باعث شد

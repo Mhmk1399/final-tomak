@@ -8,12 +8,14 @@ import VideoAndText from "@/components/services/videoAndText";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import WhyUs from "@/components/why-us";
 
 const servicesData = [
   {
     id: 1,
     title: "طراحی وب اپلیکیشن",
-    icon: "/assets/images/web-aplication-blue-icon.svg",
+    href: "/engineeringServicess/webDevelopment",
+    icon: "/assets/images/web-development-svgrepo-com2.svg",
     description: "راه‌حل‌های وب مدرن و کارآمد",
     gradient: "from-green-500 to-green-700",
     details: ["توسعه فول‌استک", "طراحی واکنش‌گرا", "امنیت بالا"],
@@ -22,7 +24,9 @@ const servicesData = [
   {
     id: 2,
     title: "طراحی اپلیکیشن موبایل",
-    icon: "/assets/images/mobile-app-blue-icon.svg",
+    href: "/engineeringServicess/mobileDevelopment",
+
+    icon: "/assets/images/application-customer-mobile-svgrepo-com.svg",
     description: "اپلیکیشن‌های هوشمند و کاربردی",
     gradient: "from-purple-500 to-purple-700",
     details: ["توسعه iOS و Android", "تجربه کاربری عالی", "پشتیبانی مداوم"],
@@ -31,7 +35,9 @@ const servicesData = [
   {
     id: 3,
     title: "طراحی اتوماسیون سازمانی",
-    icon: "/assets/images/automation-icon.svg",
+    href: "/engineeringServicess/automation",
+
+    icon: "/assets/images/portal.svg",
     description:
       "راه‌حل‌های اتوماسیون سازمانی برای بهبود کارایی و کاهش هزینه‌ها",
     gradient: "from-green-500 to-green-700",
@@ -224,17 +230,20 @@ const Page = () => {
       <div className="mt-12">
         <Options />
       </div>
-      <OlympicRings />
 
-      <div className="pb-64">
+      <div className="">
         <KindOfServices
           servicesData={servicesData}
           title="خدمات ما"
           subtitle="راه‌حل‌های نوآورانه برای کسب و کار شما"
         />{" "}
       </div>
-      <div className="-mt-32"></div>
-      <div className="-mt-64">
+      <div className="mb-12">
+        <WhyUs />
+      </div>
+      <OlympicRings />
+
+      <div className="mt-20">
         {" "}
         <div
           dir="rtl"

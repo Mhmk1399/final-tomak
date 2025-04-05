@@ -143,11 +143,11 @@ const WhyUs: React.FC = () => {
 
   return (
     <section
-      className="py-16 px-4 relative bg-gray-50"
+      className="py-16 px-4 relative bg-white"
       dir="rtl"
     >
       {/* Subtle background */}
-      <div className="absolute inset-0 bg-gray-50 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-white pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-12">

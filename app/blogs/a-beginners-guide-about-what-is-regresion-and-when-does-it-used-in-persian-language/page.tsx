@@ -1396,7 +1396,7 @@ const Page = () => {
               </div>
 
               {/* Mathematical Details */}
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg">
                 <h4 className="font-bold text-gray-800 mb-4">محاسبات ریاضی</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -1608,7 +1608,7 @@ const Page = () => {
 
                 {/* Mathematical Details */}
                 {/* Mathematical Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
+                <div className="bg-white p-6 rounded-lg">
                   <h4 className="font-bold text-gray-800 mb-4">
                     محاسبات ریاضی
                   </h4>
@@ -1842,7 +1842,7 @@ model.fit(X_poly, y)`}
 
                 {/* Mathematical Details */}
                 {/* Mathematical Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
+                <div className="bg-white p-6 rounded-lg">
                   <h4 className="font-bold text-gray-800 mb-4">
                     محاسبات ریاضی
                   </h4>
@@ -2124,7 +2124,7 @@ ridge.fit(X_scaled, y)`}
                 </div>
 
                 {/* Mathematical Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
+                <div className="bg-white p-6 rounded-lg">
                   <h4 className="font-bold text-gray-800 mb-4">
                     محاسبات ریاضی
                   </h4>
@@ -2287,7 +2287,7 @@ selected_features = [f for f, c in zip(feature_names, lasso.coef_) if c != 0]`}
                 </p>
 
                 {/* Mathematical Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
+                <div className="bg-white p-6 rounded-lg">
                   <h4 className="font-bold text-gray-800 mb-4">
                     محاسبات ریاضی
                   </h4>
@@ -2472,7 +2472,7 @@ selected_features = [f for f, c in zip(feature_names, elastic_net.coef_) if c !=
                 </p>
 
                 {/* Mathematical Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
+                <div className="bg-white p-6 rounded-lg">
                   <h4 className="font-bold text-gray-800 mb-4">
                     محاسبات ریاضی
                   </h4>
@@ -2683,7 +2683,7 @@ with pm.Model() as model:
                 </p>
 
                 {/* Mathematical Details */}
-                <div className="bg-gray-50 p-6 rounded-lg">
+                <div className="bg-white p-6 rounded-lg">
                   <h4 className="font-bold text-gray-800 mb-4">
                     محاسبات ریاضی در پیش‌بینی رفتار مشتری
                   </h4>

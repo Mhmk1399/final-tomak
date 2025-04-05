@@ -111,7 +111,7 @@ const Pricing: React.FC<PricingProps> = ({ tiers = defaultTiers }) => {
   };
 
   return (
-    <section className="py-16 px-4 bg-gray-50 overflow-hidden" dir="rtl">
+    <section className="py-16 px-4 bg-white overflow-hidden" dir="rtl">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl"></div>
         <div className="absolute top-1/4 -right-24 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl"></div>

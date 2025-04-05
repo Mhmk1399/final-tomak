@@ -1190,7 +1190,7 @@ const Page = () => {
               </ul>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg mt-6">
+            <div className="bg-white p-6 rounded-lg mt-6">
               <h4 className="text-lg font-bold text-gray-900 mb-3">
                 یادداشت پایانی
               </h4>

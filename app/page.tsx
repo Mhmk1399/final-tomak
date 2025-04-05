@@ -158,7 +158,7 @@ const Hero = () => {
       {/* {isLoading ? (
         <Loading /> // Show loading component while videos are loading
       ) : ( */}
-      <div className="bg-gray-50 py-4">
+      <div className="bg-white py-4">
         <div
           className=" flex flex-col  items-stretch justify-center h-screen p-2  lg:flex-row sm:items-center"
           dir="rtl"
@@ -292,7 +292,7 @@ const Hero = () => {
           <Circle />
         </div>
         <div className="mb-8">
-          <Pricing />
+          {/* <Pricing /> */}
         </div>
         <div className="mb-8">
           <BlogGrid

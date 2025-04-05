@@ -9,11 +9,14 @@ import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import WhyUs from "@/components/why-us";
+import Pricing from "@/components/pricing";
 const servicesData = [
   {
     id: 1,
     title: "پردازش زبان طبیعی فارسی",
-    icon: "/assets/images/desctop-software-blue-icon.svg",
+    href: "/aiServices/persian-natural-language-processing",
+    icon: "/assets/images/nlp.svg",
     description: "راهکارهای هوشمند پردازش متن و گفتار فارسی با دقت بالا",
     gradient: "from-blue-500 to-blue-700",
     details: [
@@ -26,7 +29,9 @@ const servicesData = [
   {
     id: 2,
     title: "یادگیری ماشین سفارشی",
-    icon: "/assets/images/web-aplication-blue-icon.svg",
+    href: "/aiServices/custom-machine-learning",
+
+    icon: "/assets/images/ml.svg",
     description: "توسعه مدل‌های یادگیری ماشین مختص کسب‌وکار شما",
     gradient: "from-green-500 to-green-700",
     details: [
@@ -242,14 +247,15 @@ const Page = () => {
         <div className="mt-12">
           <Options />
         </div>
+        <KindOfServices
+          servicesData={servicesData}
+          title="خدمات ما"
+          subtitle="راه‌حل‌های نوآورانه برای کسب و کار شما"
+        />{" "}
+        <WhyUs />
         <OlympicRings />
-        <div className="mt-12 mb-64">
-          <KindOfServices
-            servicesData={servicesData}
-            title="خدمات ما"
-            subtitle="راه‌حل‌های نوآورانه برای کسب و کار شما"
-          />{" "}
-        </div>
+        <Pricing />
+        <div className="mt-12 mb-64"></div>
         <div className="-mt-64">
           {" "}
           <div

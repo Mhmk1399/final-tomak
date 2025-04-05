@@ -17,7 +17,7 @@ const Banner: React.FC<Props> = ({ src, text }) => {
           src={src}
           alt={text}
           fill
-          className="object-cover md:object-center  brightness-90 hue-rotate-180 group-hover:brightness-[0.4] transition-all duration-300 ease-in-out "
+          className="object-cover md:object-center  brightness-90  group-hover:brightness-[0.4] transition-all duration-300 ease-in-out "
           priority
         />
       </div>

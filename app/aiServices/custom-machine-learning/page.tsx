@@ -17,6 +17,7 @@ import {
 import DoubleText from "@/components/services/doubleText";
 import { BlogSchema } from "@/components/schema/blogSchema";
 import FeatureSection from "@/components/switchBox";
+import WhyUs from "@/components/why-us";
 
 export default function NLPPage() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -187,30 +188,35 @@ export default function NLPPage() {
     phoneNumber: "",
     description: "",
   });
-  const HeadingSwichBox = "یادگیری ماشین سفارشی";
-  const DescriptionSwichBox =
+  const HeadingSwichBox =
     "توسعه مدل‌های یادگیری ماشین سفارشی برای نیازهای خاص شما";
+  const DescriptionSwichBox =
+    "ما با استفاده از پیشرفته‌ترین تکنیک‌های هوش مصنوعی و یادگیری ماشین، راهکارهای سفارشی‌سازی شده برای کسب‌وکار شما ارائه می‌دهیم. از مدل‌سازی پیشرفته تا تحلیل‌های پیش‌بینانه، تمام خدمات ما با دقت و تخصص برای رفع نیازهای خاص شما طراحی شده‌اند.";
 
   const features = [
     {
       icon: <FaRobot className="text-4xl text-blue-500" />,
       title: "مدل‌سازی پیشرفته",
-      description: "توسعه مدل‌های یادگیری ماشین سفارشی برای نیازهای خاص شما",
+      description:
+        "طراحی و پیاده‌سازی مدل‌های یادگیری ماشین سفارشی‌سازی شده با استفاده از آخرین تکنیک‌های هوش مصنوعی برای حل چالش‌های خاص کسب‌وکار شما",
       childFeatures: [
         {
           title: "یادگیری عمیق",
-          description: "توضیح مختصر برای یادگیری عمیق",
-          image: "/assets/images/data.jpg",
+          description:
+            "پیاده‌سازی شبکه‌های عصبی عمیق (DNN) برای پردازش داده‌های پیچیده. این شامل معماری‌های پیشرفته مانند شبکه‌های کانولوشنی (CNN) برای پردازش تصویر، شبکه‌های بازگشتی (RNN) برای داده‌های سری زمانی و ترنسفورمرها برای پردازش زبان طبیعی می‌شود. ما مدل‌ها را از پایه طراحی می‌کنیم یا از مدل‌های از پیش آموزش دیده (Pretrained) استفاده می‌کنیم.",
+          image: "/assets/images/deep-learning-svgrepo-com.svg",
         },
         {
           title: "شبکه‌های عصبی",
-          description: "توضیح مختصر برای شبکه‌های عصبی",
-          image: "/assets/images/data.jpg",
+          description:
+            "توسعه شبکه‌های عصبی مصنوعی سفارشی برای کاربردهای خاص. این شامل طراحی معماری شبکه، انتخاب توابع فعال‌سازی مناسب، تنظیم نرخ یادگیری و پیاده‌سازی مکانیزم‌هایی برای جلوگیری از بیش‌برازش (Overfitting) می‌شود. ما شبکه‌های عصبی را برای کاربردهایی مانند تشخیص الگو، پیش‌بینی و طبقه‌بندی بهینه می‌کنیم.",
+          image: "/assets/images/neural-network-svgrepo-com.svg",
         },
         {
           title: "الگوریتم‌های پیشرفته",
-          description: "توضیح مختصر برای الگوریتم‌های پیشرفته",
-          image: "/assets/images/data.jpg",
+          description:
+            "پیاده‌سازی و بهینه‌سازی الگوریتم‌های پیشرفته یادگیری ماشین مانند XGBoost، LightGBM و CatBoost برای دستیابی به بهترین عملکرد. ما این الگوریتم‌ها را با توجه به ماهیت داده‌های شما (ساختار یافته یا غیرساختار یافته) انتخاب و پارامترهای آنها را به دقت تنظیم می‌کنیم تا به بالاترین دقت ممکن دست یابیم.",
+          image: "/assets/images/openai-svgrepo-com.svg",
         },
       ],
       bgImage: "url('/assets/images/ai.jpg')",
@@ -218,22 +224,26 @@ export default function NLPPage() {
     {
       icon: <FaBrain className="text-4xl text-green-500" />,
       title: "پردازش هوشمند داده",
-      description: "تحلیل و پردازش خودکار داده‌های کسب و کار با هوش مصنوعی",
+      description:
+        "تحلیل و پردازش خودکار داده‌های کسب و کار با استفاده از تکنیک‌های پیشرفته هوش مصنوعی و یادگیری ماشین برای استخراج بینش‌های ارزشمند",
       childFeatures: [
         {
           title: "پیش‌پردازش داده",
-          description: "توضیح مختصر برای پیش‌پردازش داده",
-          image: "/assets/images/data.jpg",
+          description:
+            "آماده‌سازی و پاکسازی داده‌های خام برای تحلیل‌های بعدی. این شامل مدیریت مقادیر گمشده، شناسایی و حذف داده‌های پرت، نرمال‌سازی داده‌ها، کدگذاری متغیرهای کیفی و کاهش ابعاد داده‌ها می‌شود. ما از تکنیک‌هایی مانند PCA، t-SNE و روش‌های پیشرفته دیگر برای بهبود کیفیت داده‌ها استفاده می‌کنیم.",
+          image: "/assets/images/dataflow-02-svgrepo-com.svg",
         },
         {
           title: "تشخیص الگو",
-          description: "توضیح مختصر برای تشخیص الگو",
-          image: "/assets/images/data.jpg",
+          description:
+            "شناسایی الگوها و روابط پنهان در داده‌های پیچیده با استفاده از الگوریتم‌های یادگیری نظارت شده و بدون نظارت. ما از روش‌هایی مانند خوشه‌بندی، قوانین انجمنی و الگوریتم‌های تشخیص ناهنجاری برای کشف بینش‌های ارزشمند از داده‌های شما استفاده می‌کنیم.",
+          image: "/assets/images/detect-and-stop-advancing-threats-svgrepo-com.svg",
         },
         {
           title: "خوشه‌بندی هوشمند",
-          description: "توضیح مختصر برای خوشه‌بندی هوشمند",
-          image: "/assets/images/data.jpg",
+          description:
+            "دسته‌بندی خودکار داده‌ها به گروه‌های همگن با استفاده از الگوریتم‌های پیشرفته مانند K-Means، DBSCAN و خوشه‌بندی سلسله مراتبی. این روش‌ها به شما کمک می‌کنند تا ساختار داده‌های خود را بهتر درک کنید و تصمیم‌گیری‌های بهتری داشته باشید.",
+          image: "/assets/images/category-and-svgrepo-com.svg",
         },
       ],
       bgImage: "url('/assets/images/data-processing.jpg')",
@@ -241,22 +251,26 @@ export default function NLPPage() {
     {
       icon: <FaChartLine className="text-4xl text-yellow-500" />,
       title: "پیش‌بینی و تحلیل",
-      description: "پیش‌بینی روندها و تحلیل رفتار با الگوریتم‌های پیشرفته",
+      description:
+        "پیش‌بینی روندهای آینده و تحلیل رفتار با استفاده از الگوریتم‌های پیشرفته یادگیری ماشین برای کمک به تصمیم‌گیری‌های استراتژیک",
       childFeatures: [
         {
           title: "پیش‌بینی زمانی",
-          description: "توضیح مختصر برای پیش‌بینی زمانی",
-          image: "/assets/images/data.jpg",
+          description:
+            "تحلیل سری‌های زمانی و پیش‌بینی روندهای آینده با استفاده از روش‌هایی مانند ARIMA، LSTM و Prophet. این مدل‌ها می‌توانند برای پیش‌بینی فروش، پیش‌بینی تقاضا، تحلیل بازار و سایر کاربردهای تجاری استفاده شوند.",
+          image: "/assets/images/time-twenty-four-svgrepo-com.svg",
         },
         {
           title: "تحلیل رگرسیون",
-          description: "توضیح مختصر برای تحلیل رگرسیون",
-          image: "/assets/images/data.jpg",
+          description:
+            "مدل‌سازی روابط بین متغیرها و پیش‌بینی مقادیر پیوسته با استفاده از روش‌های رگرسیون خطی، رگرسیون لوجستیک و روش‌های پیشرفته‌تر مانند رگرسیون ریج و لاسو. ما این مدل‌ها را برای پیش‌بینی قیمت، تخمین هزینه‌ها و سایر کاربردهای تحلیلی به کار می‌گیریم.",
+          image: "/assets/images/math-format-linear-svgrepo-com.svg",
         },
         {
           title: "تشخیص ناهنجاری",
-          description: "توضیح مختصر برای تشخیص ناهنجاری",
-          image: "/assets/images/data.jpg",
+          description:
+            "شناسایی رفتارها و الگوهای غیرعادی در داده‌ها با استفاده از تکنیک‌هایی مانند Isolation Forest، One-Class SVM و شبکه‌های عصبی خودرمزگذار. این روش‌ها برای تشخیص تقلب، شناسایی خطاهای سیستمی و نظارت بر سلامت تجهیزات بسیار مفید هستند.",
+          image: "/assets/images/anomaly-svgrepo-com.svg",
         },
       ],
       bgImage: "url('/assets/images/prediction.jpg')",
@@ -265,50 +279,30 @@ export default function NLPPage() {
       icon: <FaCogs className="text-4xl text-pink-500" />,
       title: "بهینه‌سازی فرآیندها",
       description:
-        "خودکارسازی و بهینه‌سازی فرآیندهای کسب و کار با یادگیری ماشین",
+        "خودکارسازی و بهینه‌سازی فرآیندهای کسب و کار با استفاده از تکنیک‌های یادگیری ماشین برای افزایش کارایی و کاهش هزینه‌ها",
       childFeatures: [
         {
           title: "اتوماسیون هوشمند",
-          description: "توضیح مختصر برای اتوماسیون هوشمند",
-          image: "/assets/images/data.jpg",
+          description:
+            "پیاده‌سازی سیستم‌های خودکار تصمیم‌گیری مبتنی بر هوش مصنوعی برای فرآیندهای تکراری و پیچیده. این شامل اتوماسیون فرآیندهای رباتیک (RPA)، سیستم‌های مدیریت هوشمند گردش کار و الگوریتم‌های بهینه‌سازی منابع می‌شود.",
+          image: "/assets/images/automation-svgrepo-com.svg",
         },
         {
           title: "بهینه‌سازی منابع",
-          description: "توضیح مختصر برای بهینه‌سازی منابع",
-          image: "/assets/images/data.jpg",
+          description:
+            "استفاده از الگوریتم‌های بهینه‌سازی و یادگیری تقویتی برای تخصیص بهینه منابع انسانی، مالی و فیزیکی. این روش‌ها به شما کمک می‌کنند تا هزینه‌ها را کاهش داده و بهره‌وری را به حداکثر برسانید.",
+          image: "/assets/images/optimization-svgrepo-com.svg",
         },
         {
           title: "کاهش هزینه‌ها",
-          description: "توضیح مختصر برای کاهش هزینه‌ها",
-          image: "/assets/images/data.jpg",
+          description:
+            "شناسایی فرصت‌های کاهش هزینه از طریق تحلیل داده‌های تاریخی و پیش‌بینی الگوهای هزینه. ما از تکنیک‌های پیشرفته یادگیری ماشین برای پیشنهاد راهکارهای عملی کاهش هزینه بدون تأثیر بر کیفیت خدمات استفاده می‌کنیم.",
+          image: "/assets/images/cost-of-treatment-pain-injury-medical-bill-svgrepo-com.svg",
         },
       ],
       bgImage: "url('/assets/images/optimization.jpg')",
     },
-    {
-      icon: <FaShieldAlt className="text-4xl text-red-500" />,
-      title: "امنیت هوشمند",
-      description:
-        "تشخیص تهدیدات و حفاظت از داده‌ها با الگوریتم‌های یادگیری ماشین",
-      childFeatures: [
-        {
-          title: "تشخیص نفوذ",
-          description: "توضیح مختصر برای تشخیص نفوذ",
-          image: "/assets/images/data.jpg",
-        },
-        {
-          title: "شناسایی تقلب",
-          description: "توضیح مختصر برای شناسایی تقلب",
-          image: "/assets/images/data.jpg",
-        },
-        {
-          title: "محافظت پیشگیرانه",
-          description: "توضیح مختصر برای محافظت پیشگیرانه",
-          image: "/assets/images/data.jpg",
-        },
-      ],
-      bgImage: "url('/assets/images/security.jpg')",
-    },
+   
   ];
 
   useEffect(() => {
@@ -348,18 +342,11 @@ export default function NLPPage() {
   };
 
   return (
-    <>
+    <div dir="rtl">
       <Toaster position="top-center" />
       <BlogSchema blogData={blogData} />
 
       <div className="mt-36">
-        <Banner
-          src="/assets/images/heade-application-development-min-2048x725.jpg"
-          text="یادگیری ماشین سفارشی"
-          category="هوش مصنوعی"
-          description="راهکارهای هوشمند و سفارشی‌سازی شده یادگیری ماشین برای کسب و کار شما با استفاده از پیشرفته‌ترین الگوریتم‌های هوش مصنوعی"
-        />
-
         <div className="mx-8">
           <VideoAndText
             heading="یادگیری ماشین سفارشی با هوش مصنوعی پیشرفته"
@@ -384,6 +371,7 @@ export default function NLPPage() {
             heading={HeadingSwichBox}
             description={DescriptionSwichBox}
           />
+          <WhyUs />
 
           <div className="mt-12">
             {" "}
@@ -446,6 +434,6 @@ export default function NLPPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
