@@ -1,5 +1,4 @@
 "use client";
-import Banner from "@/components/services/Banner";
 import VideoAndText from "@/components/services/videoAndText";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,8 +9,7 @@ import {
   FaRobot,
   FaBrain,
   FaChartLine,
-  FaCogs,
-  FaShieldAlt,
+  FaCogs
 } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";

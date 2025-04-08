@@ -22,7 +22,6 @@ const pathTranslations: { [key: string]: string } = {
   "custom-machine-learning": "یادگیری ماشین سفارشی",
   mobileDevelopment: "توسعه اپلیکیشن موبایل",
   webDevelopment: " توسعه و طراحی وب ",
-  automation: "اتوماسیون سازمانی",
 };
 
 const Breadcrumbs = () => {

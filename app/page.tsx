@@ -6,7 +6,6 @@ import { FaEye, FaCode, FaDatabase } from "react-icons/fa";
 import { FaArrowUpRightDots } from "react-icons/fa6";
 // import Loading from "./loading";
 import Link from "next/link";
-import Pricing from "@/components/pricing";
 import WhyUs from "@/components/why-us";
 import BlogGrid from "@/components/BlogGrid";
 import ServicesGrid from "../components/ServicesGrid";
@@ -17,8 +16,7 @@ const servicesData = [
     href: "/engineeringServicess",
     children: [
       { name: "طراحی سایت و وب اپلیکیشن", href: "/engineeringServicess" },
-      { name: "طراحی اپلیکیشن موبایل", href: "/engineeringServicess" },
-      { name: "طراحی پرتال و اتوماسیون", href: "/engineeringServicess" },
+      { name: "طراحی اپلیکیشن موبایل", href: "/engineeringServicess" }
     ],
   },
   {
@@ -26,7 +24,6 @@ const servicesData = [
     href: "/aiServices",
     children: [
       { name: "شخصی سازی هوش مصنوعی", href: "/aiServices" },
-      { name: "BI یا هوش مجازی", href: "/aiServices" },
       { name: "جمع آوری و مرتب سازی داده ها", href: "/aiServices" },
     ],
   },

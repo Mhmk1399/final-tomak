@@ -143,11 +143,7 @@ const Navbar = () => {
             {
               name: "طراحی اپلیکیشن موبایل",
               href: "/engineeringServicess",
-            },
-            {
-              name: "طراحی پرتال و اتوماسیون",
-              href: "/engineeringServicess",
-            },
+            }
           ],
         },
         {

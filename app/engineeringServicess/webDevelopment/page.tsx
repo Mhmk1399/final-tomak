@@ -6,25 +6,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
-import {
-  FaChartLine,
-  FaCode,
-  FaDesktop,
-  FaLaptopCode,
-  FaMobileAlt,
-  FaRocket,
-  FaServer,
-  FaShieldAlt,
-  FaShoppingCart,
-  FaTools,
-} from "react-icons/fa";
+import { FaCode, FaRocket, FaShieldAlt, FaTools } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";
 import { BlogSchema } from "@/components/schema/blogSchema";
 import FeatureSection from "@/components/switchBox";
-import DevelopmentProcess from "@/components/(sercices)/DevelopmentProcess";
-import WhyChooseUs from "@/components/(sercices)/WhyChooseUs";
-import { WorksShowcase } from "@/components/(sercices)/WorksCard";
 import WhyUs from "@/components/why-us";
 
 export default function NLPPage() {

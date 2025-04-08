@@ -4,7 +4,6 @@ import {
   FaCode,
   FaRobot,
   FaMobileAlt,
-  FaLaptopCode,
   FaArrowLeft,
   FaTimes,
   FaLanguage,
@@ -30,13 +29,7 @@ const megaMenuItems = [
         href: "/engineeringServicess/mobileDevelopment",
         icon: <FaMobileAlt className="text-green-600 w-6 h-6" />,
         description: "اپلیکیشن‌های هوشمند برای iOS و Android",
-      },
-      {
-        name: "اتوماسیون سازمانی",
-        href: "/engineeringServicess/automation",
-        icon: <FaLaptopCode className="text-purple-600 w-6 h-6" />,
-        description: "راهکارهای هوشمند برای بهینه‌سازی فرآیندها",
-      },
+      }
     ],
   },
   {

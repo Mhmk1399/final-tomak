@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
-import { FaMobile, FaAndroid, FaApple, FaCloud, FaTools } from "react-icons/fa";
+import { FaMobile, FaAndroid, FaCloud, FaTools } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";
 import { BlogSchema } from "@/components/schema/blogSchema";

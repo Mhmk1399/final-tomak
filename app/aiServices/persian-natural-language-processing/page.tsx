@@ -11,7 +11,6 @@ import {
   FaSearch,
   FaRobot,
   FaChartLine,
-  FaShieldAlt,
 } from "react-icons/fa";
 import DoubleText from "@/components/services/doubleText";
 import { BlogSchema } from "@/components/schema/blogSchema";

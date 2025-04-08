@@ -17,17 +17,17 @@ const ServicesGrid: React.FC<{ services: ServiceItem[] }> = ({ services }) => {
   const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [childPositions, setChildPositions] = useState<ChildPosition[][]>([]);
   const [rotation, setRotation] = useState(0);
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
 
   // Animation for rotation
   useEffect(() => {
     const rotationInterval = setInterval(() => {
-      setRotation((prev) => (prev + 0.1) % 360);
-    }, 30);
+      setRotation((prev) => (prev + 0.55) % 360);
+    }, 40);
 
     return () => clearInterval(rotationInterval);
   }, []);
 
-  // Calculate positions for child elements
   // Calculate positions for child elements
   useEffect(() => {
     const calculatePositions = () => {
@@ -38,15 +38,15 @@ const ServicesGrid: React.FC<{ services: ServiceItem[] }> = ({ services }) => {
         const centerX = container.offsetWidth / 2;
         const centerY = container.offsetHeight / 2;
 
-        // Responsive radius calculation - increased for small screens
+        // Responsive radius calculation
         const baseRadius = Math.min(
           container.offsetWidth,
           container.offsetHeight
         );
         const radius =
           window.innerWidth < 640
-            ? baseRadius * 0.35 // Increased from 0.3 to 0.35 for more distance on small screens
-            : baseRadius * 0.35; // Normal radius on larger screens
+            ? baseRadius * 0.32
+            : baseRadius * 0.38;
 
         return service.children.map((_, childIndex) => {
           const childCount = service.children?.length || 1;
@@ -67,62 +67,93 @@ const ServicesGrid: React.FC<{ services: ServiceItem[] }> = ({ services }) => {
     return () => window.removeEventListener("resize", calculatePositions);
   }, [services, rotation]);
 
-  // Generate colors
-  const getColor = (index: number) => {
+  // Generate border colors
+  const getBorderColor = (index: number) => {
     const colors = [
-      "bg-blue-100",
-      "bg-indigo-100",
-      "bg-purple-100",
-      "bg-pink-100",
-      "bg-orange-100",
-      "bg-teal-100",
+      "border-blue-400",
+      "border-indigo-400",
+      "border-purple-400",
+      "border-pink-400",
+      "border-orange-400",
+      "border-teal-400",
     ];
     return colors[index % colors.length];
   };
 
+  // Generate accent colors for hover effects
+  // const getAccentColor = (index: number) => {
+  //   const colors = [
+  //     "from-blue-50 to-transparent",
+  //     "from-indigo-50 to-transparent",
+  //     "from-purple-50 to-transparent",
+  //     "from-pink-50 to-transparent",
+  //     "from-orange-50 to-transparent",
+  //     "from-teal-50 to-transparent",
+  //   ];
+  //   return colors[index % colors.length];
+  // };
+
   return (
     <div className="max-w-5xl mx-auto px-4" dir="rtl">
-      <div className="text-center mb-8">
-        <h2 className="text-xl font-semibold text-gray-900">خدمات ما</h2>
-        <p className="text-gray-600 text-sm mt-2">
+      <motion.div 
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-2xl font-semibold text-gray-900">خدمات ما</h2>
+        <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
           خدماتی که تیم ما به کسب و کار شما اضافه خواهد کرد
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
             ref={(el) => {
               containerRefs.current[index] = el;
             }}
-            className={`relative h-64 sm:h-72 rounded-lg ${getColor(
-              index
-            )} overflow-hidden`}
+            className={`relative h-72 sm:h-80 rounded-xl border-2 ${getBorderColor(index)} 
+                      overflow-hidden backdrop-blur-sm transition-all duration-300`}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            onMouseEnter={() => setHoveredService(index)}
+            onMouseLeave={() => setHoveredService(null)}
           >
+           
+
             {/* Main circle */}
-            <div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-                       w-14 h-14 rounded-full bg-white shadow-sm flex items-center 
-                       justify-center border border-gray-100 z-20"
+            <motion.div
+              className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+                       w-16 h-16 rounded-full bg-white shadow-md flex items-center 
+                       justify-center border ${getBorderColor(index)} z-20`}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               <h3 className="text-sm font-medium text-center text-gray-800 px-2">
                 {service.name}
               </h3>
-            </div>
+            </motion.div>
 
             {/* Connecting lines */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
               {childPositions[index]?.map((pos, childIndex) => (
-                <line
+                <motion.line
                   key={childIndex}
                   x1="50%"
                   y1="50%"
                   x2={pos.x}
                   y2={pos.y}
-                  stroke="rgba(0,0,0,0.1)"
-                  strokeWidth="1"
-                  strokeDasharray="3,3"
+                  stroke={hoveredService === index ? `var(--${getBorderColor(index).split('-')[1]}-color, #a3a3a3)` : "rgba(0,0,0,0.1)"}
+                  strokeWidth="1.5"
+                  strokeDasharray="4,4"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ 
+                    pathLength: 1, 
+                    opacity: 1,
+                    transition: { duration: 1, delay: childIndex * 0.1 } 
+                  }}
                 />
               ))}
             </svg>
@@ -136,12 +167,19 @@ const ServicesGrid: React.FC<{ services: ServiceItem[] }> = ({ services }) => {
                   left: pos.x - 50,
                   top: pos.y - 20,
                 }}
-                animate={{
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ 
+                  opacity: 1, 
+                  scale: 1,
                   x: [0, 2, 0, -2, 0],
                   transition: {
-                    repeat: Infinity,
-                    duration: 5,
-                    delay: childIndex * 0.5,
+                    x: {
+                      repeat: Infinity,
+                      duration: 5,
+                      delay: childIndex * 0.5,
+                    },
+                    opacity: { duration: 0.3, delay: childIndex * 0.1 },
+                    scale: { duration: 0.3, delay: childIndex * 0.1 }
                   },
                 }}
               >
@@ -149,13 +187,22 @@ const ServicesGrid: React.FC<{ services: ServiceItem[] }> = ({ services }) => {
                   href={service.children![childIndex].href}
                   className="block"
                 >
-                  <div className="w-[100px] bg-white rounded-md p-2 shadow-sm hover:shadow text-xs text-center">
+                  <motion.div 
+                    className={`w-[110px] bg-white rounded-lg p-3 shadow-sm border border-gray-100 
+                              hover:shadow-md hover:border-${getBorderColor(index).split('-')[1]}-300 text-xs text-center`}
+                    whileHover={{ y: -3, scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
                     {service.children![childIndex].name}
-                  </div>
+                  </motion.div>
                 </Link>
               </motion.div>
             ))}
-          </div>
+
+            {/* Decorative elements */}
+            <div className="absolute top-3 right-3 w-3 h-3 rounded-full border-2 border-gray-200 opacity-50"></div>
+            <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full border-2 border-gray-200 opacity-50"></div>
+          </motion.div>
         ))}
       </div>
     </div>
