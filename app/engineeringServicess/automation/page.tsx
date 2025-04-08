@@ -190,143 +190,168 @@ export default function NLPPage() {
   const features = [
     {
       icon: <FaRobot className="text-4xl text-blue-500" />,
-      title: "اتوماسیون صنعتی",
-      description: "پیاده‌سازی سیستم‌های اتوماسیون پیشرفته در صنایع مختلف",
+      title: "اتوماسیون صنعتی پیشرفته",
+      description:
+        "طراحی و پیاده‌سازی سیستم‌های یکپارچه اتوماسیون صنعتی برای افزایش بهره‌وری، کاهش خطاهای انسانی و بهبود کیفیت تولید در کارخانه‌ها و واحدهای صنعتی",
       childFeatures: [
         {
-          title: "PLC",
-          description: "توضیح مختصر برای PLC",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های کنترل منطقی برنامه‌پذیر (PLC)",
+          description:
+            "طراحی، برنامه‌نویسی و پیاده‌سازی سیستم‌های کنترل مبتنی بر PLC با استفاده از برندهای پیشرو مانند Siemens، Allen-Bradley و Schneider Electric. برنامه‌نویسی با استاندارد IEC 61131-3 شامل زبان‌های Ladder Diagram، Structured Text و Function Block Diagram. پیاده‌سازی راهکارهای کنترل فرآیند، ماشین‌آلات و خطوط تولید با قابلیت اطمینان بالا و نگهداری آسان.",
+          image: "/assets/images/plc-control.jpg",
         },
         {
-          title: "SCADA",
-          description: "توضیح مختصر برای SCADA",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های کنترل و نظارت (SCADA)",
+          description:
+            "پیاده‌سازی سیستم‌های SCADA جامع با نرم‌افزارهای پیشرفته مانند WinCC، Ignition و Vijeo Citect. ایجاد رابط‌های کاربری نظارتی (HMI) با قابلیت نمایش Real-time داده‌های فرآیند، آلارم‌دهی هوشمند و ثبت تاریخی پارامترها. امکان اتصال به انواع PLCها، اینورترها و دستگاه‌های هوشمند صنعتی.",
+          image: "/assets/images/scada-system.jpg",
         },
         {
-          title: "DCS",
-          description: "توضیح مختصر برای DCS",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های کنترل توزیع‌شده (DCS)",
+          description:
+            "طراحی و پیاده‌سازی سیستم‌های DCS برای صنایع فرآیندی مانند پتروشیمی، نفت و گاز و نیروگاه‌ها. استفاده از راهکارهای پیشرفته مانند Siemens PCS7، Yokogawa CENTUM و Honeywell Experion. کنترل یکپارچه فرآیندهای پیچیده با قابلیت‌های پیشرفته کنترل حلقه بسته، مدیریت آلارم و گزارش‌گیری جامع.",
+          image: "/assets/images/dcs-architecture.jpg",
         },
         {
-          title: "HMI",
-          description: "توضیح مختصر برای HMI",
-          image: "/assets/images/data.jpg",
+          title: "رابط انسان و ماشین (HMI)",
+          description:
+            "طراحی پنل‌های اپراتوری بهینه با در نظر گرفتن اصول ارگونومی و UX صنعتی. پیاده‌سازی HMIهای صنعتی مقاوم با صفحه‌نمایش لمسی و قابلیت کار در محیط‌های سخت صنعتی. امکان نمایش پارامترهای حیاتی فرآیند، Trendهای تاریخی و ایجاد صفحات تعاملی برای اپراتورها.",
+          image: "/assets/images/hmi-panel.jpg",
         },
       ],
-      bgImage: "url('/assets/images/industrial-automation.jpg')",
+      bgImage: "url('/assets/images/industrial-automation-bg.jpg')",
     },
     {
       icon: <FaIndustry className="text-4xl text-gray-800" />,
-      title: "رباتیک صنعتی",
-      description: "طراحی و پیاده‌سازی سیستم‌های رباتیک",
+      title: "رباتیک صنعتی و اتوماسیون",
+      description:
+        "طراحی و پیاده‌سازی سیستم‌های رباتیک پیشرفته برای خطوط تولید، مونتاژ و جابجایی مواد در صنایع مختلف",
       childFeatures: [
         {
-          title: "برنامه‌نویسی ربات",
-          description: "توضیح مختصر برای برنامه‌نویسی ربات",
-          image: "/assets/images/data.jpg",
+          title: "برنامه‌نویسی ربات‌های صنعتی",
+          description:
+            "برنامه‌نویسی ربات‌های صنعتی برندهای پیشرو مانند KUKA، Fanuc و ABB برای کاربردهای مختلف. پیاده‌سازی الگوریتم‌های حرکتی پیشرفته، مسیریابی بهینه و هماهنگی چند رباتی (Multi-robot Coordination). آموزش اپراتورها و ایجاد رابط‌های کاربری ساده برای تغییر دستورالعمل‌ها.",
+          image: "/assets/images/robot-programming.jpg",
         },
         {
-          title: "کنترل حرکت",
-          description: "توضیح مختصر برای کنترل حرکت",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های کنترل حرکت پیشرفته",
+          description:
+            "طراحی سیستم‌های کنترل حرکت (Motion Control) با سروو درایوها و استپر موتورهای دقیق. پیاده‌سازی الگوریتم‌های کنترل موقعیت، سرعت و گشتاور برای کاربردهای دقیق مانند ماشین‌های CNC، خطوط بسته‌بندی و سیستم‌های جابجایی مواد. استفاده از پروتکل‌های صنعتی مانند EtherCAT، PROFINET و CANopen.",
+          image: "/assets/images/motion-control.jpg",
         },
         {
-          title: "بینایی ماشین",
-          description: "توضیح مختصر برای بینایی ماشین",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های بینایی ماشین صنعتی",
+          description:
+            "پیاده‌سازی سیستم‌های بینایی ماشین (Machine Vision) برای بازرسی کیفیت، شناسایی اشیا و راهنمایی ربات‌ها. استفاده از دوربین‌های صنعتی با رزولوشن بالا، الگوریتم‌های پردازش تصویر و یادگیری عمیق برای تشخیص عیوب. یکپارچه‌سازی با سیستم‌های کنترل برای رد خودکار محصولات معیوب.",
+          image: "/assets/images/machine-vision.jpg",
         },
         {
-          title: "مونتاژ اتوماتیک",
-          description: "توضیح مختصر برای مونتاژ اتوماتیک",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های مونتاژ اتوماتیک",
+          description:
+            "طراحی خطوط مونتاژ خودکار با استفاده از ربات‌ها، سیستم‌های تغذیه قطعات و ابزارهای مخصوص. پیاده‌سازی کنترل کیفیت آنلاین در حین مونتاژ و سیستم‌های ردگیری محصول. بهینه‌سازی چرخه زمانی عملیات و کاهش ضایعات در فرآیند مونتاژ.",
+          image: "/assets/images/auto-assembly.jpg",
         },
       ],
-      bgImage: "url('/assets/images/robotics.jpg')",
+      bgImage: "url('/assets/images/industrial-robotics-bg.jpg')",
     },
     {
       icon: <FaCogs className="text-4xl text-green-500" />,
-      title: "اتوماسیون فرآیند",
-      description: "بهینه‌سازی فرآیندهای تولید و خط مونتاژ",
+      title: "بهینه‌سازی فرآیندهای تولید",
+      description:
+        "تحلیل، مانیتورینگ و بهینه‌سازی فرآیندهای تولید با استفاده از راهکارهای نوین اتوماسیون صنعتی",
       childFeatures: [
         {
-          title: "کنترل فرآیند",
-          description: "توضیح مختصر برای کنترل فرآیند",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های کنترل فرآیند پیشرفته",
+          description:
+            "پیاده‌سازی الگوریتم‌های کنترل پیشرفته (Advanced Process Control) برای بهینه‌سازی پارامترهای فرآیند. استفاده از تکنیک‌های مدل‌پیش بین (Model Predictive Control) برای فرآیندهای پیچیده با تأخیر زمانی بالا. کاهش مصرف انرژی و مواد اولیه از طریق کنترل دقیق پارامترهای فرآیند.",
+          image: "/assets/images/process-control.jpg",
         },
         {
-          title: "مانیتورینگ",
-          description: "توضیح مختصر برای مانیتورینگ",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های مانیتورینگ Real-time",
+          description:
+            "راه‌اندازی سیستم‌های نظارتی بلادرنگ با نمونه‌برداری با فرکانس بالا برای تشخیص آنومالی‌ها. پیاده‌سازی Dashboardهای مدیریتی برای نمایش شاخص‌های کلیدی عملکرد (KPIs) تولید. ایجاد سیستم‌های هشدار هوشمند برای پیش‌بینی خرابی‌ها قبل از وقوع.",
+          image: "/assets/images/realtime-monitoring.jpg",
         },
         {
-          title: "گزارش‌گیری",
-          description: "توضیح مختصر برای گزارش‌گیری",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های گزارش‌گیری و تحلیل داده",
+          description:
+            "طراحی سیستم‌های گزارش‌گیری خودکار با قابلیت استخراج داده‌های تاریخی و تحلیل روندها. پیاده‌سازی ابزارهای تحلیل داده برای شناسایی گلوگاه‌های تولید و نقاط بهینه‌سازی. تولید گزارش‌های سفارشی برای مدیریت در سطوح مختلف.",
+          image: "/assets/images/data-reporting.jpg",
         },
         {
-          title: "بهینه‌سازی",
-          description: "توضیح مختصر برای بهینه‌سازی",
-          image: "/assets/images/data.jpg",
+          title: "بهینه‌سازی مصرف انرژی و منابع",
+          description:
+            "تحلیل الگوی مصرف انرژی و مواد اولیه در خطوط تولید. پیاده‌سازی سیستم‌های کنترل هوشمند برای کاهش مصرف انرژی در تجهیزات صنعتی. مانیتورینگ Continuous Improvement و اندازه‌گیری ROI پس از پیاده‌سازی راهکارها.",
+          image: "/assets/images/energy-optimization.jpg",
         },
       ],
-      bgImage: "url('/assets/images/process.jpg')",
+      bgImage: "url('/assets/images/process-optimization-bg.jpg')",
     },
     {
       icon: <FaChartLine className="text-4xl text-purple-500" />,
-      title: "هوشمندسازی صنعتی",
-      description: "پیاده‌سازی راهکارهای صنعت 4.0 و IoT صنعتی",
+      title: "راهکارهای صنعت هوشمند 4.0",
+      description:
+        "پیاده‌سازی فناوری‌های دیجیتال و هوشمندسازی در صنعت برای تحول دیجیتال واحدهای تولیدی",
       childFeatures: [
         {
-          title: "IIoT",
-          description: "توضیح مختصر برای IIoT",
-          image: "/assets/images/data.jpg",
+          title: "اینترنت صنعتی اشیا (IIoT)",
+          description:
+            "طراحی و پیاده‌سازی شبکه‌های IIoT برای اتصال تجهیزات صنعتی و جمع‌آوری داده‌های فرآیند. استفاده از پروتکل‌های صنعتی امن مانند OPC UA، MQTT و Modbus TCP. پیاده‌سازی Edge Computing برای پردازش داده در محل و کاهش تأخیر در تصمیم‌گیری‌های حیاتی.",
+          image: "/assets/images/iiot-platform.jpg",
         },
         {
-          title: "Big Data",
-          description: "توضیح مختصر برای Big Data",
-          image: "/assets/images/data.jpg",
+          title: "تحلیل کلان داده‌های صنعتی",
+          description:
+            "ایجاد مخازن داده صنعتی (Data Lake) برای ذخیره‌سازی و تحلیل حجم بالای داده‌های تولید. پیاده‌سازی الگوریتم‌های یادگیری ماشین برای پیش‌بینی کیفیت محصول، تشخیص الگوی خرابی و بهینه‌سازی فرآیند. ایجاد مدل‌های دیجیتال دوقلو (Digital Twin) برای شبیه‌سازی و پیش‌بینی رفتار سیستم‌های فیزیکی.",
+          image: "/assets/images/big-data-analytics.jpg",
         },
         {
-          title: "هوش مصنوعی صنعتی",
-          description: "توضیح مختصر برای هوش مصنوعی صنعتی",
-          image: "/assets/images/data.jpg",
+          title: "هوش مصنوعی در صنعت",
+          description:
+            "پیاده‌سازی راهکارهای هوش مصنوعی برای تشخیص عیوب محصولات، پیش‌بینی خرابی تجهیزات (Predictive Maintenance) و بهینه‌سازی پارامترهای فرآیند. استفاده از تکنیک‌های بینایی کامپیوتر، پردازش سیگنال و یادگیری عمیق برای حل چالش‌های پیچیده صنعتی. آموزش مدل‌های خاص هر صنعت با داده‌های واقعی تولید.",
+          image: "/assets/images/ai-industry.jpg",
         },
         {
-          title: "پردازش ابری",
-          description: "توضیح مختصر برای پردازش ابری",
-          image: "/assets/images/data.jpg",
+          title: "پلتفرم‌های ابری صنعتی",
+          description:
+            "راه‌اندازی سیستم‌های ابری اختصاصی برای صنایع با قابلیت‌های امنیتی پیشرفته. پیاده‌سازی راهکارهای Hybrid Cloud برای ترکیب مزایای پردازش ابری و محلی. ایجاد سرویس‌های SaaS صنعتی برای دسترسی از راه دور و مدیریت متمرکز چندین سایت تولیدی.",
+          image: "/assets/images/industrial-cloud.jpg",
         },
       ],
-      bgImage: "url('/assets/images/smart-industry.jpg')",
+      bgImage: "url('/assets/images/smart-industry-bg.jpg')",
     },
     {
       icon: <FaMicrochip className="text-4xl text-orange-500" />,
-      title: "سیستم‌های کنترل",
-      description: "طراحی و پیاده‌سازی سیستم‌های کنترل هوشمند",
+      title: "سیستم‌های کنترل هوشمند",
+      description:
+        "طراحی و پیاده‌سازی الگوریتم‌های کنترل پیشرفته برای سیستم‌های دینامیکی پیچیده",
       childFeatures: [
         {
-          title: "کنترل پیشرفته",
-          description: "توضیح مختصر برای کنترل پیشرفته",
-          image: "/assets/images/data.jpg",
+          title: "کنترل پیشرفته غیرخطی",
+          description:
+            "پیاده‌سازی الگوریتم‌های کنترل غیرخطی برای سیستم‌های با رفتار پیچیده و متغیر با زمان. استفاده از روش‌های کنترل مدل‌محور (Model-based Control) برای سیستم‌های چندمتغیره. طراحی کنترلرهای مقاوم (Robust Control) برای عملکرد پایدار در شرایط عدم قطعیت پارامترها.",
+          image: "/assets/images/nonlinear-control.jpg",
         },
         {
-          title: "کنترل فازی",
-          description: "توضیح مختصر برای کنترل فازی",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های کنترل فازی",
+          description:
+            "طراحی کنترلرهای فازی (Fuzzy Logic Controllers) برای سیستم‌های با مدل نامعلوم یا غیردقیق. پیاده‌سازی دانش متخصصان در قالب قواعد فازی برای کنترل فرآیندهای پیچیده. ترکیب کنترل فازی با روش‌های کلاسیک برای بهبود عملکرد در شرایط مختلف کاری.",
+          image: "/assets/images/fuzzy-control.jpg",
         },
         {
-          title: "PID",
-          description: "توضیح مختصر برای PID",
-          image: "/assets/images/data.jpg",
+          title: "کنترل PID پیشرفته",
+          description:
+            "تنظیم و بهینه‌سازی کنترلرهای PID با روش‌های سیستماتیک مانند Ziegler-Nichols و روش‌های مبتنی بر مدل. پیاده‌سازی کنترلرهای PID با قابلیت Self-tuning و Gain Scheduling برای تطبیق با شرایط مختلف فرآیند. استفاده از ساختارهای پیشرفته PID مانند Cascade Control، Feedforward Control و Ratio Control.",
+          image: "/assets/images/pid-control.jpg",
         },
         {
-          title: "کنترل تطبیقی",
-          description: "توضیح مختصر برای کنترل تطبیقی",
-          image: "/assets/images/data.jpg",
+          title: "سیستم‌های کنترل تطبیقی",
+          description:
+            "پیاده‌سازی کنترلرهای تطبیقی (Adaptive Control) برای سیستم‌های با پارامترهای متغیر با زمان. استفاده از روش‌های شناسایی سیستم آنلاین و تنظیم خودکار پارامترهای کنترلر. کاربرد در سیستم‌های با تغییرات بار، فرسایش تجهیزات یا تغییر مشخصات فرآیند در طول زمان.",
+          image: "/assets/images/adaptive-control.jpg",
         },
       ],
-      bgImage: "url('/assets/images/control.jpg')",
+      bgImage: "url('/assets/images/control-systems-bg.jpg')",
     },
   ];
 
@@ -367,7 +392,7 @@ export default function NLPPage() {
   };
 
   return (
-    <>
+    <div dir="rtl" >
       <Toaster position="top-center" />
       <BlogSchema blogData={blogData} />
 
@@ -465,6 +490,6 @@ export default function NLPPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

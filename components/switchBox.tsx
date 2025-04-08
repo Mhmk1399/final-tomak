@@ -141,7 +141,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
                       </p>
                     </div>
                     <div
-                      className={`${
+                      className={` justify-center mx-auto ${
                         index % 2 === 0
                           ? "sm:order-2 order-1"
                           : "order-2 sm:order-1"
@@ -150,8 +150,8 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
                       <Image
                         src={childFeature.image}
                         alt={childFeature.title}
-                        width={500}
-                        height={300}
+                        width={200}
+                        height={150}
                         className="rounded-lg"
                       />
                     </div>

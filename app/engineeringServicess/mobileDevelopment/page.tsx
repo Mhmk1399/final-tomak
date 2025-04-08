@@ -184,143 +184,111 @@ export default function NLPPage() {
   const features = [
     {
       icon: <FaAndroid className="text-4xl text-green-500" />,
-      title: "توسعه اندروید",
-      description: "طراحی و توسعه اپلیکیشن‌های اندروید بومی",
+      title: "توسعه اپلیکیشن‌های اندروید بومی",
+      description:
+        "طراحی و توسعه اپلیکیشن‌های اندروید با بالاترین کیفیت و عملکرد، متناسب با نیازهای خاص کسب‌وکار شما",
       childFeatures: [
         {
-          title: "Kotlin",
-          description: "توضیح مختصر برای Kotlin",
-          image: "/assets/images/4814017.jpg",
+          title: "توسعه با Kotlin",
+          description:
+            "پیاده‌سازی اپلیکیشن‌های مدرن اندروید با زبان برنامه‌نویسی Kotlin به عنوان زبان پیش‌فرض گوگل برای توسعه اندروید. استفاده از ویژگی‌های پیشرفته مانند extension functions، coroutines و null safety برای ایجاد کدهای تمیز، ایمن و با قابلیت نگهداری بالا. پیاده‌سازی معماری‌های مدرن مانند MVVM و Clean Architecture برای اپلیکیشن‌های مقیاس‌پذیر.",
+          image: "/assets/images/kotlin.png",
         },
         {
-          title: "Java",
-          description: "توضیح مختصر برای Java",
-          image: "/assets/images/4814017.jpg",
+          title: "توسعه با Java",
+          description:
+            "توسعه اپلیکیشن‌های اندروید با زبان جاوا برای پروژه‌های legacy یا مواردی که نیاز به سازگاری با سیستم‌های قدیمی دارند. استفاده از آخرین ویژگی‌های Java 8+ مانند lambda expressions و streams برای بهبود خوانایی و کارایی کد. پیاده‌سازی الگوهای طراحی اثبات‌شده برای ایجاد ساختار کد منظم و قابل توسعه.",
+          image: "/assets/images/java.png",
         },
         {
-          title: "Android SDK",
-          description: "توضیح مختصر برای Android SDK",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "Material Design",
-          description: "توضیح مختصر برای Material Design",
-          image: "/assets/images/4814017.jpg",
+          title: "Android SDK پیشرفته",
+          description:
+            "استفاده کامل از قابلیت‌های بومی Android SDK شامل کامپوننت‌های معماری مانند ViewModel، LiveData، Room و WorkManager. پیاده‌سازی ویژگی‌های پلتفرم مانند multi-window support، dark theme، gesture navigation و قابلیت‌های سخت‌افزاری مختلف. بهینه‌سازی برای نسخه‌های مختلف اندروید و مدیریت صحیح backward compatibility.",
+          image: "/assets/images/androidsdk.jpg",
         },
       ],
-      bgImage: "url('/assets/images/android.jpg')",
-    },
-    {
-      icon: <FaApple className="text-4xl text-gray-800" />,
-      title: "توسعه iOS",
-      description: "ساخت اپلیکیشن‌های iOS با کیفیت بالا",
-      childFeatures: [
-        {
-          title: "Swift",
-          description: "توضیح مختصر برای Swift",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "SwiftUI",
-          description: "توضیح مختصر برای SwiftUI",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "iOS SDK",
-          description: "توضیح مختصر برای iOS SDK",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "App Store Connect",
-          description: "توضیح مختصر برای App Store Connect",
-          image: "/assets/images/4814017.jpg",
-        },
-      ],
-      bgImage: "url('/assets/images/ios.jpg')",
+      bgImage: "url('/assets/images/android-bg.jpg')",
     },
     {
       icon: <FaMobile className="text-4xl text-blue-500" />,
-      title: "اپلیکیشن‌های هیبریدی",
-      description: "توسعه اپلیکیشن‌های چند پلتفرمی",
+      title: "توسعه اپلیکیشن‌های هیبریدی",
+      description:
+        "راهکارهای چندپلتفرمی برای کاهش هزینه‌ها و زمان توسعه، با حفظ تجربه کاربری نزدیک به اپلیکیشن‌های بومی",
       childFeatures: [
         {
-          title: "React Native",
-          description: "توضیح مختصر برای React Native",
-          image: "/assets/images/4814017.jpg",
+          title: "توسعه با React Native",
+          description:
+            "پیاده‌سازی اپلیکیشن‌های موبایل با React Native برای دستیابی به عملکرد نزدیک به بومی با قابلیت اشتراک‌گذاری کد بین پلتفرم‌ها. استفاده از کامپوننت‌های بومی (Native Modules) برای دسترسی به ویژگی‌های خاص پلتفرم. بهینه‌سازی عملکرد با تکنیک‌هایی مانند memoization، استفاده از Hermes و کاهش اندازه باندل.",
+          image: "/assets/images/reactnative.png",
         },
         {
-          title: "Flutter",
-          description: "توضیح مختصر برای Flutter",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "Cross-Platform",
-          description: "توضیح مختصر برای Cross-Platform",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "Code Sharing",
-          description: "توضیح مختصر برای Code Sharing",
-          image: "/assets/images/4814017.jpg",
+          title: "راهکارهای Cross-Platform",
+          description:
+            "استفاده از فناوری‌های مدرن مانند Flutter برای توسعه اپلیکیشن‌های زیبا و پرسرعت با یک کدبیس واحد. پیاده‌سازی ویژگی‌های پلتفرم‌خاص (Platform Channels) برای دسترسی به قابلیت‌های بومی. بهینه‌سازی UI برای هر پلتفرم با حفظ هویت بصری یکسان در تمام دستگاه‌ها.",
+          image: "/assets/images/Cross-Platform.png",
         },
       ],
-      bgImage: "url('/assets/images/hybrid.jpg')",
+      bgImage: "url('/assets/images/hybrid-bg.jpg')",
     },
     {
       icon: <FaCloud className="text-4xl text-purple-500" />,
       title: "خدمات بک‌اند موبایل",
-      description: "زیرساخت‌های قدرتمند برای اپلیکیشن‌های موبایل",
+      description:
+        "زیرساخت‌های ابری قدرتمند و مقیاس‌پذیر برای پشتیبانی از اپلیکیشن‌های موبایل",
       childFeatures: [
         {
-          title: "API Development",
-          description: "توضیح مختصر برای API Development",
-          image: "/assets/images/4814017.jpg",
+          title: "توسعه API اختصاصی",
+          description:
+            "طراحی و پیاده‌سازی APIهای RESTful و GraphQL با معماری مدرن و امنیت بالا. استفاده از فناوری‌هایی مانند Node.js، Django یا Spring Boot برای ایجاد سرویس‌های بک‌اند کارآمد. پیاده‌سازی احراز هویت پیشرفته (JWT، OAuth 2.0) و سیستم‌های مجوزدهی دقیق.",
+          image: "/assets/images/api-settings-svgrepo-com.svg",
         },
         {
-          title: "Push Notifications",
-          description: "توضیح مختصر برای Push Notifications",
-          image: "/assets/images/4814017.jpg",
+          title: "سیستم Push Notifications",
+          description:
+            "پیاده‌سازی سیستم ارسال نوتیفیکیشن‌های شخصی‌سازی شده با استفاده از Firebase Cloud Messaging (FCM) یا سرویس‌های مشابه. ایجاد کانال‌های مختلف نوتیفیکیشن برای بخش‌های مختلف اپلیکیشن و کاربران مختلف. امکان ارسال نوتیفیکیشن‌های زمان‌بندی شده، مبتنی بر مکان یا رفتار کاربر.",
+          image: "/assets/images/message-square-notification-svgrepo-com.svg",
         },
         {
-          title: "Data Sync",
-          description: "توضیح مختصر برای Data Sync",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "Cloud Storage",
-          description: "توضیح مختصر برای Cloud Storage",
-          image: "/assets/images/4814017.jpg",
+          title: "ذخیره‌سازی ابری",
+          description:
+            "پیاده‌سازی راهکارهای امن ذخیره‌سازی فایل در سرویس‌های ابری مانند Firebase Storage، AWS S3 یا Azure Blob Storage. مدیریت آپلود و دانلود فایل‌ها با قابلیت resume و پیشرفت عملیات. اعمال محدودیت‌های دسترسی و رمزنگاری فایل‌های حساس.",
+          image: "/assets/images/cloud-arrow-down-alt-svgrepo-com.svg",
         },
       ],
-      bgImage: "url('/assets/images/backend-mobile.jpg')",
+      bgImage: "url('/assets/images/backend-mobile-bg.jpg')",
     },
     {
       icon: <FaTools className="text-4xl text-orange-500" />,
-      title: "تست و بهینه‌سازی",
-      description: "تضمین کیفیت و عملکرد اپلیکیشن",
+      title: "تست و بهینه‌سازی اپلیکیشن",
+      description:
+        "تضمین کیفیت، عملکرد و امنیت اپلیکیشن‌های موبایل با روش‌های پیشرفته تست",
       childFeatures: [
         {
-          title: "UI Testing",
-          description: "توضیح مختصر برای UI Testing",
-          image: "/assets/images/4814017.jpg",
+          title: "تست رابط کاربری",
+          description:
+            "انجام تست‌های جامع UI با ابزارهایی مانند Espresso (برای اندروید) و Detox (برای React Native). تست تعاملات کاربری، بررسی سازگاری با دستگاه‌های مختلف و اندازه‌های صفحه نمایش. پیاده‌سازی تست‌های اسنپ‌شات برای جلوگیری از رگرسیون‌های بصری.",
+          image: "/assets/images/ui-testing-logo.svg",
         },
         {
-          title: "Performance Testing",
-          description: "توضیح مختصر برای Performance Testing",
-          image: "/assets/images/4814017.jpg",
+          title: "تست عملکرد",
+          description:
+            "اندازه‌گیری و بهینه‌سازی معیارهای حیاتی عملکرد مانند زمان راه‌اندازی، مصرف حافظه و استفاده از CPU. استفاده از ابزارهای Profiling اندروید استودیو و Firebase Performance Monitoring. بهینه‌سازی تصاویر، کاهش اندازه APK و بهبود کارایی کد.",
+          image: "/assets/images/performance-testing-logo.svg",
         },
         {
-          title: "Security Testing",
-          description: "توضیح مختصر برای Security Testing",
-          image: "/assets/images/4814017.jpg",
+          title: "تست امنیتی",
+          description:
+            "بررسی آسیب‌پذیری‌های امنیتی با ابزارهایی مانند MobSF و OWASP Mobile Testing Guide. تست نفوذ و ارزیابی امنیتی برای شناسایی نقاط ضعف. پیاده‌سازی بهترین روش‌های امنیتی مانند certificate pinning، رمزنگاری داده‌های حساس و جلوگیری از reverse engineering.",
+          image: "/assets/images/security-testing-logo.svg",
         },
         {
-          title: "Analytics",
-          description: "توضیح مختصر برای Analytics",
-          image: "/assets/images/4814017.jpg",
+          title: "تحلیل و آنالیتیکس",
+          description:
+            "پیاده‌سازی سیستم‌های تحلیلی پیشرفته مانند Firebase Analytics، Mixpanel یا Amplitude. ردیابی رویدادهای مهم کسب‌وکار و رفتار کاربران. ایجاد داشبوردهای مدیریتی برای نمایش معیارهای کلیدی عملکرد (KPIs) و بینش‌های کاربردی.",
+          image: "/assets/images/analytics-logo.svg",
         },
       ],
-      bgImage: "url('/assets/images/testing.jpg')",
+      bgImage: "url('/assets/images/testing-bg.jpg')",
     },
   ];
 
@@ -364,7 +332,7 @@ export default function NLPPage() {
       <Toaster position="top-center" />
       <BlogSchema blogData={blogData} />
 
-      <div className="mt-36">
+      <div className="mt-36" dir="rtl">
         <Banner
           src="/assets/images/heade-application-development-min-2048x725.jpg"
           text="توسعه اپلیکیشن موبایل"

@@ -12,7 +12,11 @@ import {
   FaDesktop,
   FaLaptopCode,
   FaMobileAlt,
+  FaRocket,
   FaServer,
+  FaShieldAlt,
+  FaShoppingCart,
+  FaTools,
 } from "react-icons/fa";
 
 import DoubleText from "@/components/services/doubleText";
@@ -21,6 +25,7 @@ import FeatureSection from "@/components/switchBox";
 import DevelopmentProcess from "@/components/(sercices)/DevelopmentProcess";
 import WhyChooseUs from "@/components/(sercices)/WhyChooseUs";
 import { WorksShowcase } from "@/components/(sercices)/WorksCard";
+import WhyUs from "@/components/why-us";
 
 export default function NLPPage() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -197,172 +202,106 @@ export default function NLPPage() {
   const features = [
     {
       icon: <FaCode className="text-4xl text-blue-500" />,
-      title: "طراحی سفارشی برای کسب‌وکار شما",
+      title: "طراحی و توسعه وب‌سایت‌های سفارشی",
       description:
-        "ما وب‌سایت‌هایی طراحی می‌کنیم که دقیقاً با نیازهای کسب‌وکار شما در تهران هم‌راستا باشند. با استفاده از فناوری‌های پیشرفته مثل React.js و Vue.js، تجربه‌ای کاربرپسند و شخصی‌سازی‌شده ارائه می‌دهیم که بهره‌وری شما را افزایش داده و مشتریانتان را جذب می‌کند.",
+        "طراحی و توسعه وب‌سایت‌های حرفه‌ای با معماری مدرن و فناوری‌های روز دنیا مانند React.js، Next.js، Vue.js و Node.js که کاملاً منطبق بر نیازهای خاص کسب‌وکار شماست.",
       childFeatures: [
         {
-          title: "اتوماسیون فرآیندها",
+          title: "طراحی UI/UX اختصاصی",
           description:
-            "کاهش زمان انجام وظایف تکراری با وب‌اپلیکیشن‌های سفارشی.",
-          image: "/assets/images/4814017.jpg",
+            "تیم ما با انجام تحقیقات کاربری دقیق و ایجاد وایرفریم‌های تعاملی، رابط کاربری منحصر به فردی طراحی می‌کند که هم از نظر زیبایی‌شناسی جذاب باشد و هم از نظر کاربرپسندی بهینه شده باشد. ما بر اصول طراحی مینیمال، سلسله مراتب بصری و روانشناسی رنگ‌ها مسلط هستیم تا نرخ تبدیل شما را افزایش دهیم. طراحی‌های ما کاملاً واکنش‌گرا و سازگار با تمام دستگاه‌ها از موبایل تا دسکتاپ می‌باشد.",
+          image: "/assets/images/ui-china-svgrepo-com.svg",
         },
         {
-          title: "رابط‌های تعاملی",
-          description: "طراحی پویا با React.js برای جلب توجه کاربران.",
-          image: "/assets/images/4814017.jpg",
+          title: "توسعه فرانت‌اند پیشرفته",
+          description:
+            "با استفاده از جدیدترین کتابخانه‌های جاوااسکریپت مانند React.js و Vue.js، رابط کاربری پویا و تعاملی ایجاد می‌کنیم که عملکردی روان و بدون تأخیر دارد. ما از تکنیک‌های پیشرفته مانند Virtual DOM، State Management و Component-Based Architecture استفاده می‌کنیم تا اپلیکیشن‌های وب سریع و قابل نگهداری بسازیم. همچنین از بهترین شیوه‌های توسعه مانند Code Splitting و Lazy Loading برای بهینه‌سازی بارگذاری استفاده می‌کنیم.",
+          image: "/assets/images/web-browsing-svgrepo-com.svg",
         },
         {
-          title: "شخصی‌سازی کامل",
-          description: "ویژگی‌های متناسب با اهداف تجاری شما.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "پشتیبانی از زبان پارسی",
-          description: "طراحی بومی‌شده برای مخاطبان پارسی‌زبان.",
-          image: "/assets/images/4814017.jpg",
+          title: "توسعه بک‌اند قدرتمند",
+          description:
+            "سیستم‌های بک‌اند ما با فناوری‌های مدرن مانند Node.js، Django و Laravel پیاده‌سازی می‌شوند که از امنیت بالا، مقیاس‌پذیری و عملکرد عالی برخوردار هستند. ما APIهای RESTful یا GraphQL طراحی می‌کنیم که به خوبی مستندسازی شده و برای ادغام با سیستم‌های دیگر آماده هستند. پایگاه داده‌ها را بهینه‌سازی می‌کنیم و از تکنیک‌های کش‌گذاری برای بهبود عملکرد استفاده می‌نماییم.",
+          image: "/assets/images/server-square-cloud-svgrepo-com.svg",
         },
       ],
+      bgImage: "url('/assets/images/custom-web-dev.jpg')",
     },
     {
-      icon: <FaDesktop className="text-4xl text-pink-500" />,
-      title: "افزایش سرعت و کارایی",
+      icon: <FaRocket className="text-4xl text-purple-500" />,
+      title: "بهینه‌سازی عملکرد و سئو",
       description:
-        "یک وب‌سایت سریع و بهینه نه‌تنها رضایت مشتریان شما را بالا می‌برد، بلکه هزینه‌های عملیاتی را کاهش می‌دهد. ما با بهینه‌سازی کدها و استفاده از تکنیک‌های SEO، وب‌سایتی ارائه می‌دهیم که هم سریع باشد و هم در جستجوها دیده شود.",
+        "بهینه‌سازی سرعت، عملکرد و سئو وب‌سایت برای بهبود تجربه کاربری و افزایش رتبه در موتورهای جستجو",
       childFeatures: [
         {
-          title: "بارگذاری سریع",
-          description: "کاهش زمان لود صفحات برای تجربه بهتر.",
-          image: "/assets/images/4814017.jpg",
+          title: "بهینه‌سازی سرعت بارگذاری",
+          description:
+            "ما با انجام بهینه‌سازی‌های فنی پیشرفته مانند فشرده‌سازی تصاویر (WebP format)، فعال‌سازی کش مرورگر، بهینه‌سازی کدهای CSS/JS و استفاده از CDN، زمان بارگذاری صفحات شما را به حداقل می‌رسانیم. سرعت بارگذاری صفحات را با ابزارهایی مانند Google PageSpeed Insights و Lighthouse به دقت اندازه‌گیری و بهبود می‌دهیم تا تجربه کاربری بی‌نظیری ارائه شود که منجر به کاهش نرخ پرش و افزایش تبدیل می‌شود.",
+          image: "/assets/images/speed-svgrepo-com.svg",
         },
         {
-          title: "بهینه‌سازی SEO",
-          description: "افزایش رتبه در گوگل برای جذب مشتری بیشتر.",
-          image: "/assets/images/4814017.jpg",
+          title: "سئو فنی و محتوایی",
+          description:
+            "تیم سئو ما با اجرای کامل تکنیکال سئو شامل بهینه‌سازی ساختار URL، پیاده‌سازی داده‌های ساختار یافته (Schema.org)، ایجاد نقشه سایت XML و بهبود معماری لینک‌های داخلی، پایه‌های قوی برای رتبه‌بندی بهتر ایجاد می‌کند. همچنین با تحلیل کلمات کلیدی، بهینه‌سازی متا تگ‌ها و تولید محتوای ارزشمند، استراتژی محتوایی مؤثری طراحی می‌کنیم که ترافیک ارگانیک شما را به طور پیوسته افزایش می‌دهد.",
+          image: "/assets/images/seo-3-svgrepo-com.svg",
         },
         {
-          title: "پشتیبانی از حجم بالا",
-          description: "مدیریت ترافیک سنگین بدون افت کیفیت.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "کاهش هزینه‌ها",
-          description: "بهینه‌سازی منابع برای صرفه‌جویی در بودجه.",
-          image: "/assets/images/4814017.jpg",
+          title: "تحلیل و مانیتورینگ مداوم",
+          description:
+            "ما با نصب و پیکربندی پیشرفته ابزارهای تحلیلی مانند Google Analytics 4، Google Tag Manager و Hotjar، رفتار کاربران را به دقت رصد می‌کنیم. این تحلیل‌ها شامل بررسی مسیرهای کاربری، شناسایی نقاط اصطکاک، اندازه‌گیری نرخ تبدیل و تحلیل عملکرد صفحات می‌شود. گزارش‌های ماهانه مفصلی ارائه می‌دهیم که حاوی بینش‌های ارزشمند و پیشنهادات عملی برای بهبود مستمر وب‌سایت شماست.",
+          image: "/assets/images/analyze-svgrepo-com.svg",
         },
       ],
+      bgImage: "url('/assets/images/performance-bg.jpg')",
     },
     {
-      icon: <FaLaptopCode className="text-4xl text-red-500" />,
-      title: "امنیت داده‌های شما",
+      icon: <FaShieldAlt className="text-4xl text-red-500" />,
+      title: "امنیت و حفاظت از داده‌ها",
       description:
-        "حفاظت از اطلاعات کسب‌وکار شما اولویت ماست. ما با پیاده‌سازی پروتکل‌های امنیتی پیشرفته و پشتیبانی مداوم، اطمینان می‌دهیم که سیستم‌های شما در برابر تهدیدات محافظت شده و همیشه به‌روز باشند.",
+        "پیاده‌سازی لایه‌های امنیتی پیشرفته برای محافظت از وب‌سایت و اطلاعات کاربران در برابر تهدیدات سایبری",
       childFeatures: [
         {
-          title: "رمزنگاری پیشرفته",
-          description: "حفاظت از داده‌ها با استانداردهای جهانی.",
-          image: "/assets/images/4814017.jpg",
+          title: "رمزنگاری و پروتکل‌های امنیتی",
+          description:
+            "ما با پیاده‌سازی SSL/TLS با رمزنگاری 256 بیتی، استفاده از پروتکل HTTPS و تنظیم دقیق هدرهای امنیتی مانند CSP، HSTS و X-Frame-Options، لایه‌های محافظتی قوی ایجاد می‌کنیم. همچنین سیستم‌های احراز هویت چندعاملی (MFA) و مدیریت نشست‌های امن را پیاده‌سازی می‌کنیم تا از دسترسی‌های غیرمجاز جلوگیری شود. گواهی‌های امنیتی را به طور منظم تمدید و پیکربندی می‌نماییم.",
+          image: "/assets/images/password-svgrepo-com.svg",
         },
         {
-          title: "تست نفوذ",
-          description: "شناسایی و رفع آسیب‌پذیری‌ها قبل از بروز مشکل.",
-          image: "/assets/images/4814017.jpg",
+          title: "محافظت در برابر حملات",
+          description:
+            "با استفاده از فایروال‌های نرم‌افزاری پیشرفته (WAF)، سیستم‌های تشخیص نفوذ (IDS) و تکنیک‌های پیشرفته مانند ورودی‌سازی داده‌ها (Input Sanitization)، از وب‌سایت شما در برابر انواع حملات سایبری مانند DDoS، SQL Injection، XSS، CSRF و Brute Force محافظت می‌کنیم. تست‌های امنیتی منظم انجام می‌دهیم و وصله‌های امنیتی را بلافاصله اعمال می‌نماییم.",
+          image: "/assets/images/ninja-fight-attack-mask-svgrepo-com.svg",
         },
         {
-          title: "پشتیبانی 24/7",
-          description: "رفع سریع مشکلات در هر زمان.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "به‌روزرسانی مداوم",
-          description: "نگهداری سیستم با آخرین فناوری‌ها.",
-          image: "/assets/images/4814017.jpg",
+          title: "پشتیبان‌گیری خودکار",
+          description:
+            "سیستم پشتیبان‌گیری ما به صورت روزانه، هفتگی و ماهانه اجرا می‌شود و نسخه‌های پشتیبان در مکان‌های امن و جداگانه ذخیره می‌شوند. ما از تکنیک Point-in-Time Recovery استفاده می‌کنیم که امکان بازگردانی داده‌ها تا دقیقه‌ای قبل از خرابی را فراهم می‌کند. همچنین تست‌های بازیابی منظم انجام می‌دهیم تا از صحت نسخه‌های پشتیبان اطمینان حاصل کنیم.",
+          image: "/assets/images/backup-svgrepo-com.svg",
         },
       ],
+      bgImage: "url('/assets/images/security-bg.jpg')",
     },
     {
-      icon: <FaServer className="text-4xl text-green-500" />,
-      title: "رشد همراه با کسب‌وکار شما",
+      icon: <FaTools className="text-4xl text-yellow-500" />,
+      title: "پشتیبانی و نگهداری مستمر",
       description:
-        "وب‌سایتی که ما می‌سازیم، با توسعه کسب‌وکار شما رشد می‌کند. معماری مقیاس‌پذیر ما به شما امکان می‌دهد بدون نیاز به بازطراحی، ویژگی‌ها و قابلیت‌های جدیدی اضافه کنید.",
+        "خدمات پشتیبانی فنی و به‌روزرسانی مداوم برای حفظ امنیت و عملکرد بهینه وب‌سایت",
       childFeatures: [
         {
-          title: "افزودن ماژول‌ها",
-          description: "گسترش سریع امکانات با نیازهای جدید.",
-          image: "/assets/images/4814017.jpg",
+          title: "پشتیبانی فنی 24/7",
+          description:
+            "تیم پشتیبانی ما به صورت 24 ساعته و 7 روز هفته آماده پاسخگویی به درخواست‌های شماست. ما از سیستم‌های تیکتینگ پیشرفته استفاده می‌کنیم که اولویت‌بندی و ردیابی درخواست‌ها را ممکن می‌سازد. برای موارد اضطراری، پشتیبانی تلفنی فوری ارائه می‌دهیم. میانگین زمان پاسخگویی ما کمتر از 1 ساعت برای موارد بحرانی و حداکثر 4 ساعت برای درخواست‌های معمولی است.",
+          image:
+            "/assets/images/earth-grid-with-24-hours-sign-and-circle-of-arrows-around-svgrepo-com.svg",
         },
         {
-          title: "پشتیبانی از کاربران بیشتر",
-          description: "مدیریت افزایش مشتریان بدون افت عملکرد.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "انعطاف‌پذیری",
-          description: "تطبیق با تغییرات بازار و فناوری.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "ادغام با سیستم‌های موجود",
-          description: "اتصال وب‌سایت به ابزارهای فعلی شما.",
-          image: "/assets/images/4814017.jpg",
+          title: "به‌روزرسانی‌های امنیتی",
+          description:
+            "ما به طور مداوم وب‌سایت شما را از نظر آسیب‌پذیری‌های امنیتی بررسی می‌کنیم و به محض انتشار وصله‌های امنیتی برای CMSها، پلاگین‌ها و کتابخانه‌های استفاده شده، آنها را اعمال می‌نماییم. همچنین به‌روزرسانی‌های جزئی و اصلی را پس از تست کامل در محیط توسعه، روی وب‌سایت اصلی پیاده‌سازی می‌کنیم تا از اختلال در عملکرد جلوگیری شود. گزارش‌های ماهانه از به‌روزرسانی‌های انجام شده ارائه می‌دهیم.",
+          image: "/assets/images/update-svgrepo-com.svg",
         },
       ],
-    },
-    {
-      icon: <FaMobileAlt className="text-4xl text-purple-500" />,
-      title: "دسترسی در هر دستگاه",
-      description:
-        "مشتریان شما در تهران از موبایل و دسکتاپ استفاده می‌کنند. ما وب‌سایت‌هایی واکنش‌گرا طراحی می‌کنیم که در هر دستگاهی، تجربه‌ای یکپارچه و حرفه‌ای ارائه دهند.",
-      childFeatures: [
-        {
-          title: "طراحی موبایل‌محور",
-          description: "اولویت با تجربه کاربران موبایل.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "نمایش یکپارچه",
-          description: "سازگاری کامل با تبلت و دسکتاپ.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "سرعت در موبایل",
-          description: "بهینه‌سازی برای اینترنت‌های کندتر.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "دسترسی آسان",
-          description: "رابط کاربرپسند برای مشتریان شما.",
-          image: "/assets/images/4814017.jpg",
-        },
-      ],
-    },
-    {
-      icon: <FaChartLine className="text-4xl text-orange-500" />,
-      title: "افزایش فروش و سود",
-      description:
-        "یک وب‌سایت حرفه‌ای می‌تواند فروش شما را چند برابر کند. ما با ترکیب فناوری و استراتژی‌های بازاریابی دیجیتال، وب‌سایتی می‌سازیم که مشتریان را جذب و به خریدار تبدیل می‌کند.",
-      childFeatures: [
-        {
-          title: "تحلیل داده‌ها",
-          description: "درک رفتار مشتریان برای بهبود فروش.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "فراخوان عمل (CTA)",
-          description: "دکمه‌های هوشمند برای افزایش تعامل.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "ادغام با شبکه‌های اجتماعی",
-          description: "ارتباط مستقیم با اینستاگرام و کانال‌های شما.",
-          image: "/assets/images/4814017.jpg",
-        },
-        {
-          title: "پشتیبانی از پرداخت آنلاین",
-          description: "تسهیل خرید مستقیم از وب‌سایت.",
-          image: "/assets/images/4814017.jpg",
-        },
-      ],
+      bgImage: "url('/assets/images/maintenance-bg.jpg')",
     },
   ];
 
@@ -403,7 +342,7 @@ export default function NLPPage() {
   };
 
   return (
-    <>
+    <div dir="rtl">
       <Toaster position="top-center" />
       <BlogSchema blogData={blogData} />
 
@@ -432,9 +371,6 @@ export default function NLPPage() {
             subText="هویت هر کسب و کاری با سایت کامل میشه داشتن داشتن یک وبسایت حرفه ای به ما کمک میکنه که ببتونیم از روند های تکرار پذیر جلوگیری کنیم برای مثال دیگه لازم نیست هی قیمت بدیم  با سوالات متداول در مورد پشتیبانی به صورت نوتیفیکیشن به کاربر ها نشون میدیم که تجربه خرید راحت تری داشته باشند  و دیگه منتظر جواب سوال نباشن تا خریدشون انجام بدن  "
           />
         </div>
-        <div className="min-h-screen flex items-center justify-center">
-          <WorksShowcase />
-        </div>
 
         <div className="min-h-screen  ">
           <FeatureSection
@@ -442,11 +378,9 @@ export default function NLPPage() {
             heading={HeadingSwichBox}
             description={DescriptionSwichBox}
           />
+
           <div>
-            <DevelopmentProcess />
-          </div>
-          <div>
-            <WhyChooseUs />
+            <WhyUs />
           </div>
 
           <div className="mt-12">
@@ -510,6 +444,6 @@ export default function NLPPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
