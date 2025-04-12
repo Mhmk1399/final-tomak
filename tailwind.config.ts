@@ -13,6 +13,9 @@ const config: Config = {
         secondary: "#0094f8",
         background: "#e6e6e6",
       },
+      animation: {
+        "spin-slower": "spin 3s linear infinite",
+      },
     },
   },
   plugins: [],
