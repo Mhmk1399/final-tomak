@@ -45,6 +45,7 @@ const Breadcrumbs = () => {
         <li>
           <Link
             href="/"
+            aria-label="Home"
             className="text-blue-600 hover:text-blue-800 flex items-center"
           >
             <HomeIcon className="h-5 w-5" />
@@ -60,6 +61,7 @@ const Breadcrumbs = () => {
             />
             <Link
               href={item.href}
+              aria-label={item.label}
               className={`${
                 index === breadcrumbItems.length - 1
                   ? "text-gray-600 hover:text-gray-900 font-medium text-xs lg:text-sm "
