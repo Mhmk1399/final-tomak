@@ -6,7 +6,6 @@ import { ray } from "@/next-persian-fonts/ray";
 import Script from "next/script";
 import Breadcrumbs from "../components/breadCrumbs";
 
-
 export const metadata: Metadata = {
   verification: {
     google: "googled13c95ed93977bad",

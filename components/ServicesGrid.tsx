@@ -188,7 +188,7 @@ const ServicesGrid: React.FC<{ services: ServiceItem[] }> = ({ services }) => {
                   className="block"
                 >
                   <motion.div 
-                    className={`w-[110px] bg-white rounded-lg p-3 shadow-sm border border-gray-100 
+                    className={`w-[110px] bg-white text-black rounded-lg p-3 shadow-sm border border-gray-500 
                               hover:shadow-md hover:border-${getBorderColor(index).split('-')[1]}-300 text-xs text-center`}
                     whileHover={{ y: -3, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400 }}
