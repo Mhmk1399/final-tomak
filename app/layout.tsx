@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { ray } from "@/next-persian-fonts/ray";
 import Script from "next/script";
 import Breadcrumbs from "../components/breadCrumbs";
+import CanonicalUrl from "@/components/CanonicalUrl";
 
 export const metadata: Metadata = {
   verification: {
@@ -46,6 +47,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={ray.className}>
+        <CanonicalUrl />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5FFQTK8C"
