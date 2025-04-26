@@ -255,7 +255,7 @@ const Footer = () => {
               </p>
 
               <p className="mt-4 ml-1 text-sm text-black sm:order-first sm:mt-0">
-                © 2024 Tomac
+                © 2024 Tomak
               </p>
             </div>
           </div>
