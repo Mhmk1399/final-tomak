@@ -260,6 +260,18 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <a
+          referrerPolicy="origin"
+          target="_blank"
+          href="https://trustseal.enamad.ir/?id=3965962&Code=uB9YnB9gqUoLjI16omI4dTtAAHgc3uR6"
+        >
+          <img
+            referrerPolicy="origin"
+            src="https://trustseal.enamad.ir/logo.aspx?id=3965962&Code=uB9YnB9gqUoLjI16omI4dTtAAHgc3uR6"
+            alt=""
+            style={{ cursor: "pointer" }}
+          />
+        </a>
       </footer>
     </>
   );
