@@ -35,6 +35,7 @@ export default function RootLayout({
           href="/assets/images/favicon.png"
           type="image/x-icon"
         />
+        <meta name="enamad" content="52576260" />
 
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
