@@ -18,6 +18,7 @@ const pathTranslations: { [key: string]: string } = {
     "راهنمای جامع طبقه بندی متون یا (text classification)",
   "a-beginners-guide-about-what-is-regresion-and-when-does-it-used-in-persian-language":
     "راهنمای جامع رگرسیون و انواع آن در تحلیل داده",
+  "saas-paas-maas-guide-persian": "تعریفهای پایه: SaaS، PaaS و MaaS",
   engineeringServicess: "توسعه نرم‌افزارهای سفارشی",
   "custom-machine-learning": "یادگیری ماشین سفارشی",
   mobileDevelopment: "توسعه اپلیکیشن موبایل",

@@ -6,7 +6,7 @@ const blogPosts = [
       "در این مقاله ، راهنمای کاملی برای طبقه بندی کلمات یا Text Classification در زمینه هوش مصنوعی و داده کاوی ارائه می‌شود.",
     date: "1403/10/6",
     link: "/blogs/Text-Classifiers-in-Machine-Learning-A-Practical-Guide-in-persian",
-    image: "/assets/images/ai.jpg",
+    image: "/assets/images/banner.webp",
     time: "12:00",
   },
   {
@@ -19,25 +19,16 @@ const blogPosts = [
     image: "/assets/images/overview.jpg",
     time: "15:00",
   },
-  // {
-  //   id: 3,
-  //   title: "راهنمای جامع طبقه بندی تصویر یا Image Classification",
-  //   summary:
-  //     "در این مقاله ، راهنمای کاملی برای طبقه بندی تصویر یا Image Classification در زمینه هوش مصنوعی و داده کاوی ارائه می‌شود.",
-  //   date: "1403/10/3",
-  //   link: "/blogs/3",
-  //   image: "/assets/images/overview.jpg",
-  //   time: "10:00",
-  // },
-  // {
-  //   id: 4,
-  //   title: "فواید شخصی سازی مدل های هوش مصنوعی در کسب و کار ها",
-  //   summary:
-  //     "در این مقاله به بررسی انواع مدل های هوش مصنوعی و استفاده آن ها در انواع صنایع می پردازیم.",
-  //   date: "1403/10/3",
-  //   link: "/blogs/3",
-  //   image: "/assets/images/overview.jpg",
-  //   time: "10:00",
-  // },
+  {
+    id: 3,
+    title: "SaaS، PaaS و MaaS: تفاوتها، تاریخچه و کاربردها در دنیای کسبوکار",
+    summary:
+      "راهنمای جامع مدلهای سرویسدهی ابری SaaS، PaaS و MaaS با بررسی تاریخچه، تفاوتها و کاربردهای عملی در صنایع مختلف",
+    date: "1403/10/20",
+    link: "/blogs/saas-paas-maas-guide-persian",
+    image: "/assets/images/cloud-services.png",
+    time: "12:00",
+  },
+
 ];
 export { blogPosts };

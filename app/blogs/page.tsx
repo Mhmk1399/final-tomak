@@ -7,7 +7,7 @@ import { BlogSchema } from "@/components/schema/blogSchema";
 
 const Blogs = () => {
   const blogData = {
-    title: "وبلاگ تومک | مقالات تخصصی دیجیتال مارکتینگ",
+    title: "وبلاگ تومک | مقالات تخصصی حوضه کسب و کار ",
     url: "/blogs",
     images: ["/assets/images/blog-header.webp"],
     sections: [
