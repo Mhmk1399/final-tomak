@@ -20,7 +20,7 @@ spec:
             - containerPort: 3000
           env:
             - name: MONGODB_URI
-              value: "mongodb+srv://hoseinzolghadr021:QNb0BV7Osu0Nflye@cluster0.vambg7i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+              value: "mongodb+srv://toomakcompany:9VM5B2kVvwMXt8S0@cluster0.fqhqd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
               name: JWT_SECRET
               value: "Toomakcompany171878"
             # - name: NODE_ENV

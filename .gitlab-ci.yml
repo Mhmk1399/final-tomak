@@ -41,7 +41,8 @@ deploy:
     - kubectl config set-context --current --namespace=${PRODUCTION_NAMESPACE}
     # Apply Deployment + Service
     - envsubst < k8s/manifest.yaml | kubectl apply -f -
-    # Apply Ingress
+    # Apply Ingress safely (delete if exists first)
+    - kubectl delete ingress ${SITE_NAME}-ingress -n ${PRODUCTION_NAMESPACE} --ignore-not-found
     - envsubst < k8s/ingress.yaml | kubectl apply -f -
     # Wait for rollout
     - kubectl rollout status deployment/${SITE_NAME}-app --timeout=1000s
@@ -49,4 +50,5 @@ deploy:
     - main
   tags:
     - shell
+
 
