@@ -29,6 +29,16 @@ const blogPosts = [
     image: "/assets/images/cloud-services.png",
     time: "12:00",
   },
+  {
+    id: 4,
+    title: "راهنمای جامع معماری نرمافزار: از مونوولیت تا میکروسرویس",
+    summary:
+      "راهنمای کامل معماری نرمافزار شامل اصول کلیدی، انواع معماری از مونوولیت تا میکروسرویس و روندهای مدرن توسعه",
+    date: "1403/10/27",
+    link: "/blogs/software-architecture-guide-persian",
+    image: "/assets/images/softwaredesigen.webp",
+    time: "15:00",
+  },
 
 ];
 export { blogPosts };
