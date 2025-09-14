@@ -4,7 +4,7 @@ import Vision from "@/components/services/vision";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { BlogSchema } from "@/components/schema/blogSchema";
+import { BlogSchema } from "@/components/schema/blogSchema"; 
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
