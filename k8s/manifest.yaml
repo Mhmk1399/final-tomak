@@ -15,23 +15,23 @@ spec:
     spec:
       containers:
         - name: ${SITE_NAME}-app
-          image: docker.io/$DOCKERHUB_USER/${SITE_NAME}:${CI_COMMIT_SHA}
+          image: docker.io/${DOCKERHUB_USER}/${SITE_NAME}:${CI_COMMIT_SHA}
           ports:
             - containerPort: 3000
           env:
             - name: MONGODB_URI
               value: "mongodb+srv://toomakcompany:9VM5B2kVvwMXt8S0@cluster0.fqhqd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-              name: JWT_SECRET
+            - name: JWT_SECRET
               value: "Toomakcompany171878"
             # - name: NODE_ENV
             #   value: "production"
           resources:
             requests:
-              memory: "1000Mi"         # 2 × 500m CPU = 1Gi
+              memory: "1000Mi"
               cpu: "500m"
               ephemeral-storage: "500Mi"
             limits:
-              memory: "2000Mi"         # 2 × 1000m CPU = 2Gi
+              memory: "2000Mi"
               cpu: "1000m"
               ephemeral-storage: "500Mi"
 
